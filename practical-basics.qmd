@@ -1,0 +1,83 @@
+---
+title: "Practical: Basics"
+---
+
+Let's get started with the fundamentals of data science! This section covers loading and exploring data.
+
+## Exercise 1: Loading and Exploring Data
+
+### In R
+
+Let's work with a built-in dataset about cars:
+
+```{r}
+#| eval: false
+
+# Load tidyverse
+library(tidyverse)
+
+# Look at the mtcars dataset
+head(mtcars)
+
+# Get basic statistics
+summary(mtcars)
+
+# Check the structure
+str(mtcars)
+```
+
+**Your Task**: Explore the dataset and answer:
+- How many cars are in the dataset?
+- What variables are included?
+- What is the average miles per gallon (mpg)?
+
+### In Python
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import seaborn as sns
+
+# Load a sample dataset
+df = sns.load_dataset('mpg')
+
+# Explore the data
+print(df.head())
+print(df.describe())
+print(df.info())
+```
+
+## Download the Code
+
+You can download the R code for this exercise:
+
+::: {.callout-tip}
+## Download Options
+- [Download R code](../../code/practical-basics.R)
+- [Download Python code](../../code/practical-basics.py)
+:::
+
+## Common Issues & Solutions
+
+::: {.callout-note}
+## Error: Package not found
+Make sure you've installed the package first:
+```r
+install.packages("package_name")
+```
+:::
+
+::: {.callout-note}
+## Error: Object not found
+Check that you've run all previous code chunks in order. Variables from earlier chunks need to be created first!
+:::
+
+## Key Takeaways
+
+After completing this exercise, you should be able to:
+
+✅ Load datasets in R and Python  
+✅ Explore data structure and content  
+✅ Calculate basic statistics  
+✅ Understand your data before analysis

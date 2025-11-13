@@ -5,6 +5,10 @@ project:
     - prerequisites.qmd
     - github-copilot.qmd
     - practical.qmd
+    - practical-basics.qmd
+    - practical-data-manipulation.qmd
+    - practical-data-visualisation.qmd
+    - practical-advanced-statistics.qmd
     - next-steps.qmd
 
 format:
@@ -33,5 +37,14 @@ website:
         href: github-copilot.qmd
       - text: "Practical"
         href: practical.qmd
+        sections:
+          - text: "Basics"
+            href: practical-basics.qmd
+          - text: "Data Manipulation"
+            href: practical-data-manipulation.qmd
+          - text: "Data Visualisation"
+            href: practical-data-visualisation.qmd
+          - text: "Advanced: Statistics"
+            href: practical-advanced-statistics.qmd
       - text: "Next Steps"
         href: next-steps.qmd 

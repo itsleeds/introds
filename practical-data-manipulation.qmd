@@ -1,0 +1,79 @@
+---
+title: "Practical: Data Manipulation"
+---
+
+Learn how to filter, transform, and summarize your data effectively.
+
+## Exercise: Filtering and Summarizing Data
+
+### In R
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+# Filter cars with good fuel efficiency (mpg > 20)
+efficient_cars <- mtcars %>%
+  filter(mpg > 20)
+
+# Calculate average mpg by cylinder count
+mpg_by_cyl <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(
+    avg_mpg = mean(mpg),
+    count = n()
+  )
+
+print(mpg_by_cyl)
+```
+
+**Your Task**:
+- How many cars have mpg > 20?
+- Which cylinder count has the best average fuel efficiency?
+- Filter for cars with automatic transmission (`am == 0`)
+
+### In Python
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('mpg')
+
+# Filter cars from the USA
+usa_cars = df[df['origin'] == 'usa']
+
+# Group by year and calculate average mpg
+mpg_by_year = df.groupby('model_year')['mpg'].mean()
+
+print(mpg_by_year)
+```
+
+## Download the Code
+
+You can download the code for this exercise:
+
+::: {.callout-tip}
+## Download Options
+- [Download R code](../../code/practical-data-manipulation.R)
+- [Download Python code](../../code/practical-data-manipulation.py)
+:::
+
+## Common Issues & Solutions
+
+::: {.callout-note}
+## Filtering not working?
+Check your filter conditions. Use `==` for equality and `&` for AND conditions in R, and `==` with `&` in pandas.
+:::
+
+## Key Takeaways
+
+After completing this exercise, you should be able to:
+
+✅ Filter data based on conditions  
+✅ Group data and calculate summaries  
+✅ Transform variables  
+✅ Work with multiple conditions
