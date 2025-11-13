@@ -1,24 +1,44 @@
-# reproducible project template
+# Introduction to Data Science
 
-Flexible repo template for reproducible slides with Quarto and continuous deployment via GitHub actions
+Materials for a 3-hour practical session introducing MSc students at the Institute for Transport Studies to data science.
 
-See https://robinlovelace.github.io/reproducible-project-template/slides for the content, the most important parts of which are:
+This website provides a brief introduction to data science concepts with implementations in R and Python. It's designed for students who may not have used data science tools before.
 
-- You can use this repo as a template for your own reproducible slides by clicking on 'Use this template' at https://github.com/Robinlovelace/reproducible-project-template or with the following command using the [gh cli tool](https://cli.github.com/):
+## Contents
+
+- **Prerequisites**: Required software and setup
+- **GitHub Copilot & AI Tools**: How to use AI assistants for learning and coding
+- **Practical Exercises**: Hands-on data science tasks
+- **Next Steps**: Resources for continuing your learning journey
+
+## Viewing the Website
+
+Visit the published website at: https://itsleeds.github.io/introdatascience/
+
+## Local Development
+
+To build this website locally:
 
 ```sh
-gh repo create repo-name --public --description "slides for xyz conference" --template robinlovelace/reproducible-project-template
+quarto render
 ```
 
-- Quarto is a powerful tool for creating reproducible documents
-- Set-up GitHub pages with:
+To preview while editing:
+
+```sh
+quarto preview
+```
+
+## Publishing
+
+The website is automatically published to GitHub Pages via GitHub Actions when changes are pushed to the main branch.
+
+To manually publish:
 
 ```sh
 quarto publish gh-pages
 ```
 
-- Use [GitHub actions](.github/workflows/) to automatically deploy your slides to GitHub pages
+## License
 
-## Reproducible slide projects build with this
-
-- Deploying cross-language in high impact projects, auto-updated and deployed with every commit, with R and Python code running and generating results shown in the slides: https://github.com/Robinlovelace/cross_language_projects
+This work is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -1,0 +1,92 @@
+---
+title: Prerequisites
+---
+
+Before starting this practical session, you'll need to set up a few essential tools. Don't worry—we'll keep this brief!
+
+## Required Software
+
+### 1. R and RStudio
+
+**R** is a programming language widely used for statistical computing and data science.
+
+- Download R from [CRAN](https://cran.r-project.org/)
+- Download RStudio Desktop (free) from [Posit](https://posit.co/download/rstudio-desktop/)
+
+### 2. Python (Optional but Recommended)
+
+**Python** is another popular language for data science.
+
+- Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
+- Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
+
+### 3. Git and GitHub Account
+
+**Git** is version control software, and **GitHub** is a platform for hosting code.
+
+- Download Git from [git-scm.com](https://git-scm.com/)
+- Create a free GitHub account at [github.com](https://github.com/)
+
+## Essential R Packages
+
+Install these R packages by running in RStudio:
+
+```{r}
+#| eval: false
+
+# Data manipulation and visualization
+install.packages("tidyverse")
+
+# For working with transport data
+install.packages("sf")
+```
+
+## Essential Python Packages (Optional)
+
+If using Python, install these packages:
+
+```{bash}
+#| eval: false
+
+pip install pandas numpy matplotlib seaborn
+```
+
+## Checking Your Setup
+
+### Test R Installation
+
+Open RStudio and run:
+
+```{r}
+#| eval: false
+
+# Check R version
+R.version.string
+
+# Test tidyverse
+library(tidyverse)
+```
+
+### Test Python Installation (Optional)
+
+Open a terminal/command prompt and run:
+
+```{bash}
+#| eval: false
+
+python --version
+pip list
+```
+
+## Getting Help
+
+If you encounter installation issues:
+
+- Check the [RStudio Support](https://support.posit.co/hc/en-us) page
+- Visit [Stack Overflow](https://stackoverflow.com/) for troubleshooting
+- Ask during the session!
+
+::: {.callout-tip}
+## Pro Tip
+Don't spend too much time troubleshooting installation issues before the session. We can help you during the practical!
+:::

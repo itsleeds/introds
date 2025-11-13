@@ -1,9 +1,25 @@
 ---
-title: Reproducible slides with Quarto and continuous deployment via GitHub actions
+title: Introduction to Data Science
+subtitle: A 3-Hour Practical Session for MSc Students
 ---
 
-The materials here support a talk at the [Spatial Data Science across Languages (SDSL)](https://spatial-data-science.github.io/2024/) conference 2024.
+Welcome to this practical introduction to data science! This session is designed for MSc students at the Institute for Transport Studies who are new to data science.
 
-See the [slides here](slides) and in the dropdown menu above.
+## About This Session
 
-See the source code at [github.com/robinlovelace](https://github.com/Robinlovelace/reproducible-project-template).
+In this 3-hour practical, you'll get hands-on experience with data science concepts and tools. We'll cover implementations primarily in **R** and also in **Python** where applicable.
+
+## What You'll Learn
+
+This session covers:
+
+- **Prerequisites**: Tools and setup you need before getting started
+- **GitHub Copilot & AI Tools**: How AI can help you learn and code more effectively
+- **Practical Exercises**: Hands-on work with real data science tasks
+- **Next Steps**: Resources and pathways for continuing your data science journey
+
+## Getting Started
+
+Navigate through the sections using the menu above. We recommend following them in order if you're new to data science.
+
+Let's begin your data science journey!

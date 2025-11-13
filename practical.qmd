@@ -1,0 +1,239 @@
+---
+title: Practical Exercises
+---
+
+Let's get hands-on with data science! These exercises will give you practical experience with core data science tasks.
+
+## Exercise 1: Loading and Exploring Data
+
+### In R
+
+Let's work with a built-in dataset about cars:
+
+```{r}
+#| eval: false
+
+# Load tidyverse
+library(tidyverse)
+
+# Look at the mtcars dataset
+head(mtcars)
+
+# Get basic statistics
+summary(mtcars)
+
+# Check the structure
+str(mtcars)
+```
+
+**Your Task**: Explore the dataset and answer:
+- How many cars are in the dataset?
+- What variables are included?
+- What is the average miles per gallon (mpg)?
+
+### In Python
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import seaborn as sns
+
+# Load a sample dataset
+df = sns.load_dataset('mpg')
+
+# Explore the data
+print(df.head())
+print(df.describe())
+print(df.info())
+```
+
+## Exercise 2: Data Visualization
+
+### Visualizing in R
+
+Create a simple plot to understand the relationship between variables:
+
+```{r}
+#| eval: false
+
+library(ggplot2)
+
+# Scatter plot: mpg vs weight
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Fuel Efficiency vs Car Weight",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon") +
+  theme_minimal()
+```
+
+**Your Task**: 
+- Create the plot above
+- What pattern do you observe?
+- Try changing the x variable to `hp` (horsepower)
+
+### Visualizing in Python
+
+```{python}
+#| eval: false
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load data
+df = sns.load_dataset('mpg')
+
+# Create scatter plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x='weight', y='mpg')
+plt.title('Fuel Efficiency vs Car Weight')
+plt.xlabel('Weight')
+plt.ylabel('Miles per Gallon')
+plt.show()
+```
+
+## Exercise 3: Data Manipulation
+
+### Filtering and Summarizing in R
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+# Filter cars with good fuel efficiency (mpg > 20)
+efficient_cars <- mtcars %>%
+  filter(mpg > 20)
+
+# Calculate average mpg by cylinder count
+mpg_by_cyl <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(
+    avg_mpg = mean(mpg),
+    count = n()
+  )
+
+print(mpg_by_cyl)
+```
+
+**Your Task**:
+- How many cars have mpg > 20?
+- Which cylinder count has the best average fuel efficiency?
+- Filter for cars with automatic transmission (`am == 0`)
+
+### Filtering in Python
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import seaborn as sns
+
+df = sns.load_dataset('mpg')
+
+# Filter cars from the USA
+usa_cars = df[df['origin'] == 'usa']
+
+# Group by year and calculate average mpg
+mpg_by_year = df.groupby('model_year')['mpg'].mean()
+
+print(mpg_by_year)
+```
+
+## Exercise 4: Working with Transport Data
+
+### Creating Simple Transport Analysis in R
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+# Create a simple trip dataset
+trips <- data.frame(
+  trip_id = 1:10,
+  distance_km = c(5.2, 3.1, 7.8, 2.5, 15.3, 4.2, 6.7, 8.9, 3.4, 5.8),
+  mode = c("bus", "walk", "car", "walk", "train", "bus", "car", "bike", "walk", "bus"),
+  duration_min = c(25, 15, 20, 10, 45, 20, 18, 30, 12, 22)
+)
+
+# Calculate average speed by mode
+trip_summary <- trips %>%
+  mutate(speed_kmh = (distance_km / duration_min) * 60) %>%
+  group_by(mode) %>%
+  summarise(
+    avg_speed = mean(speed_kmh),
+    avg_distance = mean(distance_km),
+    count = n()
+  )
+
+print(trip_summary)
+```
+
+**Your Task**:
+- Which transport mode has the highest average speed?
+- Calculate the total distance traveled across all trips
+- Create a bar plot showing trip counts by mode
+
+### Visualization
+
+```{r}
+#| eval: false
+
+# Create a bar plot of trips by mode
+ggplot(trips, aes(x = mode)) +
+  geom_bar(fill = "steelblue") +
+  labs(title = "Number of Trips by Transport Mode",
+       x = "Transport Mode",
+       y = "Number of Trips") +
+  theme_minimal()
+```
+
+## Bonus Challenge
+
+If you finish early, try this:
+
+1. **Find a real dataset** online (e.g., from [data.gov.uk](https://www.data.gov.uk/) or [Our World in Data](https://ourworldindata.org/))
+2. **Load it** into R or Python
+3. **Create 3 visualizations** that tell a story about the data
+4. **Share your findings** with the group!
+
+## Common Issues & Solutions
+
+::: {.callout-note}
+## Error: Package not found
+Make sure you've installed the package first:
+```r
+install.packages("package_name")
+```
+:::
+
+::: {.callout-note}
+## Error: Object not found
+Check that you've run all previous code chunks in order. Variables from earlier chunks need to be created first!
+:::
+
+::: {.callout-tip}
+## Getting Stuck?
+- Check the documentation: `?function_name` in R
+- Use AI tools like Copilot or ChatGPT
+- Ask your neighbor or the instructor!
+:::
+
+## Key Takeaways
+
+After completing these exercises, you should be able to:
+
+✅ Load and explore datasets  
+✅ Create basic visualizations  
+✅ Filter and summarize data  
+✅ Calculate derived variables  
+✅ Understand transport data structures  
+
+## Resources for Practice
+
+- [R for Data Science (free book)](https://r4ds.hadley.nz/)
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday) - Weekly data challenges

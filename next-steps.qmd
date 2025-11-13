@@ -1,0 +1,175 @@
+---
+title: Next Steps
+---
+
+Congratulations on completing the practical! Here's how to continue your data science journey.
+
+## Continue Learning
+
+### Free Online Courses
+
+**For R:**
+
+- [R for Data Science (2e)](https://r4ds.hadley.nz/) - Comprehensive free book by Hadley Wickham
+- [RStudio Primers](https://posit.cloud/learn/primers) - Interactive tutorials
+- [Swirl](https://swirlstats.com/) - Learn R programming interactively
+
+**For Python:**
+
+- [Python for Everybody](https://www.py4e.com/) - Free course by University of Michigan
+- [Kaggle Learn](https://www.kaggle.com/learn) - Practical micro-courses
+- [DataCamp](https://www.datacamp.com/) - First course free, student discounts available
+
+**Statistics & Machine Learning:**
+
+- [StatQuest](https://www.youtube.com/c/joshstarmer) - Excellent YouTube channel for statistics
+- [Introduction to Statistical Learning](https://www.statlearning.com/) - Free book with R and Python code
+- [fast.ai](https://www.fast.ai/) - Practical deep learning for coders
+
+### University Resources
+
+**At Leeds:**
+
+- Check for data science modules in your program
+- Attend research seminars and workshops
+- Join data science student groups
+- Explore [Leeds Institute for Data Analytics (LIDA)](https://lida.leeds.ac.uk/)
+
+## Practice with Real Data
+
+### Transport-Specific Datasets
+
+- [UK Department for Transport Statistics](https://www.gov.uk/government/organisations/department-for-transport/about/statistics)
+- [Transport for London Open Data](https://tfl.gov.uk/info-for/open-data-users/)
+- [Propensity to Cycle Tool](https://www.pct.bike/) - Cycling transport data
+
+### General Data Sources
+
+- [data.gov.uk](https://www.data.gov.uk/) - UK government data
+- [Our World in Data](https://ourworldindata.org/) - Global development data
+- [Kaggle Datasets](https://www.kaggle.com/datasets) - Thousands of datasets for practice
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday) - Weekly data challenges
+
+## Join Communities
+
+### Online Communities
+
+- [RStudio Community](https://community.rstudio.com/) - Friendly R forum
+- [r/datascience](https://www.reddit.com/r/datascience/) - Reddit data science community
+- [Stack Overflow](https://stackoverflow.com/) - Programming Q&A
+- [Cross Validated](https://stats.stackexchange.com/) - Statistics Q&A
+
+### Local Meetups
+
+- [R User Groups](https://jumpingrivers.github.io/meetingsR/) - Find local R meetups
+- [PyData](https://pydata.org/) - Python data science meetups
+- Check [Meetup.com](https://www.meetup.com/) for data science events in Leeds
+
+## Build Your Portfolio
+
+### Project Ideas
+
+1. **Analyze local transport patterns** using TfL or Leeds data
+2. **Recreate published analyses** to learn techniques
+3. **Participate in Kaggle competitions** (start with "Getting Started" competitions)
+4. **Contribute to open source** R or Python packages
+5. **Create a blog** documenting your learning journey
+
+### Share Your Work
+
+- Create a [GitHub](https://github.com/) profile for your code
+- Build a portfolio website with [Quarto](https://quarto.org/)
+- Write blog posts about what you learn
+- Share projects on social media (#RStats, #DataScience)
+
+## Advanced Topics to Explore
+
+Once you're comfortable with basics:
+
+### Data Science Skills
+
+- **Version Control**: Git and GitHub for collaboration
+- **Reproducible Research**: R Markdown, Quarto, Jupyter notebooks
+- **Databases**: SQL for working with large datasets
+- **Big Data**: Spark, cloud computing (AWS, Google Cloud)
+
+### Specialized Topics
+
+- **Spatial Data Science**: Working with geographic data (check out [geocompx.org](https://geocompx.org/))
+- **Machine Learning**: Supervised and unsupervised learning
+- **Deep Learning**: Neural networks for complex patterns
+- **Time Series Analysis**: For temporal data
+- **Network Analysis**: For transport networks and relationships
+
+### Transport-Specific Skills
+
+- **Transport Modeling**: Learn about the [A/B Street](https://github.com/a-b-street/abstreet) project
+- **Route Planning**: OpenTripPlanner, OSRM
+- **GIS**: QGIS, ArcGIS for spatial analysis
+- **Transport Data**: Working with GTFS, OpenStreetMap
+
+## Certification & Professional Development
+
+### Certifications (Optional)
+
+- [RStudio Certification](https://www.rstudio.com/certification/)
+- [Google Data Analytics Certificate](https://www.coursera.org/professional-certificates/google-data-analytics)
+- [Microsoft Certified: Azure Data Scientist](https://learn.microsoft.com/en-us/certifications/azure-data-scientist/)
+
+### Books Worth Reading
+
+- **R for Data Science** - Wickham & Grolemund
+- **The Art of Statistics** - David Spiegelhalter
+- **Storytelling with Data** - Cole Nussbaumer Knaflic
+- **Python for Data Analysis** - Wes McKinney
+
+## Setting Goals
+
+### Short-term (Next Month)
+
+- [ ] Complete one online course/tutorial
+- [ ] Analyze one dataset of personal interest
+- [ ] Join one online community
+- [ ] Learn one new visualization technique
+
+### Medium-term (3-6 Months)
+
+- [ ] Complete a personal data project
+- [ ] Contribute to an open source project
+- [ ] Attend a meetup or conference
+- [ ] Build a portfolio website
+
+### Long-term (1 Year)
+
+- [ ] Master one data science specialization
+- [ ] Publish a blog post or tutorial
+- [ ] Complete a Kaggle competition
+- [ ] Apply data science in your research/work
+
+## Final Tips
+
+::: {.callout-tip}
+## The Best Way to Learn
+**Practice, practice, practice!** Learning data science is like learning a language—you need to use it regularly to improve.
+:::
+
+::: {.callout-important}
+## Don't Get Overwhelmed
+There's a lot to learn, but you don't need to learn everything at once. Pick one area, get comfortable, then expand gradually.
+:::
+
+::: {.callout-note}
+## Stay Curious
+The field of data science is constantly evolving. Stay curious, keep learning, and don't be afraid to experiment!
+:::
+
+## Get in Touch
+
+Questions or want to share your progress?
+
+- Check course materials and updates on this website
+- Connect with instructors during office hours
+- Join the course discussion forum
+- Follow #RStats and #DataScience on social media
+
+**Happy coding, and welcome to the world of data science!** 🚀📊

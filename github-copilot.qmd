@@ -1,0 +1,137 @@
+---
+title: GitHub Copilot & AI Tools
+---
+
+AI-powered coding assistants can significantly accelerate your data science learning journey. Let's explore how to use them effectively!
+
+## GitHub Copilot
+
+**GitHub Copilot** is an AI pair programmer that helps you write code faster and with fewer errors.
+
+### What is GitHub Copilot?
+
+- AI-powered code completion tool
+- Suggests whole lines or blocks of code as you type
+- Understands context from your code and comments
+- Trained on billions of lines of public code
+
+### For Students
+
+Good news! Students get **free access** to GitHub Copilot:
+
+1. Visit [GitHub Education](https://education.github.com/)
+2. Apply for the Student Developer Pack
+3. Verify your student status (usually with university email)
+4. Access Copilot for free while you're a student
+
+### Installing GitHub Copilot
+
+**For RStudio:**
+
+- Currently, Copilot is not natively integrated in RStudio
+- However, you can use VS Code with R extension as an alternative
+
+**For VS Code:**
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+2. Install the GitHub Copilot extension from the marketplace
+3. Sign in with your GitHub account
+
+**For Python/Jupyter:**
+
+- Works seamlessly in VS Code with Python extension
+- Also available in JupyterLab with Copilot extension
+
+## Using AI Tools Effectively
+
+### Best Practices
+
+::: {.callout-tip}
+## Writing Good Prompts
+- Write clear comments describing what you want to do
+- Use descriptive variable names
+- Break complex tasks into smaller steps
+:::
+
+### Example in R
+
+```{r}
+#| eval: false
+
+# Load a CSV file of transport data and calculate average trip distance
+# Copilot might suggest:
+library(tidyverse)
+data <- read_csv("transport_data.csv")
+avg_distance <- data %>% 
+  summarise(mean_distance = mean(trip_distance, na.rm = TRUE))
+```
+
+### Example in Python
+
+```{python}
+#| eval: false
+
+# Load transport data and visualize trip distribution
+# Copilot might suggest:
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("transport_data.csv")
+data['trip_distance'].hist(bins=30)
+plt.xlabel('Trip Distance')
+plt.show()
+```
+
+## Other AI Tools for Data Science
+
+### ChatGPT / Claude
+
+- Great for explaining concepts
+- Helps debug error messages
+- Suggests approaches to data problems
+- **Tip**: Copy error messages and ask for explanations
+
+### Stack Overflow & Forums
+
+While not AI per se, these communities are invaluable:
+
+- [Stack Overflow](https://stackoverflow.com/) - Programming Q&A
+- [RStudio Community](https://community.rstudio.com/) - R-specific help
+- [r/datascience](https://www.reddit.com/r/datascience/) - Data science discussions
+
+## Learning with AI
+
+### Dos ✅
+
+- Use AI to understand error messages
+- Ask AI to explain unfamiliar code
+- Use suggestions to learn new approaches
+- Verify AI-generated code before using it
+
+### Don'ts ❌
+
+- Don't blindly copy-paste without understanding
+- Don't use AI to do all your work (you won't learn!)
+- Don't share sensitive data with AI tools
+- Don't assume AI code is always correct
+
+::: {.callout-warning}
+## Critical Thinking Required
+AI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!
+:::
+
+## Practical Exercise
+
+Try this during the session:
+
+1. Install Copilot (if you haven't already)
+2. Write a comment describing a simple data task
+3. See what Copilot suggests
+4. Compare with how you would solve it
+5. Learn from the differences!
+
+## Resources
+
+- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+- [GitHub Student Developer Pack](https://education.github.com/pack)
+- [Effective Copilot Prompts](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/)
