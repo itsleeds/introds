@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Homenaje&display=swap');
+
+/* Sidebar title styling */
+.sidebar-title {
+  font-family: 'Homenaje', sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+/* "Introduction to" text */
+.intro-text {
+  font-size: 1.5rem;
+  display: block;
+  line-height: 1.0;
+  margin-bottom: 0.1rem;
+}
+
+/* "Data Science" text */
+.ds-text {
+  font-size: 2.8rem;
+  display: block;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
