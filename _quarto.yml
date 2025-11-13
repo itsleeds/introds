@@ -7,12 +7,24 @@ project:
     - practical.qmd
     - next-steps.qmd
 
+format:
+  html:
+    toc: true
+    toc-location: right
+    author-meta: "Robin Lovelace & contributors"
+    date-meta: "2025"
+    copyright: "© 2025 Robin Lovelace"
+    license: "CC BY-SA"
+    theme: lux
+    css: styles.css
+
 website:
-  title: "Introduction to Data Science"
-  navbar:
-    background: primary
+  sidebar:
+    title: "<span class='intro-text'>Introduction to</span> <span class='ds-text'>Data Science</span>"
+    style: "docked"
     search: true
-    left:
+    background: primary
+    contents:
       - text: "Home"
         href: index.qmd
       - text: "Prerequisites"
