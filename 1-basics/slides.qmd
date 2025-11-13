@@ -1,0 +1,460 @@
+---
+title: "1. Basics"
+format: revealjs
+---
+
+## Welcome to the Fundamentals!
+
+This section covers the essential concepts and tools you need to get started with data science.
+
+---
+
+## Integrated Development Environments (IDEs)
+
+Your toolkit for writing code
+
+---
+
+### RStudio
+
+RStudio has four main panels:
+
+1. **Source Editor** (top-left): Write and edit R code
+2. **Console** (bottom-left): Code execution and results
+3. **Environment/History** (top-right): Variables and command history
+4. **Files/Plots/Packages/Help** (bottom-right): File browser and help
+
+**Tip**: Customize the layout via View → Panes → Pane Layout
+
+---
+
+### VS Code
+
+When working with Python and R:
+
+1. **Editor** (left): Write your code
+2. **Explorer** (left sidebar): Navigate project files
+3. **Terminal** (bottom): Run commands and see output
+4. **Extensions Panel**: Install packages for Python, R, Quarto
+
+**Popular Extensions**: Python, R, Pylance, Quarto
+
+---
+
+## Data Types and Structures
+
+The fundamental building blocks
+
+---
+
+### Data Types in R
+
+```r
+# Numeric, Integer, Character, Logical
+x <- 42          # numeric
+y <- 42L         # integer
+name <- "Alice"  # character
+flag <- TRUE     # logical
+
+class(x)
+typeof(x)
+```
+
+**Key Types**:
+- `numeric`: Real numbers
+- `integer`: Whole numbers only
+- `character`: Text strings
+- `logical`: TRUE or FALSE
+
+---
+
+### Vectors in R
+
+Sequences of values of the same type:
+
+```r
+numbers <- c(1, 2, 3, 4, 5)
+names <- c("Alice", "Bob", "Charlie")
+flags <- c(TRUE, FALSE, TRUE)
+
+first_number <- numbers[1]
+first_three <- numbers[1:3]
+```
+
+---
+
+### Data Frames in R
+
+Tables with rows and columns:
+
+```r
+students <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  age = c(20, 21, 19),
+  grade = c("A", "B", "A")
+)
+
+students$name      # access column
+students[1, ]      # access row
+head(students)     # view data
+```
+
+---
+
+### Lists in R
+
+Flexible containers for mixed types:
+
+```r
+my_list <- list(
+  name = "Alice",
+  age = 20,
+  scores = c(85, 90, 88),
+  data = data.frame(x = 1:3, y = 4:6)
+)
+
+my_list$name
+my_list[[1]]
+```
+
+---
+
+## Organizing Your Work
+
+Project structure and file paths
+
+---
+
+### Recommended Folder Structure
+
+```
+my-project/
+├── data/
+│   ├── raw/              # Original data files
+│   └── processed/        # Cleaned data
+├── code/
+│   ├── analysis.R
+│   └── plots.R
+├── outputs/
+│   ├── figures/
+│   └── results/
+├── README.md
+└── my-project.Rproj
+```
+
+Keep your work organized for easy collaboration and maintenance.
+
+---
+
+### Working with Paths in R
+
+**Relative paths** (from current working directory):
+
+```r
+# Set working directory
+setwd("C:/Users/Alice/my-project")
+
+# Read data using relative path
+data <- read.csv("data/raw/mydata.csv")
+```
+
+**Absolute paths** (full path from root):
+
+```r
+# Read using absolute path
+data <- read.csv("C:/Users/Alice/my-project/data/raw/mydata.csv")
+```
+
+**Best practice**: Use relative paths for portability.
+
+---
+
+## Control Flow
+
+Making decisions and repeating tasks
+
+---
+
+### If Statements in R
+
+Execute code conditionally:
+
+```r
+age <- 25
+
+if (age >= 18) {
+  print("Adult")
+} else {
+  print("Minor")
+}
+
+# Multiple conditions
+if (age < 13) {
+  category <- "Child"
+} else if (age < 18) {
+  category <- "Teen"
+} else {
+  category <- "Adult"
+}
+```
+
+---
+
+### For Loops in R
+
+Repeat code multiple times:
+
+```r
+# Simple loop
+for (i in 1:5) {
+  print(i)
+}
+
+# Loop over vector
+fruits <- c("apple", "banana", "cherry")
+for (fruit in fruits) {
+  print(paste("I like", fruit))
+}
+
+# Store results
+results <- numeric(5)
+for (i in 1:5) {
+  results[i] <- i ^ 2
+}
+results  # 1, 4, 9, 16, 25
+```
+
+---
+
+## R as a Calculator
+
+Simple operations:
+
+```r
+2 + 3           # Addition
+10 - 4          # Subtraction
+5 * 6           # Multiplication
+20 / 4          # Division
+2 ^ 3           # Exponentiation
+10 %% 3         # Modulo
+```
+
+---
+
+## Understanding Packages in R
+
+Collections of functions to extend capabilities
+
+---
+
+### Installing and Loading Packages
+
+```r
+# Install once
+install.packages("tidyverse")
+
+# Load each session
+library(tidyverse)
+```
+
+Functions available:
+- `filter()`, `select()`, `mutate()`
+- `ggplot()` for visualization
+
+---
+
+## Key Takeaways (R)
+
+✅ Know your IDE (RStudio or VS Code)
+✅ Understand basic data types in R
+✅ Know the difference between data structures
+✅ Organize your work with folder structure
+✅ Use relative paths for portability
+✅ Control program flow with if statements and loops
+✅ Learn how to install and use packages
+✅ Know where to find documentation
+
+---
+
+## Python Content (Optional)
+
+If you're interested in Python, here are some equivalent concepts
+
+---
+
+### Working with Paths in Python
+
+**Relative paths**:
+
+```python
+import os
+
+# Change working directory
+os.chdir("C:/Users/Alice/my-project")
+
+# Read data using relative path
+import pandas as pd
+data = pd.read_csv("data/raw/mydata.csv")
+```
+
+**Absolute paths**:
+
+```python
+data = pd.read_csv("C:/Users/Alice/my-project/data/raw/mydata.csv")
+```
+
+**Best practice**: Use relative paths or `pathlib` for portability.
+
+---
+
+### If Statements in Python
+
+```python
+age = 25
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+
+# Multiple conditions
+if age < 13:
+    category = "Child"
+elif age < 18:
+    category = "Teen"
+else:
+    category = "Adult"
+```
+
+---
+
+### For Loops in Python
+
+```python
+# Simple loop
+for i in range(1, 6):
+    print(i)
+
+# Loop over list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(f"I like {fruit}")
+
+# Store results
+results = []
+for i in range(1, 6):
+    results.append(i ** 2)
+print(results)  # [1, 4, 9, 16, 25]
+```
+
+---
+
+### Data Types in Python
+
+```python
+x = 42          # int
+y = 3.14        # float
+name = "Alice"  # str
+flag = True     # bool
+
+type(x)
+type(name)
+```
+
+**Key Types**:
+
+- `int`: Integers
+- `float`: Decimal numbers
+- `str`: Text strings
+- `bool`: True or False
+
+---
+
+### Lists in Python
+
+Ordered collections (can be mixed types):
+
+```python
+numbers = [1, 2, 3, 4, 5]
+names = ["Alice", "Bob", "Charlie"]
+mixed = [1, "Alice", 3.14, True]
+
+first = numbers[0]      # 0-based indexing!
+first_three = numbers[0:3]
+```
+
+---
+
+### Dictionaries in Python
+
+Key-value pairs:
+
+```python
+student = {
+    "name": "Alice",
+    "age": 20,
+    "grade": "A"
+}
+
+student["name"]
+student.get("age")
+```
+
+---
+
+### NumPy Arrays
+
+Similar to R vectors:
+
+```python
+import numpy as np
+
+numbers = np.array([1, 2, 3, 4, 5])
+matrix = np.array([[1, 2, 3], [4, 5, 6]])
+
+first = numbers[0]
+```
+
+---
+
+### Pandas DataFrames
+
+Tables in Python:
+
+```python
+import pandas as pd
+
+students = pd.DataFrame({
+    "name": ["Alice", "Bob", "Charlie"],
+    "age": [20, 21, 19],
+    "grade": ["A", "B", "A"]
+})
+
+students["name"]
+students.head()
+```
+
+---
+
+### Importing Packages in Python
+
+```python
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+```
+
+**Popular packages**:
+- `pandas`: Data manipulation
+- `numpy`: Numerical computing
+- `matplotlib`, `seaborn`: Visualization
+- `scikit-learn`: Machine learning
+
+---
+
+## Key Takeaways (Python)
+
+✅ Understand basic data types in Python
+✅ Know the difference between data structures
+✅ Learn how to import and use packages
+✅ Know the Python equivalents to R concepts

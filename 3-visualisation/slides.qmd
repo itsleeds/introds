@@ -1,0 +1,175 @@
+---
+title: "3. Visualisation"
+format: revealjs
+---
+
+## Data Visualization
+
+Tell stories with your data
+
+---
+
+## Why Visualize?
+
+- Understand patterns quickly
+- Communicate findings effectively
+- Identify outliers and anomalies
+- Explore relationships
+
+---
+
+## Scatter Plots
+
+Show relationships between two continuous variables
+
+---
+
+### Scatter Plot in R
+
+```r
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Fuel Efficiency vs Weight",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon") +
+  theme_minimal()
+```
+
+---
+
+## Bar Plots
+
+Show counts or comparisons across categories
+
+---
+
+### Bar Plot in R
+
+```r
+ggplot(mtcars, aes(x = factor(cyl))) +
+  geom_bar(fill = "steelblue") +
+  labs(title = "Number of Cars by Cylinders",
+       x = "Cylinders",
+       y = "Count") +
+  theme_minimal()
+```
+
+---
+
+## Box Plots
+
+Show distributions and outliers
+
+---
+
+### Box Plot in R
+
+```r
+ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
+  geom_boxplot(fill = "lightblue") +
+  labs(title = "MPG Distribution by Cylinders",
+       x = "Cylinders",
+       y = "MPG") +
+  theme_minimal()
+```
+
+---
+
+## Customization
+
+Make your plots publication-ready
+
+---
+
+### Customizing in R
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3, alpha = 0.7) +
+  scale_color_manual(values = c("4" = "#E69F00", 
+                                 "6" = "#56B4E9", 
+                                 "8" = "#F8766D"),
+                     name = "Cylinders") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 16, face = "bold"))
+```
+
+---
+
+## Python Content (Optional)
+
+If you're interested in Python, here are some equivalent concepts
+
+---
+
+### Scatter Plot in Python
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = sns.load_dataset('mpg')
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x='weight', y='mpg')
+plt.title('Fuel Efficiency vs Weight')
+plt.xlabel('Weight')
+plt.ylabel('Miles per Gallon')
+plt.show()
+```
+
+---
+
+### Bar Plot in Python
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = sns.load_dataset('mpg')
+
+sns.countplot(data=df, x='cylinders')
+plt.title('Number of Cars by Cylinders')
+plt.show()
+```
+
+---
+
+### Box Plot in Python
+
+```python
+sns.boxplot(data=df, x='cylinders', y='mpg')
+plt.title('MPG Distribution by Cylinders')
+plt.show()
+```
+
+---
+
+### Customizing in Python
+
+```python
+plt.figure(figsize=(12, 6))
+for cyl in df['cylinders'].unique():
+    subset = df[df['cylinders'] == cyl]
+    plt.scatter(subset['weight'], subset['mpg'], 
+               label=f'{cyl} cylinders', s=100, alpha=0.7)
+plt.legend()
+plt.title('Fuel Efficiency vs Weight by Cylinders')
+plt.xlabel('Weight')
+plt.ylabel('MPG')
+plt.grid(alpha=0.3)
+plt.show()
+```
+
+---
+
+## Key Takeaways
+
+✅ Choose the right plot type
+✅ Make plots clear and readable
+✅ Add titles and axis labels
+✅ Use color purposefully
+✅ Tell a story with data
