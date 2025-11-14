@@ -2,238 +2,27 @@
 title: "3. Visualisation - Tasks"
 ---
 
-Complete these exercises to practice creating effective visualizations.
+In this section, we will practice data visualization using R and the `ggplot2` package from the `tidyverse`. Follow the steps below to create various types of plots.
 
-## Exercise 1: Creating Basic Scatter Plots
+Using the same script `2-data-wrangling-and-visualization.R` from the previous section, continue with the following tasks:
 
-### In R
+If you have loaded the `tidyverse` package and read in the `crashes` dataset, you can proceed to the next steps. `ggplot2` is part of the `tidyverse`, so you don't need to load it separately.
 
-```r
-library(ggplot2)
+1. **Box Plot:**
+   - Create a box plot to visualise the distribution of ages for different casualty types in the `crashes` dataset.
+   - Use `ggplot()` to specify the dataset and aesthetics, and `geom_boxplot()` to create the box plot.
+   - Add appropriate labels and a title to your plot.
+   - Save the box plot to an object named `age_boxplot`.
+   - Display the plot by calling the object name.
 
-# Scatter plot: mpg vs weight
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(title = "Fuel Efficiency vs Car Weight",
-       x = "Weight (1000 lbs)",
-       y = "Miles per Gallon") +
-  theme_minimal()
-```
+2. **Bar Plot (Optional):**
+   - Create a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).
+   - Add custom colours and transparency to the bars.
+   - Add appropriate labels and a title.
+   - Save the plot to an object named `casualty_barplot`.
 
-**Your Tasks**:
-- Create this plot
-- What pattern do you observe?
-- Try changing x to `hp` (horsepower)
-- Add `color = factor(cyl)` to the aesthetic to color by cylinders
+3. **Export Your Plots:**
+   - Save the box plot as a PNG file named `age_boxplot.png` using the `ggsave()` function.
+   - Save the bar plot as a PNG file named `casualty_barplot.png`.
+   - Check the documentation for `ggsave()` by typing `?ggsave` in the console.
 
-### In Python
-
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-df = sns.load_dataset('mpg')
-
-plt.figure(figsize=(10, 6))
-sns.scatterplot(data=df, x='weight', y='mpg')
-plt.title('Fuel Efficiency vs Weight')
-plt.xlabel('Weight')
-plt.ylabel('Miles per Gallon')
-plt.show()
-```
-
-**Your Tasks**:
-- Create this plot
-- What pattern do you observe?
-- Try changing x to `horsepower`
-- Color the points by `cylinders`
-
----
-
-## Exercise 2: Creating Bar Charts
-
-### In R
-
-```r
-# Count cars by cylinder
-ggplot(mtcars, aes(x = factor(cyl))) +
-  geom_bar(fill = "steelblue") +
-  labs(title = "Number of Cars by Cylinder Count",
-       x = "Cylinders",
-       y = "Number of Cars") +
-  theme_minimal()
-```
-
-**Your Tasks**:
-- Create this plot
-- How many 4-cylinder cars are there?
-- Create a bar plot showing counts by transmission type (`am`)
-- Try filling by different cylinders: `fill = factor(cyl)`
-
-### In Python
-
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-df = sns.load_dataset('mpg')
-
-sns.countplot(data=df, x='cylinders')
-plt.title('Car Count by Cylinders')
-plt.xlabel('Cylinders')
-plt.ylabel('Count')
-plt.show()
-```
-
-**Your Tasks**:
-- Create this plot
-- Create a bar plot by origin
-- Try: `sns.countplot(data=df, x='cylinders', hue='origin')`
-
----
-
-## Exercise 3: Creating Box Plots
-
-### In R
-
-```r
-# Box plot of mpg by cylinders
-ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
-  geom_boxplot(fill = "lightblue") +
-  labs(title = "MPG Distribution by Cylinder Count",
-       x = "Cylinders",
-       y = "Miles per Gallon") +
-  theme_minimal()
-```
-
-**Your Tasks**:
-- Create this plot
-- What does the box plot show?
-- Are there any outliers?
-- Create a box plot of horsepower by transmission type
-
-### In Python
-
-```python
-sns.boxplot(data=df, x='cylinders', y='mpg')
-plt.title('MPG Distribution by Cylinders')
-plt.show()
-```
-
-**Your Tasks**:
-- Create this plot
-- What does the box plot show?
-- Create a box plot of `horsepower` by `cylinders`
-
----
-
-## Exercise 4: Customizing Plots
-
-### In R
-
-```r
-# Customized scatter plot
-ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl), size = hp)) +
-  geom_point(alpha = 0.7) +
-  scale_color_manual(name = "Cylinders",
-                     values = c("4" = "#E69F00", 
-                               "6" = "#56B4E9", 
-                               "8" = "#F8766D")) +
-  scale_size_continuous(name = "Horsepower") +
-  labs(title = "Fuel Efficiency: Weight vs MPG",
-       subtitle = "Size represents horsepower, color represents cylinders",
-       x = "Weight (1000 lbs)",
-       y = "Miles per Gallon") +
-  theme_minimal() +
-  theme(plot.title = element_text(size = 14, face = "bold"))
-```
-
-**Your Tasks**:
-- Create this plot
-- Explain what each aesthetic represents
-- Change the colors to your preference
-
-### In Python
-
-```python
-plt.figure(figsize=(12, 6))
-
-for cyl in sorted(df['cylinders'].unique()):
-    subset = df[df['cylinders'] == cyl]
-    plt.scatter(subset['weight'], subset['mpg'], 
-               label=f'{int(cyl)} cylinders', 
-               s=subset['horsepower']/2,
-               alpha=0.6)
-
-plt.legend()
-plt.title('Fuel Efficiency: Weight vs MPG')
-plt.xlabel('Weight')
-plt.ylabel('MPG')
-plt.grid(alpha=0.3)
-plt.show()
-```
-
-**Your Tasks**:
-- Create this plot
-- Explain what the size of points represents
-- Experiment with different colors
-
----
-
-## Exercise 5: Creating Multiple Plots
-
-### In R
-
-```r
-library(ggplot2)
-library(gridExtra)
-
-# Create two plots
-p1 <- ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  theme_minimal()
-
-p2 <- ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
-  geom_boxplot() +
-  theme_minimal()
-
-# Display side by side
-gridExtra::grid.arrange(p1, p2, ncol = 2)
-```
-
-**Your Task**: Create a multi-panel visualization
-
-### In Python
-
-```python
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
-
-# Plot 1
-ax1.scatter(df['weight'], df['mpg'])
-ax1.set_title('Scatter Plot')
-ax1.set_xlabel('Weight')
-ax1.set_ylabel('MPG')
-
-# Plot 2
-df.boxplot(column='mpg', by='cylinders', ax=ax2)
-ax2.set_title('Box Plot')
-
-plt.tight_layout()
-plt.show()
-```
-
-**Your Task**: Create a multi-panel visualization
-
----
-
-## Bonus Challenge
-
-Create a comprehensive visualization that shows:
-- Multiple variables at once
-- Well-chosen colors
-- Clear titles and labels
-- A legend explaining the data
-
-Tell a story about the data with your visualization!
