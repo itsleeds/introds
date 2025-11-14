@@ -4,251 +4,800 @@
     "href": "next-steps.html",
     "title": "Next Steps",
     "section": "",
-    "text": "Congratulations on completing the practical! Here’s how to continue your data science journey."
+    "text": "Congratulations on completing the practical! Here’s how to continue your data science journey.",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#continue-learning",
     "href": "next-steps.html#continue-learning",
     "title": "Next Steps",
     "section": "Continue Learning",
-    "text": "Continue Learning\n\nFree Online Courses\nFor R:\n\nR for Data Science (2e) - Comprehensive free book by Hadley Wickham\nRStudio Primers - Interactive tutorials\nSwirl - Learn R programming interactively\n\nFor Python:\n\nPython for Everybody - Free course by University of Michigan\nKaggle Learn - Practical micro-courses\nDataCamp - First course free, student discounts available\n\nStatistics & Machine Learning:\n\nStatQuest - Excellent YouTube channel for statistics\nIntroduction to Statistical Learning - Free book with R and Python code\nfast.ai - Practical deep learning for coders\n\n\n\nUniversity Resources\nAt Leeds:\n\nCheck for data science modules in your program\nAttend research seminars and workshops\nJoin data science student groups\nExplore Leeds Institute for Data Analytics (LIDA)"
+    "text": "Continue Learning\n\nFree Online Courses\nFor R:\n\nR for Data Science (2e) - Comprehensive free book by Hadley Wickham\nRStudio Primers - Interactive tutorials\nSwirl - Learn R programming interactively\n\nFor Python:\n\nPython for Everybody - Free course by University of Michigan\nKaggle Learn - Practical micro-courses\nDataCamp - First course free, student discounts available\n\nStatistics & Machine Learning:\n\nStatQuest - Excellent YouTube channel for statistics\nIntroduction to Statistical Learning - Free book with R and Python code\nfast.ai - Practical deep learning for coders\n\n\n\nUniversity Resources\nAt Leeds:\n\nCheck for data science modules in your program\nAttend research seminars and workshops\nJoin data science student groups\nExplore Leeds Institute for Data Analytics (LIDA)",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#practice-with-real-data",
     "href": "next-steps.html#practice-with-real-data",
     "title": "Next Steps",
     "section": "Practice with Real Data",
-    "text": "Practice with Real Data\n\nTransport-Specific Datasets\n\nUK Department for Transport Statistics\nTransport for London Open Data\nPropensity to Cycle Tool - Cycling transport data\n\n\n\nGeneral Data Sources\n\ndata.gov.uk - UK government data\nOur World in Data - Global development data\nKaggle Datasets - Thousands of datasets for practice\nTidyTuesday - Weekly data challenges"
+    "text": "Practice with Real Data\n\nTransport-Specific Datasets\n\nUK Department for Transport Statistics\nTransport for London Open Data\nPropensity to Cycle Tool - Cycling transport data\n\n\n\nGeneral Data Sources\n\ndata.gov.uk - UK government data\nOur World in Data - Global development data\nKaggle Datasets - Thousands of datasets for practice\nTidyTuesday - Weekly data challenges",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#join-communities",
     "href": "next-steps.html#join-communities",
     "title": "Next Steps",
     "section": "Join Communities",
-    "text": "Join Communities\n\nOnline Communities\n\nRStudio Community - Friendly R forum\nr/datascience - Reddit data science community\nStack Overflow - Programming Q&A\nCross Validated - Statistics Q&A\n\n\n\nLocal Meetups\n\nR User Groups - Find local R meetups\nPyData - Python data science meetups\nCheck Meetup.com for data science events in Leeds"
+    "text": "Join Communities\n\nOnline Communities\n\nRStudio Community - Friendly R forum\nr/datascience - Reddit data science community\nStack Overflow - Programming Q&A\nCross Validated - Statistics Q&A\n\n\n\nLocal Meetups\n\nR User Groups - Find local R meetups\nPyData - Python data science meetups\nCheck Meetup.com for data science events in Leeds",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#build-your-portfolio",
     "href": "next-steps.html#build-your-portfolio",
     "title": "Next Steps",
     "section": "Build Your Portfolio",
-    "text": "Build Your Portfolio\n\nProject Ideas\n\nAnalyze local transport patterns using TfL or Leeds data\nRecreate published analyses to learn techniques\nParticipate in Kaggle competitions (start with “Getting Started” competitions)\nContribute to open source R or Python packages\nCreate a blog documenting your learning journey\n\n\n\nShare Your Work\n\nCreate a GitHub profile for your code\nBuild a portfolio website with Quarto\nWrite blog posts about what you learn\nShare projects on social media (#RStats, #DataScience)"
+    "text": "Build Your Portfolio\n\nProject Ideas\n\nAnalyze local transport patterns using TfL or Leeds data\nRecreate published analyses to learn techniques\nParticipate in Kaggle competitions (start with “Getting Started” competitions)\nContribute to open source R or Python packages\nCreate a blog documenting your learning journey\n\n\n\nShare Your Work\n\nCreate a GitHub profile for your code\nBuild a portfolio website with Quarto\nWrite blog posts about what you learn\nShare projects on social media (#RStats, #DataScience)",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#advanced-topics-to-explore",
     "href": "next-steps.html#advanced-topics-to-explore",
     "title": "Next Steps",
     "section": "Advanced Topics to Explore",
-    "text": "Advanced Topics to Explore\nOnce you’re comfortable with basics:\n\nData Science Skills\n\nVersion Control: Git and GitHub for collaboration\nReproducible Research: R Markdown, Quarto, Jupyter notebooks\nDatabases: SQL for working with large datasets\nBig Data: Spark, cloud computing (AWS, Google Cloud)\n\n\n\nSpecialized Topics\n\nSpatial Data Science: Working with geographic data (check out geocompx.org)\nMachine Learning: Supervised and unsupervised learning\nDeep Learning: Neural networks for complex patterns\nTime Series Analysis: For temporal data\nNetwork Analysis: For transport networks and relationships\n\n\n\nTransport-Specific Skills\n\nTransport Modeling: Learn about the A/B Street project\nRoute Planning: OpenTripPlanner, OSRM\nGIS: QGIS, ArcGIS for spatial analysis\nTransport Data: Working with GTFS, OpenStreetMap"
+    "text": "Advanced Topics to Explore\nOnce you’re comfortable with basics:\n\nData Science Skills\n\nVersion Control: Git and GitHub for collaboration\nReproducible Research: R Markdown, Quarto, Jupyter notebooks\nDatabases: SQL for working with large datasets\nBig Data: Spark, cloud computing (AWS, Google Cloud)\n\n\n\nSpecialized Topics\n\nSpatial Data Science: Working with geographic data (check out geocompx.org)\nMachine Learning: Supervised and unsupervised learning\nDeep Learning: Neural networks for complex patterns\nTime Series Analysis: For temporal data\nNetwork Analysis: For transport networks and relationships\n\n\n\nTransport-Specific Skills\n\nTransport Modeling: Learn about the A/B Street project\nRoute Planning: OpenTripPlanner, OSRM\nGIS: QGIS, ArcGIS for spatial analysis\nTransport Data: Working with GTFS, OpenStreetMap",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#certification-professional-development",
     "href": "next-steps.html#certification-professional-development",
     "title": "Next Steps",
     "section": "Certification & Professional Development",
-    "text": "Certification & Professional Development\n\nCertifications (Optional)\n\nRStudio Certification\nGoogle Data Analytics Certificate\nMicrosoft Certified: Azure Data Scientist\n\n\n\nBooks Worth Reading\n\nR for Data Science - Wickham & Grolemund\nThe Art of Statistics - David Spiegelhalter\nStorytelling with Data - Cole Nussbaumer Knaflic\nPython for Data Analysis - Wes McKinney"
+    "text": "Certification & Professional Development\n\nCertifications (Optional)\n\nRStudio Certification\nGoogle Data Analytics Certificate\nMicrosoft Certified: Azure Data Scientist\n\n\n\nBooks Worth Reading\n\nR for Data Science - Wickham & Grolemund\nThe Art of Statistics - David Spiegelhalter\nStorytelling with Data - Cole Nussbaumer Knaflic\nPython for Data Analysis - Wes McKinney",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#setting-goals",
     "href": "next-steps.html#setting-goals",
     "title": "Next Steps",
     "section": "Setting Goals",
-    "text": "Setting Goals\n\nShort-term (Next Month)\n\nComplete one online course/tutorial\nAnalyze one dataset of personal interest\nJoin one online community\nLearn one new visualization technique\n\n\n\nMedium-term (3-6 Months)\n\nComplete a personal data project\nContribute to an open source project\nAttend a meetup or conference\nBuild a portfolio website\n\n\n\nLong-term (1 Year)\n\nMaster one data science specialization\nPublish a blog post or tutorial\nComplete a Kaggle competition\nApply data science in your research/work"
+    "text": "Setting Goals\n\nShort-term (Next Month)\n\nComplete one online course/tutorial\nAnalyze one dataset of personal interest\nJoin one online community\nLearn one new visualization technique\n\n\n\nMedium-term (3-6 Months)\n\nComplete a personal data project\nContribute to an open source project\nAttend a meetup or conference\nBuild a portfolio website\n\n\n\nLong-term (1 Year)\n\nMaster one data science specialization\nPublish a blog post or tutorial\nComplete a Kaggle competition\nApply data science in your research/work",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#final-tips",
     "href": "next-steps.html#final-tips",
     "title": "Next Steps",
     "section": "Final Tips",
-    "text": "Final Tips\n\n\n\n\n\n\nTipThe Best Way to Learn\n\n\n\nPractice, practice, practice! Learning data science is like learning a language—you need to use it regularly to improve.\n\n\n\n\n\n\n\n\nImportantDon’t Get Overwhelmed\n\n\n\nThere’s a lot to learn, but you don’t need to learn everything at once. Pick one area, get comfortable, then expand gradually.\n\n\n\n\n\n\n\n\nNoteStay Curious\n\n\n\nThe field of data science is constantly evolving. Stay curious, keep learning, and don’t be afraid to experiment!"
+    "text": "Final Tips\n\n\n\n\n\n\nTipThe Best Way to Learn\n\n\n\nPractice, practice, practice! Learning data science is like learning a language—you need to use it regularly to improve.\n\n\n\n\n\n\n\n\nImportantDon’t Get Overwhelmed\n\n\n\nThere’s a lot to learn, but you don’t need to learn everything at once. Pick one area, get comfortable, then expand gradually.\n\n\n\n\n\n\n\n\nNoteStay Curious\n\n\n\nThe field of data science is constantly evolving. Stay curious, keep learning, and don’t be afraid to experiment!",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
     "objectID": "next-steps.html#get-in-touch",
     "href": "next-steps.html#get-in-touch",
     "title": "Next Steps",
     "section": "Get in Touch",
-    "text": "Get in Touch\nQuestions or want to share your progress?\n\nCheck course materials and updates on this website\nConnect with instructors during office hours\nJoin the course discussion forum\nFollow #RStats and #DataScience on social media\n\nHappy coding, and welcome to the world of data science! 🚀📊"
+    "text": "Get in Touch\nQuestions or want to share your progress?\n\nCheck course materials and updates on this website\nConnect with instructors during office hours\nJoin the course discussion forum\nFollow #RStats and #DataScience on social media\n\nHappy coding, and welcome to the world of data science! 🚀📊",
+    "crumbs": [
+      "Next Steps"
+    ]
   },
   {
-    "objectID": "github-copilot.html",
-    "href": "github-copilot.html",
-    "title": "GitHub Copilot & AI Tools",
+    "objectID": "4-statistics/slides.html#statistical-analysis",
+    "href": "4-statistics/slides.html#statistical-analysis",
+    "title": "4. Statistics",
+    "section": "Statistical Analysis",
+    "text": "Statistical Analysis\nGoing deeper with your data"
+  },
+  {
+    "objectID": "4-statistics/slides.html#correlation",
+    "href": "4-statistics/slides.html#correlation",
+    "title": "4. Statistics",
+    "section": "Correlation",
+    "text": "Correlation\nMeasuring relationships between variables"
+  },
+  {
+    "objectID": "4-statistics/slides.html#statistical-testing",
+    "href": "4-statistics/slides.html#statistical-testing",
+    "title": "4. Statistics",
+    "section": "Statistical Testing",
+    "text": "Statistical Testing\nComparing groups"
+  },
+  {
+    "objectID": "4-statistics/slides.html#regression",
+    "href": "4-statistics/slides.html#regression",
+    "title": "4. Statistics",
+    "section": "Regression",
+    "text": "Regression\nModeling relationships"
+  },
+  {
+    "objectID": "4-statistics/slides.html#working-with-transport-data",
+    "href": "4-statistics/slides.html#working-with-transport-data",
+    "title": "4. Statistics",
+    "section": "Working with Transport Data",
+    "text": "Working with Transport Data\nReal-world analysis"
+  },
+  {
+    "objectID": "4-statistics/slides.html#python-content-optional",
+    "href": "4-statistics/slides.html#python-content-optional",
+    "title": "4. Statistics",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+  },
+  {
+    "objectID": "4-statistics/slides.html#key-takeaways",
+    "href": "4-statistics/slides.html#key-takeaways",
+    "title": "4. Statistics",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n✅ Understand correlations ✅ Test hypotheses ✅ Fit regression models ✅ Interpret statistical results ✅ Apply to real-world data"
+  },
+  {
+    "objectID": "3-visualisation/tasks.html",
+    "href": "3-visualisation/tasks.html",
+    "title": "3. Visualisation - Tasks",
     "section": "",
-    "text": "AI-powered coding assistants can significantly accelerate your data science learning journey. Let’s explore how to use them effectively!"
+    "text": "Complete these exercises to practice creating effective visualizations.",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "github-copilot.html#github-copilot",
-    "href": "github-copilot.html#github-copilot",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "GitHub Copilot",
-    "text": "GitHub Copilot\nGitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors.\n\nWhat is GitHub Copilot?\n\nAI-powered code completion tool\nSuggests whole lines or blocks of code as you type\nUnderstands context from your code and comments\nTrained on billions of lines of public code\n\n\n\nFor Students\nGood news! Students get free access to GitHub Copilot:\n\nVisit GitHub Education\nApply for the Student Developer Pack\nVerify your student status (usually with university email)\nAccess Copilot for free while you’re a student\n\n\n\nInstalling GitHub Copilot\nFor RStudio:\n\nCurrently, Copilot is not natively integrated in RStudio\nHowever, you can use VS Code with R extension as an alternative\n\nFor VS Code:\n\nInstall Visual Studio Code\nInstall the GitHub Copilot extension from the marketplace\nSign in with your GitHub account\n\nFor Python/Jupyter:\n\nWorks seamlessly in VS Code with Python extension\nAlso available in JupyterLab with Copilot extension"
+    "objectID": "3-visualisation/tasks.html#exercise-1-creating-basic-scatter-plots",
+    "href": "3-visualisation/tasks.html#exercise-1-creating-basic-scatter-plots",
+    "title": "3. Visualisation - Tasks",
+    "section": "Exercise 1: Creating Basic Scatter Plots",
+    "text": "Exercise 1: Creating Basic Scatter Plots\n\nIn R\nlibrary(ggplot2)\n\n# Scatter plot: mpg vs weight\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(title = \"Fuel Efficiency vs Car Weight\",\n       x = \"Weight (1000 lbs)\",\n       y = \"Miles per Gallon\") +\n  theme_minimal()\nYour Tasks: - Create this plot - What pattern do you observe? - Try changing x to hp (horsepower) - Add color = factor(cyl) to the aesthetic to color by cylinders\n\n\nIn Python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=df, x='weight', y='mpg')\nplt.title('Fuel Efficiency vs Weight')\nplt.xlabel('Weight')\nplt.ylabel('Miles per Gallon')\nplt.show()\nYour Tasks: - Create this plot - What pattern do you observe? - Try changing x to horsepower - Color the points by cylinders",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "github-copilot.html#using-ai-tools-effectively",
-    "href": "github-copilot.html#using-ai-tools-effectively",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Using AI Tools Effectively",
-    "text": "Using AI Tools Effectively\n\nBest Practices\n\n\n\n\n\n\nTipWriting Good Prompts\n\n\n\n\nWrite clear comments describing what you want to do\nUse descriptive variable names\nBreak complex tasks into smaller steps\n\n\n\n\n\nExample in R\n\n# Load a CSV file of transport data and calculate average trip distance\n# Copilot might suggest:\nlibrary(tidyverse)\ndata &lt;- read_csv(\"transport_data.csv\")\navg_distance &lt;- data %&gt;% \n  summarise(mean_distance = mean(trip_distance, na.rm = TRUE))\n\n\n\nExample in Python\n\n# Load transport data and visualize trip distribution\n# Copilot might suggest:\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = pd.read_csv(\"transport_data.csv\")\ndata['trip_distance'].hist(bins=30)\nplt.xlabel('Trip Distance')\nplt.show()"
+    "objectID": "3-visualisation/tasks.html#exercise-2-creating-bar-charts",
+    "href": "3-visualisation/tasks.html#exercise-2-creating-bar-charts",
+    "title": "3. Visualisation - Tasks",
+    "section": "Exercise 2: Creating Bar Charts",
+    "text": "Exercise 2: Creating Bar Charts\n\nIn R\n# Count cars by cylinder\nggplot(mtcars, aes(x = factor(cyl))) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Number of Cars by Cylinder Count\",\n       x = \"Cylinders\",\n       y = \"Number of Cars\") +\n  theme_minimal()\nYour Tasks: - Create this plot - How many 4-cylinder cars are there? - Create a bar plot showing counts by transmission type (am) - Try filling by different cylinders: fill = factor(cyl)\n\n\nIn Python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\nsns.countplot(data=df, x='cylinders')\nplt.title('Car Count by Cylinders')\nplt.xlabel('Cylinders')\nplt.ylabel('Count')\nplt.show()\nYour Tasks: - Create this plot - Create a bar plot by origin - Try: sns.countplot(data=df, x='cylinders', hue='origin')",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "github-copilot.html#other-ai-tools-for-data-science",
-    "href": "github-copilot.html#other-ai-tools-for-data-science",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Other AI Tools for Data Science",
-    "text": "Other AI Tools for Data Science\n\nChatGPT / Claude\n\nGreat for explaining concepts\nHelps debug error messages\nSuggests approaches to data problems\nTip: Copy error messages and ask for explanations\n\n\n\nStack Overflow & Forums\nWhile not AI per se, these communities are invaluable:\n\nStack Overflow - Programming Q&A\nRStudio Community - R-specific help\nr/datascience - Data science discussions"
+    "objectID": "3-visualisation/tasks.html#exercise-3-creating-box-plots",
+    "href": "3-visualisation/tasks.html#exercise-3-creating-box-plots",
+    "title": "3. Visualisation - Tasks",
+    "section": "Exercise 3: Creating Box Plots",
+    "text": "Exercise 3: Creating Box Plots\n\nIn R\n# Box plot of mpg by cylinders\nggplot(mtcars, aes(x = factor(cyl), y = mpg)) +\n  geom_boxplot(fill = \"lightblue\") +\n  labs(title = \"MPG Distribution by Cylinder Count\",\n       x = \"Cylinders\",\n       y = \"Miles per Gallon\") +\n  theme_minimal()\nYour Tasks: - Create this plot - What does the box plot show? - Are there any outliers? - Create a box plot of horsepower by transmission type\n\n\nIn Python\nsns.boxplot(data=df, x='cylinders', y='mpg')\nplt.title('MPG Distribution by Cylinders')\nplt.show()\nYour Tasks: - Create this plot - What does the box plot show? - Create a box plot of horsepower by cylinders",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "github-copilot.html#learning-with-ai",
-    "href": "github-copilot.html#learning-with-ai",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Learning with AI",
-    "text": "Learning with AI\n\nDos ✅\n\nUse AI to understand error messages\nAsk AI to explain unfamiliar code\nUse suggestions to learn new approaches\nVerify AI-generated code before using it\n\n\n\nDon’ts ❌\n\nDon’t blindly copy-paste without understanding\nDon’t use AI to do all your work (you won’t learn!)\nDon’t share sensitive data with AI tools\nDon’t assume AI code is always correct\n\n\n\n\n\n\n\nWarningCritical Thinking Required\n\n\n\nAI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!"
+    "objectID": "3-visualisation/tasks.html#exercise-4-customizing-plots",
+    "href": "3-visualisation/tasks.html#exercise-4-customizing-plots",
+    "title": "3. Visualisation - Tasks",
+    "section": "Exercise 4: Customizing Plots",
+    "text": "Exercise 4: Customizing Plots\n\nIn R\n# Customized scatter plot\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl), size = hp)) +\n  geom_point(alpha = 0.7) +\n  scale_color_manual(name = \"Cylinders\",\n                     values = c(\"4\" = \"#E69F00\", \n                               \"6\" = \"#56B4E9\", \n                               \"8\" = \"#F8766D\")) +\n  scale_size_continuous(name = \"Horsepower\") +\n  labs(title = \"Fuel Efficiency: Weight vs MPG\",\n       subtitle = \"Size represents horsepower, color represents cylinders\",\n       x = \"Weight (1000 lbs)\",\n       y = \"Miles per Gallon\") +\n  theme_minimal() +\n  theme(plot.title = element_text(size = 14, face = \"bold\"))\nYour Tasks: - Create this plot - Explain what each aesthetic represents - Change the colors to your preference\n\n\nIn Python\nplt.figure(figsize=(12, 6))\n\nfor cyl in sorted(df['cylinders'].unique()):\n    subset = df[df['cylinders'] == cyl]\n    plt.scatter(subset['weight'], subset['mpg'], \n               label=f'{int(cyl)} cylinders', \n               s=subset['horsepower']/2,\n               alpha=0.6)\n\nplt.legend()\nplt.title('Fuel Efficiency: Weight vs MPG')\nplt.xlabel('Weight')\nplt.ylabel('MPG')\nplt.grid(alpha=0.3)\nplt.show()\nYour Tasks: - Create this plot - Explain what the size of points represents - Experiment with different colors",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "github-copilot.html#practical-exercise",
-    "href": "github-copilot.html#practical-exercise",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Practical Exercise",
-    "text": "Practical Exercise\nTry this during the session:\n\nInstall Copilot (if you haven’t already)\nWrite a comment describing a simple data task\nSee what Copilot suggests\nCompare with how you would solve it\nLearn from the differences!"
+    "objectID": "3-visualisation/tasks.html#exercise-5-creating-multiple-plots",
+    "href": "3-visualisation/tasks.html#exercise-5-creating-multiple-plots",
+    "title": "3. Visualisation - Tasks",
+    "section": "Exercise 5: Creating Multiple Plots",
+    "text": "Exercise 5: Creating Multiple Plots\n\nIn R\nlibrary(ggplot2)\nlibrary(gridExtra)\n\n# Create two plots\np1 &lt;- ggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  theme_minimal()\n\np2 &lt;- ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +\n  geom_boxplot() +\n  theme_minimal()\n\n# Display side by side\ngridExtra::grid.arrange(p1, p2, ncol = 2)\nYour Task: Create a multi-panel visualization\n\n\nIn Python\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))\n\n# Plot 1\nax1.scatter(df['weight'], df['mpg'])\nax1.set_title('Scatter Plot')\nax1.set_xlabel('Weight')\nax1.set_ylabel('MPG')\n\n# Plot 2\ndf.boxplot(column='mpg', by='cylinders', ax=ax2)\nax2.set_title('Box Plot')\n\nplt.tight_layout()\nplt.show()\nYour Task: Create a multi-panel visualization",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "github-copilot.html#resources",
-    "href": "github-copilot.html#resources",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Resources",
-    "text": "Resources\n\nGitHub Copilot Documentation\nGitHub Student Developer Pack\nEffective Copilot Prompts"
+    "objectID": "3-visualisation/tasks.html#bonus-challenge",
+    "href": "3-visualisation/tasks.html#bonus-challenge",
+    "title": "3. Visualisation - Tasks",
+    "section": "Bonus Challenge",
+    "text": "Bonus Challenge\nCreate a comprehensive visualization that shows: - Multiple variables at once - Well-chosen colors - Clear titles and labels - A legend explaining the data\nTell a story about the data with your visualization!",
+    "crumbs": [
+      "Visualisation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Data Science",
+    "objectID": "3-visualisation/index.html",
+    "href": "3-visualisation/index.html",
+    "title": "Visualisation",
     "section": "",
-    "text": "Welcome to this practical introduction to data science! This session is designed for MSc students at the Institute for Transport Studies who are new to data science."
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "crumbs": [
+      "Visualisation",
+      "About this section"
+    ]
   },
   {
-    "objectID": "index.html#about-this-session",
-    "href": "index.html#about-this-session",
-    "title": "Introduction to Data Science",
-    "section": "About This Session",
-    "text": "About This Session\nIn this 3-hour practical, you’ll get hands-on experience with data science concepts and tools. We’ll cover implementations primarily in R and also in Python where applicable."
+    "objectID": "2-manipulation/slides.html#data-manipulation",
+    "href": "2-manipulation/slides.html#data-manipulation",
+    "title": "2. Manipulation",
+    "section": "Data Manipulation",
+    "text": "Data Manipulation\nLearn how to load, explore, filter, transform, and summarize data"
   },
   {
-    "objectID": "index.html#what-youll-learn",
-    "href": "index.html#what-youll-learn",
-    "title": "Introduction to Data Science",
-    "section": "What You’ll Learn",
-    "text": "What You’ll Learn\nThis session covers:\n\nPrerequisites: Tools and setup you need before getting started\nGitHub Copilot & AI Tools: How AI can help you learn and code more effectively\nPractical Exercises: Hands-on work with real data science tasks\nNext Steps: Resources and pathways for continuing your data science journey"
+    "objectID": "2-manipulation/slides.html#loading-and-exploring-data",
+    "href": "2-manipulation/slides.html#loading-and-exploring-data",
+    "title": "2. Manipulation",
+    "section": "Loading and Exploring Data",
+    "text": "Loading and Exploring Data\nThe first step in any analysis"
   },
   {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "Introduction to Data Science",
-    "section": "Getting Started",
-    "text": "Getting Started\nNavigate through the sections using the menu above. We recommend following them in order if you’re new to data science.\nLet’s begin your data science journey!"
+    "objectID": "2-manipulation/slides.html#filtering-data",
+    "href": "2-manipulation/slides.html#filtering-data",
+    "title": "2. Manipulation",
+    "section": "Filtering Data",
+    "text": "Filtering Data\nSelect rows that meet certain conditions"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#summarizing-data",
+    "href": "2-manipulation/slides.html#summarizing-data",
+    "title": "2. Manipulation",
+    "section": "Summarizing Data",
+    "text": "Summarizing Data\nCalculate statistics grouped by categories"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#transforming-data",
+    "href": "2-manipulation/slides.html#transforming-data",
+    "title": "2. Manipulation",
+    "section": "Transforming Data",
+    "text": "Transforming Data\nCreate new variables and modify existing ones"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#selecting-columns",
+    "href": "2-manipulation/slides.html#selecting-columns",
+    "title": "2. Manipulation",
+    "section": "Selecting Columns",
+    "text": "Selecting Columns\nChoose which variables to work with"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#python-content-optional",
+    "href": "2-manipulation/slides.html#python-content-optional",
+    "title": "2. Manipulation",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#key-takeaways",
+    "href": "2-manipulation/slides.html#key-takeaways",
+    "title": "2. Manipulation",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n✅ Load and explore data ✅ Filter rows based on conditions ✅ Group and summarize data ✅ Create and transform variables ✅ Select relevant columns"
+  },
+  {
+    "objectID": "1-basics/tasks.html",
+    "href": "1-basics/tasks.html",
+    "title": "1. Basics - Tasks",
+    "section": "",
+    "text": "Complete these tasks to practice the concepts from the slides.",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html#task-1-explore-data-types",
+    "href": "1-basics/tasks.html#task-1-explore-data-types",
+    "title": "1. Basics - Tasks",
+    "section": "Task 1: Explore Data Types",
+    "text": "Task 1: Explore Data Types\nTry the following in your R or Python console:\n\nIn R\n# Create different data types\nx &lt;- 42\ny &lt;- 3.14\nname &lt;- \"Data Science\"\nis_fun &lt;- TRUE\n\n# Check their types\nclass(x)\ntypeof(y)\nclass(name)\ntypeof(is_fun)\nQuestions: - What is the difference between numeric and integer? - Can you create an integer variable?\n\n\nIn Python\nx = 42\ny = 3.14\nname = \"Data Science\"\nis_fun = True\n\ntype(x)\ntype(y)\ntype(name)\ntype(is_fun)",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html#task-2-working-with-vectors-and-lists",
+    "href": "1-basics/tasks.html#task-2-working-with-vectors-and-lists",
+    "title": "1. Basics - Tasks",
+    "section": "Task 2: Working with Vectors and Lists",
+    "text": "Task 2: Working with Vectors and Lists\n\nIn R\n# Create a vector\nmy_vector &lt;- c(10, 20, 30, 40, 50)\n\n# Access elements\nmy_vector[1]\nmy_vector[2:4]\nmy_vector[c(1, 3, 5)]\nQuestions: - What does my_vector[2:4] return? - How would you get only the first and last elements? - Create a vector of your own and practice indexing\n\n\nIn Python\nmy_list = [10, 20, 30, 40, 50]\n\n# Access elements\nmy_list[0]      # Remember: 0-based indexing!\nmy_list[1:4]\nmy_list[::2]    # Every second element\nQuestions: - Why does my_list[0] give you the first element? - What does my_list[1:4] return? - How would you get every other element?",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html#task-3-creating-and-accessing-data-frames",
+    "href": "1-basics/tasks.html#task-3-creating-and-accessing-data-frames",
+    "title": "1. Basics - Tasks",
+    "section": "Task 3: Creating and Accessing Data Frames",
+    "text": "Task 3: Creating and Accessing Data Frames\n\nIn R\n# Create a data frame\npeople &lt;- data.frame(\n  name = c(\"Alice\", \"Bob\", \"Charlie\", \"Diana\"),\n  age = c(25, 30, 28, 35),\n  city = c(\"London\", \"Manchester\", \"London\", \"Birmingham\")\n)\n\n# Explore it\nhead(people)\nstr(people)\nnrow(people)\nncol(people)\n\n# Access data\npeople$name\npeople[1, ]\npeople[, \"age\"]\npeople[people$age &gt; 28, ]\nTasks: - How many people are in the data frame? - What are the column names? - Get all rows where age is greater than 28 - Get the name of the second person\n\n\nIn Python\nimport pandas as pd\n\npeople = pd.DataFrame({\n    \"name\": [\"Alice\", \"Bob\", \"Charlie\", \"Diana\"],\n    \"age\": [25, 30, 28, 35],\n    \"city\": [\"London\", \"Manchester\", \"London\", \"Birmingham\"]\n})\n\n# Explore it\npeople.head()\npeople.info()\npeople.shape\n\n# Access data\npeople[\"name\"]\npeople.iloc[0]\npeople.loc[people[\"age\"] &gt; 28]\nTasks: - How many people are in the data frame? - What are the column names? - Get all rows where age is greater than 28 - Get the name of the second person",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html#task-4-understanding-packages",
+    "href": "1-basics/tasks.html#task-4-understanding-packages",
+    "title": "1. Basics - Tasks",
+    "section": "Task 4: Understanding Packages",
+    "text": "Task 4: Understanding Packages\n\nIn R\n# If not already installed:\ninstall.packages(\"tidyverse\")\n\n# Load the package\nlibrary(tidyverse)\n\n# Now you have access to tidyverse functions\n# Try accessing the help for a function\n?filter\n?select\nTasks: - Install a new package of your choice - Load it with library() - Look up help for one of its functions\n\n\nIn Python\n# If not already installed (in terminal):\n# pip install pandas\n\nimport pandas as pd\nimport numpy as np\n\n# Check the version\nprint(pd.__version__)\nprint(np.__version__)\n\n# Look up help\nhelp(pd.DataFrame)\nTasks: - Import pandas and check its version - Import numpy and check its version - Look up the help for one function",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html#task-5-data-types-and-operators-challenge",
+    "href": "1-basics/tasks.html#task-5-data-types-and-operators-challenge",
+    "title": "1. Basics - Tasks",
+    "section": "Task 5: Data Types and Operators Challenge",
+    "text": "Task 5: Data Types and Operators Challenge\n\nIn R\n# Perform calculations\nresult1 &lt;- 10 + 5 * 2          # What's the order of operations?\nresult2 &lt;- (10 + 5) * 2        # Does parentheses change it?\nresult3 &lt;- 17 %% 5             # What does modulo give?\nresult4 &lt;- 2 ^ 10              # What's 2 to the power of 10?\n\n# Mixed types\nmixed_vector &lt;- c(1, 2, 3, \"hello\")\nclass(mixed_vector)            # What type is this?\nQuestions: - What are the values of result1, result2, result3, result4? - Why is the mixed_vector converted to character?\n\n\nIn Python\nresult1 = 10 + 5 * 2\nresult2 = (10 + 5) * 2\nresult3 = 17 % 5\nresult4 = 2 ** 10\n\nmixed_list = [1, 2, 3, \"hello\"]\ntype(mixed_list)               # What type is this?\n\n# This won't work - why?\n# result = 1 + \"hello\"\nQuestions: - What are the values of result1, result2, result3, result4? - Can you add a number to a string in Python?",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html#download-resources",
+    "href": "1-basics/tasks.html#download-resources",
+    "title": "1. Basics - Tasks",
+    "section": "Download Resources",
+    "text": "Download Resources\n\n\n\n\n\n\nTipQuick Reference Guides\n\n\n\n\nR Operators Reference\nPython Operators Reference\nCRAN Packages\nPyPI - Python Package Index",
+    "crumbs": [
+      "Basics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "1-basics/index.html",
+    "href": "1-basics/index.html",
+    "title": "Basics",
+    "section": "",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "crumbs": [
+      "Basics",
+      "About this section"
+    ]
   },
   {
     "objectID": "prerequisites.html",
     "href": "prerequisites.html",
     "title": "Prerequisites",
     "section": "",
-    "text": "Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!"
+    "text": "Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!",
+    "crumbs": [
+      "Prerequisites"
+    ]
   },
   {
     "objectID": "prerequisites.html#required-software",
     "href": "prerequisites.html#required-software",
     "title": "Prerequisites",
     "section": "Required Software",
-    "text": "Required Software\n\n1. R and RStudio\nR is a programming language widely used for statistical computing and data science.\n\nDownload R from CRAN\nDownload RStudio Desktop (free) from Posit\n\n\n\n2. Python (Optional but Recommended)\nPython is another popular language for data science.\n\nDownload Python from python.org (version 3.8 or higher)\nOr install via Anaconda (includes many data science packages)\n\n\n\n3. Git and GitHub Account\nGit is version control software, and GitHub is a platform for hosting code.\n\nDownload Git from git-scm.com\nCreate a free GitHub account at github.com"
-  },
-  {
-    "objectID": "prerequisites.html#essential-r-packages",
-    "href": "prerequisites.html#essential-r-packages",
-    "title": "Prerequisites",
-    "section": "Essential R Packages",
-    "text": "Essential R Packages\nInstall these R packages by running in RStudio:\n\n# Data manipulation and visualization\ninstall.packages(\"tidyverse\")\n\n# For working with transport data\ninstall.packages(\"sf\")"
-  },
-  {
-    "objectID": "prerequisites.html#essential-python-packages-optional",
-    "href": "prerequisites.html#essential-python-packages-optional",
-    "title": "Prerequisites",
-    "section": "Essential Python Packages (Optional)",
-    "text": "Essential Python Packages (Optional)\nIf using Python, install these packages:\n\npip install pandas numpy matplotlib seaborn"
-  },
-  {
-    "objectID": "prerequisites.html#checking-your-setup",
-    "href": "prerequisites.html#checking-your-setup",
-    "title": "Prerequisites",
-    "section": "Checking Your Setup",
-    "text": "Checking Your Setup\n\nTest R Installation\nOpen RStudio and run:\n\n# Check R version\nR.version.string\n\n# Test tidyverse\nlibrary(tidyverse)\n\n\n\nTest Python Installation (Optional)\nOpen a terminal/command prompt and run:\n\npython --version\npip list"
+    "text": "Required Software\n\nIf using AppsAnywhere\nIf you’re using AppsAnywhere (available on university computers or your own laptop):\n\nOpen AppsAnywhere on your computer\nSearch for and launch R first\nSearch for and launch RStudio (requires R to be installed)\nFor Python (optional), search for and launch Anaconda from AppsAnywhere\n\n\n\nIf installing on your own laptop\nThis approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:\n\n1. R and RStudio\nR is a programming language widely used for statistical computing and data science.\n\nDownload R from CRAN\nDownload RStudio Desktop (free) from Posit\n\n\n\n2. Python (Optional but Recommended)\nPython is another popular language for data science.\n\nDownload Python from python.org (version 3.8 or higher)\nOr install via Anaconda (includes many data science packages)",
+    "crumbs": [
+      "Prerequisites"
+    ]
   },
   {
     "objectID": "prerequisites.html#getting-help",
     "href": "prerequisites.html#getting-help",
     "title": "Prerequisites",
     "section": "Getting Help",
-    "text": "Getting Help\nIf you encounter installation issues:\n\nCheck the RStudio Support page\nVisit Stack Overflow for troubleshooting\nAsk during the session!\n\n\n\n\n\n\n\nTipPro Tip\n\n\n\nDon’t spend too much time troubleshooting installation issues before the session. We can help you during the practical!"
+    "text": "Getting Help\nIf you encounter installation issues:\n\nCheck the RStudio Support page\nVisit Stack Overflow for troubleshooting\nAsk during the session!\n\n\n\n\n\n\n\nTipPro Tip\n\n\n\nIf you run into installation issues before the session, don’t spend too much time troubleshooting. We can help you during the practical!",
+    "crumbs": [
+      "Prerequisites"
+    ]
   },
   {
-    "objectID": "practical.html",
-    "href": "practical.html",
-    "title": "Practical Exercises",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science",
     "section": "",
-    "text": "Let’s get hands-on with data science! These exercises will give you practical experience with core data science tasks."
+    "text": "Welcome to this practical introduction to data science! This session is designed for MSc students at the Institute for Transport Studies who are new to data science.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
-    "objectID": "practical.html#exercise-1-loading-and-exploring-data",
-    "href": "practical.html#exercise-1-loading-and-exploring-data",
-    "title": "Practical Exercises",
+    "objectID": "index.html#about-this-session",
+    "href": "index.html#about-this-session",
+    "title": "Introduction to Data Science",
+    "section": "About This Session",
+    "text": "About This Session\nIn this 3-hour practical, you’ll get hands-on experience with data science concepts and tools. We’ll cover implementations primarily in R and also in Python where applicable.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "Introduction to Data Science",
+    "section": "What You’ll Learn",
+    "text": "What You’ll Learn\nThis session covers:\n\nPrerequisites: Tools and setup you need before getting started\nGitHub Copilot & AI Tools: How AI can help you learn and code more effectively\nPractical Exercises: Hands-on work with real data science tasks\nNext Steps: Resources and pathways for continuing your data science journey",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Introduction to Data Science",
+    "section": "Getting Started",
+    "text": "Getting Started\nNavigate through the sections using the menu above. We recommend following them in order if you’re new to data science.\nLet’s begin your data science journey!",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html",
+    "href": "github-copilot.html",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "",
+    "text": "AI-powered coding assistants can significantly accelerate your data science learning journey. Let’s explore how to use them effectively!",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html#github-copilot",
+    "href": "github-copilot.html#github-copilot",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "GitHub Copilot",
+    "text": "GitHub Copilot\nGitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors.\n\nWhat is GitHub Copilot?\n\nAI-powered code completion tool\nSuggests whole lines or blocks of code as you type\nUnderstands context from your code and comments\nTrained on billions of lines of public code\n\n\n\nFor Students\nGood news! Students get free access to GitHub Copilot:\n\nVisit GitHub Education\nApply for the Student Developer Pack\nVerify your student status (usually with university email)\nAccess Copilot for free while you’re a student\n\n\n\nInstalling GitHub Copilot\nFor RStudio:\n\nCurrently, Copilot is not natively integrated in RStudio\nHowever, you can use VS Code with R extension as an alternative\n\nFor VS Code:\n\nInstall Visual Studio Code\nInstall the GitHub Copilot extension from the marketplace\nSign in with your GitHub account\n\nFor Python/Jupyter:\n\nWorks seamlessly in VS Code with Python extension\nAlso available in JupyterLab with Copilot extension",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html#using-ai-tools-effectively",
+    "href": "github-copilot.html#using-ai-tools-effectively",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "Using AI Tools Effectively",
+    "text": "Using AI Tools Effectively\n\nBest Practices\n\n\n\n\n\n\nTipWriting Good Prompts\n\n\n\n\nWrite clear comments describing what you want to do\nUse descriptive variable names\nBreak complex tasks into smaller steps\n\n\n\n\n\nExample in R\n\n# Load a CSV file of transport data and calculate average trip distance\n# Copilot might suggest:\nlibrary(tidyverse)\ndata &lt;- read_csv(\"transport_data.csv\")\navg_distance &lt;- data %&gt;% \n  summarise(mean_distance = mean(trip_distance, na.rm = TRUE))\n\n\n\nExample in Python\n\n# Load transport data and visualize trip distribution\n# Copilot might suggest:\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = pd.read_csv(\"transport_data.csv\")\ndata['trip_distance'].hist(bins=30)\nplt.xlabel('Trip Distance')\nplt.show()",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html#other-ai-tools-for-data-science",
+    "href": "github-copilot.html#other-ai-tools-for-data-science",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "Other AI Tools for Data Science",
+    "text": "Other AI Tools for Data Science\n\nChatGPT / Claude\n\nGreat for explaining concepts\nHelps debug error messages\nSuggests approaches to data problems\nTip: Copy error messages and ask for explanations\n\n\n\nStack Overflow & Forums\nWhile not AI per se, these communities are invaluable:\n\nStack Overflow - Programming Q&A\nRStudio Community - R-specific help\nr/datascience - Data science discussions",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html#learning-with-ai",
+    "href": "github-copilot.html#learning-with-ai",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "Learning with AI",
+    "text": "Learning with AI\n\nDos ✅\n\nUse AI to understand error messages\nAsk AI to explain unfamiliar code\nUse suggestions to learn new approaches\nVerify AI-generated code before using it\n\n\n\nDon’ts ❌\n\nDon’t blindly copy-paste without understanding\nDon’t use AI to do all your work (you won’t learn!)\nDon’t share sensitive data with AI tools\nDon’t assume AI code is always correct\n\n\n\n\n\n\n\nWarningCritical Thinking Required\n\n\n\nAI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html#practical-exercise",
+    "href": "github-copilot.html#practical-exercise",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "Practical Exercise",
+    "text": "Practical Exercise\nTry this during the session:\n\nInstall Copilot (if you haven’t already)\nWrite a comment describing a simple data task\nSee what Copilot suggests\nCompare with how you would solve it\nLearn from the differences!",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "github-copilot.html#resources",
+    "href": "github-copilot.html#resources",
+    "title": "GitHub Copilot & AI Tools",
+    "section": "Resources",
+    "text": "Resources\n\nGitHub Copilot Documentation\nGitHub Student Developer Pack\nEffective Copilot Prompts",
+    "crumbs": [
+      "GitHub Copilot & AI"
+    ]
+  },
+  {
+    "objectID": "1-basics/slides.html#welcome-to-the-fundamentals",
+    "href": "1-basics/slides.html#welcome-to-the-fundamentals",
+    "title": "1. Basics",
+    "section": "Welcome to the Fundamentals!",
+    "text": "Welcome to the Fundamentals!\nThis section covers the essential concepts and tools you need to get started with data science."
+  },
+  {
+    "objectID": "1-basics/slides.html#integrated-development-environments-ides",
+    "href": "1-basics/slides.html#integrated-development-environments-ides",
+    "title": "1. Basics",
+    "section": "Integrated Development Environments (IDEs)",
+    "text": "Integrated Development Environments (IDEs)\nYour toolkit for writing code"
+  },
+  {
+    "objectID": "1-basics/slides.html#data-types-and-structures",
+    "href": "1-basics/slides.html#data-types-and-structures",
+    "title": "1. Basics",
+    "section": "Data Types and Structures",
+    "text": "Data Types and Structures\nThe fundamental building blocks"
+  },
+  {
+    "objectID": "1-basics/slides.html#organizing-your-work",
+    "href": "1-basics/slides.html#organizing-your-work",
+    "title": "1. Basics",
+    "section": "Organizing Your Work",
+    "text": "Organizing Your Work\nProject structure and file paths"
+  },
+  {
+    "objectID": "1-basics/slides.html#control-flow",
+    "href": "1-basics/slides.html#control-flow",
+    "title": "1. Basics",
+    "section": "Control Flow",
+    "text": "Control Flow\nMaking decisions and repeating tasks"
+  },
+  {
+    "objectID": "1-basics/slides.html#r-as-a-calculator",
+    "href": "1-basics/slides.html#r-as-a-calculator",
+    "title": "1. Basics",
+    "section": "R as a Calculator",
+    "text": "R as a Calculator\nSimple operations:\n2 + 3           # Addition\n10 - 4          # Subtraction\n5 * 6           # Multiplication\n20 / 4          # Division\n2 ^ 3           # Exponentiation\n10 %% 3         # Modulo"
+  },
+  {
+    "objectID": "1-basics/slides.html#understanding-packages-in-r",
+    "href": "1-basics/slides.html#understanding-packages-in-r",
+    "title": "1. Basics",
+    "section": "Understanding Packages in R",
+    "text": "Understanding Packages in R\nCollections of functions to extend capabilities"
+  },
+  {
+    "objectID": "1-basics/slides.html#key-takeaways-r",
+    "href": "1-basics/slides.html#key-takeaways-r",
+    "title": "1. Basics",
+    "section": "Key Takeaways (R)",
+    "text": "Key Takeaways (R)\n✅ Know your IDE (RStudio or VS Code) ✅ Understand basic data types in R ✅ Know the difference between data structures ✅ Organize your work with folder structure ✅ Use relative paths for portability ✅ Control program flow with if statements and loops ✅ Learn how to install and use packages ✅ Know where to find documentation"
+  },
+  {
+    "objectID": "1-basics/slides.html#python-content-optional",
+    "href": "1-basics/slides.html#python-content-optional",
+    "title": "1. Basics",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+  },
+  {
+    "objectID": "1-basics/slides.html#key-takeaways-python",
+    "href": "1-basics/slides.html#key-takeaways-python",
+    "title": "1. Basics",
+    "section": "Key Takeaways (Python)",
+    "text": "Key Takeaways (Python)\n✅ Understand basic data types in Python ✅ Know the difference between data structures ✅ Learn how to import and use packages ✅ Know the Python equivalents to R concepts"
+  },
+  {
+    "objectID": "2-manipulation/index.html",
+    "href": "2-manipulation/index.html",
+    "title": "Manipulation",
+    "section": "",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "crumbs": [
+      "Manipulation",
+      "About this section"
+    ]
+  },
+  {
+    "objectID": "2-manipulation/tasks.html",
+    "href": "2-manipulation/tasks.html",
+    "title": "2. Manipulation - Tasks",
+    "section": "",
+    "text": "Complete these exercises to practice data manipulation techniques.",
+    "crumbs": [
+      "Manipulation",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "2-manipulation/tasks.html#exercise-1-loading-and-exploring-data",
+    "href": "2-manipulation/tasks.html#exercise-1-loading-and-exploring-data",
+    "title": "2. Manipulation - Tasks",
     "section": "Exercise 1: Loading and Exploring Data",
-    "text": "Exercise 1: Loading and Exploring Data\n\nIn R\nLet’s work with a built-in dataset about cars:\n\n# Load tidyverse\nlibrary(tidyverse)\n\n# Look at the mtcars dataset\nhead(mtcars)\n\n# Get basic statistics\nsummary(mtcars)\n\n# Check the structure\nstr(mtcars)\n\nYour Task: Explore the dataset and answer: - How many cars are in the dataset? - What variables are included? - What is the average miles per gallon (mpg)?\n\n\nIn Python\n\nimport pandas as pd\nimport seaborn as sns\n\n# Load a sample dataset\ndf = sns.load_dataset('mpg')\n\n# Explore the data\nprint(df.head())\nprint(df.describe())\nprint(df.info())"
+    "text": "Exercise 1: Loading and Exploring Data\n\nIn R\nlibrary(tidyverse)\n\n# Look at the mtcars dataset\nhead(mtcars)\n\n# Get basic statistics\nsummary(mtcars)\n\n# Check the structure\nstr(mtcars)\nYour Task: Explore the dataset and answer: - How many cars are in the dataset? - What variables are included? - What is the average miles per gallon (mpg)?\n\n\nIn Python\nimport pandas as pd\nimport seaborn as sns\n\n# Load a sample dataset\ndf = sns.load_dataset('mpg')\n\n# Explore the data\nprint(df.head())\nprint(df.describe())\nprint(df.info())\nYour Task: Explore the dataset and answer: - How many vehicles are in the dataset? - What variables are included? - What is the average MPG?",
+    "crumbs": [
+      "Manipulation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "practical.html#exercise-2-data-visualization",
-    "href": "practical.html#exercise-2-data-visualization",
-    "title": "Practical Exercises",
-    "section": "Exercise 2: Data Visualization",
-    "text": "Exercise 2: Data Visualization\n\nVisualizing in R\nCreate a simple plot to understand the relationship between variables:\n\nlibrary(ggplot2)\n\n# Scatter plot: mpg vs weight\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(title = \"Fuel Efficiency vs Car Weight\",\n       x = \"Weight (1000 lbs)\",\n       y = \"Miles per Gallon\") +\n  theme_minimal()\n\nYour Task: - Create the plot above - What pattern do you observe? - Try changing the x variable to hp (horsepower)\n\n\nVisualizing in Python\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load data\ndf = sns.load_dataset('mpg')\n\n# Create scatter plot\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=df, x='weight', y='mpg')\nplt.title('Fuel Efficiency vs Car Weight')\nplt.xlabel('Weight')\nplt.ylabel('Miles per Gallon')\nplt.show()"
+    "objectID": "2-manipulation/tasks.html#exercise-2-filtering-and-summarizing-data",
+    "href": "2-manipulation/tasks.html#exercise-2-filtering-and-summarizing-data",
+    "title": "2. Manipulation - Tasks",
+    "section": "Exercise 2: Filtering and Summarizing Data",
+    "text": "Exercise 2: Filtering and Summarizing Data\n\nIn R\nlibrary(tidyverse)\n\n# Filter cars with good fuel efficiency (mpg &gt; 20)\nefficient_cars &lt;- mtcars %&gt;%\n  filter(mpg &gt; 20)\n\n# Calculate average mpg by cylinder count\nmpg_by_cyl &lt;- mtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(\n    avg_mpg = mean(mpg),\n    count = n()\n  )\n\nprint(mpg_by_cyl)\nYour Tasks: - How many cars have mpg &gt; 20? - Which cylinder count has the best average fuel efficiency? - Filter for cars with automatic transmission (am == 0) - Calculate the count of cars by transmission type\n\n\nIn Python\nimport pandas as pd\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\n# Filter cars from the USA\nusa_cars = df[df['origin'] == 'usa']\n\n# Group by year and calculate average mpg\nmpg_by_year = df.groupby('model_year')['mpg'].mean()\n\nprint(mpg_by_year)\nYour Tasks: - Filter for cars from Japan - Group by origin and calculate average MPG - Which origin has the highest average MPG? - How many cars are from each origin?",
+    "crumbs": [
+      "Manipulation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "practical.html#exercise-3-data-manipulation",
-    "href": "practical.html#exercise-3-data-manipulation",
-    "title": "Practical Exercises",
-    "section": "Exercise 3: Data Manipulation",
-    "text": "Exercise 3: Data Manipulation\n\nFiltering and Summarizing in R\n\nlibrary(tidyverse)\n\n# Filter cars with good fuel efficiency (mpg &gt; 20)\nefficient_cars &lt;- mtcars %&gt;%\n  filter(mpg &gt; 20)\n\n# Calculate average mpg by cylinder count\nmpg_by_cyl &lt;- mtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(\n    avg_mpg = mean(mpg),\n    count = n()\n  )\n\nprint(mpg_by_cyl)\n\nYour Task: - How many cars have mpg &gt; 20? - Which cylinder count has the best average fuel efficiency? - Filter for cars with automatic transmission (am == 0)\n\n\nFiltering in Python\n\nimport pandas as pd\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\n# Filter cars from the USA\nusa_cars = df[df['origin'] == 'usa']\n\n# Group by year and calculate average mpg\nmpg_by_year = df.groupby('model_year')['mpg'].mean()\n\nprint(mpg_by_year)"
+    "objectID": "2-manipulation/tasks.html#exercise-3-creating-new-variables",
+    "href": "2-manipulation/tasks.html#exercise-3-creating-new-variables",
+    "title": "2. Manipulation - Tasks",
+    "section": "Exercise 3: Creating New Variables",
+    "text": "Exercise 3: Creating New Variables\n\nIn R\n# Create new variables\nmtcars_new &lt;- mtcars %&gt;%\n  mutate(\n    # Convert mpg to km/litre\n    kpl = mpg / 2.352,\n    # Create efficiency categories\n    efficiency = case_when(\n      mpg &gt; 25 ~ \"High\",\n      mpg &gt; 15 ~ \"Medium\",\n      TRUE ~ \"Low\"\n    )\n  )\n\nhead(mtcars_new)\nYour Tasks: - Create a new variable for horsepower per cylinder - Create categories for car weight: “Light”, “Medium”, “Heavy” - Find the average mpg for each efficiency category\n\n\nIn Python\n# Create new variables\ndf['kpl'] = df['mpg'] / 2.352\n\ndf['efficiency'] = df['mpg'].apply(\n    lambda x: 'High' if x &gt; 25 else 'Medium' if x &gt; 15 else 'Low'\n)\n\nprint(df.head())\nYour Tasks: - Create a new variable for horsepower per cylinder - Create categories for weight - Find the average MPG for each efficiency category",
+    "crumbs": [
+      "Manipulation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "practical.html#exercise-4-working-with-transport-data",
-    "href": "practical.html#exercise-4-working-with-transport-data",
-    "title": "Practical Exercises",
-    "section": "Exercise 4: Working with Transport Data",
-    "text": "Exercise 4: Working with Transport Data\n\nCreating Simple Transport Analysis in R\n\nlibrary(tidyverse)\n\n# Create a simple trip dataset\ntrips &lt;- data.frame(\n  trip_id = 1:10,\n  distance_km = c(5.2, 3.1, 7.8, 2.5, 15.3, 4.2, 6.7, 8.9, 3.4, 5.8),\n  mode = c(\"bus\", \"walk\", \"car\", \"walk\", \"train\", \"bus\", \"car\", \"bike\", \"walk\", \"bus\"),\n  duration_min = c(25, 15, 20, 10, 45, 20, 18, 30, 12, 22)\n)\n\n# Calculate average speed by mode\ntrip_summary &lt;- trips %&gt;%\n  mutate(speed_kmh = (distance_km / duration_min) * 60) %&gt;%\n  group_by(mode) %&gt;%\n  summarise(\n    avg_speed = mean(speed_kmh),\n    avg_distance = mean(distance_km),\n    count = n()\n  )\n\nprint(trip_summary)\n\nYour Task: - Which transport mode has the highest average speed? - Calculate the total distance traveled across all trips - Create a bar plot showing trip counts by mode\n\n\nVisualization\n\n# Create a bar plot of trips by mode\nggplot(trips, aes(x = mode)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Number of Trips by Transport Mode\",\n       x = \"Transport Mode\",\n       y = \"Number of Trips\") +\n  theme_minimal()"
+    "objectID": "2-manipulation/tasks.html#exercise-4-data-manipulation-challenge",
+    "href": "2-manipulation/tasks.html#exercise-4-data-manipulation-challenge",
+    "title": "2. Manipulation - Tasks",
+    "section": "Exercise 4: Data Manipulation Challenge",
+    "text": "Exercise 4: Data Manipulation Challenge\nCombine multiple operations:\n\nIn R\nresult &lt;- mtcars %&gt;%\n  # Filter to specific cars\n  filter(cyl == 4) %&gt;%\n  # Create new variables\n  mutate(\n    hp_per_cyl = hp / cyl,\n    wt_per_cyl = wt / cyl\n  ) %&gt;%\n  # Select relevant columns\n  select(mpg, hp, hp_per_cyl, wt, wt_per_cyl) %&gt;%\n  # Arrange by mpg descending\n  arrange(desc(mpg))\n\nhead(result)\nQuestions: - What does this pipeline do? - How many 4-cylinder cars are there? - Which has the highest mpg among 4-cylinder cars?\n\n\nIn Python\nresult = (df[df['cylinders'] == 4]\n    .assign(\n        hp_per_cyl = lambda x: x['horsepower'] / x['cylinders'],\n        wt_per_cyl = lambda x: x['weight'] / x['cylinders']\n    )\n    [['mpg', 'horsepower', 'hp_per_cyl', 'weight', 'wt_per_cyl']]\n    .sort_values('mpg', ascending=False)\n)\n\nprint(result.head())\nQuestions: - What does this pipeline do? - How many 4-cylinder cars are there? - Which has the highest mpg among 4-cylinder cars?",
+    "crumbs": [
+      "Manipulation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "practical.html#bonus-challenge",
-    "href": "practical.html#bonus-challenge",
-    "title": "Practical Exercises",
+    "objectID": "2-manipulation/tasks.html#bonus-challenge",
+    "href": "2-manipulation/tasks.html#bonus-challenge",
+    "title": "2. Manipulation - Tasks",
     "section": "Bonus Challenge",
-    "text": "Bonus Challenge\nIf you finish early, try this:\n\nFind a real dataset online (e.g., from data.gov.uk or Our World in Data)\nLoad it into R or Python\nCreate 3 visualizations that tell a story about the data\nShare your findings with the group!"
+    "text": "Bonus Challenge\nCreate a summary table showing: - For each origin, calculate: - Average MPG - Average horsepower - Number of cars - Count of cars by cylinders\nCan you do this in both R and Python?",
+    "crumbs": [
+      "Manipulation",
+      "Tasks"
+    ]
   },
   {
-    "objectID": "practical.html#common-issues-solutions",
-    "href": "practical.html#common-issues-solutions",
-    "title": "Practical Exercises",
-    "section": "Common Issues & Solutions",
-    "text": "Common Issues & Solutions\n\n\n\n\n\n\nNoteError: Package not found\n\n\n\nMake sure you’ve installed the package first:\ninstall.packages(\"package_name\")\n\n\n\n\n\n\n\n\nNoteError: Object not found\n\n\n\nCheck that you’ve run all previous code chunks in order. Variables from earlier chunks need to be created first!\n\n\n\n\n\n\n\n\nTipGetting Stuck?\n\n\n\n\nCheck the documentation: ?function_name in R\nUse AI tools like Copilot or ChatGPT\nAsk your neighbor or the instructor!"
+    "objectID": "3-visualisation/slides.html#data-visualization",
+    "href": "3-visualisation/slides.html#data-visualization",
+    "title": "3. Visualisation",
+    "section": "Data Visualization",
+    "text": "Data Visualization\nTell stories with your data"
   },
   {
-    "objectID": "practical.html#key-takeaways",
-    "href": "practical.html#key-takeaways",
-    "title": "Practical Exercises",
+    "objectID": "3-visualisation/slides.html#why-visualize",
+    "href": "3-visualisation/slides.html#why-visualize",
+    "title": "3. Visualisation",
+    "section": "Why Visualize?",
+    "text": "Why Visualize?\n\nUnderstand patterns quickly\nCommunicate findings effectively\nIdentify outliers and anomalies\nExplore relationships"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#scatter-plots",
+    "href": "3-visualisation/slides.html#scatter-plots",
+    "title": "3. Visualisation",
+    "section": "Scatter Plots",
+    "text": "Scatter Plots\nShow relationships between two continuous variables"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#bar-plots",
+    "href": "3-visualisation/slides.html#bar-plots",
+    "title": "3. Visualisation",
+    "section": "Bar Plots",
+    "text": "Bar Plots\nShow counts or comparisons across categories"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#box-plots",
+    "href": "3-visualisation/slides.html#box-plots",
+    "title": "3. Visualisation",
+    "section": "Box Plots",
+    "text": "Box Plots\nShow distributions and outliers"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#customization",
+    "href": "3-visualisation/slides.html#customization",
+    "title": "3. Visualisation",
+    "section": "Customization",
+    "text": "Customization\nMake your plots publication-ready"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#python-content-optional",
+    "href": "3-visualisation/slides.html#python-content-optional",
+    "title": "3. Visualisation",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#key-takeaways",
+    "href": "3-visualisation/slides.html#key-takeaways",
+    "title": "3. Visualisation",
     "section": "Key Takeaways",
-    "text": "Key Takeaways\nAfter completing these exercises, you should be able to:\n✅ Load and explore datasets\n✅ Create basic visualizations\n✅ Filter and summarize data\n✅ Calculate derived variables\n✅ Understand transport data structures"
+    "text": "Key Takeaways\n✅ Choose the right plot type ✅ Make plots clear and readable ✅ Add titles and axis labels ✅ Use color purposefully ✅ Tell a story with data"
   },
   {
-    "objectID": "practical.html#resources-for-practice",
-    "href": "practical.html#resources-for-practice",
-    "title": "Practical Exercises",
-    "section": "Resources for Practice",
-    "text": "Resources for Practice\n\nR for Data Science (free book)\nPython Data Science Handbook\nTidyTuesday - Weekly data challenges"
+    "objectID": "4-statistics/index.html",
+    "href": "4-statistics/index.html",
+    "title": "Statistics",
+    "section": "",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "crumbs": [
+      "Statistics",
+      "About this section"
+    ]
+  },
+  {
+    "objectID": "4-statistics/tasks.html",
+    "href": "4-statistics/tasks.html",
+    "title": "4. Statistics - Tasks",
+    "section": "",
+    "text": "Complete these exercises to practice statistical analysis.",
+    "crumbs": [
+      "Statistics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "4-statistics/tasks.html#exercise-1-transport-data-analysis",
+    "href": "4-statistics/tasks.html#exercise-1-transport-data-analysis",
+    "title": "4. Statistics - Tasks",
+    "section": "Exercise 1: Transport Data Analysis",
+    "text": "Exercise 1: Transport Data Analysis\n\nIn R\nlibrary(tidyverse)\n\n# Create a simple trip dataset\ntrips &lt;- data.frame(\n  trip_id = 1:10,\n  distance_km = c(5.2, 3.1, 7.8, 2.5, 15.3, 4.2, 6.7, 8.9, 3.4, 5.8),\n  mode = c(\"bus\", \"walk\", \"car\", \"walk\", \"train\", \"bus\", \"car\", \"bike\", \"walk\", \"bus\"),\n  duration_min = c(25, 15, 20, 10, 45, 20, 18, 30, 12, 22)\n)\n\n# Calculate average speed by mode\ntrip_summary &lt;- trips %&gt;%\n  mutate(speed_kmh = (distance_km / duration_min) * 60) %&gt;%\n  group_by(mode) %&gt;%\n  summarise(\n    avg_speed = mean(speed_kmh),\n    avg_distance = mean(distance_km),\n    count = n()\n  )\n\nprint(trip_summary)\nYour Tasks: - Which transport mode has the highest average speed? - Calculate the total distance traveled across all trips - Create a bar plot showing trip counts by mode\n\n\nIn Python\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ntrips = pd.DataFrame({\n    'trip_id': range(1, 11),\n    'distance_km': [5.2, 3.1, 7.8, 2.5, 15.3, 4.2, 6.7, 8.9, 3.4, 5.8],\n    'mode': ['bus', 'walk', 'car', 'walk', 'train', 'bus', 'car', 'bike', 'walk', 'bus'],\n    'duration_min': [25, 15, 20, 10, 45, 20, 18, 30, 12, 22]\n})\n\n# Calculate speed\ntrips['speed_kmh'] = (trips['distance_km'] / trips['duration_min']) * 60\n\ntrip_summary = trips.groupby('mode').agg({\n    'speed_kmh': 'mean',\n    'distance_km': 'mean',\n    'trip_id': 'count'\n}).rename(columns={'trip_id': 'count'})\n\nprint(trip_summary)\nYour Tasks: - Which transport mode has the highest average speed? - Calculate the total distance traveled - Create a bar plot showing trip counts by mode",
+    "crumbs": [
+      "Statistics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "4-statistics/tasks.html#exercise-2-correlation-analysis",
+    "href": "4-statistics/tasks.html#exercise-2-correlation-analysis",
+    "title": "4. Statistics - Tasks",
+    "section": "Exercise 2: Correlation Analysis",
+    "text": "Exercise 2: Correlation Analysis\n\nIn R\n# Calculate correlation between variables\ncorrelation &lt;- cor(mtcars$mpg, mtcars$wt)\nprint(paste(\"Correlation between mpg and weight:\", round(correlation, 3)))\n\n# Correlation with p-value\ncor_test &lt;- cor.test(mtcars$mpg, mtcars$wt)\nprint(cor_test)\nYour Tasks: - What is the correlation between mpg and horsepower? - What is the correlation between weight and horsepower? - Create a correlation matrix for mpg, wt, hp, and cyl - Interpret the results\n\n\nIn Python\nfrom scipy import stats\n\n# Correlation\ncorrelation = df['weight'].corr(df['mpg'])\nprint(f\"Correlation between weight and mpg: {correlation:.3f}\")\n\n# With p-value\nt_stat, p_value = stats.pearsonr(df['weight'], df['mpg'])\nprint(f\"Correlation: {t_stat:.3f}\")\nprint(f\"P-value: {p_value:.4f}\")\n\n# Correlation matrix\ncorr_matrix = df[['mpg', 'weight', 'horsepower', 'cylinders']].corr()\nYour Tasks: - Calculate the correlation between all pairs of variables - Which pairs are most strongly correlated? - Are they positive or negative?",
+    "crumbs": [
+      "Statistics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "4-statistics/tasks.html#exercise-3-statistical-testing",
+    "href": "4-statistics/tasks.html#exercise-3-statistical-testing",
+    "title": "4. Statistics - Tasks",
+    "section": "Exercise 3: Statistical Testing",
+    "text": "Exercise 3: Statistical Testing\n\nIn R\n# T-test: compare mpg between two groups\nautomatic &lt;- mtcars[mtcars$am == 0, ]$mpg\nmanual &lt;- mtcars[mtcars$am == 1, ]$mpg\n\nt_test_result &lt;- t.test(automatic, manual)\nprint(t_test_result)\nYour Tasks: - Interpret the t-test results - Is there a significant difference in mpg between automatic and manual cars? - Compare mpg for 4-cylinder vs 8-cylinder cars - What does the p-value tell you?\n\n\nIn Python\nfrom scipy import stats\n\n# Compare two groups\ngroup_4cyl = df[df['cylinders'] == 4]['mpg'].dropna()\ngroup_8cyl = df[df['cylinders'] == 8]['mpg'].dropna()\n\nt_stat, p_value = stats.ttest_ind(group_4cyl, group_8cyl)\nprint(f\"T-statistic: {t_stat:.3f}\")\nprint(f\"P-value: {p_value:.4f}\")\nYour Tasks: - Compare mpg between different origins - Are the differences significant? - What does a p-value &lt; 0.05 mean?",
+    "crumbs": [
+      "Statistics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "4-statistics/tasks.html#exercise-4-linear-regression",
+    "href": "4-statistics/tasks.html#exercise-4-linear-regression",
+    "title": "4. Statistics - Tasks",
+    "section": "Exercise 4: Linear Regression",
+    "text": "Exercise 4: Linear Regression\n\nIn R\n# Fit a linear regression model\nmodel &lt;- lm(mpg ~ wt + hp, data = mtcars)\n\n# View the results\nsummary(model)\n\n# Make predictions\nnew_data &lt;- data.frame(wt = c(3, 4, 5), hp = c(100, 150, 200))\npredictions &lt;- predict(model, newdata = new_data)\nprint(predictions)\nYour Tasks: - What are the model coefficients? - How do you interpret them? - Make predictions for new values - What is the R-squared value?\n\n\nIn Python\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import r2_score\n\n# Prepare data\nX = df[['weight', 'horsepower']].dropna()\ny = df.loc[X.index, 'mpg']\n\n# Fit model\nmodel = LinearRegression()\nmodel.fit(X, y)\n\n# Results\nprint(f\"Coefficients: {model.coef_}\")\nprint(f\"Intercept: {model.intercept_}\")\nprint(f\"R-squared: {r2_score(y, model.predict(X)):.3f}\")\n\n# Predictions\npredictions = model.predict([[3, 100], [4, 150]])\nYour Tasks: - Build a regression model - Interpret the coefficients - Make predictions - Evaluate model performance",
+    "crumbs": [
+      "Statistics",
+      "Tasks"
+    ]
+  },
+  {
+    "objectID": "4-statistics/tasks.html#bonus-challenge",
+    "href": "4-statistics/tasks.html#bonus-challenge",
+    "title": "4. Statistics - Tasks",
+    "section": "Bonus Challenge",
+    "text": "Bonus Challenge\nPerform a complete analysis: 1. Load a dataset 2. Explore it with descriptive statistics 3. Calculate correlations 4. Create visualizations 5. Test hypotheses with statistical tests 6. Build a predictive model 7. Present your findings",
+    "crumbs": [
+      "Statistics",
+      "Tasks"
+    ]
   }
 ]
