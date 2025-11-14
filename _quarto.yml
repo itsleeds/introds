@@ -4,22 +4,67 @@ project:
     - index.qmd 
     - prerequisites.qmd
     - github-copilot.qmd
-    - practical.qmd
+    - 1-basics/index.qmd
+    - 1-basics/slides.qmd
+    - 1-basics/tasks.qmd
+    - 2-manipulation/index.qmd
+    - 2-manipulation/slides.qmd
+    - 2-manipulation/tasks.qmd
+    - 3-visualisation/index.qmd
+    - 3-visualisation/slides.qmd
+    - 3-visualisation/tasks.qmd
+    - 4-statistics/index.qmd
+    - 4-statistics/slides.qmd
+    - 4-statistics/tasks.qmd
     - next-steps.qmd
 
+format:
+  html:
+    toc: true
+    toc-location: right
+    author-meta: "Robin Lovelace & contributors"
+    date-meta: "2025"
+    copyright: "© 2025 Robin Lovelace"
+    license: "CC BY-SA"
+    theme: lux
+    css: styles.css
+
 website:
-  title: "Introduction to Data Science"
-  navbar:
-    background: primary
+  sidebar:
+    title: "<span class='intro-text'>Introduction to</span> <span class='ds-text'>Data Science</span>"
+    style: "docked"
     search: true
-    left:
+    background: primary
+    contents:
       - text: "Home"
         href: index.qmd
       - text: "Prerequisites"
         href: prerequisites.qmd
       - text: "GitHub Copilot & AI"
         href: github-copilot.qmd
-      - text: "Practical"
-        href: practical.qmd
+      - section: "Basics"
+        contents:
+          - text: "About this section"
+            href: 1-basics/index.qmd
+          - text: "Tasks"
+            href: 1-basics/tasks.qmd
+      - section: "Manipulation"
+        contents:
+          - text: "About this section"
+            href: 2-manipulation/index.qmd
+          - text: "Tasks"
+            href: 2-manipulation/tasks.qmd
+      - section: "Visualisation"
+        contents:
+          - text: "About this section"
+            href: 3-visualisation/index.qmd
+          - text: "Tasks"
+            href: 3-visualisation/tasks.qmd
+      - section: "Statistics"
+        contents:
+          - text: "About this section"
+            href: 4-statistics/index.qmd
+          - text: "Tasks"
+            href: 4-statistics/tasks.qmd
       - text: "Next Steps"
         href: next-steps.qmd 

@@ -1,0 +1,201 @@
+---
+title: "2. Manipulation"
+format: revealjs
+---
+
+## Data Manipulation
+
+Learn how to load, explore, filter, transform, and summarize data
+
+---
+
+## Loading and Exploring Data
+
+The first step in any analysis
+
+---
+
+### Loading Data in R
+
+```r
+library(tidyverse)
+
+# Built-in dataset
+head(mtcars)
+
+# Basic statistics
+summary(mtcars)
+
+# Structure
+str(mtcars)
+```
+
+---
+
+## Filtering Data
+
+Select rows that meet certain conditions
+
+---
+
+### Filtering in R
+
+```r
+library(tidyverse)
+
+# Filter cars with mpg > 20
+efficient <- mtcars %>%
+  filter(mpg > 20)
+
+# Multiple conditions
+efficient_auto <- mtcars %>%
+  filter(mpg > 20 & cyl == 4)
+```
+
+---
+
+## Summarizing Data
+
+Calculate statistics grouped by categories
+
+---
+
+### Summarizing in R
+
+```r
+# Average mpg by cylinder count
+mpg_by_cyl <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(
+    avg_mpg = mean(mpg),
+    count = n(),
+    sd_mpg = sd(mpg)
+  )
+```
+
+---
+
+## Transforming Data
+
+Create new variables and modify existing ones
+
+---
+
+### Mutation in R
+
+```r
+mtcars_new <- mtcars %>%
+  mutate(
+    kpl = mpg / 2.352,           # mpg to km/litre
+    efficiency = case_when(
+      mpg > 25 ~ "High",
+      mpg > 15 ~ "Medium",
+      TRUE ~ "Low"
+    )
+  )
+```
+
+---
+
+## Selecting Columns
+
+Choose which variables to work with
+
+---
+
+### Selecting in R
+
+```r
+# Keep specific columns
+small_data <- mtcars %>%
+  select(mpg, cyl, hp, wt)
+
+# Rename while selecting
+renamed <- mtcars %>%
+  select(fuel_efficiency = mpg, weight = wt)
+```
+
+---
+
+## Python Content (Optional)
+
+If you're interested in Python, here are some equivalent concepts
+
+---
+
+### Loading Data in Python
+
+```python
+import pandas as pd
+import seaborn as sns
+
+# Load from seaborn
+df = sns.load_dataset('mpg')
+
+# Explore
+df.head()
+df.describe()
+df.info()
+```
+
+---
+
+### Filtering in Python
+
+```python
+# Single condition
+usa_cars = df[df['origin'] == 'usa']
+
+# Multiple conditions
+efficient = df[(df['mpg'] > 20) & (df['cylinders'] == 4)]
+```
+
+---
+
+### Summarizing in Python
+
+```python
+# Group by origin and calculate
+summary = df.groupby('origin')['mpg'].agg(['mean', 'count', 'std'])
+
+# Or with named aggregation
+summary = df.groupby('origin')['mpg'].agg(
+    avg_mpg='mean',
+    total_cars='count'
+)
+```
+
+---
+
+### Transforming in Python
+
+```python
+df['kpl'] = df['mpg'] / 2.352
+
+# Using apply and lambda
+df['efficiency'] = df['mpg'].apply(
+    lambda x: 'High' if x > 25 else 'Medium' if x > 15 else 'Low'
+)
+```
+
+---
+
+### Selecting in Python
+
+```python
+# Keep specific columns
+small_data = df[['mpg', 'cylinders', 'horsepower', 'weight']]
+
+# Rename columns
+renamed = df.rename(columns={'mpg': 'fuel_efficiency'})
+```
+
+---
+
+## Key Takeaways
+
+✅ Load and explore data
+✅ Filter rows based on conditions
+✅ Group and summarize data
+✅ Create and transform variables
+✅ Select relevant columns

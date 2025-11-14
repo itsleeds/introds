@@ -6,77 +6,32 @@ Before starting this practical session, you'll need to set up a few essential to
 
 ## Required Software
 
-### 1. R and RStudio
+### If using AppsAnywhere
+
+If you're using AppsAnywhere (available on university computers or your own laptop):
+
+1. Open AppsAnywhere on your computer
+2. Search for and launch **R** first
+3. Search for and launch **RStudio** (requires R to be installed)
+4. For Python (optional), search for and launch **Anaconda** from AppsAnywhere
+
+### If installing on your own laptop
+
+This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:
+
+#### 1. R and RStudio
 
 **R** is a programming language widely used for statistical computing and data science.
 
 - Download R from [CRAN](https://cran.r-project.org/)
 - Download RStudio Desktop (free) from [Posit](https://posit.co/download/rstudio-desktop/)
 
-### 2. Python (Optional but Recommended)
+#### 2. Python (Optional but Recommended)
 
 **Python** is another popular language for data science.
 
 - Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
 - Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
-
-### 3. Git and GitHub Account
-
-**Git** is version control software, and **GitHub** is a platform for hosting code.
-
-- Download Git from [git-scm.com](https://git-scm.com/)
-- Create a free GitHub account at [github.com](https://github.com/)
-
-## Essential R Packages
-
-Install these R packages by running in RStudio:
-
-```{r}
-#| eval: false
-
-# Data manipulation and visualization
-install.packages("tidyverse")
-
-# For working with transport data
-install.packages("sf")
-```
-
-## Essential Python Packages (Optional)
-
-If using Python, install these packages:
-
-```{bash}
-#| eval: false
-
-pip install pandas numpy matplotlib seaborn
-```
-
-## Checking Your Setup
-
-### Test R Installation
-
-Open RStudio and run:
-
-```{r}
-#| eval: false
-
-# Check R version
-R.version.string
-
-# Test tidyverse
-library(tidyverse)
-```
-
-### Test Python Installation (Optional)
-
-Open a terminal/command prompt and run:
-
-```{bash}
-#| eval: false
-
-python --version
-pip list
-```
 
 ## Getting Help
 
@@ -88,5 +43,5 @@ If you encounter installation issues:
 
 ::: {.callout-tip}
 ## Pro Tip
-Don't spend too much time troubleshooting installation issues before the session. We can help you during the practical!
+If you run into installation issues before the session, don't spend too much time troubleshooting. We can help you during the practical!
 :::
