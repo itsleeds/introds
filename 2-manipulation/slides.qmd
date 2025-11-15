@@ -81,7 +81,7 @@ sd(crashes$casualty_age, na.rm = TRUE)
 
 ## Filtering Rows with dplyr
 
-Select specific rows based on conditions is a common task in data manipulation.
+Selecting specific rows based on conditions is a common task in data manipulation.
 
 ```r
 library(dplyr)
