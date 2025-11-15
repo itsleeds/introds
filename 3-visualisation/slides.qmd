@@ -309,7 +309,7 @@ df = sns.load_dataset('mpg')
 fig, ax = plt.subplots(figsize=(10, 6))
 
 # Step 2: Create scatter plot
-ax.scatter(df['weight'], df['mpg'], s=100, alpha=0.6, colour='steelblue')
+ax.scatter(df['weight'], df['mpg'], s=100, alpha=0.6, color='steelblue')
 
 # Step 3: Add labels
 ax.set_xlabel('Weight')
@@ -336,7 +336,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 # Create bar plot
 df['cylinders'].value_counts().sort_index().plot(
-    kind='bar', ax=ax, colour='steelblue', alpha=0.7
+    kind='bar', ax=ax, color='steelblue', alpha=0.7
 )
 
 # Add labels
@@ -364,7 +364,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Create box plot with individual points
 sns.boxplot(data=df, x='cylinders', y='mpg', ax=ax, palette='Set2')
 sns.stripplot(data=df, x='cylinders', y='mpg', ax=ax, 
-              colour='black', alpha=0.3, size=3)
+              color='black', alpha=0.3, size=3)
 
 # Add labels
 ax.set_title('MPG Distribution by Number of Cylinders')
