@@ -39,6 +39,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install polars
 
+      - name: Install R Dependencies
+        run: |
+          install.packages(
+            c("knitr", "rmarkdown", "tidyverse", "ggplot2", "gridExtra"),
+            repos = "https://cran.rstudio.com/"
+          )
+        shell: Rscript {0}
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
