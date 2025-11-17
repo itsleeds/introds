@@ -1,209 +1,28 @@
 ---
-title: "2. Manipulation - Tasks"
+title: "Data Wrangling - Tasks"
 ---
 
-Complete these exercises to practice data manipulation techniques.
+In this section, we will practice data wrangling using R and the `dplyr` package from the `tidyverse`. Follow the steps below to manipulate and explore a dataset.
 
-## Exercise 1: Loading and Exploring Data
+1. Create a new R script in your `scripts` folder and name it `2-data-wrangling-and-visualization.R`.
+2. Load the `tidyverse` package by adding the following line at the top of your script:
+   ```R
+   library(tidyverse)
+   ```
+3. Download the `crashes` file from the course resources and save it in your `data` folder.
+4. Read the `crashes` dataset into R using the `read_csv()` function and assign it to a variable named `crashes`:
+   ```R
+   crashes <- read_csv("data/crashes.csv")
+   ```
 
-### In R
+5. Explore the dataset:
+   - Use the `head()` function to view the first few rows of the dataset.
+   - Use the `str()` function to understand the structure of the dataset.
+   - Use the `summary()` function to get a summary of the dataset.
+6. Data Wrangling Tasks:
+   - Create a new data.frame named `crashes_filtered` that includes only cyclists.
+   - Create a new data.frame named `crashes_dark` that includes only crashes that occurred in dark conditions.
+   - Create a new data.frame named `crashes_dark_cyclist` that includes only crashes that involved cyclists **and** occurred in dark conditions.
+   - Create a summary table named `crashes_by_type` that shows the median age by casualty type.
 
-```r
-library(tidyverse)
 
-# Look at the mtcars dataset
-head(mtcars)
-
-# Get basic statistics
-summary(mtcars)
-
-# Check the structure
-str(mtcars)
-```
-
-**Your Task**: Explore the dataset and answer:
-- How many cars are in the dataset?
-- What variables are included?
-- What is the average miles per gallon (mpg)?
-
-### In Python
-
-```python
-import pandas as pd
-import seaborn as sns
-
-# Load a sample dataset
-df = sns.load_dataset('mpg')
-
-# Explore the data
-print(df.head())
-print(df.describe())
-print(df.info())
-```
-
-**Your Task**: Explore the dataset and answer:
-- How many vehicles are in the dataset?
-- What variables are included?
-- What is the average MPG?
-
----
-
-## Exercise 2: Filtering and Summarizing Data
-
-### In R
-
-```r
-library(tidyverse)
-
-# Filter cars with good fuel efficiency (mpg > 20)
-efficient_cars <- mtcars %>%
-  filter(mpg > 20)
-
-# Calculate average mpg by cylinder count
-mpg_by_cyl <- mtcars %>%
-  group_by(cyl) %>%
-  summarise(
-    avg_mpg = mean(mpg),
-    count = n()
-  )
-
-print(mpg_by_cyl)
-```
-
-**Your Tasks**:
-- How many cars have mpg > 20?
-- Which cylinder count has the best average fuel efficiency?
-- Filter for cars with automatic transmission (`am == 0`)
-- Calculate the count of cars by transmission type
-
-### In Python
-
-```python
-import pandas as pd
-import seaborn as sns
-
-df = sns.load_dataset('mpg')
-
-# Filter cars from the USA
-usa_cars = df[df['origin'] == 'usa']
-
-# Group by year and calculate average mpg
-mpg_by_year = df.groupby('model_year')['mpg'].mean()
-
-print(mpg_by_year)
-```
-
-**Your Tasks**:
-- Filter for cars from Japan
-- Group by origin and calculate average MPG
-- Which origin has the highest average MPG?
-- How many cars are from each origin?
-
----
-
-## Exercise 3: Creating New Variables
-
-### In R
-
-```r
-# Create new variables
-mtcars_new <- mtcars %>%
-  mutate(
-    # Convert mpg to km/litre
-    kpl = mpg / 2.352,
-    # Create efficiency categories
-    efficiency = case_when(
-      mpg > 25 ~ "High",
-      mpg > 15 ~ "Medium",
-      TRUE ~ "Low"
-    )
-  )
-
-head(mtcars_new)
-```
-
-**Your Tasks**:
-- Create a new variable for horsepower per cylinder
-- Create categories for car weight: "Light", "Medium", "Heavy"
-- Find the average mpg for each efficiency category
-
-### In Python
-
-```python
-# Create new variables
-df['kpl'] = df['mpg'] / 2.352
-
-df['efficiency'] = df['mpg'].apply(
-    lambda x: 'High' if x > 25 else 'Medium' if x > 15 else 'Low'
-)
-
-print(df.head())
-```
-
-**Your Tasks**:
-- Create a new variable for horsepower per cylinder
-- Create categories for weight
-- Find the average MPG for each efficiency category
-
----
-
-## Exercise 4: Data Manipulation Challenge
-
-Combine multiple operations:
-
-### In R
-
-```r
-result <- mtcars %>%
-  # Filter to specific cars
-  filter(cyl == 4) %>%
-  # Create new variables
-  mutate(
-    hp_per_cyl = hp / cyl,
-    wt_per_cyl = wt / cyl
-  ) %>%
-  # Select relevant columns
-  select(mpg, hp, hp_per_cyl, wt, wt_per_cyl) %>%
-  # Arrange by mpg descending
-  arrange(desc(mpg))
-
-head(result)
-```
-
-**Questions**:
-- What does this pipeline do?
-- How many 4-cylinder cars are there?
-- Which has the highest mpg among 4-cylinder cars?
-
-### In Python
-
-```python
-result = (df[df['cylinders'] == 4]
-    .assign(
-        hp_per_cyl = lambda x: x['horsepower'] / x['cylinders'],
-        wt_per_cyl = lambda x: x['weight'] / x['cylinders']
-    )
-    [['mpg', 'horsepower', 'hp_per_cyl', 'weight', 'wt_per_cyl']]
-    .sort_values('mpg', ascending=False)
-)
-
-print(result.head())
-```
-
-**Questions**:
-- What does this pipeline do?
-- How many 4-cylinder cars are there?
-- Which has the highest mpg among 4-cylinder cars?
-
----
-
-## Bonus Challenge
-
-Create a summary table showing:
-- For each origin, calculate:
-  - Average MPG
-  - Average horsepower
-  - Number of cars
-  - Count of cars by cylinders
-
-Can you do this in both R and Python?

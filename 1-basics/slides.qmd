@@ -1,133 +1,69 @@
 ---
-title: "1. Basics"
 format: revealjs
 ---
 
-## Welcome to the Fundamentals!
+# Welcome to the Fundamentals!
 
-This section covers the essential concepts and tools you need to get started with data science.
+This section covers the essentials you need to get started with the concepts and tools for data science.
 
----
+------------------------------------------------------------------------
 
 ## Integrated Development Environments (IDEs)
 
 Your toolkit for writing code
 
----
+------------------------------------------------------------------------
 
 ### RStudio
 
-RStudio has four main panels:
+![](images/paste-1.png)
 
-1. **Source Editor** (top-left): Write and edit R code
-2. **Console** (bottom-left): Code execution and results
-3. **Environment/History** (top-right): Variables and command history
-4. **Files/Plots/Packages/Help** (bottom-right): File browser and help
+----
+
+1.  **Source Editor** (top-left): Write and edit R code
+2.  **Console** (bottom-left): Code execution and results
+3.  **Environment/History** (top-right): Variables and command history
+4.  **Files/Plots/Packages/Help** (bottom-right): File browser and help
 
 **Tip**: Customize the layout via View → Panes → Pane Layout
 
----
+------------------------------------------------------------------------
 
 ### VS Code
 
-When working with Python and R:
+![](images/paste-2.png)
 
-1. **Editor** (left): Write your code
-2. **Explorer** (left sidebar): Navigate project files
-3. **Terminal** (bottom): Run commands and see output
-4. **Extensions Panel**: Install packages for Python, R, Quarto
+----
+
+1. **Activity Bar** (left): Switch between views (Explorer, Search, Source Control, Extensions)
+2.  **Side Bar** (left): File explorer and other views
+1.  **Editor** (left): Write your code
+3.  **Console** (bottom): Run commands and see output
+4.  **Output**: (right): Preview visual outputs/documents
 
 **Popular Extensions**: Python, R, Pylance, Quarto
 
----
+------------------------------------------------------------------------
 
-## Data Types and Structures
+## The fundamentals of R
 
-The fundamental building blocks
+- how to organize your work
+- basic data types and structures
+- using R for calculations
 
----
 
-### Data Types in R
+------------------------------------------------------------------------
 
-```r
-# Numeric, Integer, Character, Logical
-x <- 42          # numeric
-y <- 42L         # integer
-name <- "Alice"  # character
-flag <- TRUE     # logical
-
-class(x)
-typeof(x)
-```
-
-**Key Types**:
-- `numeric`: Real numbers
-- `integer`: Whole numbers only
-- `character`: Text strings
-- `logical`: TRUE or FALSE
-
----
-
-### Vectors in R
-
-Sequences of values of the same type:
-
-```r
-numbers <- c(1, 2, 3, 4, 5)
-names <- c("Alice", "Bob", "Charlie")
-flags <- c(TRUE, FALSE, TRUE)
-
-first_number <- numbers[1]
-first_three <- numbers[1:3]
-```
-
----
-
-### Data Frames in R
-
-Tables with rows and columns:
-
-```r
-students <- data.frame(
-  name = c("Alice", "Bob", "Charlie"),
-  age = c(20, 21, 19),
-  grade = c("A", "B", "A")
-)
-
-students$name      # access column
-students[1, ]      # access row
-head(students)     # view data
-```
-
----
-
-### Lists in R
-
-Flexible containers for mixed types:
-
-```r
-my_list <- list(
-  name = "Alice",
-  age = 20,
-  scores = c(85, 90, 88),
-  data = data.frame(x = 1:3, y = 4:6)
-)
-
-my_list$name
-my_list[[1]]
-```
-
----
-
-## Organizing Your Work
+### Organizing Your Work
 
 Project structure and file paths
 
----
+------------------------------------------------------------------------
 
 ### Recommended Folder Structure
 
-```
+
+```         
 my-project/
 ├── data/
 │   ├── raw/              # Original data files
@@ -141,16 +77,23 @@ my-project/
 ├── README.md
 └── my-project.Rproj
 ```
+<div style="font-size:0.7em; line-height:1.2;">
+**Tips:**
 
-Keep your work organized for easy collaboration and maintenance.
+- Keep your work organised for easy maintenance in `project` folders.
+- Use RStudio projects (`.Rproj` files) to manage your R work.
+- Use meaningful folder and file names.
+- Keep data separate from code and outputs.
+- Keep raw data unchanged; process copies instead.
+</div>
 
----
+------------------------------------------------------------------------
 
 ### Working with Paths in R
 
 **Relative paths** (from current working directory):
 
-```r
+``` r
 # Set working directory
 setwd("C:/Users/Alice/my-project")
 
@@ -160,26 +103,163 @@ data <- read.csv("data/raw/mydata.csv")
 
 **Absolute paths** (full path from root):
 
-```r
+``` r
 # Read using absolute path
 data <- read.csv("C:/Users/Alice/my-project/data/raw/mydata.csv")
 ```
 
-**Best practice**: Use relative paths for portability.
+**Best practice**: Avoid using absolute paths when working locally.
 
----
+------------------------------------------------------------------------
+
+### Data Types in R
+
+``` r
+# Numeric, Integer, Character, Logical
+x <- 42          # numeric
+y <- 42L         # integer
+name <- "Alice"  # character
+flag <- TRUE     # logical
+
+class(x)
+typeof(x)
+```
+
+**Key Types**:
+
+-   `numeric`: Real numbers
+-   `integer`: Whole numbers only
+-   `character`: Text strings
+-   `logical`: TRUE or FALSE
+
+------------------------------------------------------------------------
+
+### Vectors in R
+
+Sequences of values of the same type:
+
+``` r
+numbers <- c(1, 2, 3, 4, 5)
+names <- c("Alice", "Bob", "Charlie")
+flags <- c(TRUE, FALSE, TRUE)
+
+first_number <- numbers[1]
+first_three <- numbers[1:3]
+```
+
+------------------------------------------------------------------------
+
+### Data Frames in R
+
+Tables with rows and columns:
+
+``` r
+students <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  age = c(20, 21, 19),
+  grade = c("A", "B", "A")
+)
+
+students$name      # access column
+students[1, ]      # access row
+head(students)     # view data
+```
+
+------------------------------------------------------------------------
+
+### Lists in R
+
+Flexible containers for mixed types:
+
+``` r
+my_list <- list(
+  name = "Alice",
+  age = 20,
+  scores = c(85, 90, 88),
+  data = data.frame(x = 1:3, y = 4:6)
+)
+
+my_list$name
+my_list[[1]]
+```
+
+------------------------------------------------------------------------
+
+## Using R
+
+------------------------------------------------------------------------
+
+### R as a Calculator
+
+Simple operations:
+
+``` r
+2 + 3           # Addition
+10 - 4          # Subtraction
+5 * 6           # Multiplication
+20 / 4          # Division
+2 ^ 3           # Exponentiation
+10 %% 3         # Modulo
+```
+
+See: [Arithmetic Operators](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Arithmetic.html)
+
+------------------------------------------------------------------------
+
+### Main Operators in R
+
+Two main operators you'll use often:
+
+-   Assignment: `<-` or `=` to assign values to variables
+
+``` r
+# Assignment
+x <- 10
+y = 20
+sum <- x + y
+```
+
+-   Pipe: `|>` to chain commands (introduced in R 4.1.0) **read it as "then"**
+
+``` r
+result <- c(1, 2, 3, 4, 5) |> # create a vector `then`
+   sum() |> # calculate sum `then`
+   sqrt() # calculate square root
+print(result)
+```
+
+------------------------------------------------------------------------
+
+### Subsetting data
+
+Extract specific elements from data structures:
+
+``` r
+vec <- c(10, 20, 30, 40, 50)
+first_element <- vec[1]        # 10
+subset <- vec[2:4]             # 20, 30, 40
+df <- data.frame(
+  a = 1:5,
+  b = 6:10,
+ c = letters[1:5])
+df$a  # access column `a`
+df[1, ]   # access first row
+```
+More on subsetting: [Advanced R](https://adv-r.hadley.nz/subsetting.html)
+
+------------------------------------------------------------------------
 
 ## Control Flow
 
 Making decisions and repeating tasks
 
----
+------------------------------------------------------------------------
 
 ### If Statements in R
 
 Execute code conditionally:
 
-```r
+``` r
 age <- 25
 
 if (age >= 18) {
@@ -198,13 +278,13 @@ if (age < 13) {
 }
 ```
 
----
+------------------------------------------------------------------------
 
 ### For Loops in R
 
 Repeat code multiple times:
 
-```r
+``` r
 # Simple loop
 for (i in 1:5) {
   print(i)
@@ -224,69 +304,115 @@ for (i in 1:5) {
 results  # 1, 4, 9, 16, 25
 ```
 
----
+------------------------------------------------------------------------
 
-## R as a Calculator
+## Using Packages in R
 
-Simple operations:
+Packages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc.
 
-```r
-2 + 3           # Addition
-10 - 4          # Subtraction
-5 * 6           # Multiplication
-20 / 4          # Division
-2 ^ 3           # Exponentiation
-10 %% 3         # Modulo
-```
+![Source: [Storybench](https://www.storybench.org/what-is-the-tidyverse-and-why-should-journalists-care/)](https://www.storybench.org/wp-content/uploads/2017/05/tidyverse.png) 
 
----
 
-## Understanding Packages in R
 
-Collections of functions to extend capabilities
-
----
+------------------------------------------------------------------------
 
 ### Installing and Loading Packages
 
-```r
+``` r
 # Install once
 install.packages("tidyverse")
 
 # Load each session
+# This usually goes at the top of your script/document
 library(tidyverse)
 ```
 
-Functions available:
-- `filter()`, `select()`, `mutate()`
-- `ggplot()` for visualization
+### Finding Documentation
 
----
+``` r
+?mean               # Help on mean function
+help("lm")          # Help on lm function
+example("plot")     # Examples for plot function
+```
 
-## Key Takeaways (R)
+------------------------------------------------------------------------
+
+## Key Takeaways
 
 ✅ Know your IDE (RStudio or VS Code)
+
 ✅ Understand basic data types in R
+
 ✅ Know the difference between data structures
+
 ✅ Organize your work with folder structure
+
 ✅ Use relative paths for portability
+
 ✅ Control program flow with if statements and loops
+
 ✅ Learn how to install and use packages
+
 ✅ Know where to find documentation
 
----
+------------------------------------------------------------------------
 
 ## Python Content (Optional)
 
-If you're interested in Python, here are some equivalent concepts
+If you're interested in Python, here are equivalent concepts
+
+## The Fundamentals of Python
+
+### Organising Your Work
+
+Project structure and file paths
+
+#### Recommended Folder Structure
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```
+my-project/
+├── data/
+│   ├── raw/              # Original data files
+│   └── processed/        # Cleaned data
+├── code/
+│   ├── analysis.py
+│   └── plots.py
+├── outputs/
+│   ├── figures/
+│   └── results/
+├── README.md
+└── requirements.txt
+```
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.7em; line-height:1.2;">
+<strong>Tips:</strong>
+
+- Keep your work organised for easy maintenance
+- Use meaningful folder and file names
+- Keep data separate from code and outputs
+- Keep raw data unchanged; process copies instead
+
+</div>
+
+:::
+
+::::
 
 ---
 
-### Working with Paths in Python
+#### Working with Paths in Python
 
-**Relative paths**:
+**Relative paths** (from current working directory):
 
-```python
+``` python
 import os
 
 # Change working directory
@@ -297,19 +423,179 @@ import pandas as pd
 data = pd.read_csv("data/raw/mydata.csv")
 ```
 
-**Absolute paths**:
+**Absolute paths** (full path from root):
 
-```python
+``` python
 data = pd.read_csv("C:/Users/Alice/my-project/data/raw/mydata.csv")
 ```
 
-**Best practice**: Use relative paths or `pathlib` for portability.
+**Best practice**: Avoid using absolute paths when working locally.
 
----
+------------------------------------------------------------------------
 
-### If Statements in Python
+### Data Types in Python
 
-```python
+``` python
+x = 42          # int
+y = 3.14        # float
+name = "Alice"  # str
+flag = True     # bool
+
+type(x)
+type(name)
+```
+
+**Key Types**:
+
+-   `int`: Integers
+-   `float`: Decimal numbers
+-   `str`: Text strings
+- `bool`: True or False
+
+------------------------------------------------------------------------
+
+#### Lists in Python
+
+Ordered collections (can be mixed types):
+
+``` python
+numbers = [1, 2, 3, 4, 5]
+names = ["Alice", "Bob", "Charlie"]
+mixed = [1, "Alice", 3.14, True]
+
+first = numbers[0]      # 0-based indexing!
+first_three = numbers[0:3]
+```
+
+------------------------------------------------------------------------
+
+#### Dictionaries in Python
+
+Key-value pairs:
+
+``` python
+student = {
+    "name": "Alice",
+    "age": 20,
+    "grade": "A"
+}
+
+student["name"]
+student.get("age")
+```
+
+------------------------------------------------------------------------
+
+#### NumPy Arrays
+
+Similar to Python lists but more efficient for numerical operations:
+
+``` python
+import numpy as np
+
+numbers = np.array([1, 2, 3, 4, 5])
+matrix = np.array([[1, 2, 3], [4, 5, 6]])
+
+first = numbers[0]
+```
+
+------------------------------------------------------------------------
+
+#### Pandas DataFrames
+
+Tables with rows and columns:
+
+``` python
+import pandas as pd
+
+students = pd.DataFrame({
+    "name": ["Alice", "Bob", "Charlie"],
+    "age": [20, 21, 19],
+    "grade": ["A", "B", "A"]
+})
+
+students["name"]      # access column
+students.iloc[0, :]   # access row
+students.head()       # view data
+```
+
+------------------------------------------------------------------------
+
+### Using Python
+
+------------------------------------------------------------------------
+
+#### Python as a Calculator
+
+Simple operations:
+
+``` python
+2 + 3           # Addition
+10 - 4          # Subtraction
+5 * 6           # Multiplication
+20 / 4          # Division
+2 ** 3          # Exponentiation
+10 % 3          # Modulo
+```
+
+See: [Python Operators](https://docs.python.org/3/reference/lexical_analysis.html#operators)
+
+------------------------------------------------------------------------
+
+#### Main Operators in Python
+
+Key operators you'll use regularly:
+
+-   Assignment: `=` to assign values to variables
+
+``` python
+# Assignment
+x = 10
+y = 20
+total = x + y
+```
+
+-   Method chaining with `.` to chain operations
+
+``` python
+result = [1, 2, 3, 4, 5] # create a list
+sum_result = sum(result)  # calculate sum
+sqrt_result = sum_result ** 0.5  # calculate square root
+print(sqrt_result)
+```
+
+------------------------------------------------------------------------
+
+#### Subsetting Data
+
+Extract specific elements from data structures:
+
+``` python
+lst = [10, 20, 30, 40, 50]
+first_element = lst[0]        # 10
+subset = lst[1:4]             # [20, 30, 40]
+df = pd.DataFrame({
+    'a': range(1, 6),
+    'b': range(6, 11),
+    'c': list('abcde')})
+df['a']  # access column `a`
+df.iloc[0, :]   # access first row
+```
+More on subsetting here: [NumPy Indexing](https://numpy.org/doc/stable/user/basics.indexing.html)
+
+------------------------------------------------------------------------
+
+### Control Flow
+
+Making decisions and repeating tasks
+
+------------------------------------------------------------------------
+
+#### If Statements in Python
+
+Execute code conditionally:
+
+``` python
 age = 25
 
 if age >= 18:
@@ -326,11 +612,13 @@ else:
     category = "Adult"
 ```
 
----
+------------------------------------------------------------------------
 
-### For Loops in Python
+#### For Loops in Python
 
-```python
+Repeat code multiple times:
+
+``` python
 # Simple loop
 for i in range(1, 6):
     print(i)
@@ -347,114 +635,33 @@ for i in range(1, 6):
 print(results)  # [1, 4, 9, 16, 25]
 ```
 
----
+------------------------------------------------------------------------
 
-### Data Types in Python
+## Using Packages in Python
 
-```python
-x = 42          # int
-y = 3.14        # float
-name = "Alice"  # str
-flag = True     # bool
+Packages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc.
 
-type(x)
-type(name)
-```
+------------------------------------------------------------------------
 
-**Key Types**:
+### Installing and Importing Packages
 
-- `int`: Integers
-- `float`: Decimal numbers
-- `str`: Text strings
-- `bool`: True or False
+``` python
+# Install via pip (run in terminal)
+# pip install pandas
 
----
-
-### Lists in Python
-
-Ordered collections (can be mixed types):
-
-```python
-numbers = [1, 2, 3, 4, 5]
-names = ["Alice", "Bob", "Charlie"]
-mixed = [1, "Alice", 3.14, True]
-
-first = numbers[0]      # 0-based indexing!
-first_three = numbers[0:3]
-```
-
----
-
-### Dictionaries in Python
-
-Key-value pairs:
-
-```python
-student = {
-    "name": "Alice",
-    "age": 20,
-    "grade": "A"
-}
-
-student["name"]
-student.get("age")
-```
-
----
-
-### NumPy Arrays
-
-Similar to R vectors:
-
-```python
-import numpy as np
-
-numbers = np.array([1, 2, 3, 4, 5])
-matrix = np.array([[1, 2, 3], [4, 5, 6]])
-
-first = numbers[0]
-```
-
----
-
-### Pandas DataFrames
-
-Tables in Python:
-
-```python
-import pandas as pd
-
-students = pd.DataFrame({
-    "name": ["Alice", "Bob", "Charlie"],
-    "age": [20, 21, 19],
-    "grade": ["A", "B", "A"]
-})
-
-students["name"]
-students.head()
-```
-
----
-
-### Importing Packages in Python
-
-```python
+# Import in your script
+# This usually goes at the top of your script/notebook
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 ```
 
-**Popular packages**:
-- `pandas`: Data manipulation
-- `numpy`: Numerical computing
-- `matplotlib`, `seaborn`: Visualization
-- `scikit-learn`: Machine learning
+------------------------------------------------------------------------
 
----
+### Finding Documentation
 
-## Key Takeaways (Python)
-
-✅ Understand basic data types in Python
-✅ Know the difference between data structures
-✅ Learn how to import and use packages
-✅ Know the Python equivalents to R concepts
+``` python
+help(sum)              # Help on sum function
+help(pd.read_csv)      # Help on pandas read_csv
+?np.array              # In Jupyter notebooks
+```

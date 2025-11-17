@@ -1,201 +1,480 @@
 ---
-title: "2. Manipulation"
 format: revealjs
 ---
 
-## Data Manipulation
+# Data Manipulation
 
-Learn how to load, explore, filter, transform, and summarize data
+Learn how to load, explore, filter, transform, and summarise data
 
----
+------------------------------------------------------------------------
 
-## Loading and Exploring Data
+## Reading Data
 
-The first step in any analysis
-
----
-
-### Loading Data in R
+CSV files are a common format for storing tabular data. You can read them into R using the `read.csv()` function or the `read_csv()` function from the `readr` package.
 
 ```r
-library(tidyverse)
+# Base R
+crashes <- read.csv("data/crashes.csv")
 
-# Built-in dataset
-head(mtcars)
-
-# Basic statistics
-summary(mtcars)
-
-# Structure
-str(mtcars)
+# Using readr (faster, better defaults)
+library(readr)
+crashes <- read_csv("data/crashes.csv")
 ```
 
----
+------------------------------------------------------------------------
 
-## Filtering Data
+## Initial Exploration of Data
 
-Select rows that meet certain conditions
+Understand your data before analysis
 
----
+------------------------------------------------------------------------
 
-### Filtering in R
+### View Structure and Size
+
+The first step in exploring a dataset is to understand its structure and size.
 
 ```r
-library(tidyverse)
+# View dimensions
+dim(crashes)           # rows and columns
+nrow(crashes)          # number of rows
+ncol(crashes)          # number of columns
 
-# Filter cars with mpg > 20
-efficient <- mtcars %>%
-  filter(mpg > 20)
+# View structure
+str(crashes)           # structure of each column
+```
+
+------------------------------------------------------------------------
+
+### View First Few Rows
+
+You can quickly inspect the first few rows of your dataset to get a sense of the data.
+
+```r
+# Quick overview
+head(crashes)          # first 6 rows (default)
+head(crashes, n = 10)  # first 10 rows
+
+# Glimpse function from dplyr
+library(dplyr)
+glimpse(crashes)       # compact overview
+```
+
+For a more detailed look at the data, you can use the `View()` function in RStudio, which opens the dataset in a spreadsheet-like viewer.
+
+------------------------------------------------------------------------
+
+### Produce Summary Statistics
+
+Summary statistics help you understand the distribution and key characteristics of your data.
+
+```r
+# Summary statistics
+summary(crashes)       # basic stats for all columns
+
+# Specific column
+mean(crashes$casualty_age, na.rm = TRUE)
+median(crashes$casualty_age, na.rm = TRUE)
+sd(crashes$casualty_age, na.rm = TRUE)
+```
+
+------------------------------------------------------------------------
+
+## Filtering Rows with dplyr
+
+Selecting specific rows based on conditions is a common task in data manipulation.
+
+```r
+library(dplyr)
+
+# Filter rows where casualty_age > 50
+crashes |>
+  filter(casualty_age > 50)
 
 # Multiple conditions
-efficient_auto <- mtcars %>%
-  filter(mpg > 20 & cyl == 4)
+crashes |>
+  filter(dark == TRUE & casualty_age > 30)
+
+# Filter by casualty type
+crashes |>
+  filter(casualty_type == "pedestrian")
 ```
 
----
+------------------------------------------------------------------------
 
-## Summarizing Data
+## Selecting Columns with dplyr
 
-Calculate statistics grouped by categories
-
----
-
-### Summarizing in R
+You may want to choose which variables to work with
 
 ```r
-# Average mpg by cylinder count
-mpg_by_cyl <- mtcars %>%
-  group_by(cyl) %>%
-  summarise(
-    avg_mpg = mean(mpg),
-    count = n(),
-    sd_mpg = sd(mpg)
-  )
-```
+library(dplyr)
 
----
+# Select specific columns
+crashes |>
+  select(casualty_type, casualty_age, vehicle_type)
 
-## Transforming Data
-
-Create new variables and modify existing ones
-
----
-
-### Mutation in R
-
-```r
-mtcars_new <- mtcars %>%
-  mutate(
-    kpl = mpg / 2.352,           # mpg to km/litre
-    efficiency = case_when(
-      mpg > 25 ~ "High",
-      mpg > 15 ~ "Medium",
-      TRUE ~ "Low"
-    )
-  )
-```
-
----
-
-## Selecting Columns
-
-Choose which variables to work with
-
----
-
-### Selecting in R
-
-```r
-# Keep specific columns
-small_data <- mtcars %>%
-  select(mpg, cyl, hp, wt)
+# Select columns containing certain text
+crashes |>
+  select(contains("casualty"))
 
 # Rename while selecting
-renamed <- mtcars %>%
-  select(fuel_efficiency = mpg, weight = wt)
+crashes |>
+  select(age = casualty_age, vehicle = vehicle_type)
 ```
 
----
+------------------------------------------------------------------------
 
-## Python Content (Optional)
+## Ordering Data with arrange()
 
-If you're interested in Python, here are some equivalent concepts
+Sort your data by column values
 
----
+```r
+library(dplyr)
 
-### Loading Data in Python
+# Sort by casualty age (ascending)
+crashes |>
+  arrange(casualty_age)
 
-```python
-import pandas as pd
-import seaborn as sns
+# Sort in descending order
+crashes |>
+  arrange(desc(casualty_age))
 
-# Load from seaborn
-df = sns.load_dataset('mpg')
-
-# Explore
-df.head()
-df.describe()
-df.info()
+# Sort by multiple columns
+crashes |>
+  arrange(vehicle_type, desc(casualty_age))
 ```
 
----
+------------------------------------------------------------------------
 
-### Filtering in Python
+## Creating New Columns with mutate()
 
-```python
-# Single condition
-usa_cars = df[df['origin'] == 'usa']
+Add or modify variables
 
-# Multiple conditions
-efficient = df[(df['mpg'] > 20) & (df['cylinders'] == 4)]
+```r
+library(dplyr)
+
+# Create new columns
+crashes |>
+  mutate(
+    age_group = case_when(
+      casualty_age < 18 ~ "Child",
+      casualty_age < 65 ~ "Adult",
+      TRUE ~ "Senior"
+    ),
+    birth_year = 2024 - casualty_age
+  )
 ```
 
----
+------------------------------------------------------------------------
 
-### Summarizing in Python
+## Summarising Data with summarise()
 
-```python
-# Group by origin and calculate
-summary = df.groupby('origin')['mpg'].agg(['mean', 'count', 'std'])
+Calculate aggregate statistics
 
-# Or with named aggregation
-summary = df.groupby('origin')['mpg'].agg(
-    avg_mpg='mean',
-    total_cars='count'
-)
+```r
+library(dplyr)
+
+# Simple summary
+crashes |>
+  summarise(
+    mean_age = mean(casualty_age, na.rm = TRUE),
+    median_age = median(casualty_age, na.rm = TRUE),
+    n_casualties = n()
+  )
 ```
 
----
+------------------------------------------------------------------------
 
-### Transforming in Python
+## Grouped Summaries with group_by()
 
-```python
-df['kpl'] = df['mpg'] / 2.352
+Calculate statistics for each group
 
-# Using apply and lambda
-df['efficiency'] = df['mpg'].apply(
-    lambda x: 'High' if x > 25 else 'Medium' if x > 15 else 'Low'
-)
+```r
+library(dplyr)
+
+# Summary by casualty type
+crashes |>
+  group_by(casualty_type) |>
+  summarise(
+    mean_age = mean(casualty_age),
+    n_casualties = n(),
+    .groups = "drop"
+  )
+
+# Summary by multiple groups
+crashes |>
+  group_by(vehicle_type, dark) |>
+  summarise(mean_age = mean(casualty_age), .groups = "drop")
 ```
 
----
+------------------------------------------------------------------------
 
-### Selecting in Python
+## Combining Operations with the Pipe (|>)
 
-```python
-# Keep specific columns
-small_data = df[['mpg', 'cylinders', 'horsepower', 'weight']]
+Chain multiple operations together
 
-# Rename columns
-renamed = df.rename(columns={'mpg': 'fuel_efficiency'})
+```r
+library(dplyr)
+
+# Complex workflow
+result <- crashes |>
+  filter(casualty_age > 18) |>
+  select(casualty_type, casualty_age, vehicle_type, dark) |>
+  mutate(age_group = ifelse(casualty_age > 50, "Older", "Younger")) |>
+  group_by(vehicle_type, age_group) |>
+  summarise(n_casualties = n(), .groups = "drop") |>
+  arrange(desc(n_casualties))
+```
+## Exporting Data
+
+Save your processed data to a new CSV file
+
+```r
+library(readr)
+# Write to CSV
+write_csv(result, "outputs/processed_crashes.csv")
 ```
 
----
+------------------------------------------------------------------------
+
+## Example Workflow
+
+Bringing it all together
+
+Breaking down complex workflows into steps with meaningful variable names makes code more readable and maintainable.
+
+```r
+library(dplyr)
+library(readr)
+
+# Step 1: Filter for dark conditions
+crashes_dark <- crashes |>
+  filter(dark == TRUE)
+
+# Step 2: Select relevant columns
+crashes_dark_subset <- crashes_dark |>
+  select(casualty_type, casualty_age, vehicle_type)
+
+# Step 3: Create age categories
+crashes_with_ages <- crashes_dark_subset |>
+  mutate(age_category = case_when(
+    casualty_age < 25 ~ "Young",
+    casualty_age < 65 ~ "Middle-aged",
+    TRUE ~ "Older"
+  ))
+
+# Step 4: Group and summarise
+summary_by_type <- crashes_with_ages |>
+  group_by(casualty_type, age_category) |>
+  summarise(
+    n_casualties = n(),
+    mean_age = mean(casualty_age),
+    .groups = "drop"
+  )
+
+# Step 5: Order results
+final_summary <- summary_by_type |>
+  arrange(desc(n_casualties))
+
+final_summary
+
+# Step 6: Export results
+write_csv(final_summary, "outputs/dark_condition_summary.csv")
+```
+
+Good practice: Use descriptive variable names that show the transformation at each step!
+
+------------------------------------------------------------------------
 
 ## Key Takeaways
 
-✅ Load and explore data
+✅ Load and explore data before analysis
+
 ✅ Filter rows based on conditions
-✅ Group and summarize data
-✅ Create and transform variables
-✅ Select relevant columns
+
+✅ Select and rename columns strategically
+
+✅ Create new variables with meaningful names
+
+✅ Group and summarise data for insights
+
+✅ Chain operations with the pipe operator (|>)
+
+✅ Break complex workflows into named steps
+
+✅ Export processed data for sharing
+
+------------------------------------------------------------------------
+
+## Python Content (Optional)
+
+If you're interested in Python, here are equivalent concepts
+
+### Reading Data in Python
+
+CSV files are read similarly in Python using pandas
+
+```python
+import pandas as pd
+
+# Read CSV file
+crashes = pd.read_csv("data/crashes.csv")
+```
+
+------------------------------------------------------------------------
+
+### Initial Exploration in Python
+
+Understand your data structure and contents
+
+```python
+import pandas as pd
+
+# View dimensions
+crashes.shape              # returns (rows, columns)
+len(crashes)              # number of rows
+len(crashes.columns)      # number of columns
+
+# View structure
+crashes.info()            # structure of each column
+crashes.head()            # first 6 rows (default)
+crashes.head(10)          # first 10 rows
+crashes.describe()        # summary statistics
+```
+
+------------------------------------------------------------------------
+
+### Filtering Rows in Python
+
+Select specific rows based on conditions
+
+```python
+# Filter rows where casualty_age > 50
+crashes[crashes['casualty_age'] > 50]
+
+# Multiple conditions
+crashes[(crashes['dark'] == True) & (crashes['casualty_age'] > 30)]
+
+# Filter by casualty type
+crashes[crashes['casualty_type'] == 'pedestrian']
+```
+
+------------------------------------------------------------------------
+
+### Selecting Columns in Python
+
+Choose which variables to work with
+
+```python
+# Select specific columns
+crashes[['casualty_type', 'casualty_age', 'vehicle_type']]
+
+# Select columns by data type
+crashes.select_dtypes(include=['object'])
+
+# Rename columns
+crashes.rename(columns={
+    'casualty_age': 'age',
+    'vehicle_type': 'vehicle'
+})
+```
+
+------------------------------------------------------------------------
+
+### Sorting Data in Python
+
+Sort your data by column values
+
+```python
+# Sort by casualty age (ascending)
+crashes.sort_values('casualty_age')
+
+# Sort in descending order
+crashes.sort_values('casualty_age', ascending=False)
+
+# Sort by multiple columns
+crashes.sort_values(['vehicle_type', 'casualty_age'], ascending=[True, False])
+```
+
+------------------------------------------------------------------------
+
+### Creating New Columns in Python
+
+Add or modify variables using pandas
+
+```python
+import pandas as pd
+import numpy as np
+
+# Create new columns
+crashes['age_group'] = pd.cut(crashes['casualty_age'], 
+    bins=[0, 18, 65, 150], 
+    labels=['Child', 'Adult', 'Senior'])
+
+crashes['birth_year'] = 2024 - crashes['casualty_age']
+```
+
+------------------------------------------------------------------------
+
+### Summarising Data in Python
+
+Calculate aggregate statistics
+
+```python
+# Simple summary
+crashes.agg({
+    'casualty_age': ['mean', 'median', 'count']
+})
+
+# Using describe
+crashes[['casualty_age']].describe()
+```
+
+------------------------------------------------------------------------
+
+### Grouped Summaries in Python
+
+Calculate statistics for each group
+
+```python
+# Summary by casualty type
+crashes.groupby('casualty_type').agg({
+    'casualty_age': ['mean', 'count']
+}).rename(columns={'mean': 'mean_age', 'count': 'n_casualties'})
+
+# Summary by multiple groups
+crashes.groupby(['vehicle_type', 'dark'])['casualty_age'].mean()
+```
+
+------------------------------------------------------------------------
+
+### Example Workflow in Python
+
+Bringing it all together
+
+```python
+import pandas as pd
+
+# Step 1: Filter for dark conditions
+crashes_dark = crashes[crashes['dark'] == True]
+
+# Step 2: Select relevant columns
+crashes_dark_subset = crashes_dark[['casualty_type', 'casualty_age', 'vehicle_type']]
+
+# Step 3: Create age categories
+crashes_with_ages = crashes_dark_subset.copy()
+crashes_with_ages['age_category'] = pd.cut(crashes_with_ages['casualty_age'],
+    bins=[0, 25, 65, 150],
+    labels=['Young', 'Middle-aged', 'Older'])
+
+# Step 4: Group and summarise
+summary_by_type = crashes_with_ages.groupby(['casualty_type', 'age_category']).agg({
+    'casualty_age': ['count', 'mean']
+}).reset_index()
+summary_by_type.columns = ['casualty_type', 'age_category', 'n_casualties', 'mean_age']
+
+# Step 5: Sort results
+final_summary = summary_by_type.sort_values('n_casualties', ascending=False)
+
+# Step 6: Export results
+final_summary.to_csv('outputs/dark_condition_summary.csv', index=False)
+```

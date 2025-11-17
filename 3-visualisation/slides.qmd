@@ -1,175 +1,374 @@
 ---
-title: "3. Visualisation"
 format: revealjs
 ---
 
-## Data Visualization
+# Data Visualisation
 
 Tell stories with your data
 
----
+------------------------------------------------------------------------
 
-## Why Visualize?
+## Why Visualise?
 
 - Understand patterns quickly
 - Communicate findings effectively
 - Identify outliers and anomalies
 - Explore relationships
 
----
+------------------------------------------------------------------------
 
 ## Scatter Plots
 
 Show relationships between two continuous variables
 
----
+------------------------------------------------------------------------
 
-### Scatter Plot in R
+### Step 1: Create Basic Canvas
 
-```r
+Start with the data and aesthetic mappings:
+
+```{r}
+#| echo: true
 library(ggplot2)
 
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  labs(title = "Fuel Efficiency vs Weight",
-       x = "Weight (1000 lbs)",
-       y = "Miles per Gallon") +
-  theme_minimal()
+# Create the basic ggplot object with axes
+ggplot(mtcars, aes(x = wt, y = mpg))
 ```
 
----
+------------------------------------------------------------------------
+
+### Step 2: Add Points
+
+Add points to visualise individual observations:
+
+```{r}
+#| echo: true
+# Add points to show the relationship
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point()
+```
+
+------------------------------------------------------------------------
+
+### Step 3: Customise Points
+
+Adjust size, transparency, and colour:
+
+```{r}
+#| echo: true
+# Make points larger and semi-transparent
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(size = 3, alpha = 0.6, colour = "steelblue")
+```
+
+------------------------------------------------------------------------
+
+### Step 4: Add Trend Line
+
+Add a smoothing layer to show the pattern:
+
+```{r}
+#| echo: true
+# Add linear regression line
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(size = 3, alpha = 0.6, colour = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, colour = "red")
+```
+
+------------------------------------------------------------------------
+
+### Step 5: Add Labels and Theme
+
+Make it publication-ready with titles and formatting:
+
+```{r}
+#| echo: true
+# Build the complete scatter plot
+scatter_plot <- ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(size = 3, alpha = 0.6, colour = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, colour = "red") +
+  labs(
+    title = "Fuel Efficiency vs Weight",
+    subtitle = "mtcars dataset",
+    x = "Weight (1000 lbs)",
+    y = "Miles per Gallon",
+    caption = "Data: Henderson & Velleman (1981)"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
+```
+
+------------------------------------------------------------------------
+
+### Final Scatter Plot
+
+View the complete publication-ready plot:
+
+```{r}
+#| echo: false
+scatter_plot
+```
+
+------------------------------------------------------------------------
 
 ## Bar Plots
 
 Show counts or comparisons across categories
 
----
+------------------------------------------------------------------------
 
-### Bar Plot in R
+### Step 1: Basic Bar Plot
 
-```r
+Create bars for each category:
+
+```{r}
+#| echo: true
+# Create basic bar plot
 ggplot(mtcars, aes(x = factor(cyl))) +
-  geom_bar(fill = "steelblue") +
-  labs(title = "Number of Cars by Cylinders",
-       x = "Cylinders",
-       y = "Count") +
+  geom_bar()
+```
+
+------------------------------------------------------------------------
+
+### Step 2: Add Colour
+
+Customise the appearance with colours:
+
+```{r}
+#| echo: true
+# Add custom fill colour
+ggplot(mtcars, aes(x = factor(cyl))) +
+  geom_bar(fill = "steelblue", colour = "black", alpha = 0.7)
+```
+
+------------------------------------------------------------------------
+
+### Step 3: Add Labels
+
+Add titles and axis labels:
+
+```{r}
+#| echo: true
+# Build the complete bar plot
+bar_plot <- ggplot(mtcars, aes(x = factor(cyl))) +
+  geom_bar(fill = "steelblue", colour = "black", alpha = 0.7) +
+  labs(
+    title = "Number of Cars by Cylinders",
+    x = "Cylinders",
+    y = "Count"
+  ) +
   theme_minimal()
 ```
 
----
+------------------------------------------------------------------------
+
+### Final Bar Plot
+
+View the complete publication-ready plot:
+
+```{r}
+#| echo: false
+bar_plot
+```
+
+------------------------------------------------------------------------
 
 ## Box Plots
 
-Show distributions and outliers
+Show distributions and identify outliers
 
----
+------------------------------------------------------------------------
 
-### Box Plot in R
+### Step 1: Basic Box Plot
 
-```r
+Create a box plot to show distribution:
+
+```{r}
+#| echo: true
+# Create basic box plot
 ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
-  geom_boxplot(fill = "lightblue") +
-  labs(title = "MPG Distribution by Cylinders",
-       x = "Cylinders",
-       y = "MPG") +
-  theme_minimal()
+  geom_boxplot()
 ```
 
----
+------------------------------------------------------------------------
 
-## Customization
+### Step 2: Customise Box Plot
 
-Make your plots publication-ready
+Add colours and improve aesthetics:
 
----
+```{r}
+#| echo: true
+# Customised box plot with colour
+ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
+  geom_boxplot(alpha = 0.7) +
+  geom_jitter(width = 0.1, alpha = 0.3)  # Add individual points
+```
 
-### Customizing in R
+------------------------------------------------------------------------
+
+### Step 3: Add Labels
+
+Make it clear and publication-ready:
+
+```{r}
+#| echo: true
+# Complete box plot with labels
+my_boxplot <- ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
+  geom_boxplot(alpha = 0.7) +
+  geom_jitter(width = 0.1, alpha = 0.3) +
+  labs(
+    title = "MPG Distribution by Number of Cylinders",
+    x = "Cylinders",
+    y = "Miles per Gallon",
+    fill = "Cylinders"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+------------------------------------------------------------------------
+
+### Final Box Plot
+
+View the complete publication-ready plot:
+
+```{r}
+#| echo: false
+my_boxplot
+```
+
+------------------------------------------------------------------------
+
+## Using Plots
+
+Plots can also be assigned to objects for further modification or saving:
+
+```{r}
+#| echo: true
+# Save plot to object
+final_plot <- my_boxplot + theme_classic()
+
+final_plot
+```
+
+------------------------------------------------------------------------
+
+## Exporting Plots
+You can save your plots using `ggsave()`:
 
 ```r
-ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
-  geom_point(size = 3, alpha = 0.7) +
-  scale_color_manual(values = c("4" = "#E69F00", 
-                                 "6" = "#56B4E9", 
-                                 "8" = "#F8766D"),
-                     name = "Cylinders") +
-  theme_minimal() +
-  theme(plot.title = element_text(size = 16, face = "bold"))
+# Save the final plot as a PNG file
+ggsave("final_plot.png", plot = final_plot,  width = 15,  height = 10, units = "cm", dpi = 300)
 ```
-
 ---
+
+## Key Resources
+
+- [R for Data Science - Chapter 3: Data Visualisation](https://r4ds.had.co.nz/data-visualisation.html)
+- [ggplot2 Documentation](https://ggplot2.tidyverse.org/)
+- [R Graphics Cookbook](https://r-graphics.org/)
+- [Visualization for Social Data Science](https://vis4sds.github.io/vis4sds/)
+
+------------------------------------------------------------------------
+
+## Key Takeaways
+
+✅ Start with a basic canvas and build incrementally
+
+✅ Choose the right geom for your data type
+
+✅ Customise colours, size, and transparency strategically
+
+✅ Add informative titles and axis labels
+
+✅ Use themes to improve presentation
+
+✅ Layer multiple geoms for richer visualisations
+
+------------------------------------------------------------------------
 
 ## Python Content (Optional)
 
-If you're interested in Python, here are some equivalent concepts
+If you're interested in Python, here are equivalent concepts
 
----
+------------------------------------------------------------------------
 
 ### Scatter Plot in Python
 
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-df = sns.load_dataset('mpg')
-
-plt.figure(figsize=(10, 6))
-sns.scatterplot(data=df, x='weight', y='mpg')
-plt.title('Fuel Efficiency vs Weight')
-plt.xlabel('Weight')
-plt.ylabel('Miles per Gallon')
-plt.show()
-```
-
----
-
-### Bar Plot in Python
+Step-by-step construction of a scatter plot:
 
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
+# Read data
 df = sns.load_dataset('mpg')
 
-sns.countplot(data=df, x='cylinders')
-plt.title('Number of Cars by Cylinders')
-plt.show()
-```
+# Step 1: Create figure and axis
+fig, ax = plt.subplots(figsize=(10, 6))
 
----
+# Step 2: Create scatter plot
+ax.scatter(df['weight'], df['mpg'], s=100, alpha=0.6, color='steelblue')
 
-### Box Plot in Python
-
-```python
-sns.boxplot(data=df, x='cylinders', y='mpg')
-plt.title('MPG Distribution by Cylinders')
-plt.show()
-```
-
----
-
-### Customizing in Python
-
-```python
-plt.figure(figsize=(12, 6))
-for cyl in df['cylinders'].unique():
-    subset = df[df['cylinders'] == cyl]
-    plt.scatter(subset['weight'], subset['mpg'], 
-               label=f'{cyl} cylinders', s=100, alpha=0.7)
-plt.legend()
-plt.title('Fuel Efficiency vs Weight by Cylinders')
-plt.xlabel('Weight')
-plt.ylabel('MPG')
+# Step 3: Add labels
+ax.set_xlabel('Weight')
+ax.set_ylabel('Miles per Gallon')
+ax.set_title('Fuel Efficiency vs Weight')
 plt.grid(alpha=0.3)
 plt.show()
 ```
 
----
+------------------------------------------------------------------------
 
-## Key Takeaways
+### Bar Plot in Python
 
-✅ Choose the right plot type
-✅ Make plots clear and readable
-✅ Add titles and axis labels
-✅ Use color purposefully
-✅ Tell a story with data
+Create a bar plot showing counts by category:
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = sns.load_dataset('mpg')
+
+# Create figure
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Create bar plot
+df['cylinders'].value_counts().sort_index().plot(
+    kind='bar', ax=ax, color='steelblue', alpha=0.7
+)
+
+# Add labels
+ax.set_title('Number of Cars by Cylinders')
+ax.set_xlabel('Cylinders')
+ax.set_ylabel('Count')
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+### Box Plot in Python
+
+Show distribution and outliers with a box plot:
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = sns.load_dataset('mpg')
+
+# Create figure
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Create box plot with individual points
+sns.boxplot(data=df, x='cylinders', y='mpg', ax=ax, palette='Set2')
+sns.stripplot(data=df, x='cylinders', y='mpg', ax=ax, 
+              color='black', alpha=0.3, size=3)
+
+# Add labels
+ax.set_title('MPG Distribution by Number of Cylinders')
+ax.set_xlabel('Cylinders')
+ax.set_ylabel('Miles per Gallon')
+plt.show()
+```
