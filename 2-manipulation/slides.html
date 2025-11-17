@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
-  <title>2. Manipulation</title>
+  <title>slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -191,164 +191,375 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">2. Manipulation</h1>
 
-<div class="quarto-title-authors">
-</div>
-
+<section>
+<section id="data-manipulation" class="title-slide slide level1 center">
+<h1>Data Manipulation</h1>
+<p>Learn how to load, explore, filter, transform, and summarise data</p>
 </section>
-<section id="data-manipulation" class="slide level2">
-<h2>Data Manipulation</h2>
-<p>Learn how to load, explore, filter, transform, and summarize data</p>
+<section id="reading-data" class="slide level2">
+<h2>Reading Data</h2>
+<p>CSV files are a common format for storing tabular data. You can read them into R using the <code>read.csv()</code> function or the <code>read_csv()</code> function from the <code>readr</code> package.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># Base R</span></span>
+<span id="cb1-2"><a></a>crashes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/crashes.csv"</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># Using readr (faster, better defaults)</span></span>
+<span id="cb1-5"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-6"><a></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="loading-and-exploring-data" class="slide level2">
-<h2>Loading and Exploring Data</h2>
-<p>The first step in any analysis</p>
+<section id="initial-exploration-of-data" class="slide level2">
+<h2>Initial Exploration of Data</h2>
+<p>Understand your data before analysis</p>
 </section>
 <section class="slide level2">
 
-<h3 id="loading-data-in-r">Loading Data in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="co"># Built-in dataset</span></span>
-<span id="cb1-4"><a></a><span class="fu">head</span>(mtcars)</span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a><span class="co"># Basic statistics</span></span>
-<span id="cb1-7"><a></a><span class="fu">summary</span>(mtcars)</span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="co"># Structure</span></span>
-<span id="cb1-10"><a></a><span class="fu">str</span>(mtcars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="filtering-data" class="slide level2">
-<h2>Filtering Data</h2>
-<p>Select rows that meet certain conditions</p>
+<h3 id="view-structure-and-size">View Structure and Size</h3>
+<p>The first step in exploring a dataset is to understand its structure and size.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># View dimensions</span></span>
+<span id="cb2-2"><a></a><span class="fu">dim</span>(crashes)           <span class="co"># rows and columns</span></span>
+<span id="cb2-3"><a></a><span class="fu">nrow</span>(crashes)          <span class="co"># number of rows</span></span>
+<span id="cb2-4"><a></a><span class="fu">ncol</span>(crashes)          <span class="co"># number of columns</span></span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a><span class="co"># View structure</span></span>
+<span id="cb2-7"><a></a><span class="fu">str</span>(crashes)           <span class="co"># structure of each column</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
-<h3 id="filtering-in-r">Filtering in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="co"># Filter cars with mpg &gt; 20</span></span>
-<span id="cb2-4"><a></a>efficient <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span>)</span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a><span class="co"># Multiple conditions</span></span>
-<span id="cb2-8"><a></a>efficient_auto <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb2-9"><a></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">&amp;</span> cyl <span class="sc">==</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="summarizing-data" class="slide level2">
-<h2>Summarizing Data</h2>
-<p>Calculate statistics grouped by categories</p>
+<h3 id="view-first-few-rows">View First Few Rows</h3>
+<p>You can quickly inspect the first few rows of your dataset to get a sense of the data.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Quick overview</span></span>
+<span id="cb3-2"><a></a><span class="fu">head</span>(crashes)          <span class="co"># first 6 rows (default)</span></span>
+<span id="cb3-3"><a></a><span class="fu">head</span>(crashes, <span class="at">n =</span> <span class="dv">10</span>)  <span class="co"># first 10 rows</span></span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="co"># Glimpse function from dplyr</span></span>
+<span id="cb3-6"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-7"><a></a><span class="fu">glimpse</span>(crashes)       <span class="co"># compact overview</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For a more detailed look at the data, you can use the <code>View()</code> function in RStudio, which opens the dataset in a spreadsheet-like viewer.</p>
 </section>
 <section class="slide level2">
 
-<h3 id="summarizing-in-r">Summarizing in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Average mpg by cylinder count</span></span>
-<span id="cb3-2"><a></a>mpg_by_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb3-5"><a></a>    <span class="at">avg_mpg =</span> <span class="fu">mean</span>(mpg),</span>
-<span id="cb3-6"><a></a>    <span class="at">count =</span> <span class="fu">n</span>(),</span>
-<span id="cb3-7"><a></a>    <span class="at">sd_mpg =</span> <span class="fu">sd</span>(mpg)</span>
-<span id="cb3-8"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="produce-summary-statistics">Produce Summary Statistics</h3>
+<p>Summary statistics help you understand the distribution and key characteristics of your data.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Summary statistics</span></span>
+<span id="cb4-2"><a></a><span class="fu">summary</span>(crashes)       <span class="co"># basic stats for all columns</span></span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="co"># Specific column</span></span>
+<span id="cb4-5"><a></a><span class="fu">mean</span>(crashes<span class="sc">$</span>casualty_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-6"><a></a><span class="fu">median</span>(crashes<span class="sc">$</span>casualty_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-7"><a></a><span class="fu">sd</span>(crashes<span class="sc">$</span>casualty_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="transforming-data" class="slide level2">
-<h2>Transforming Data</h2>
-<p>Create new variables and modify existing ones</p>
+<section id="filtering-rows-with-dplyr" class="slide level2">
+<h2>Filtering Rows with dplyr</h2>
+<p>Selecting specific rows based on conditions is a common task in data manipulation.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="co"># Filter rows where casualty_age &gt; 50</span></span>
+<span id="cb5-4"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a></a>  <span class="fu">filter</span>(casualty_age <span class="sc">&gt;</span> <span class="dv">50</span>)</span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a><span class="co"># Multiple conditions</span></span>
+<span id="cb5-8"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a></a>  <span class="fu">filter</span>(dark <span class="sc">==</span> <span class="cn">TRUE</span> <span class="sc">&amp;</span> casualty_age <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a><span class="co"># Filter by casualty type</span></span>
+<span id="cb5-12"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb5-13"><a></a>  <span class="fu">filter</span>(casualty_type <span class="sc">==</span> <span class="st">"pedestrian"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
-
-<h3 id="mutation-in-r">Mutation in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>mtcars_new <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-3"><a></a>    <span class="at">kpl =</span> mpg <span class="sc">/</span> <span class="fl">2.352</span>,           <span class="co"># mpg to km/litre</span></span>
-<span id="cb4-4"><a></a>    <span class="at">efficiency =</span> <span class="fu">case_when</span>(</span>
-<span id="cb4-5"><a></a>      mpg <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"High"</span>,</span>
-<span id="cb4-6"><a></a>      mpg <span class="sc">&gt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
-<span id="cb4-7"><a></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Low"</span></span>
-<span id="cb4-8"><a></a>    )</span>
-<span id="cb4-9"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="selecting-columns" class="slide level2">
-<h2>Selecting Columns</h2>
-<p>Choose which variables to work with</p>
-</section>
-<section class="slide level2">
-
-<h3 id="selecting-in-r">Selecting in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Keep specific columns</span></span>
-<span id="cb5-2"><a></a>small_data <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a></a>  <span class="fu">select</span>(mpg, cyl, hp, wt)</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a><span class="co"># Rename while selecting</span></span>
-<span id="cb5-6"><a></a>renamed <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a></a>  <span class="fu">select</span>(<span class="at">fuel_efficiency =</span> mpg, <span class="at">weight =</span> wt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="python-content-optional" class="slide level2">
-<h2>Python Content (Optional)</h2>
-<p>If you’re interested in Python, here are some equivalent concepts</p>
-</section>
-<section class="slide level2">
-
-<h3 id="loading-data-in-python">Loading Data in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a><span class="co"># Load from seaborn</span></span>
-<span id="cb6-5"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<section id="selecting-columns-with-dplyr" class="slide level2">
+<h2>Selecting Columns with dplyr</h2>
+<p>You may want to choose which variables to work with</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="co"># Select specific columns</span></span>
+<span id="cb6-4"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">select</span>(casualty_type, casualty_age, vehicle_type)</span>
 <span id="cb6-6"><a></a></span>
-<span id="cb6-7"><a></a><span class="co"># Explore</span></span>
-<span id="cb6-8"><a></a>df.head()</span>
-<span id="cb6-9"><a></a>df.describe()</span>
-<span id="cb6-10"><a></a>df.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-7"><a></a><span class="co"># Select columns containing certain text</span></span>
+<span id="cb6-8"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"casualty"</span>))</span>
+<span id="cb6-10"><a></a></span>
+<span id="cb6-11"><a></a><span class="co"># Rename while selecting</span></span>
+<span id="cb6-12"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb6-13"><a></a>  <span class="fu">select</span>(<span class="at">age =</span> casualty_age, <span class="at">vehicle =</span> vehicle_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
-
-<h3 id="filtering-in-python">Filtering in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Single condition</span></span>
-<span id="cb7-2"><a></a>usa_cars <span class="op">=</span> df[df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">'usa'</span>]</span>
-<span id="cb7-3"><a></a></span>
-<span id="cb7-4"><a></a><span class="co"># Multiple conditions</span></span>
-<span id="cb7-5"><a></a>efficient <span class="op">=</span> df[(df[<span class="st">'mpg'</span>] <span class="op">&gt;</span> <span class="dv">20</span>) <span class="op">&amp;</span> (df[<span class="st">'cylinders'</span>] <span class="op">==</span> <span class="dv">4</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="ordering-data-with-arrange" class="slide level2">
+<h2>Ordering Data with arrange()</h2>
+<p>Sort your data by column values</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co"># Sort by casualty age (ascending)</span></span>
+<span id="cb7-4"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">arrange</span>(casualty_age)</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co"># Sort in descending order</span></span>
+<span id="cb7-8"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(casualty_age))</span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="co"># Sort by multiple columns</span></span>
+<span id="cb7-12"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb7-13"><a></a>  <span class="fu">arrange</span>(vehicle_type, <span class="fu">desc</span>(casualty_age))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
-
-<h3 id="summarizing-in-python">Summarizing in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Group by origin and calculate</span></span>
-<span id="cb8-2"><a></a>summary <span class="op">=</span> df.groupby(<span class="st">'origin'</span>)[<span class="st">'mpg'</span>].agg([<span class="st">'mean'</span>, <span class="st">'count'</span>, <span class="st">'std'</span>])</span>
-<span id="cb8-3"><a></a></span>
-<span id="cb8-4"><a></a><span class="co"># Or with named aggregation</span></span>
-<span id="cb8-5"><a></a>summary <span class="op">=</span> df.groupby(<span class="st">'origin'</span>)[<span class="st">'mpg'</span>].agg(</span>
-<span id="cb8-6"><a></a>    avg_mpg<span class="op">=</span><span class="st">'mean'</span>,</span>
-<span id="cb8-7"><a></a>    total_cars<span class="op">=</span><span class="st">'count'</span></span>
-<span id="cb8-8"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="creating-new-columns-with-mutate" class="slide level2">
+<h2>Creating New Columns with mutate()</h2>
+<p>Add or modify variables</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a><span class="co"># Create new columns</span></span>
+<span id="cb8-4"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-6"><a></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-7"><a></a>      casualty_age <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">"Child"</span>,</span>
+<span id="cb8-8"><a></a>      casualty_age <span class="sc">&lt;</span> <span class="dv">65</span> <span class="sc">~</span> <span class="st">"Adult"</span>,</span>
+<span id="cb8-9"><a></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Senior"</span></span>
+<span id="cb8-10"><a></a>    ),</span>
+<span id="cb8-11"><a></a>    <span class="at">birth_year =</span> <span class="dv">2024</span> <span class="sc">-</span> casualty_age</span>
+<span id="cb8-12"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
-
-<h3 id="transforming-in-python">Transforming in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>df[<span class="st">'kpl'</span>] <span class="op">=</span> df[<span class="st">'mpg'</span>] <span class="op">/</span> <span class="fl">2.352</span></span>
+<section id="summarising-data-with-summarise" class="slide level2">
+<h2>Summarising Data with summarise()</h2>
+<p>Calculate aggregate statistics</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="co"># Using apply and lambda</span></span>
-<span id="cb9-4"><a></a>df[<span class="st">'efficiency'</span>] <span class="op">=</span> df[<span class="st">'mpg'</span>].<span class="bu">apply</span>(</span>
-<span id="cb9-5"><a></a>    <span class="kw">lambda</span> x: <span class="st">'High'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">25</span> <span class="cf">else</span> <span class="st">'Medium'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">15</span> <span class="cf">else</span> <span class="st">'Low'</span></span>
-<span id="cb9-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-3"><a></a><span class="co"># Simple summary</span></span>
+<span id="cb9-4"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-6"><a></a>    <span class="at">mean_age =</span> <span class="fu">mean</span>(casualty_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-7"><a></a>    <span class="at">median_age =</span> <span class="fu">median</span>(casualty_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-8"><a></a>    <span class="at">n_casualties =</span> <span class="fu">n</span>()</span>
+<span id="cb9-9"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section class="slide level2">
-
-<h3 id="selecting-in-python">Selecting in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Keep specific columns</span></span>
-<span id="cb10-2"><a></a>small_data <span class="op">=</span> df[[<span class="st">'mpg'</span>, <span class="st">'cylinders'</span>, <span class="st">'horsepower'</span>, <span class="st">'weight'</span>]]</span>
-<span id="cb10-3"><a></a></span>
-<span id="cb10-4"><a></a><span class="co"># Rename columns</span></span>
-<span id="cb10-5"><a></a>renamed <span class="op">=</span> df.rename(columns<span class="op">=</span>{<span class="st">'mpg'</span>: <span class="st">'fuel_efficiency'</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="grouped-summaries-with-group_by" class="slide level2">
+<h2>Grouped Summaries with group_by()</h2>
+<p>Calculate statistics for each group</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="co"># Summary by casualty type</span></span>
+<span id="cb10-4"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a></a>  <span class="fu">group_by</span>(casualty_type) <span class="sc">|&gt;</span></span>
+<span id="cb10-6"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-7"><a></a>    <span class="at">mean_age =</span> <span class="fu">mean</span>(casualty_age),</span>
+<span id="cb10-8"><a></a>    <span class="at">n_casualties =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-9"><a></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb10-10"><a></a>  )</span>
+<span id="cb10-11"><a></a></span>
+<span id="cb10-12"><a></a><span class="co"># Summary by multiple groups</span></span>
+<span id="cb10-13"><a></a>crashes <span class="sc">|&gt;</span></span>
+<span id="cb10-14"><a></a>  <span class="fu">group_by</span>(vehicle_type, dark) <span class="sc">|&gt;</span></span>
+<span id="cb10-15"><a></a>  <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(casualty_age), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="combining-operations-with-the-pipe" class="slide level2">
+<h2>Combining Operations with the Pipe (|&gt;)</h2>
+<p>Chain multiple operations together</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a><span class="co"># Complex workflow</span></span>
+<span id="cb11-4"><a></a>result <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a></a>  <span class="fu">filter</span>(casualty_age <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a></a>  <span class="fu">select</span>(casualty_type, casualty_age, vehicle_type, dark) <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a></a>  <span class="fu">mutate</span>(<span class="at">age_group =</span> <span class="fu">ifelse</span>(casualty_age <span class="sc">&gt;</span> <span class="dv">50</span>, <span class="st">"Older"</span>, <span class="st">"Younger"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb11-8"><a></a>  <span class="fu">group_by</span>(vehicle_type, age_group) <span class="sc">|&gt;</span></span>
+<span id="cb11-9"><a></a>  <span class="fu">summarise</span>(<span class="at">n_casualties =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-10"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_casualties))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="exporting-data" class="slide level2">
+<h2>Exporting Data</h2>
+<p>Save your processed data to a new CSV file</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb12-2"><a></a><span class="co"># Write to CSV</span></span>
+<span id="cb12-3"><a></a><span class="fu">write_csv</span>(result, <span class="st">"outputs/processed_crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="example-workflow" class="slide level2">
+<h2>Example Workflow</h2>
+<p>Bringing it all together</p>
+<p>Breaking down complex workflows into steps with meaningful variable names makes code more readable and maintainable.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-2"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a><span class="co"># Step 1: Filter for dark conditions</span></span>
+<span id="cb13-5"><a></a>crashes_dark <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">filter</span>(dark <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-7"><a></a></span>
+<span id="cb13-8"><a></a><span class="co"># Step 2: Select relevant columns</span></span>
+<span id="cb13-9"><a></a>crashes_dark_subset <span class="ot">&lt;-</span> crashes_dark <span class="sc">|&gt;</span></span>
+<span id="cb13-10"><a></a>  <span class="fu">select</span>(casualty_type, casualty_age, vehicle_type)</span>
+<span id="cb13-11"><a></a></span>
+<span id="cb13-12"><a></a><span class="co"># Step 3: Create age categories</span></span>
+<span id="cb13-13"><a></a>crashes_with_ages <span class="ot">&lt;-</span> crashes_dark_subset <span class="sc">|&gt;</span></span>
+<span id="cb13-14"><a></a>  <span class="fu">mutate</span>(<span class="at">age_category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb13-15"><a></a>    casualty_age <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"Young"</span>,</span>
+<span id="cb13-16"><a></a>    casualty_age <span class="sc">&lt;</span> <span class="dv">65</span> <span class="sc">~</span> <span class="st">"Middle-aged"</span>,</span>
+<span id="cb13-17"><a></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Older"</span></span>
+<span id="cb13-18"><a></a>  ))</span>
+<span id="cb13-19"><a></a></span>
+<span id="cb13-20"><a></a><span class="co"># Step 4: Group and summarise</span></span>
+<span id="cb13-21"><a></a>summary_by_type <span class="ot">&lt;-</span> crashes_with_ages <span class="sc">|&gt;</span></span>
+<span id="cb13-22"><a></a>  <span class="fu">group_by</span>(casualty_type, age_category) <span class="sc">|&gt;</span></span>
+<span id="cb13-23"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-24"><a></a>    <span class="at">n_casualties =</span> <span class="fu">n</span>(),</span>
+<span id="cb13-25"><a></a>    <span class="at">mean_age =</span> <span class="fu">mean</span>(casualty_age),</span>
+<span id="cb13-26"><a></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb13-27"><a></a>  )</span>
+<span id="cb13-28"><a></a></span>
+<span id="cb13-29"><a></a><span class="co"># Step 5: Order results</span></span>
+<span id="cb13-30"><a></a>final_summary <span class="ot">&lt;-</span> summary_by_type <span class="sc">|&gt;</span></span>
+<span id="cb13-31"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_casualties))</span>
+<span id="cb13-32"><a></a></span>
+<span id="cb13-33"><a></a>final_summary</span>
+<span id="cb13-34"><a></a></span>
+<span id="cb13-35"><a></a><span class="co"># Step 6: Export results</span></span>
+<span id="cb13-36"><a></a><span class="fu">write_csv</span>(final_summary, <span class="st">"outputs/dark_condition_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Good practice: Use descriptive variable names that show the transformation at each step!</p>
 </section>
 <section id="key-takeaways" class="slide level2">
 <h2>Key Takeaways</h2>
-<p>✅ Load and explore data ✅ Filter rows based on conditions ✅ Group and summarize data ✅ Create and transform variables ✅ Select relevant columns</p>
-
-
+<p>✅ Load and explore data before analysis</p>
+<p>✅ Filter rows based on conditions</p>
+<p>✅ Select and rename columns strategically</p>
+<p>✅ Create new variables with meaningful names</p>
+<p>✅ Group and summarise data for insights</p>
+<p>✅ Chain operations with the pipe operator (|&gt;)</p>
+<p>✅ Break complex workflows into named steps</p>
+<p>✅ Export processed data for sharing</p>
 </section>
+<section id="python-content-optional" class="slide level2">
+<h2>Python Content (Optional)</h2>
+<p>If you’re interested in Python, here are equivalent concepts</p>
+<h3 id="reading-data-in-python">Reading Data in Python</h3>
+<p>CSV files are read similarly in Python using pandas</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-2"><a></a></span>
+<span id="cb14-3"><a></a><span class="co"># Read CSV file</span></span>
+<span id="cb14-4"><a></a>crashes <span class="op">=</span> pd.read_csv(<span class="st">"data/crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="initial-exploration-in-python">Initial Exploration in Python</h3>
+<p>Understand your data structure and contents</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a><span class="co"># View dimensions</span></span>
+<span id="cb15-4"><a></a>crashes.shape              <span class="co"># returns (rows, columns)</span></span>
+<span id="cb15-5"><a></a><span class="bu">len</span>(crashes)              <span class="co"># number of rows</span></span>
+<span id="cb15-6"><a></a><span class="bu">len</span>(crashes.columns)      <span class="co"># number of columns</span></span>
+<span id="cb15-7"><a></a></span>
+<span id="cb15-8"><a></a><span class="co"># View structure</span></span>
+<span id="cb15-9"><a></a>crashes.info()            <span class="co"># structure of each column</span></span>
+<span id="cb15-10"><a></a>crashes.head()            <span class="co"># first 6 rows (default)</span></span>
+<span id="cb15-11"><a></a>crashes.head(<span class="dv">10</span>)          <span class="co"># first 10 rows</span></span>
+<span id="cb15-12"><a></a>crashes.describe()        <span class="co"># summary statistics</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="filtering-rows-in-python">Filtering Rows in Python</h3>
+<p>Select specific rows based on conditions</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Filter rows where casualty_age &gt; 50</span></span>
+<span id="cb16-2"><a></a>crashes[crashes[<span class="st">'casualty_age'</span>] <span class="op">&gt;</span> <span class="dv">50</span>]</span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a><span class="co"># Multiple conditions</span></span>
+<span id="cb16-5"><a></a>crashes[(crashes[<span class="st">'dark'</span>] <span class="op">==</span> <span class="va">True</span>) <span class="op">&amp;</span> (crashes[<span class="st">'casualty_age'</span>] <span class="op">&gt;</span> <span class="dv">30</span>)]</span>
+<span id="cb16-6"><a></a></span>
+<span id="cb16-7"><a></a><span class="co"># Filter by casualty type</span></span>
+<span id="cb16-8"><a></a>crashes[crashes[<span class="st">'casualty_type'</span>] <span class="op">==</span> <span class="st">'pedestrian'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="selecting-columns-in-python">Selecting Columns in Python</h3>
+<p>Choose which variables to work with</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Select specific columns</span></span>
+<span id="cb17-2"><a></a>crashes[[<span class="st">'casualty_type'</span>, <span class="st">'casualty_age'</span>, <span class="st">'vehicle_type'</span>]]</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="co"># Select columns by data type</span></span>
+<span id="cb17-5"><a></a>crashes.select_dtypes(include<span class="op">=</span>[<span class="st">'object'</span>])</span>
+<span id="cb17-6"><a></a></span>
+<span id="cb17-7"><a></a><span class="co"># Rename columns</span></span>
+<span id="cb17-8"><a></a>crashes.rename(columns<span class="op">=</span>{</span>
+<span id="cb17-9"><a></a>    <span class="st">'casualty_age'</span>: <span class="st">'age'</span>,</span>
+<span id="cb17-10"><a></a>    <span class="st">'vehicle_type'</span>: <span class="st">'vehicle'</span></span>
+<span id="cb17-11"><a></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="sorting-data-in-python">Sorting Data in Python</h3>
+<p>Sort your data by column values</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="co"># Sort by casualty age (ascending)</span></span>
+<span id="cb18-2"><a></a>crashes.sort_values(<span class="st">'casualty_age'</span>)</span>
+<span id="cb18-3"><a></a></span>
+<span id="cb18-4"><a></a><span class="co"># Sort in descending order</span></span>
+<span id="cb18-5"><a></a>crashes.sort_values(<span class="st">'casualty_age'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-6"><a></a></span>
+<span id="cb18-7"><a></a><span class="co"># Sort by multiple columns</span></span>
+<span id="cb18-8"><a></a>crashes.sort_values([<span class="st">'vehicle_type'</span>, <span class="st">'casualty_age'</span>], ascending<span class="op">=</span>[<span class="va">True</span>, <span class="va">False</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="creating-new-columns-in-python">Creating New Columns in Python</h3>
+<p>Add or modify variables using pandas</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-3"><a></a></span>
+<span id="cb19-4"><a></a><span class="co"># Create new columns</span></span>
+<span id="cb19-5"><a></a>crashes[<span class="st">'age_group'</span>] <span class="op">=</span> pd.cut(crashes[<span class="st">'casualty_age'</span>], </span>
+<span id="cb19-6"><a></a>    bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">65</span>, <span class="dv">150</span>], </span>
+<span id="cb19-7"><a></a>    labels<span class="op">=</span>[<span class="st">'Child'</span>, <span class="st">'Adult'</span>, <span class="st">'Senior'</span>])</span>
+<span id="cb19-8"><a></a></span>
+<span id="cb19-9"><a></a>crashes[<span class="st">'birth_year'</span>] <span class="op">=</span> <span class="dv">2024</span> <span class="op">-</span> crashes[<span class="st">'casualty_age'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="summarising-data-in-python">Summarising Data in Python</h3>
+<p>Calculate aggregate statistics</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="co"># Simple summary</span></span>
+<span id="cb20-2"><a></a>crashes.agg({</span>
+<span id="cb20-3"><a></a>    <span class="st">'casualty_age'</span>: [<span class="st">'mean'</span>, <span class="st">'median'</span>, <span class="st">'count'</span>]</span>
+<span id="cb20-4"><a></a>})</span>
+<span id="cb20-5"><a></a></span>
+<span id="cb20-6"><a></a><span class="co"># Using describe</span></span>
+<span id="cb20-7"><a></a>crashes[[<span class="st">'casualty_age'</span>]].describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="grouped-summaries-in-python">Grouped Summaries in Python</h3>
+<p>Calculate statistics for each group</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Summary by casualty type</span></span>
+<span id="cb21-2"><a></a>crashes.groupby(<span class="st">'casualty_type'</span>).agg({</span>
+<span id="cb21-3"><a></a>    <span class="st">'casualty_age'</span>: [<span class="st">'mean'</span>, <span class="st">'count'</span>]</span>
+<span id="cb21-4"><a></a>}).rename(columns<span class="op">=</span>{<span class="st">'mean'</span>: <span class="st">'mean_age'</span>, <span class="st">'count'</span>: <span class="st">'n_casualties'</span>})</span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a><span class="co"># Summary by multiple groups</span></span>
+<span id="cb21-7"><a></a>crashes.groupby([<span class="st">'vehicle_type'</span>, <span class="st">'dark'</span>])[<span class="st">'casualty_age'</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+<h3 id="example-workflow-in-python">Example Workflow in Python</h3>
+<p>Bringing it all together</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb22-2"><a></a></span>
+<span id="cb22-3"><a></a><span class="co"># Step 1: Filter for dark conditions</span></span>
+<span id="cb22-4"><a></a>crashes_dark <span class="op">=</span> crashes[crashes[<span class="st">'dark'</span>] <span class="op">==</span> <span class="va">True</span>]</span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a><span class="co"># Step 2: Select relevant columns</span></span>
+<span id="cb22-7"><a></a>crashes_dark_subset <span class="op">=</span> crashes_dark[[<span class="st">'casualty_type'</span>, <span class="st">'casualty_age'</span>, <span class="st">'vehicle_type'</span>]]</span>
+<span id="cb22-8"><a></a></span>
+<span id="cb22-9"><a></a><span class="co"># Step 3: Create age categories</span></span>
+<span id="cb22-10"><a></a>crashes_with_ages <span class="op">=</span> crashes_dark_subset.copy()</span>
+<span id="cb22-11"><a></a>crashes_with_ages[<span class="st">'age_category'</span>] <span class="op">=</span> pd.cut(crashes_with_ages[<span class="st">'casualty_age'</span>],</span>
+<span id="cb22-12"><a></a>    bins<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">65</span>, <span class="dv">150</span>],</span>
+<span id="cb22-13"><a></a>    labels<span class="op">=</span>[<span class="st">'Young'</span>, <span class="st">'Middle-aged'</span>, <span class="st">'Older'</span>])</span>
+<span id="cb22-14"><a></a></span>
+<span id="cb22-15"><a></a><span class="co"># Step 4: Group and summarise</span></span>
+<span id="cb22-16"><a></a>summary_by_type <span class="op">=</span> crashes_with_ages.groupby([<span class="st">'casualty_type'</span>, <span class="st">'age_category'</span>]).agg({</span>
+<span id="cb22-17"><a></a>    <span class="st">'casualty_age'</span>: [<span class="st">'count'</span>, <span class="st">'mean'</span>]</span>
+<span id="cb22-18"><a></a>}).reset_index()</span>
+<span id="cb22-19"><a></a>summary_by_type.columns <span class="op">=</span> [<span class="st">'casualty_type'</span>, <span class="st">'age_category'</span>, <span class="st">'n_casualties'</span>, <span class="st">'mean_age'</span>]</span>
+<span id="cb22-20"><a></a></span>
+<span id="cb22-21"><a></a><span class="co"># Step 5: Sort results</span></span>
+<span id="cb22-22"><a></a>final_summary <span class="op">=</span> summary_by_type.sort_values(<span class="st">'n_casualties'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb22-23"><a></a></span>
+<span id="cb22-24"><a></a><span class="co"># Step 6: Export results</span></span>
+<span id="cb22-25"><a></a>final_summary.to_csv(<span class="st">'outputs/dark_condition_summary.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

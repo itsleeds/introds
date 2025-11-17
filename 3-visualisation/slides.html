@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
-  <title>3. Visualisation</title>
+  <title>slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -191,19 +191,14 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">3. Visualisation</h1>
 
-<div class="quarto-title-authors">
-</div>
-
-</section>
-<section id="data-visualization" class="slide level2">
-<h2>Data Visualization</h2>
+<section>
+<section id="data-visualisation" class="title-slide slide level1 center">
+<h1>Data Visualisation</h1>
 <p>Tell stories with your data</p>
 </section>
-<section id="why-visualize" class="slide level2">
-<h2>Why Visualize?</h2>
+<section id="why-visualise" class="slide level2">
+<h2>Why Visualise?</h2>
 <ul>
 <li>Understand patterns quickly</li>
 <li>Communicate findings effectively</li>
@@ -217,120 +212,287 @@
 </section>
 <section class="slide level2">
 
-<h3 id="scatter-plot-in-r">Scatter Plot in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<h3 id="step-1-create-basic-canvas">Step 1: Create Basic Canvas</h3>
+<p>Start with the data and aesthetic mappings:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb1-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-5"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb1-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fuel Efficiency vs Weight"</span>,</span>
-<span id="cb1-7"><a></a>       <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>,</span>
-<span id="cb1-8"><a></a>       <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>) <span class="sc">+</span></span>
-<span id="cb1-9"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a></a><span class="co"># Create the basic ggplot object with axes</span></span>
+<span id="cb1-4"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-2-add-points">Step 2: Add Points</h3>
+<p>Add points to visualise individual observations:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Add points to show the relationship</span></span>
+<span id="cb2-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb2-3"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-3-customise-points">Step 3: Customise Points</h3>
+<p>Adjust size, transparency, and colour:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Make points larger and semi-transparent</span></span>
+<span id="cb3-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-4-add-trend-line">Step 4: Add Trend Line</h3>
+<p>Add a smoothing layer to show the pattern:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Add linear regression line</span></span>
+<span id="cb4-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-5-add-labels-and-theme">Step 5: Add Labels and Theme</h3>
+<p>Make it publication-ready with titles and formatting:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Build the complete scatter plot</span></span>
+<span id="cb5-2"><a></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-6"><a></a>    <span class="at">title =</span> <span class="st">"Fuel Efficiency vs Weight"</span>,</span>
+<span id="cb5-7"><a></a>    <span class="at">subtitle =</span> <span class="st">"mtcars dataset"</span>,</span>
+<span id="cb5-8"><a></a>    <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>,</span>
+<span id="cb5-9"><a></a>    <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
+<span id="cb5-10"><a></a>    <span class="at">caption =</span> <span class="st">"Data: Henderson &amp; Velleman (1981)"</span></span>
+<span id="cb5-11"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb5-12"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-13"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
+<section class="slide level2">
+
+<h3 id="final-scatter-plot">Final Scatter Plot</h3>
+<p>View the complete publication-ready plot:</p>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="bar-plots" class="slide level2">
 <h2>Bar Plots</h2>
 <p>Show counts or comparisons across categories</p>
 </section>
 <section class="slide level2">
 
-<h3 id="bar-plot-in-r">Bar Plot in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Cars by Cylinders"</span>,</span>
-<span id="cb2-4"><a></a>       <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
-<span id="cb2-5"><a></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb2-6"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="step-1-basic-bar-plot">Step 1: Basic Bar Plot</h3>
+<p>Create bars for each category:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Create basic bar plot</span></span>
+<span id="cb6-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-2-add-colour">Step 2: Add Colour</h3>
+<p>Customise the appearance with colours:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Add custom fill colour</span></span>
+<span id="cb7-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-3-add-labels">Step 3: Add Labels</h3>
+<p>Add titles and axis labels:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Build the complete bar plot</span></span>
+<span id="cb8-2"><a></a>bar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-5"><a></a>    <span class="at">title =</span> <span class="st">"Number of Cars by Cylinders"</span>,</span>
+<span id="cb8-6"><a></a>    <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
+<span id="cb8-7"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb8-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
+<section class="slide level2">
+
+<h3 id="final-bar-plot">Final Bar Plot</h3>
+<p>View the complete publication-ready plot:</p>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
 <section id="box-plots" class="slide level2">
 <h2>Box Plots</h2>
-<p>Show distributions and outliers</p>
+<p>Show distributions and identify outliers</p>
 </section>
 <section class="slide level2">
 
-<h3 id="box-plot-in-r">Box Plot in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"MPG Distribution by Cylinders"</span>,</span>
-<span id="cb3-4"><a></a>       <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
-<span id="cb3-5"><a></a>       <span class="at">y =</span> <span class="st">"MPG"</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="customization" class="slide level2">
-<h2>Customization</h2>
-<p>Make your plots publication-ready</p>
+<h3 id="step-1-basic-box-plot">Step 1: Basic Box Plot</h3>
+<p>Create a box plot to show distribution:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Create basic box plot</span></span>
+<span id="cb9-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-2-customise-box-plot">Step 2: Customise Box Plot</h3>
+<p>Add colours and improve aesthetics:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Customised box plot with colour</span></span>
+<span id="cb10-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>)  <span class="co"># Add individual points</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<section class="slide level2">
+
+<h3 id="step-3-add-labels-1">Step 3: Add Labels</h3>
+<p>Make it clear and publication-ready:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># Complete box plot with labels</span></span>
+<span id="cb11-2"><a></a>my_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-6"><a></a>    <span class="at">title =</span> <span class="st">"MPG Distribution by Number of Cylinders"</span>,</span>
+<span id="cb11-7"><a></a>    <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
+<span id="cb11-8"><a></a>    <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
+<span id="cb11-9"><a></a>    <span class="at">fill =</span> <span class="st">"Cylinders"</span></span>
+<span id="cb11-10"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb11-11"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-12"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section class="slide level2">
 
-<h3 id="customizing-in-r">Customizing in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"4"</span> <span class="ot">=</span> <span class="st">"#E69F00"</span>, </span>
-<span id="cb4-4"><a></a>                                 <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"#56B4E9"</span>, </span>
-<span id="cb4-5"><a></a>                                 <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"#F8766D"</span>),</span>
-<span id="cb4-6"><a></a>                     <span class="at">name =</span> <span class="st">"Cylinders"</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb4-8"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="final-box-plot">Final Box Plot</h3>
+<p>View the complete publication-ready plot:</p>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="using-plots" class="slide level2">
+<h2>Using Plots</h2>
+<p>Plots can also be assigned to objects for further modification or saving:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Save plot to object</span></span>
+<span id="cb12-2"><a></a>final_plot <span class="ot">&lt;-</span> my_boxplot <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a>final_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="exporting-plots" class="slide level2">
+<h2>Exporting Plots</h2>
+<p>You can save your plots using <code>ggsave()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Save the final plot as a PNG file</span></span>
+<span id="cb13-2"><a></a><span class="fu">ggsave</span>(<span class="st">"final_plot.png"</span>, <span class="at">plot =</span> final_plot,  <span class="at">width =</span> <span class="dv">15</span>,  <span class="at">height =</span> <span class="dv">10</span>, <span class="at">units =</span> <span class="st">"cm"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="key-resources" class="slide level2">
+<h2>Key Resources</h2>
+<ul>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html">R for Data Science - Chapter 3: Data Visualisation</a></li>
+<li><a href="https://ggplot2.tidyverse.org/">ggplot2 Documentation</a></li>
+<li><a href="https://r-graphics.org/">R Graphics Cookbook</a></li>
+<li><a href="https://vis4sds.github.io/vis4sds/">Visualization for Social Data Science</a></li>
+</ul>
+</section>
+<section id="key-takeaways" class="slide level2">
+<h2>Key Takeaways</h2>
+<p>✅ Start with a basic canvas and build incrementally</p>
+<p>✅ Choose the right geom for your data type</p>
+<p>✅ Customise colours, size, and transparency strategically</p>
+<p>✅ Add informative titles and axis labels</p>
+<p>✅ Use themes to improve presentation</p>
+<p>✅ Layer multiple geoms for richer visualisations</p>
 </section>
 <section id="python-content-optional" class="slide level2">
 <h2>Python Content (Optional)</h2>
-<p>If you’re interested in Python, here are some equivalent concepts</p>
+<p>If you’re interested in Python, here are equivalent concepts</p>
 </section>
 <section class="slide level2">
 
 <h3 id="scatter-plot-in-python">Scatter Plot in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb5-5"><a></a></span>
-<span id="cb5-6"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb5-7"><a></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'mpg'</span>)</span>
-<span id="cb5-8"><a></a>plt.title(<span class="st">'Fuel Efficiency vs Weight'</span>)</span>
-<span id="cb5-9"><a></a>plt.xlabel(<span class="st">'Weight'</span>)</span>
-<span id="cb5-10"><a></a>plt.ylabel(<span class="st">'Miles per Gallon'</span>)</span>
-<span id="cb5-11"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Step-by-step construction of a scatter plot:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb14-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="co"># Read data</span></span>
+<span id="cb14-6"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<span id="cb14-7"><a></a></span>
+<span id="cb14-8"><a></a><span class="co"># Step 1: Create figure and axis</span></span>
+<span id="cb14-9"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb14-10"><a></a></span>
+<span id="cb14-11"><a></a><span class="co"># Step 2: Create scatter plot</span></span>
+<span id="cb14-12"><a></a>ax.scatter(df[<span class="st">'weight'</span>], df[<span class="st">'mpg'</span>], s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span>
+<span id="cb14-13"><a></a></span>
+<span id="cb14-14"><a></a><span class="co"># Step 3: Add labels</span></span>
+<span id="cb14-15"><a></a>ax.set_xlabel(<span class="st">'Weight'</span>)</span>
+<span id="cb14-16"><a></a>ax.set_ylabel(<span class="st">'Miles per Gallon'</span>)</span>
+<span id="cb14-17"><a></a>ax.set_title(<span class="st">'Fuel Efficiency vs Weight'</span>)</span>
+<span id="cb14-18"><a></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb14-19"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="bar-plot-in-python">Bar Plot in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb6-5"><a></a></span>
-<span id="cb6-6"><a></a>sns.countplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>)</span>
-<span id="cb6-7"><a></a>plt.title(<span class="st">'Number of Cars by Cylinders'</span>)</span>
-<span id="cb6-8"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Create a bar plot showing counts by category:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb15-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<span id="cb15-5"><a></a></span>
+<span id="cb15-6"><a></a><span class="co"># Create figure</span></span>
+<span id="cb15-7"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb15-8"><a></a></span>
+<span id="cb15-9"><a></a><span class="co"># Create bar plot</span></span>
+<span id="cb15-10"><a></a>df[<span class="st">'cylinders'</span>].value_counts().sort_index().plot(</span>
+<span id="cb15-11"><a></a>    kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span></span>
+<span id="cb15-12"><a></a>)</span>
+<span id="cb15-13"><a></a></span>
+<span id="cb15-14"><a></a><span class="co"># Add labels</span></span>
+<span id="cb15-15"><a></a>ax.set_title(<span class="st">'Number of Cars by Cylinders'</span>)</span>
+<span id="cb15-16"><a></a>ax.set_xlabel(<span class="st">'Cylinders'</span>)</span>
+<span id="cb15-17"><a></a>ax.set_ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb15-18"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="box-plot-in-python">Box Plot in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>)</span>
-<span id="cb7-2"><a></a>plt.title(<span class="st">'MPG Distribution by Cylinders'</span>)</span>
-<span id="cb7-3"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section class="slide level2">
-
-<h3 id="customizing-in-python">Customizing in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb8-2"><a></a><span class="cf">for</span> cyl <span class="kw">in</span> df[<span class="st">'cylinders'</span>].unique():</span>
-<span id="cb8-3"><a></a>    subset <span class="op">=</span> df[df[<span class="st">'cylinders'</span>] <span class="op">==</span> cyl]</span>
-<span id="cb8-4"><a></a>    plt.scatter(subset[<span class="st">'weight'</span>], subset[<span class="st">'mpg'</span>], </span>
-<span id="cb8-5"><a></a>               label<span class="op">=</span><span class="ss">f'</span><span class="sc">{</span>cyl<span class="sc">}</span><span class="ss"> cylinders'</span>, s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb8-6"><a></a>plt.legend()</span>
-<span id="cb8-7"><a></a>plt.title(<span class="st">'Fuel Efficiency vs Weight by Cylinders'</span>)</span>
-<span id="cb8-8"><a></a>plt.xlabel(<span class="st">'Weight'</span>)</span>
-<span id="cb8-9"><a></a>plt.ylabel(<span class="st">'MPG'</span>)</span>
-<span id="cb8-10"><a></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb8-11"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="key-takeaways" class="slide level2">
-<h2>Key Takeaways</h2>
-<p>✅ Choose the right plot type ✅ Make plots clear and readable ✅ Add titles and axis labels ✅ Use color purposefully ✅ Tell a story with data</p>
+<p>Show distribution and outliers with a box plot:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a><span class="co"># Create figure</span></span>
+<span id="cb16-7"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb16-8"><a></a></span>
+<span id="cb16-9"><a></a><span class="co"># Create box plot with individual points</span></span>
+<span id="cb16-10"><a></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
+<span id="cb16-11"><a></a>sns.stripplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, </span>
+<span id="cb16-12"><a></a>              color<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb16-13"><a></a></span>
+<span id="cb16-14"><a></a><span class="co"># Add labels</span></span>
+<span id="cb16-15"><a></a>ax.set_title(<span class="st">'MPG Distribution by Number of Cylinders'</span>)</span>
+<span id="cb16-16"><a></a>ax.set_xlabel(<span class="st">'Cylinders'</span>)</span>
+<span id="cb16-17"><a></a>ax.set_ylabel(<span class="st">'Miles per Gallon'</span>)</span>
+<span id="cb16-18"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -546,6 +708,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Robin Lovelace &amp; contributors">
 <meta name="dcterms.date" content="2025">
 
-<title>2. Manipulation - Tasks</title>
+<title>Data Wrangling - Tasks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-96d30c252253255417142c77f163ee20.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c480acf56a2108335092ccc4c123f373.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -132,9 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../"><span class="intro-text">Introduction to</span> <span class="ds-text">Data Science</span></a> 
     </div>
@@ -267,41 +265,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#exercise-1-loading-and-exploring-data" id="toc-exercise-1-loading-and-exploring-data" class="nav-link active" data-scroll-target="#exercise-1-loading-and-exploring-data">Exercise 1: Loading and Exploring Data</a>
-  <ul class="collapse">
-  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r">In R</a></li>
-  <li><a href="#in-python" id="toc-in-python" class="nav-link" data-scroll-target="#in-python">In Python</a></li>
-  </ul></li>
-  <li><a href="#exercise-2-filtering-and-summarizing-data" id="toc-exercise-2-filtering-and-summarizing-data" class="nav-link" data-scroll-target="#exercise-2-filtering-and-summarizing-data">Exercise 2: Filtering and Summarizing Data</a>
-  <ul class="collapse">
-  <li><a href="#in-r-1" id="toc-in-r-1" class="nav-link" data-scroll-target="#in-r-1">In R</a></li>
-  <li><a href="#in-python-1" id="toc-in-python-1" class="nav-link" data-scroll-target="#in-python-1">In Python</a></li>
-  </ul></li>
-  <li><a href="#exercise-3-creating-new-variables" id="toc-exercise-3-creating-new-variables" class="nav-link" data-scroll-target="#exercise-3-creating-new-variables">Exercise 3: Creating New Variables</a>
-  <ul class="collapse">
-  <li><a href="#in-r-2" id="toc-in-r-2" class="nav-link" data-scroll-target="#in-r-2">In R</a></li>
-  <li><a href="#in-python-2" id="toc-in-python-2" class="nav-link" data-scroll-target="#in-python-2">In Python</a></li>
-  </ul></li>
-  <li><a href="#exercise-4-data-manipulation-challenge" id="toc-exercise-4-data-manipulation-challenge" class="nav-link" data-scroll-target="#exercise-4-data-manipulation-challenge">Exercise 4: Data Manipulation Challenge</a>
-  <ul class="collapse">
-  <li><a href="#in-r-3" id="toc-in-r-3" class="nav-link" data-scroll-target="#in-r-3">In R</a></li>
-  <li><a href="#in-python-3" id="toc-in-python-3" class="nav-link" data-scroll-target="#in-python-3">In Python</a></li>
-  </ul></li>
-  <li><a href="#bonus-challenge" id="toc-bonus-challenge" class="nav-link" data-scroll-target="#bonus-challenge">Bonus Challenge</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2-manipulation/index.html">Manipulation</a></li><li class="breadcrumb-item"><a href="../2-manipulation/tasks.html">Tasks</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2. Manipulation - Tasks</h1>
+<h1 class="title">Data Wrangling - Tasks</h1>
 </div>
 
 
@@ -318,156 +290,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Complete these exercises to practice data manipulation techniques.</p>
-<section id="exercise-1-loading-and-exploring-data" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1-loading-and-exploring-data">Exercise 1: Loading and Exploring Data</h2>
-<section id="in-r" class="level3">
-<h3 class="anchored" data-anchor-id="in-r">In R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the mtcars dataset</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get basic statistics</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your Task</strong>: Explore the dataset and answer: - How many cars are in the dataset? - What variables are included? - What is the average miles per gallon (mpg)?</p>
-</section>
-<section id="in-python" class="level3">
-<h3 class="anchored" data-anchor-id="in-python">In Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a sample dataset</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore the data</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your Task</strong>: Explore the dataset and answer: - How many vehicles are in the dataset? - What variables are included? - What is the average MPG?</p>
-<hr>
-</section>
-</section>
-<section id="exercise-2-filtering-and-summarizing-data" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-filtering-and-summarizing-data">Exercise 2: Filtering and Summarizing Data</h2>
-<section id="in-r-1" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-1">In R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cars with good fuel efficiency (mpg &gt; 20)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>efficient_cars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average mpg by cylinder count</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>mpg_by_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_mpg =</span> <span class="fu">mean</span>(mpg),</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>()</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mpg_by_cyl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your Tasks</strong>: - How many cars have mpg &gt; 20? - Which cylinder count has the best average fuel efficiency? - Filter for cars with automatic transmission (<code>am == 0</code>) - Calculate the count of cars by transmission type</p>
-</section>
-<section id="in-python-1" class="level3">
-<h3 class="anchored" data-anchor-id="in-python-1">In Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cars from the USA</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>usa_cars <span class="op">=</span> df[df[<span class="st">'origin'</span>] <span class="op">==</span> <span class="st">'usa'</span>]</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by year and calculate average mpg</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>mpg_by_year <span class="op">=</span> df.groupby(<span class="st">'model_year'</span>)[<span class="st">'mpg'</span>].mean()</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mpg_by_year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your Tasks</strong>: - Filter for cars from Japan - Group by origin and calculate average MPG - Which origin has the highest average MPG? - How many cars are from each origin?</p>
-<hr>
-</section>
-</section>
-<section id="exercise-3-creating-new-variables" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-creating-new-variables">Exercise 3: Creating New Variables</h2>
-<section id="in-r-2" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-2">In R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variables</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mtcars_new <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert mpg to km/litre</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">kpl =</span> mpg <span class="sc">/</span> <span class="fl">2.352</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create efficiency categories</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">efficiency =</span> <span class="fu">case_when</span>(</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      mpg <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"High"</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      mpg <span class="sc">&gt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Low"</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars_new)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your Tasks</strong>: - Create a new variable for horsepower per cylinder - Create categories for car weight: “Light”, “Medium”, “Heavy” - Find the average mpg for each efficiency category</p>
-</section>
-<section id="in-python-2" class="level3">
-<h3 class="anchored" data-anchor-id="in-python-2">In Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variables</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'kpl'</span>] <span class="op">=</span> df[<span class="st">'mpg'</span>] <span class="op">/</span> <span class="fl">2.352</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'efficiency'</span>] <span class="op">=</span> df[<span class="st">'mpg'</span>].<span class="bu">apply</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> x: <span class="st">'High'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">25</span> <span class="cf">else</span> <span class="st">'Medium'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">15</span> <span class="cf">else</span> <span class="st">'Low'</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Your Tasks</strong>: - Create a new variable for horsepower per cylinder - Create categories for weight - Find the average MPG for each efficiency category</p>
-<hr>
-</section>
-</section>
-<section id="exercise-4-data-manipulation-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-data-manipulation-challenge">Exercise 4: Data Manipulation Challenge</h2>
-<p>Combine multiple operations:</p>
-<section id="in-r-3" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-3">In R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter to specific cars</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new variables</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">hp_per_cyl =</span> hp <span class="sc">/</span> cyl,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">wt_per_cyl =</span> wt <span class="sc">/</span> cyl</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select relevant columns</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, hp, hp_per_cyl, wt, wt_per_cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arrange by mpg descending</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Questions</strong>: - What does this pipeline do? - How many 4-cylinder cars are there? - Which has the highest mpg among 4-cylinder cars?</p>
-</section>
-<section id="in-python-3" class="level3">
-<h3 class="anchored" data-anchor-id="in-python-3">In Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> (df[df[<span class="st">'cylinders'</span>] <span class="op">==</span> <span class="dv">4</span>]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    .assign(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        hp_per_cyl <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="st">'horsepower'</span>] <span class="op">/</span> x[<span class="st">'cylinders'</span>],</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        wt_per_cyl <span class="op">=</span> <span class="kw">lambda</span> x: x[<span class="st">'weight'</span>] <span class="op">/</span> x[<span class="st">'cylinders'</span>]</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    [[<span class="st">'mpg'</span>, <span class="st">'horsepower'</span>, <span class="st">'hp_per_cyl'</span>, <span class="st">'weight'</span>, <span class="st">'wt_per_cyl'</span>]]</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'mpg'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Questions</strong>: - What does this pipeline do? - How many 4-cylinder cars are there? - Which has the highest mpg among 4-cylinder cars?</p>
-<hr>
-</section>
-</section>
-<section id="bonus-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="bonus-challenge">Bonus Challenge</h2>
-<p>Create a summary table showing: - For each origin, calculate: - Average MPG - Average horsepower - Number of cars - Count of cars by cylinders</p>
-<p>Can you do this in both R and Python?</p>
+<p>In this section, we will practice data wrangling using R and the <code>dplyr</code> package from the <code>tidyverse</code>. Follow the steps below to manipulate and explore a dataset.</p>
+<ol type="1">
+<li><p>Create a new R script in your <code>scripts</code> folder and name it <code>2-data-wrangling-and-visualization.R</code>.</p></li>
+<li><p>Load the <code>tidyverse</code> package by adding the following line at the top of your script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Download the <code>crashes</code> file from the course resources and save it in your <code>data</code> folder.</p></li>
+<li><p>Read the <code>crashes</code> dataset into R using the <code>read_csv()</code> function and assign it to a variable named <code>crashes</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Explore the dataset:</p>
+<ul>
+<li>Use the <code>head()</code> function to view the first few rows of the dataset.</li>
+<li>Use the <code>str()</code> function to understand the structure of the dataset.</li>
+<li>Use the <code>summary()</code> function to get a summary of the dataset.</li>
+</ul></li>
+<li><p>Data Wrangling Tasks:</p>
+<ul>
+<li>Create a new data.frame named <code>crashes_filtered</code> that includes only cyclists.</li>
+<li>Create a new data.frame named <code>crashes_dark</code> that includes only crashes that occurred in dark conditions.</li>
+<li>Create a new data.frame named <code>crashes_dark_cyclist</code> that includes only crashes that involved cyclists <strong>and</strong> occurred in dark conditions.</li>
+<li>Create a summary table named <code>crashes_by_type</code> that shows the median age by casualty type.</li>
+</ul></li>
+</ol>
 
 
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2025 Robin Lovelace</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

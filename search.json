@@ -153,73 +153,7 @@
     "href": "3-visualisation/tasks.html",
     "title": "3. Visualisation - Tasks",
     "section": "",
-    "text": "Complete these exercises to practice creating effective visualizations.",
-    "crumbs": [
-      "Visualisation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/tasks.html#exercise-1-creating-basic-scatter-plots",
-    "href": "3-visualisation/tasks.html#exercise-1-creating-basic-scatter-plots",
-    "title": "3. Visualisation - Tasks",
-    "section": "Exercise 1: Creating Basic Scatter Plots",
-    "text": "Exercise 1: Creating Basic Scatter Plots\n\nIn R\nlibrary(ggplot2)\n\n# Scatter plot: mpg vs weight\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  labs(title = \"Fuel Efficiency vs Car Weight\",\n       x = \"Weight (1000 lbs)\",\n       y = \"Miles per Gallon\") +\n  theme_minimal()\nYour Tasks: - Create this plot - What pattern do you observe? - Try changing x to hp (horsepower) - Add color = factor(cyl) to the aesthetic to color by cylinders\n\n\nIn Python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=df, x='weight', y='mpg')\nplt.title('Fuel Efficiency vs Weight')\nplt.xlabel('Weight')\nplt.ylabel('Miles per Gallon')\nplt.show()\nYour Tasks: - Create this plot - What pattern do you observe? - Try changing x to horsepower - Color the points by cylinders",
-    "crumbs": [
-      "Visualisation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/tasks.html#exercise-2-creating-bar-charts",
-    "href": "3-visualisation/tasks.html#exercise-2-creating-bar-charts",
-    "title": "3. Visualisation - Tasks",
-    "section": "Exercise 2: Creating Bar Charts",
-    "text": "Exercise 2: Creating Bar Charts\n\nIn R\n# Count cars by cylinder\nggplot(mtcars, aes(x = factor(cyl))) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Number of Cars by Cylinder Count\",\n       x = \"Cylinders\",\n       y = \"Number of Cars\") +\n  theme_minimal()\nYour Tasks: - Create this plot - How many 4-cylinder cars are there? - Create a bar plot showing counts by transmission type (am) - Try filling by different cylinders: fill = factor(cyl)\n\n\nIn Python\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\nsns.countplot(data=df, x='cylinders')\nplt.title('Car Count by Cylinders')\nplt.xlabel('Cylinders')\nplt.ylabel('Count')\nplt.show()\nYour Tasks: - Create this plot - Create a bar plot by origin - Try: sns.countplot(data=df, x='cylinders', hue='origin')",
-    "crumbs": [
-      "Visualisation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/tasks.html#exercise-3-creating-box-plots",
-    "href": "3-visualisation/tasks.html#exercise-3-creating-box-plots",
-    "title": "3. Visualisation - Tasks",
-    "section": "Exercise 3: Creating Box Plots",
-    "text": "Exercise 3: Creating Box Plots\n\nIn R\n# Box plot of mpg by cylinders\nggplot(mtcars, aes(x = factor(cyl), y = mpg)) +\n  geom_boxplot(fill = \"lightblue\") +\n  labs(title = \"MPG Distribution by Cylinder Count\",\n       x = \"Cylinders\",\n       y = \"Miles per Gallon\") +\n  theme_minimal()\nYour Tasks: - Create this plot - What does the box plot show? - Are there any outliers? - Create a box plot of horsepower by transmission type\n\n\nIn Python\nsns.boxplot(data=df, x='cylinders', y='mpg')\nplt.title('MPG Distribution by Cylinders')\nplt.show()\nYour Tasks: - Create this plot - What does the box plot show? - Create a box plot of horsepower by cylinders",
-    "crumbs": [
-      "Visualisation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/tasks.html#exercise-4-customizing-plots",
-    "href": "3-visualisation/tasks.html#exercise-4-customizing-plots",
-    "title": "3. Visualisation - Tasks",
-    "section": "Exercise 4: Customizing Plots",
-    "text": "Exercise 4: Customizing Plots\n\nIn R\n# Customized scatter plot\nggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl), size = hp)) +\n  geom_point(alpha = 0.7) +\n  scale_color_manual(name = \"Cylinders\",\n                     values = c(\"4\" = \"#E69F00\", \n                               \"6\" = \"#56B4E9\", \n                               \"8\" = \"#F8766D\")) +\n  scale_size_continuous(name = \"Horsepower\") +\n  labs(title = \"Fuel Efficiency: Weight vs MPG\",\n       subtitle = \"Size represents horsepower, color represents cylinders\",\n       x = \"Weight (1000 lbs)\",\n       y = \"Miles per Gallon\") +\n  theme_minimal() +\n  theme(plot.title = element_text(size = 14, face = \"bold\"))\nYour Tasks: - Create this plot - Explain what each aesthetic represents - Change the colors to your preference\n\n\nIn Python\nplt.figure(figsize=(12, 6))\n\nfor cyl in sorted(df['cylinders'].unique()):\n    subset = df[df['cylinders'] == cyl]\n    plt.scatter(subset['weight'], subset['mpg'], \n               label=f'{int(cyl)} cylinders', \n               s=subset['horsepower']/2,\n               alpha=0.6)\n\nplt.legend()\nplt.title('Fuel Efficiency: Weight vs MPG')\nplt.xlabel('Weight')\nplt.ylabel('MPG')\nplt.grid(alpha=0.3)\nplt.show()\nYour Tasks: - Create this plot - Explain what the size of points represents - Experiment with different colors",
-    "crumbs": [
-      "Visualisation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/tasks.html#exercise-5-creating-multiple-plots",
-    "href": "3-visualisation/tasks.html#exercise-5-creating-multiple-plots",
-    "title": "3. Visualisation - Tasks",
-    "section": "Exercise 5: Creating Multiple Plots",
-    "text": "Exercise 5: Creating Multiple Plots\n\nIn R\nlibrary(ggplot2)\nlibrary(gridExtra)\n\n# Create two plots\np1 &lt;- ggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = \"lm\") +\n  theme_minimal()\n\np2 &lt;- ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +\n  geom_boxplot() +\n  theme_minimal()\n\n# Display side by side\ngridExtra::grid.arrange(p1, p2, ncol = 2)\nYour Task: Create a multi-panel visualization\n\n\nIn Python\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))\n\n# Plot 1\nax1.scatter(df['weight'], df['mpg'])\nax1.set_title('Scatter Plot')\nax1.set_xlabel('Weight')\nax1.set_ylabel('MPG')\n\n# Plot 2\ndf.boxplot(column='mpg', by='cylinders', ax=ax2)\nax2.set_title('Box Plot')\n\nplt.tight_layout()\nplt.show()\nYour Task: Create a multi-panel visualization",
-    "crumbs": [
-      "Visualisation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/tasks.html#bonus-challenge",
-    "href": "3-visualisation/tasks.html#bonus-challenge",
-    "title": "3. Visualisation - Tasks",
-    "section": "Bonus Challenge",
-    "text": "Bonus Challenge\nCreate a comprehensive visualization that shows: - Multiple variables at once - Well-chosen colors - Clear titles and labels - A legend explaining the data\nTell a story about the data with your visualization!",
+    "text": "In this section, we will practice data visualization using R and the ggplot2 package from the tidyverse. Follow the steps below to create various types of plots.\nUsing the same script 2-data-wrangling-and-visualization.R from the previous section, continue with the following tasks:\nIf you have loaded the tidyverse package and read in the crashes dataset, you can proceed to the next steps. ggplot2 is part of the tidyverse, so you don’t need to load it separately.\n\nBox Plot:\n\nCreate a box plot to visualise the distribution of ages for different casualty types in the crashes dataset.\nUse ggplot() to specify the dataset and aesthetics, and geom_boxplot() to create the box plot.\nAdd appropriate labels and a title to your plot.\nSave the box plot to an object named age_boxplot.\nDisplay the plot by calling the object name.\n\nBar Plot (Optional):\n\nCreate a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).\nAdd custom colours and transparency to the bars.\nAdd appropriate labels and a title.\nSave the plot to an object named casualty_barplot.\n\nExport Your Plots:\n\nSave the box plot as a PNG file named age_boxplot.png using the ggsave() function.\nSave the bar plot as a PNG file named casualty_barplot.png.\nCheck the documentation for ggsave() by typing ?ggsave in the console.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
     "crumbs": [
       "Visualisation",
       "Tasks"
@@ -237,133 +171,102 @@
     ]
   },
   {
-    "objectID": "2-manipulation/slides.html#data-manipulation",
-    "href": "2-manipulation/slides.html#data-manipulation",
-    "title": "2. Manipulation",
-    "section": "Data Manipulation",
-    "text": "Data Manipulation\nLearn how to load, explore, filter, transform, and summarize data"
+    "objectID": "2-manipulation/slides.html#reading-data",
+    "href": "2-manipulation/slides.html#reading-data",
+    "title": "",
+    "section": "Reading Data",
+    "text": "Reading Data\nCSV files are a common format for storing tabular data. You can read them into R using the read.csv() function or the read_csv() function from the readr package.\n# Base R\ncrashes &lt;- read.csv(\"data/crashes.csv\")\n\n# Using readr (faster, better defaults)\nlibrary(readr)\ncrashes &lt;- read_csv(\"data/crashes.csv\")"
   },
   {
-    "objectID": "2-manipulation/slides.html#loading-and-exploring-data",
-    "href": "2-manipulation/slides.html#loading-and-exploring-data",
-    "title": "2. Manipulation",
-    "section": "Loading and Exploring Data",
-    "text": "Loading and Exploring Data\nThe first step in any analysis"
+    "objectID": "2-manipulation/slides.html#initial-exploration-of-data",
+    "href": "2-manipulation/slides.html#initial-exploration-of-data",
+    "title": "",
+    "section": "Initial Exploration of Data",
+    "text": "Initial Exploration of Data\nUnderstand your data before analysis"
   },
   {
-    "objectID": "2-manipulation/slides.html#filtering-data",
-    "href": "2-manipulation/slides.html#filtering-data",
-    "title": "2. Manipulation",
-    "section": "Filtering Data",
-    "text": "Filtering Data\nSelect rows that meet certain conditions"
+    "objectID": "2-manipulation/slides.html#filtering-rows-with-dplyr",
+    "href": "2-manipulation/slides.html#filtering-rows-with-dplyr",
+    "title": "",
+    "section": "Filtering Rows with dplyr",
+    "text": "Filtering Rows with dplyr\nSelecting specific rows based on conditions is a common task in data manipulation.\nlibrary(dplyr)\n\n# Filter rows where casualty_age &gt; 50\ncrashes |&gt;\n  filter(casualty_age &gt; 50)\n\n# Multiple conditions\ncrashes |&gt;\n  filter(dark == TRUE & casualty_age &gt; 30)\n\n# Filter by casualty type\ncrashes |&gt;\n  filter(casualty_type == \"pedestrian\")"
   },
   {
-    "objectID": "2-manipulation/slides.html#summarizing-data",
-    "href": "2-manipulation/slides.html#summarizing-data",
-    "title": "2. Manipulation",
-    "section": "Summarizing Data",
-    "text": "Summarizing Data\nCalculate statistics grouped by categories"
+    "objectID": "2-manipulation/slides.html#selecting-columns-with-dplyr",
+    "href": "2-manipulation/slides.html#selecting-columns-with-dplyr",
+    "title": "",
+    "section": "Selecting Columns with dplyr",
+    "text": "Selecting Columns with dplyr\nYou may want to choose which variables to work with\nlibrary(dplyr)\n\n# Select specific columns\ncrashes |&gt;\n  select(casualty_type, casualty_age, vehicle_type)\n\n# Select columns containing certain text\ncrashes |&gt;\n  select(contains(\"casualty\"))\n\n# Rename while selecting\ncrashes |&gt;\n  select(age = casualty_age, vehicle = vehicle_type)"
   },
   {
-    "objectID": "2-manipulation/slides.html#transforming-data",
-    "href": "2-manipulation/slides.html#transforming-data",
-    "title": "2. Manipulation",
-    "section": "Transforming Data",
-    "text": "Transforming Data\nCreate new variables and modify existing ones"
+    "objectID": "2-manipulation/slides.html#ordering-data-with-arrange",
+    "href": "2-manipulation/slides.html#ordering-data-with-arrange",
+    "title": "",
+    "section": "Ordering Data with arrange()",
+    "text": "Ordering Data with arrange()\nSort your data by column values\nlibrary(dplyr)\n\n# Sort by casualty age (ascending)\ncrashes |&gt;\n  arrange(casualty_age)\n\n# Sort in descending order\ncrashes |&gt;\n  arrange(desc(casualty_age))\n\n# Sort by multiple columns\ncrashes |&gt;\n  arrange(vehicle_type, desc(casualty_age))"
   },
   {
-    "objectID": "2-manipulation/slides.html#selecting-columns",
-    "href": "2-manipulation/slides.html#selecting-columns",
-    "title": "2. Manipulation",
-    "section": "Selecting Columns",
-    "text": "Selecting Columns\nChoose which variables to work with"
+    "objectID": "2-manipulation/slides.html#creating-new-columns-with-mutate",
+    "href": "2-manipulation/slides.html#creating-new-columns-with-mutate",
+    "title": "",
+    "section": "Creating New Columns with mutate()",
+    "text": "Creating New Columns with mutate()\nAdd or modify variables\nlibrary(dplyr)\n\n# Create new columns\ncrashes |&gt;\n  mutate(\n    age_group = case_when(\n      casualty_age &lt; 18 ~ \"Child\",\n      casualty_age &lt; 65 ~ \"Adult\",\n      TRUE ~ \"Senior\"\n    ),\n    birth_year = 2024 - casualty_age\n  )"
   },
   {
-    "objectID": "2-manipulation/slides.html#python-content-optional",
-    "href": "2-manipulation/slides.html#python-content-optional",
-    "title": "2. Manipulation",
-    "section": "Python Content (Optional)",
-    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+    "objectID": "2-manipulation/slides.html#summarising-data-with-summarise",
+    "href": "2-manipulation/slides.html#summarising-data-with-summarise",
+    "title": "",
+    "section": "Summarising Data with summarise()",
+    "text": "Summarising Data with summarise()\nCalculate aggregate statistics\nlibrary(dplyr)\n\n# Simple summary\ncrashes |&gt;\n  summarise(\n    mean_age = mean(casualty_age, na.rm = TRUE),\n    median_age = median(casualty_age, na.rm = TRUE),\n    n_casualties = n()\n  )"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#grouped-summaries-with-group_by",
+    "href": "2-manipulation/slides.html#grouped-summaries-with-group_by",
+    "title": "",
+    "section": "Grouped Summaries with group_by()",
+    "text": "Grouped Summaries with group_by()\nCalculate statistics for each group\nlibrary(dplyr)\n\n# Summary by casualty type\ncrashes |&gt;\n  group_by(casualty_type) |&gt;\n  summarise(\n    mean_age = mean(casualty_age),\n    n_casualties = n(),\n    .groups = \"drop\"\n  )\n\n# Summary by multiple groups\ncrashes |&gt;\n  group_by(vehicle_type, dark) |&gt;\n  summarise(mean_age = mean(casualty_age), .groups = \"drop\")"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#combining-operations-with-the-pipe",
+    "href": "2-manipulation/slides.html#combining-operations-with-the-pipe",
+    "title": "",
+    "section": "Combining Operations with the Pipe (|>)",
+    "text": "Combining Operations with the Pipe (|&gt;)\nChain multiple operations together\nlibrary(dplyr)\n\n# Complex workflow\nresult &lt;- crashes |&gt;\n  filter(casualty_age &gt; 18) |&gt;\n  select(casualty_type, casualty_age, vehicle_type, dark) |&gt;\n  mutate(age_group = ifelse(casualty_age &gt; 50, \"Older\", \"Younger\")) |&gt;\n  group_by(vehicle_type, age_group) |&gt;\n  summarise(n_casualties = n(), .groups = \"drop\") |&gt;\n  arrange(desc(n_casualties))"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#exporting-data",
+    "href": "2-manipulation/slides.html#exporting-data",
+    "title": "",
+    "section": "Exporting Data",
+    "text": "Exporting Data\nSave your processed data to a new CSV file\nlibrary(readr)\n# Write to CSV\nwrite_csv(result, \"outputs/processed_crashes.csv\")"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#example-workflow",
+    "href": "2-manipulation/slides.html#example-workflow",
+    "title": "",
+    "section": "Example Workflow",
+    "text": "Example Workflow\nBringing it all together\nBreaking down complex workflows into steps with meaningful variable names makes code more readable and maintainable.\nlibrary(dplyr)\nlibrary(readr)\n\n# Step 1: Filter for dark conditions\ncrashes_dark &lt;- crashes |&gt;\n  filter(dark == TRUE)\n\n# Step 2: Select relevant columns\ncrashes_dark_subset &lt;- crashes_dark |&gt;\n  select(casualty_type, casualty_age, vehicle_type)\n\n# Step 3: Create age categories\ncrashes_with_ages &lt;- crashes_dark_subset |&gt;\n  mutate(age_category = case_when(\n    casualty_age &lt; 25 ~ \"Young\",\n    casualty_age &lt; 65 ~ \"Middle-aged\",\n    TRUE ~ \"Older\"\n  ))\n\n# Step 4: Group and summarise\nsummary_by_type &lt;- crashes_with_ages |&gt;\n  group_by(casualty_type, age_category) |&gt;\n  summarise(\n    n_casualties = n(),\n    mean_age = mean(casualty_age),\n    .groups = \"drop\"\n  )\n\n# Step 5: Order results\nfinal_summary &lt;- summary_by_type |&gt;\n  arrange(desc(n_casualties))\n\nfinal_summary\n\n# Step 6: Export results\nwrite_csv(final_summary, \"outputs/dark_condition_summary.csv\")\nGood practice: Use descriptive variable names that show the transformation at each step!"
   },
   {
     "objectID": "2-manipulation/slides.html#key-takeaways",
     "href": "2-manipulation/slides.html#key-takeaways",
-    "title": "2. Manipulation",
+    "title": "",
     "section": "Key Takeaways",
-    "text": "Key Takeaways\n✅ Load and explore data ✅ Filter rows based on conditions ✅ Group and summarize data ✅ Create and transform variables ✅ Select relevant columns"
+    "text": "Key Takeaways\n✅ Load and explore data before analysis\n✅ Filter rows based on conditions\n✅ Select and rename columns strategically\n✅ Create new variables with meaningful names\n✅ Group and summarise data for insights\n✅ Chain operations with the pipe operator (|&gt;)\n✅ Break complex workflows into named steps\n✅ Export processed data for sharing"
+  },
+  {
+    "objectID": "2-manipulation/slides.html#python-content-optional",
+    "href": "2-manipulation/slides.html#python-content-optional",
+    "title": "",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts\nReading Data in Python\nCSV files are read similarly in Python using pandas\nimport pandas as pd\n\n# Read CSV file\ncrashes = pd.read_csv(\"data/crashes.csv\")"
   },
   {
     "objectID": "1-basics/tasks.html",
     "href": "1-basics/tasks.html",
-    "title": "1. Basics - Tasks",
+    "title": "The Basics - Tasks",
     "section": "",
-    "text": "Complete these tasks to practice the concepts from the slides.",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/tasks.html#task-1-explore-data-types",
-    "href": "1-basics/tasks.html#task-1-explore-data-types",
-    "title": "1. Basics - Tasks",
-    "section": "Task 1: Explore Data Types",
-    "text": "Task 1: Explore Data Types\nTry the following in your R or Python console:\n\nIn R\n# Create different data types\nx &lt;- 42\ny &lt;- 3.14\nname &lt;- \"Data Science\"\nis_fun &lt;- TRUE\n\n# Check their types\nclass(x)\ntypeof(y)\nclass(name)\ntypeof(is_fun)\nQuestions: - What is the difference between numeric and integer? - Can you create an integer variable?\n\n\nIn Python\nx = 42\ny = 3.14\nname = \"Data Science\"\nis_fun = True\n\ntype(x)\ntype(y)\ntype(name)\ntype(is_fun)",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/tasks.html#task-2-working-with-vectors-and-lists",
-    "href": "1-basics/tasks.html#task-2-working-with-vectors-and-lists",
-    "title": "1. Basics - Tasks",
-    "section": "Task 2: Working with Vectors and Lists",
-    "text": "Task 2: Working with Vectors and Lists\n\nIn R\n# Create a vector\nmy_vector &lt;- c(10, 20, 30, 40, 50)\n\n# Access elements\nmy_vector[1]\nmy_vector[2:4]\nmy_vector[c(1, 3, 5)]\nQuestions: - What does my_vector[2:4] return? - How would you get only the first and last elements? - Create a vector of your own and practice indexing\n\n\nIn Python\nmy_list = [10, 20, 30, 40, 50]\n\n# Access elements\nmy_list[0]      # Remember: 0-based indexing!\nmy_list[1:4]\nmy_list[::2]    # Every second element\nQuestions: - Why does my_list[0] give you the first element? - What does my_list[1:4] return? - How would you get every other element?",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/tasks.html#task-3-creating-and-accessing-data-frames",
-    "href": "1-basics/tasks.html#task-3-creating-and-accessing-data-frames",
-    "title": "1. Basics - Tasks",
-    "section": "Task 3: Creating and Accessing Data Frames",
-    "text": "Task 3: Creating and Accessing Data Frames\n\nIn R\n# Create a data frame\npeople &lt;- data.frame(\n  name = c(\"Alice\", \"Bob\", \"Charlie\", \"Diana\"),\n  age = c(25, 30, 28, 35),\n  city = c(\"London\", \"Manchester\", \"London\", \"Birmingham\")\n)\n\n# Explore it\nhead(people)\nstr(people)\nnrow(people)\nncol(people)\n\n# Access data\npeople$name\npeople[1, ]\npeople[, \"age\"]\npeople[people$age &gt; 28, ]\nTasks: - How many people are in the data frame? - What are the column names? - Get all rows where age is greater than 28 - Get the name of the second person\n\n\nIn Python\nimport pandas as pd\n\npeople = pd.DataFrame({\n    \"name\": [\"Alice\", \"Bob\", \"Charlie\", \"Diana\"],\n    \"age\": [25, 30, 28, 35],\n    \"city\": [\"London\", \"Manchester\", \"London\", \"Birmingham\"]\n})\n\n# Explore it\npeople.head()\npeople.info()\npeople.shape\n\n# Access data\npeople[\"name\"]\npeople.iloc[0]\npeople.loc[people[\"age\"] &gt; 28]\nTasks: - How many people are in the data frame? - What are the column names? - Get all rows where age is greater than 28 - Get the name of the second person",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/tasks.html#task-4-understanding-packages",
-    "href": "1-basics/tasks.html#task-4-understanding-packages",
-    "title": "1. Basics - Tasks",
-    "section": "Task 4: Understanding Packages",
-    "text": "Task 4: Understanding Packages\n\nIn R\n# If not already installed:\ninstall.packages(\"tidyverse\")\n\n# Load the package\nlibrary(tidyverse)\n\n# Now you have access to tidyverse functions\n# Try accessing the help for a function\n?filter\n?select\nTasks: - Install a new package of your choice - Load it with library() - Look up help for one of its functions\n\n\nIn Python\n# If not already installed (in terminal):\n# pip install pandas\n\nimport pandas as pd\nimport numpy as np\n\n# Check the version\nprint(pd.__version__)\nprint(np.__version__)\n\n# Look up help\nhelp(pd.DataFrame)\nTasks: - Import pandas and check its version - Import numpy and check its version - Look up the help for one function",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/tasks.html#task-5-data-types-and-operators-challenge",
-    "href": "1-basics/tasks.html#task-5-data-types-and-operators-challenge",
-    "title": "1. Basics - Tasks",
-    "section": "Task 5: Data Types and Operators Challenge",
-    "text": "Task 5: Data Types and Operators Challenge\n\nIn R\n# Perform calculations\nresult1 &lt;- 10 + 5 * 2          # What's the order of operations?\nresult2 &lt;- (10 + 5) * 2        # Does parentheses change it?\nresult3 &lt;- 17 %% 5             # What does modulo give?\nresult4 &lt;- 2 ^ 10              # What's 2 to the power of 10?\n\n# Mixed types\nmixed_vector &lt;- c(1, 2, 3, \"hello\")\nclass(mixed_vector)            # What type is this?\nQuestions: - What are the values of result1, result2, result3, result4? - Why is the mixed_vector converted to character?\n\n\nIn Python\nresult1 = 10 + 5 * 2\nresult2 = (10 + 5) * 2\nresult3 = 17 % 5\nresult4 = 2 ** 10\n\nmixed_list = [1, 2, 3, \"hello\"]\ntype(mixed_list)               # What type is this?\n\n# This won't work - why?\n# result = 1 + \"hello\"\nQuestions: - What are the values of result1, result2, result3, result4? - Can you add a number to a string in Python?",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/tasks.html#download-resources",
-    "href": "1-basics/tasks.html#download-resources",
-    "title": "1. Basics - Tasks",
-    "section": "Download Resources",
-    "text": "Download Resources\n\n\n\n\n\n\nTipQuick Reference Guides\n\n\n\n\nR Operators Reference\nPython Operators Reference\nCRAN Packages\nPyPI - Python Package Index",
+    "text": "We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.\n\n\n\n\n\n\nTip\n\n\n\nGet R and RStudio running (see Prerequisites if needed) before.\n\n\nSetting up your first(?) project: 1. In RStudio, go to File &gt; New Project.... - Select New Directory. - Select New Project. - Name the project DS-intro-2025 and choose a directory to save it in (your OneDrive might be a good choice). - Click Create Project. 2. Navigate to the Files tab, and create two folders in the project directory: data and scripts.\nNow using the console only: 3. Type: print(\"Hello, world!\") and hit Enter to see the output. 4. Now try: 2 + 2 and hit Enter. 5. Find what the current working directory is by typing getwd() and hitting Enter. 6. Assign the value 10 to a variable named my_number using the assignment operator &lt;- or =. 7. Print the value of my_number to the console. Did it work?\nNow, let’s create your first R script: 8. In RStudio, go to File &gt; New File &gt; R Script.\n\n\n\n\n\n\nNote\n\n\n\nR scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.\nThink of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.\nAll lines in the script that start with # are comments. They are not executed as code but are there to help explain what the code does.\n\n\n\nSave the script in the scripts folder as 1-basics-intro.R.\nType the following code in the new script:\n# This is my first R script\nprint(\"Hello, world!\")\nmy_number &lt;- 10\nprint(my_number)\nRun the code in the script by placing your cursor on each line and pressing Ctrl + Enter (or Cmd + Enter on Mac). Observe the output in the console.\nCreate a vector with 1000 random numbers between 0 and 100. For this, you can use the runif() function. Assign this vector to a variable named random_numbers. Check how to specify the minimum and maximum values in the runif() function by typing ?runif in the console.\nInstall the tidyverse package by typing install.packages(\"tidyverse\") in the console. We won’t use it now, we will load it in the next part.\n\nOptional:\n\nCalculate the mean and standard deviation of the random_numbers vector using the mean() and sd() functions. Print the results to the console.\nSave your script by clicking File &gt; Save or pressing Ctrl + S (or Cmd + S on Mac).\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
     "crumbs": [
       "Basics",
       "Tasks"
@@ -372,7 +275,7 @@
   {
     "objectID": "1-basics/index.html",
     "href": "1-basics/index.html",
-    "title": "Basics",
+    "title": "The Basics",
     "section": "",
     "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
     "crumbs": [
@@ -475,7 +378,7 @@
     "href": "github-copilot.html#using-ai-tools-effectively",
     "title": "GitHub Copilot & AI Tools",
     "section": "Using AI Tools Effectively",
-    "text": "Using AI Tools Effectively\n\nBest Practices\n\n\n\n\n\n\nTipWriting Good Prompts\n\n\n\n\nWrite clear comments describing what you want to do\nUse descriptive variable names\nBreak complex tasks into smaller steps\n\n\n\n\n\nExample in R\n\n# Load a CSV file of transport data and calculate average trip distance\n# Copilot might suggest:\nlibrary(tidyverse)\ndata &lt;- read_csv(\"transport_data.csv\")\navg_distance &lt;- data %&gt;% \n  summarise(mean_distance = mean(trip_distance, na.rm = TRUE))\n\n\n\nExample in Python\n\n# Load transport data and visualize trip distribution\n# Copilot might suggest:\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = pd.read_csv(\"transport_data.csv\")\ndata['trip_distance'].hist(bins=30)\nplt.xlabel('Trip Distance')\nplt.show()",
+    "text": "Using AI Tools Effectively\n\nBest Practices\n\n\n\n\n\n\nTipWriting Good Prompts\n\n\n\n\nWrite clear comments describing what you want to do\nUse descriptive variable names\nBreak complex tasks into smaller steps\n\n\n\n\n\nExample in R\n#| eval: false\n\n# Load a CSV file of transport data and calculate average trip distance\n# Copilot might suggest:\nlibrary(tidyverse)\ndata &lt;- read_csv(\"transport_data.csv\")\navg_distance &lt;- data %&gt;% \n  summarise(mean_distance = mean(trip_distance, na.rm = TRUE))\n\n\nExample in Python\n#| eval: false\n\n# Load transport data and visualize trip distribution\n# Copilot might suggest:\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = pd.read_csv(\"transport_data.csv\")\ndata['trip_distance'].hist(bins=30)\nplt.xlabel('Trip Distance')\nplt.show()",
     "crumbs": [
       "GitHub Copilot & AI"
     ]
@@ -521,74 +424,67 @@
     ]
   },
   {
-    "objectID": "1-basics/slides.html#welcome-to-the-fundamentals",
-    "href": "1-basics/slides.html#welcome-to-the-fundamentals",
-    "title": "1. Basics",
-    "section": "Welcome to the Fundamentals!",
-    "text": "Welcome to the Fundamentals!\nThis section covers the essential concepts and tools you need to get started with data science."
-  },
-  {
     "objectID": "1-basics/slides.html#integrated-development-environments-ides",
     "href": "1-basics/slides.html#integrated-development-environments-ides",
-    "title": "1. Basics",
+    "title": "",
     "section": "Integrated Development Environments (IDEs)",
     "text": "Integrated Development Environments (IDEs)\nYour toolkit for writing code"
   },
   {
-    "objectID": "1-basics/slides.html#data-types-and-structures",
-    "href": "1-basics/slides.html#data-types-and-structures",
-    "title": "1. Basics",
-    "section": "Data Types and Structures",
-    "text": "Data Types and Structures\nThe fundamental building blocks"
+    "objectID": "1-basics/slides.html#the-fundamentals-of-r",
+    "href": "1-basics/slides.html#the-fundamentals-of-r",
+    "title": "",
+    "section": "The fundamentals of R",
+    "text": "The fundamentals of R\n\nhow to organize your work\nbasic data types and structures\nusing R for calculations"
   },
   {
-    "objectID": "1-basics/slides.html#organizing-your-work",
-    "href": "1-basics/slides.html#organizing-your-work",
-    "title": "1. Basics",
-    "section": "Organizing Your Work",
-    "text": "Organizing Your Work\nProject structure and file paths"
+    "objectID": "1-basics/slides.html#using-r",
+    "href": "1-basics/slides.html#using-r",
+    "title": "",
+    "section": "Using R",
+    "text": "Using R"
   },
   {
     "objectID": "1-basics/slides.html#control-flow",
     "href": "1-basics/slides.html#control-flow",
-    "title": "1. Basics",
+    "title": "",
     "section": "Control Flow",
     "text": "Control Flow\nMaking decisions and repeating tasks"
   },
   {
-    "objectID": "1-basics/slides.html#r-as-a-calculator",
-    "href": "1-basics/slides.html#r-as-a-calculator",
-    "title": "1. Basics",
-    "section": "R as a Calculator",
-    "text": "R as a Calculator\nSimple operations:\n2 + 3           # Addition\n10 - 4          # Subtraction\n5 * 6           # Multiplication\n20 / 4          # Division\n2 ^ 3           # Exponentiation\n10 %% 3         # Modulo"
+    "objectID": "1-basics/slides.html#using-packages-in-r",
+    "href": "1-basics/slides.html#using-packages-in-r",
+    "title": "",
+    "section": "Using Packages in R",
+    "text": "Using Packages in R\nPackages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc.\n\nSource: Storybench"
   },
   {
-    "objectID": "1-basics/slides.html#understanding-packages-in-r",
-    "href": "1-basics/slides.html#understanding-packages-in-r",
-    "title": "1. Basics",
-    "section": "Understanding Packages in R",
-    "text": "Understanding Packages in R\nCollections of functions to extend capabilities"
-  },
-  {
-    "objectID": "1-basics/slides.html#key-takeaways-r",
-    "href": "1-basics/slides.html#key-takeaways-r",
-    "title": "1. Basics",
-    "section": "Key Takeaways (R)",
-    "text": "Key Takeaways (R)\n✅ Know your IDE (RStudio or VS Code) ✅ Understand basic data types in R ✅ Know the difference between data structures ✅ Organize your work with folder structure ✅ Use relative paths for portability ✅ Control program flow with if statements and loops ✅ Learn how to install and use packages ✅ Know where to find documentation"
+    "objectID": "1-basics/slides.html#key-takeaways",
+    "href": "1-basics/slides.html#key-takeaways",
+    "title": "",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n✅ Know your IDE (RStudio or VS Code)\n✅ Understand basic data types in R\n✅ Know the difference between data structures\n✅ Organize your work with folder structure\n✅ Use relative paths for portability\n✅ Control program flow with if statements and loops\n✅ Learn how to install and use packages\n✅ Know where to find documentation"
   },
   {
     "objectID": "1-basics/slides.html#python-content-optional",
     "href": "1-basics/slides.html#python-content-optional",
-    "title": "1. Basics",
+    "title": "",
     "section": "Python Content (Optional)",
-    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts"
   },
   {
-    "objectID": "1-basics/slides.html#key-takeaways-python",
-    "href": "1-basics/slides.html#key-takeaways-python",
-    "title": "1. Basics",
-    "section": "Key Takeaways (Python)",
-    "text": "Key Takeaways (Python)\n✅ Understand basic data types in Python ✅ Know the difference between data structures ✅ Learn how to import and use packages ✅ Know the Python equivalents to R concepts"
+    "objectID": "1-basics/slides.html#the-fundamentals-of-python",
+    "href": "1-basics/slides.html#the-fundamentals-of-python",
+    "title": "",
+    "section": "The Fundamentals of Python",
+    "text": "The Fundamentals of Python\nOrganising Your Work\nProject structure and file paths\nRecommended Folder Structure\n\n\nmy-project/\n├── data/\n│   ├── raw/              # Original data files\n│   └── processed/        # Cleaned data\n├── code/\n│   ├── analysis.py\n│   └── plots.py\n├── outputs/\n│   ├── figures/\n│   └── results/\n├── README.md\n└── requirements.txt\n\n\nTips:\n\nKeep your work organised for easy maintenance\nUse meaningful folder and file names\nKeep data separate from code and outputs\nKeep raw data unchanged; process copies instead"
+  },
+  {
+    "objectID": "1-basics/slides.html#using-packages-in-python",
+    "href": "1-basics/slides.html#using-packages-in-python",
+    "title": "",
+    "section": "Using Packages in Python",
+    "text": "Using Packages in Python\nPackages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc."
   },
   {
     "objectID": "2-manipulation/index.html",
@@ -604,124 +500,76 @@
   {
     "objectID": "2-manipulation/tasks.html",
     "href": "2-manipulation/tasks.html",
-    "title": "2. Manipulation - Tasks",
+    "title": "Data Wrangling - Tasks",
     "section": "",
-    "text": "Complete these exercises to practice data manipulation techniques.",
+    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file from the course resources and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
     "crumbs": [
       "Manipulation",
       "Tasks"
     ]
   },
   {
-    "objectID": "2-manipulation/tasks.html#exercise-1-loading-and-exploring-data",
-    "href": "2-manipulation/tasks.html#exercise-1-loading-and-exploring-data",
-    "title": "2. Manipulation - Tasks",
-    "section": "Exercise 1: Loading and Exploring Data",
-    "text": "Exercise 1: Loading and Exploring Data\n\nIn R\nlibrary(tidyverse)\n\n# Look at the mtcars dataset\nhead(mtcars)\n\n# Get basic statistics\nsummary(mtcars)\n\n# Check the structure\nstr(mtcars)\nYour Task: Explore the dataset and answer: - How many cars are in the dataset? - What variables are included? - What is the average miles per gallon (mpg)?\n\n\nIn Python\nimport pandas as pd\nimport seaborn as sns\n\n# Load a sample dataset\ndf = sns.load_dataset('mpg')\n\n# Explore the data\nprint(df.head())\nprint(df.describe())\nprint(df.info())\nYour Task: Explore the dataset and answer: - How many vehicles are in the dataset? - What variables are included? - What is the average MPG?",
-    "crumbs": [
-      "Manipulation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "2-manipulation/tasks.html#exercise-2-filtering-and-summarizing-data",
-    "href": "2-manipulation/tasks.html#exercise-2-filtering-and-summarizing-data",
-    "title": "2. Manipulation - Tasks",
-    "section": "Exercise 2: Filtering and Summarizing Data",
-    "text": "Exercise 2: Filtering and Summarizing Data\n\nIn R\nlibrary(tidyverse)\n\n# Filter cars with good fuel efficiency (mpg &gt; 20)\nefficient_cars &lt;- mtcars %&gt;%\n  filter(mpg &gt; 20)\n\n# Calculate average mpg by cylinder count\nmpg_by_cyl &lt;- mtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarise(\n    avg_mpg = mean(mpg),\n    count = n()\n  )\n\nprint(mpg_by_cyl)\nYour Tasks: - How many cars have mpg &gt; 20? - Which cylinder count has the best average fuel efficiency? - Filter for cars with automatic transmission (am == 0) - Calculate the count of cars by transmission type\n\n\nIn Python\nimport pandas as pd\nimport seaborn as sns\n\ndf = sns.load_dataset('mpg')\n\n# Filter cars from the USA\nusa_cars = df[df['origin'] == 'usa']\n\n# Group by year and calculate average mpg\nmpg_by_year = df.groupby('model_year')['mpg'].mean()\n\nprint(mpg_by_year)\nYour Tasks: - Filter for cars from Japan - Group by origin and calculate average MPG - Which origin has the highest average MPG? - How many cars are from each origin?",
-    "crumbs": [
-      "Manipulation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "2-manipulation/tasks.html#exercise-3-creating-new-variables",
-    "href": "2-manipulation/tasks.html#exercise-3-creating-new-variables",
-    "title": "2. Manipulation - Tasks",
-    "section": "Exercise 3: Creating New Variables",
-    "text": "Exercise 3: Creating New Variables\n\nIn R\n# Create new variables\nmtcars_new &lt;- mtcars %&gt;%\n  mutate(\n    # Convert mpg to km/litre\n    kpl = mpg / 2.352,\n    # Create efficiency categories\n    efficiency = case_when(\n      mpg &gt; 25 ~ \"High\",\n      mpg &gt; 15 ~ \"Medium\",\n      TRUE ~ \"Low\"\n    )\n  )\n\nhead(mtcars_new)\nYour Tasks: - Create a new variable for horsepower per cylinder - Create categories for car weight: “Light”, “Medium”, “Heavy” - Find the average mpg for each efficiency category\n\n\nIn Python\n# Create new variables\ndf['kpl'] = df['mpg'] / 2.352\n\ndf['efficiency'] = df['mpg'].apply(\n    lambda x: 'High' if x &gt; 25 else 'Medium' if x &gt; 15 else 'Low'\n)\n\nprint(df.head())\nYour Tasks: - Create a new variable for horsepower per cylinder - Create categories for weight - Find the average MPG for each efficiency category",
-    "crumbs": [
-      "Manipulation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "2-manipulation/tasks.html#exercise-4-data-manipulation-challenge",
-    "href": "2-manipulation/tasks.html#exercise-4-data-manipulation-challenge",
-    "title": "2. Manipulation - Tasks",
-    "section": "Exercise 4: Data Manipulation Challenge",
-    "text": "Exercise 4: Data Manipulation Challenge\nCombine multiple operations:\n\nIn R\nresult &lt;- mtcars %&gt;%\n  # Filter to specific cars\n  filter(cyl == 4) %&gt;%\n  # Create new variables\n  mutate(\n    hp_per_cyl = hp / cyl,\n    wt_per_cyl = wt / cyl\n  ) %&gt;%\n  # Select relevant columns\n  select(mpg, hp, hp_per_cyl, wt, wt_per_cyl) %&gt;%\n  # Arrange by mpg descending\n  arrange(desc(mpg))\n\nhead(result)\nQuestions: - What does this pipeline do? - How many 4-cylinder cars are there? - Which has the highest mpg among 4-cylinder cars?\n\n\nIn Python\nresult = (df[df['cylinders'] == 4]\n    .assign(\n        hp_per_cyl = lambda x: x['horsepower'] / x['cylinders'],\n        wt_per_cyl = lambda x: x['weight'] / x['cylinders']\n    )\n    [['mpg', 'horsepower', 'hp_per_cyl', 'weight', 'wt_per_cyl']]\n    .sort_values('mpg', ascending=False)\n)\n\nprint(result.head())\nQuestions: - What does this pipeline do? - How many 4-cylinder cars are there? - Which has the highest mpg among 4-cylinder cars?",
-    "crumbs": [
-      "Manipulation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "2-manipulation/tasks.html#bonus-challenge",
-    "href": "2-manipulation/tasks.html#bonus-challenge",
-    "title": "2. Manipulation - Tasks",
-    "section": "Bonus Challenge",
-    "text": "Bonus Challenge\nCreate a summary table showing: - For each origin, calculate: - Average MPG - Average horsepower - Number of cars - Count of cars by cylinders\nCan you do this in both R and Python?",
-    "crumbs": [
-      "Manipulation",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "3-visualisation/slides.html#data-visualization",
-    "href": "3-visualisation/slides.html#data-visualization",
-    "title": "3. Visualisation",
-    "section": "Data Visualization",
-    "text": "Data Visualization\nTell stories with your data"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#why-visualize",
-    "href": "3-visualisation/slides.html#why-visualize",
-    "title": "3. Visualisation",
-    "section": "Why Visualize?",
-    "text": "Why Visualize?\n\nUnderstand patterns quickly\nCommunicate findings effectively\nIdentify outliers and anomalies\nExplore relationships"
+    "objectID": "3-visualisation/slides.html#why-visualise",
+    "href": "3-visualisation/slides.html#why-visualise",
+    "title": "",
+    "section": "Why Visualise?",
+    "text": "Why Visualise?\n\nUnderstand patterns quickly\nCommunicate findings effectively\nIdentify outliers and anomalies\nExplore relationships"
   },
   {
     "objectID": "3-visualisation/slides.html#scatter-plots",
     "href": "3-visualisation/slides.html#scatter-plots",
-    "title": "3. Visualisation",
+    "title": "",
     "section": "Scatter Plots",
     "text": "Scatter Plots\nShow relationships between two continuous variables"
   },
   {
     "objectID": "3-visualisation/slides.html#bar-plots",
     "href": "3-visualisation/slides.html#bar-plots",
-    "title": "3. Visualisation",
+    "title": "",
     "section": "Bar Plots",
     "text": "Bar Plots\nShow counts or comparisons across categories"
   },
   {
     "objectID": "3-visualisation/slides.html#box-plots",
     "href": "3-visualisation/slides.html#box-plots",
-    "title": "3. Visualisation",
+    "title": "",
     "section": "Box Plots",
-    "text": "Box Plots\nShow distributions and outliers"
+    "text": "Box Plots\nShow distributions and identify outliers"
   },
   {
-    "objectID": "3-visualisation/slides.html#customization",
-    "href": "3-visualisation/slides.html#customization",
-    "title": "3. Visualisation",
-    "section": "Customization",
-    "text": "Customization\nMake your plots publication-ready"
+    "objectID": "3-visualisation/slides.html#using-plots",
+    "href": "3-visualisation/slides.html#using-plots",
+    "title": "",
+    "section": "Using Plots",
+    "text": "Using Plots\nPlots can also be assigned to objects for further modification or saving:\n\n# Save plot to object\nfinal_plot &lt;- my_boxplot + theme_classic()\n\nfinal_plot"
   },
   {
-    "objectID": "3-visualisation/slides.html#python-content-optional",
-    "href": "3-visualisation/slides.html#python-content-optional",
-    "title": "3. Visualisation",
-    "section": "Python Content (Optional)",
-    "text": "Python Content (Optional)\nIf you’re interested in Python, here are some equivalent concepts"
+    "objectID": "3-visualisation/slides.html#exporting-plots",
+    "href": "3-visualisation/slides.html#exporting-plots",
+    "title": "",
+    "section": "Exporting Plots",
+    "text": "Exporting Plots\nYou can save your plots using ggsave():\n# Save the final plot as a PNG file\nggsave(\"final_plot.png\", plot = final_plot,  width = 15,  height = 10, units = \"cm\", dpi = 300)"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#key-resources",
+    "href": "3-visualisation/slides.html#key-resources",
+    "title": "",
+    "section": "Key Resources",
+    "text": "Key Resources\n\nR for Data Science - Chapter 3: Data Visualisation\nggplot2 Documentation\nR Graphics Cookbook\nVisualization for Social Data Science"
   },
   {
     "objectID": "3-visualisation/slides.html#key-takeaways",
     "href": "3-visualisation/slides.html#key-takeaways",
-    "title": "3. Visualisation",
+    "title": "",
     "section": "Key Takeaways",
-    "text": "Key Takeaways\n✅ Choose the right plot type ✅ Make plots clear and readable ✅ Add titles and axis labels ✅ Use color purposefully ✅ Tell a story with data"
+    "text": "Key Takeaways\n✅ Start with a basic canvas and build incrementally\n✅ Choose the right geom for your data type\n✅ Customise colours, size, and transparency strategically\n✅ Add informative titles and axis labels\n✅ Use themes to improve presentation\n✅ Layer multiple geoms for richer visualisations"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#python-content-optional",
+    "href": "3-visualisation/slides.html#python-content-optional",
+    "title": "",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts"
   },
   {
     "objectID": "4-statistics/index.html",
