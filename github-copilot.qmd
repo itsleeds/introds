@@ -55,7 +55,7 @@ Good news! Students get **free access** to GitHub Copilot:
 
 ### Example in R
 
-```{r}
+```r
 #| eval: false
 
 # Load a CSV file of transport data and calculate average trip distance
@@ -68,7 +68,7 @@ avg_distance <- data %>%
 
 ### Example in Python
 
-```{python}
+```python
 #| eval: false
 
 # Load transport data and visualize trip distribution
