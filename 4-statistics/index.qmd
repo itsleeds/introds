@@ -6,8 +6,8 @@ In this part of the practical, we will use what we have learned so far to perfor
 
 1. Download the datasets for this exercises and save them in your `data` folder:
   
-  -[ParkRun Performance Data.xlsx](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/ParkRunPerformanceData.xlsx)
-  -[Running Data.xlsx](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/RunningData.xlsx)
+  - [ParkRun Performance Data.xlsx](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/ParkRunPerformanceData.xlsx)
+  - [Running Data.xlsx](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/RunningData.xlsx)
   
 2. Download the following scripts and try to run the code in them. You will have to fix some (intentionally added) errors to be able to run the code.
   
