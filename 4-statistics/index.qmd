@@ -9,10 +9,10 @@ In this part of the practical, we will use what we have learned so far to perfor
   - [ParkRun Performance Data.xlsx](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/ParkRunPerformanceData.xlsx)
   - [Running Data.xlsx](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/RunningData.xlsx)
   
-2. Download the following scripts and try to run the code in them. You will have to fix some (intentionally added) errors to be able to run the code.
+2. Download the following scripts and try to run the code in them. Your job is to **debug these scripts** by fixing the intentional errors so they run correctly.
   
-  - Script 1: [Excel Task](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/4-statistics/task_excel_debug.R)
-  - Script 2: [SPSS Task](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/4-statistics/task_2_spss_debug.R)
+  - Script 1: Excel Task ([R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_excel_debug.R), [Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_excel_debug.py))
+  - Script 2: SPSS Task ([R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.R), [Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.py))
 
 
   
