@@ -1046,15 +1046,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span> </span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(time),</span>
 <span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(time),</span>
-<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">mean</span>(time),</span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">median =</span> <span class="fu">median</span>(time),</span>
 <span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(time))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   gender   min  mean median   max
   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-1 F       21.1  31.0   31.0  42.7
-2 M       16.9  25.2   25.2  40.8</code></pre>
+1 F       21.1  31.0   30.8  42.7
+2 M       16.9  25.2   24.7  40.8</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1461,17 +1461,17 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>shape: (13,)
 Series: 'age_cat' [str]
 [
-    "60-64"
-    "45-49"
-    "25-29"
-    "35-39"
-    "30-34"
-    …
-    "20-24"
-    "40-44"
-    "55-59"
-    "18-19"
     "70-74"
+    "65-69"
+    "35-39"
+    "25-29"
+    "45-49"
+    …
+    "40-44"
+    "18-19"
+    "30-34"
+    "50-54"
+    "75-79"
 ]</code></pre>
 </div>
 <details class="code-fold">
@@ -1829,7 +1829,7 @@ Dep. Variable:                   time   R-squared:                       0.322
 Model:                            OLS   Adj. R-squared:                  0.318
 Method:                 Least Squares   F-statistic:                     82.31
 Date:                Tue, 25 Nov 2025   Prob (F-statistic):           1.39e-43
-Time:                        13:41:45   Log-Likelihood:                -1526.5
+Time:                        14:03:56   Log-Likelihood:                -1526.5
 No. Observations:                 524   AIC:                             3061.
 Df Residuals:                     520   BIC:                             3078.
 Df Model:                           3                                         
