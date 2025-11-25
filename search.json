@@ -284,6 +284,17 @@
     ]
   },
   {
+    "objectID": "1-basics/index.html",
+    "href": "1-basics/index.html",
+    "title": "The Basics",
+    "section": "",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
+    "crumbs": [
+      "Basics",
+      "About this section"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction to Data Science",
@@ -341,6 +352,36 @@
     "text": "Getting Started\nNavigate through the sections using the menu. We recommend following them in order if you’re new to data science.",
     "crumbs": [
       "Home"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html",
+    "href": "prerequisites.html",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#required-software",
+    "href": "prerequisites.html#required-software",
+    "title": "Prerequisites",
+    "section": "Required Software",
+    "text": "Required Software\n\nIf using AppsAnywhere\nIf you’re using AppsAnywhere (available on university computers or your own laptop):\n\nOpen AppsAnywhere on your computer\nSearch for and launch R first\nSearch for and launch RStudio (requires R to be installed)\nFor Python (optional), search for and launch Anaconda from AppsAnywhere\n\n\n\nIf installing on your own laptop\nThis approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:\n\n1. R and RStudio\nR is a programming language widely used for statistical computing and data science.\n\nDownload R from CRAN\nDownload RStudio Desktop (free) from Posit\n\n\n\n2. Python (Optional but Recommended)\nPython is another popular language for data science.\n\nDownload Python from python.org (version 3.8 or higher)\nOr install via Anaconda (includes many data science packages)",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#getting-help",
+    "href": "prerequisites.html#getting-help",
+    "title": "Prerequisites",
+    "section": "Getting Help",
+    "text": "Getting Help\nIf you encounter installation issues:\n\nCheck the RStudio Support page\nVisit Stack Overflow for troubleshooting\nAsk during the session!\n\n\n\n\n\n\n\nTipPro Tip\n\n\n\nIf you run into installation issues before the session, don’t spend too much time troubleshooting. We can help you during the practical!",
+    "crumbs": [
+      "Prerequisites"
     ]
   },
   {
