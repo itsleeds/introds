@@ -4,37 +4,37 @@
     "href": "next-steps.html",
     "title": "Next Steps",
     "section": "",
-    "text": "Congratulations on completing the practical! Here’s how to continue your data science journey.",
+    "text": "Congratulations on completing the practical! Here are some useful resources.",
     "crumbs": [
       "Next Steps"
     ]
   },
   {
-    "objectID": "next-steps.html#continue-learning",
-    "href": "next-steps.html#continue-learning",
+    "objectID": "next-steps.html#stack-overflow-forums",
+    "href": "next-steps.html#stack-overflow-forums",
     "title": "Next Steps",
-    "section": "Continue Learning",
-    "text": "Continue Learning\n\nFree Online Courses\nFor R:\n\nR for Data Science (2e) - Comprehensive free book by Hadley Wickham\nRStudio Primers - Interactive tutorials\nSwirl - Learn R programming interactively\n\nFor Python:\n\nPython for Everybody - Free course by University of Michigan\nKaggle Learn - Practical micro-courses\nDataCamp - First course free, student discounts available\n\nStatistics & Machine Learning:\n\nStatQuest - Excellent YouTube channel for statistics\nIntroduction to Statistical Learning - Free book with R and Python code\nfast.ai - Practical deep learning for coders\n\n\n\nUniversity Resources\nAt Leeds:\n\nCheck for data science modules in your program\nAttend research seminars and workshops\nJoin data science student groups\nExplore Leeds Institute for Data Analytics (LIDA)",
+    "section": "Stack Overflow & Forums",
+    "text": "Stack Overflow & Forums\nThese communities are invaluable:\n\nStack Overflow - Programming Q&A\nRStudio Community - R-specific help",
     "crumbs": [
       "Next Steps"
     ]
   },
   {
-    "objectID": "next-steps.html#practice-with-real-data",
-    "href": "next-steps.html#practice-with-real-data",
+    "objectID": "next-steps.html#for-r",
+    "href": "next-steps.html#for-r",
     "title": "Next Steps",
-    "section": "Practice with Real Data",
-    "text": "Practice with Real Data\n\nTransport-Specific Datasets\n\nUK Department for Transport Statistics\nTransport for London Open Data\nPropensity to Cycle Tool - Cycling transport data\n\n\n\nGeneral Data Sources\n\ndata.gov.uk - UK government data\nOur World in Data - Global development data\nKaggle Datasets - Thousands of datasets for practice\nTidyTuesday - Weekly data challenges",
+    "section": "For R",
+    "text": "For R\n\nR for Data Science (2e) - Comprehensive free book by Hadley Wickham\nRStudio Primers - Interactive tutorials\nSwirl - Learn R programming interactively",
     "crumbs": [
       "Next Steps"
     ]
   },
   {
-    "objectID": "next-steps.html#join-communities",
-    "href": "next-steps.html#join-communities",
+    "objectID": "next-steps.html#for-python",
+    "href": "next-steps.html#for-python",
     "title": "Next Steps",
-    "section": "Join Communities",
-    "text": "Join Communities\n\nOnline Communities\n\nRStudio Community - Friendly R forum\nr/datascience - Reddit data science community\nStack Overflow - Programming Q&A\nCross Validated - Statistics Q&A\n\n\n\nLocal Meetups\n\nR User Groups - Find local R meetups\nPyData - Python data science meetups\nCheck Meetup.com for data science events in Leeds",
+    "section": "For Python",
+    "text": "For Python\n\nPython for Everybody - Free course by University of Michigan\nKaggle Learn - Practical micro-courses\nDataCamp - First course free, student discounts available\n\nStatistics with R/Python:\n\nStatQuest - Excellent YouTube channel for statistics\nIntroduction to Statistical Learning - Free book with R and Python code",
     "crumbs": [
       "Next Steps"
     ]
@@ -44,7 +44,7 @@
     "href": "next-steps.html#build-your-portfolio",
     "title": "Next Steps",
     "section": "Build Your Portfolio",
-    "text": "Build Your Portfolio\n\nProject Ideas\n\nAnalyze local transport patterns using TfL or Leeds data\nRecreate published analyses to learn techniques\nParticipate in Kaggle competitions (start with “Getting Started” competitions)\nContribute to open source R or Python packages\nCreate a blog documenting your learning journey\n\n\n\nShare Your Work\n\nCreate a GitHub profile for your code\nBuild a portfolio website with Quarto\nWrite blog posts about what you learn\nShare projects on social media (#RStats, #DataScience)",
+    "text": "Build Your Portfolio\n\nProject Ideas\n\nAnalyze local transport patterns using open transport data\nRecreate published analyses to learn techniques\nContribute to open source R or Python packages\n\n\n\nShare Your Work\n\nCreate a GitHub profile for your code\nBuild a portfolio website with Quarto\nWrite blog posts about what you learn\nShare projects on social media (#RStats, #DataScience)",
     "crumbs": [
       "Next Steps"
     ]
@@ -54,27 +54,7 @@
     "href": "next-steps.html#advanced-topics-to-explore",
     "title": "Next Steps",
     "section": "Advanced Topics to Explore",
-    "text": "Advanced Topics to Explore\nOnce you’re comfortable with basics:\n\nData Science Skills\n\nVersion Control: Git and GitHub for collaboration\nReproducible Research: R Markdown, Quarto, Jupyter notebooks\nDatabases: SQL for working with large datasets\nBig Data: Spark, cloud computing (AWS, Google Cloud)\n\n\n\nSpecialized Topics\n\nSpatial Data Science: Working with geographic data (check out geocompx.org)\nMachine Learning: Supervised and unsupervised learning\nDeep Learning: Neural networks for complex patterns\nTime Series Analysis: For temporal data\nNetwork Analysis: For transport networks and relationships\n\n\n\nTransport-Specific Skills\n\nTransport Modeling: Learn about the A/B Street project\nRoute Planning: OpenTripPlanner, OSRM\nGIS: QGIS, ArcGIS for spatial analysis\nTransport Data: Working with GTFS, OpenStreetMap",
-    "crumbs": [
-      "Next Steps"
-    ]
-  },
-  {
-    "objectID": "next-steps.html#certification-professional-development",
-    "href": "next-steps.html#certification-professional-development",
-    "title": "Next Steps",
-    "section": "Certification & Professional Development",
-    "text": "Certification & Professional Development\n\nCertifications (Optional)\n\nRStudio Certification\nGoogle Data Analytics Certificate\nMicrosoft Certified: Azure Data Scientist\n\n\n\nBooks Worth Reading\n\nR for Data Science - Wickham & Grolemund\nThe Art of Statistics - David Spiegelhalter\nStorytelling with Data - Cole Nussbaumer Knaflic\nPython for Data Analysis - Wes McKinney",
-    "crumbs": [
-      "Next Steps"
-    ]
-  },
-  {
-    "objectID": "next-steps.html#setting-goals",
-    "href": "next-steps.html#setting-goals",
-    "title": "Next Steps",
-    "section": "Setting Goals",
-    "text": "Setting Goals\n\nShort-term (Next Month)\n\nComplete one online course/tutorial\nAnalyze one dataset of personal interest\nJoin one online community\nLearn one new visualization technique\n\n\n\nMedium-term (3-6 Months)\n\nComplete a personal data project\nContribute to an open source project\nAttend a meetup or conference\nBuild a portfolio website\n\n\n\nLong-term (1 Year)\n\nMaster one data science specialization\nPublish a blog post or tutorial\nComplete a Kaggle competition\nApply data science in your research/work",
+    "text": "Advanced Topics to Explore\nOnce you’re comfortable with basics:\n\nData Science Skills\n\nVersion Control: Git and GitHub for collaboration\nReproducible Research: R Markdown, Quarto, Jupyter notebooks\n\n\n\nSpecialized Topics\n\nSpatial Data Science: Working with spatial data (check out geocompx.org)\nMachine Learning: Supervised and unsupervised learning\nDeep Learning: Neural networks for complex patterns\nTime Series Analysis: For temporal data\nNetwork Analysis: For transport networks and relationships",
     "crumbs": [
       "Next Steps"
     ]
@@ -85,16 +65,6 @@
     "title": "Next Steps",
     "section": "Final Tips",
     "text": "Final Tips\n\n\n\n\n\n\nTipThe Best Way to Learn\n\n\n\nPractice, practice, practice! Learning data science is like learning a language—you need to use it regularly to improve.\n\n\n\n\n\n\n\n\nImportantDon’t Get Overwhelmed\n\n\n\nThere’s a lot to learn, but you don’t need to learn everything at once. Pick one area, get comfortable, then expand gradually.\n\n\n\n\n\n\n\n\nNoteStay Curious\n\n\n\nThe field of data science is constantly evolving. Stay curious, keep learning, and don’t be afraid to experiment!",
-    "crumbs": [
-      "Next Steps"
-    ]
-  },
-  {
-    "objectID": "next-steps.html#get-in-touch",
-    "href": "next-steps.html#get-in-touch",
-    "title": "Next Steps",
-    "section": "Get in Touch",
-    "text": "Get in Touch\nQuestions or want to share your progress?\n\nCheck course materials and updates on this website\nConnect with instructors during office hours\nJoin the course discussion forum\nFollow #RStats and #DataScience on social media\n\nHappy coding, and welcome to the world of data science! 🚀📊",
     "crumbs": [
       "Next Steps"
     ]
@@ -328,7 +298,7 @@
     "href": "index.html#about-this-session",
     "title": "Introduction to Data Science",
     "section": "About This Session",
-    "text": "About This Session\nIn this 3-hour practical, you’ll get hands-on experience with data science concepts and tools. We’ll cover implementations primarily in R and also in Python where applicable.",
+    "text": "About This Session\nIn this practical, you’ll get hands-on experience with data science tools. We’ll cover implementations primarily in R. Python versions of the contents are provided for reference in some cases.",
     "crumbs": [
       "Home"
     ]
@@ -338,7 +308,7 @@
     "href": "index.html#what-youll-learn",
     "title": "Introduction to Data Science",
     "section": "What You’ll Learn",
-    "text": "What You’ll Learn\nThis session covers:\n\nPrerequisites: Tools and setup you need before getting started\nGitHub Copilot & AI Tools: How AI can help you learn and code more effectively\nPractical Exercises: Hands-on work with real data science tasks\nNext Steps: Resources and pathways for continuing your data science journey",
+    "text": "What You’ll Learn\nThis session covers:\n\nPrerequisites: Tools and setup you need before getting started\nGitHub Copilot & AI Tools: Setting up for learning and coding more effectively\nPractical Exercises: Basic data science tasks using R\nNext Steps: Resources to help you continue learning data science",
     "crumbs": [
       "Home"
     ]
@@ -348,7 +318,7 @@
     "href": "index.html#getting-started",
     "title": "Introduction to Data Science",
     "section": "Getting Started",
-    "text": "Getting Started\nNavigate through the sections using the menu above. We recommend following them in order if you’re new to data science.\nLet’s begin your data science journey!",
+    "text": "Getting Started\nNavigate through the sections using the menu. We recommend following them in order if you’re new to data science.",
     "crumbs": [
       "Home"
     ]
@@ -368,47 +338,17 @@
     "href": "github-copilot.html#github-copilot",
     "title": "GitHub Copilot & AI Tools",
     "section": "GitHub Copilot",
-    "text": "GitHub Copilot\nGitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors.\n\nWhat is GitHub Copilot?\n\nAI-powered code completion tool\nSuggests whole lines or blocks of code as you type\nUnderstands context from your code and comments\nTrained on billions of lines of public code\n\n\n\nFor Students\nGood news! Students get free access to GitHub Copilot:\n\nVisit GitHub Education\nApply for the Student Developer Pack\nVerify your student status (usually with university email)\nAccess Copilot for free while you’re a student\n\n\n\nInstalling GitHub Copilot\nFor RStudio:\n\nCurrently, Copilot is not natively integrated in RStudio\nHowever, you can use VS Code with R extension as an alternative\n\nFor VS Code:\n\nInstall Visual Studio Code\nInstall the GitHub Copilot extension from the marketplace\nSign in with your GitHub account\n\nFor Python/Jupyter:\n\nWorks seamlessly in VS Code with Python extension\nAlso available in JupyterLab with Copilot extension",
+    "text": "GitHub Copilot\nGitHub Copilot is an AI pair programmer that helps you write code faster and with fewer errors.\n\nWhat is GitHub Copilot?\n\nAI-powered code completion tool\nSuggests whole lines or blocks of code as you type\nUnderstands context from your code and comments\nTrained on billions of lines of public code\n\n\n\nFor Students\nGood news! Students get free access to GitHub Copilot:\n\nVisit GitHub Education\nApply for the Student Developer Pack\nVerify your student status\nAccess Copilot for free while you’re a student\n\n\n\nInstalling GitHub Copilot\nFor RStudio:\n\nYou can activate code completion via Tools -&gt; Global Options -&gt; Copilot.\n\nFor VS Code:\n\nInstall Visual Studio Code\nInstall the GitHub Copilot extension from the marketplace\nSign in with your GitHub account",
     "crumbs": [
       "GitHub Copilot & AI"
     ]
   },
   {
-    "objectID": "github-copilot.html#using-ai-tools-effectively",
-    "href": "github-copilot.html#using-ai-tools-effectively",
+    "objectID": "github-copilot.html#best-practices",
+    "href": "github-copilot.html#best-practices",
     "title": "GitHub Copilot & AI Tools",
-    "section": "Using AI Tools Effectively",
-    "text": "Using AI Tools Effectively\n\nBest Practices\n\n\n\n\n\n\nTipWriting Good Prompts\n\n\n\n\nWrite clear comments describing what you want to do\nUse descriptive variable names\nBreak complex tasks into smaller steps\n\n\n\n\n\nExample in R\n#| eval: false\n\n# Load a CSV file of transport data and calculate average trip distance\n# Copilot might suggest:\nlibrary(tidyverse)\ndata &lt;- read_csv(\"transport_data.csv\")\navg_distance &lt;- data %&gt;% \n  summarise(mean_distance = mean(trip_distance, na.rm = TRUE))\n\n\nExample in Python\n#| eval: false\n\n# Load transport data and visualize trip distribution\n# Copilot might suggest:\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = pd.read_csv(\"transport_data.csv\")\ndata['trip_distance'].hist(bins=30)\nplt.xlabel('Trip Distance')\nplt.show()",
-    "crumbs": [
-      "GitHub Copilot & AI"
-    ]
-  },
-  {
-    "objectID": "github-copilot.html#other-ai-tools-for-data-science",
-    "href": "github-copilot.html#other-ai-tools-for-data-science",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Other AI Tools for Data Science",
-    "text": "Other AI Tools for Data Science\n\nChatGPT / Claude\n\nGreat for explaining concepts\nHelps debug error messages\nSuggests approaches to data problems\nTip: Copy error messages and ask for explanations\n\n\n\nStack Overflow & Forums\nWhile not AI per se, these communities are invaluable:\n\nStack Overflow - Programming Q&A\nRStudio Community - R-specific help\nr/datascience - Data science discussions",
-    "crumbs": [
-      "GitHub Copilot & AI"
-    ]
-  },
-  {
-    "objectID": "github-copilot.html#learning-with-ai",
-    "href": "github-copilot.html#learning-with-ai",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Learning with AI",
-    "text": "Learning with AI\n\nDos ✅\n\nUse AI to understand error messages\nAsk AI to explain unfamiliar code\nUse suggestions to learn new approaches\nVerify AI-generated code before using it\n\n\n\nDon’ts ❌\n\nDon’t blindly copy-paste without understanding\nDon’t use AI to do all your work (you won’t learn!)\nDon’t share sensitive data with AI tools\nDon’t assume AI code is always correct\n\n\n\n\n\n\n\nWarningCritical Thinking Required\n\n\n\nAI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!",
-    "crumbs": [
-      "GitHub Copilot & AI"
-    ]
-  },
-  {
-    "objectID": "github-copilot.html#practical-exercise",
-    "href": "github-copilot.html#practical-exercise",
-    "title": "GitHub Copilot & AI Tools",
-    "section": "Practical Exercise",
-    "text": "Practical Exercise\nTry this during the session:\n\nInstall Copilot (if you haven’t already)\nWrite a comment describing a simple data task\nSee what Copilot suggests\nCompare with how you would solve it\nLearn from the differences!",
+    "section": "Best Practices",
+    "text": "Best Practices\n\n\n\n\n\n\nTipWriting Good Prompts\n\n\n\n\nWrite clear comments describing what you want to do\nUse descriptive variable names\nBreak complex tasks into smaller steps\n\n\n\nDOs ✅\n\nUse AI to understand error messages\nAsk AI to explain unfamiliar code\nUse suggestions to learn new approaches\nVerify AI-generated code before using it\n\nDON’Ts ❌\n\nDon’t blindly copy-paste without understanding\nDon’t use AI to do all your work (you won’t learn!)\nDon’t share sensitive data with AI tools\nDon’t assume AI code is always correct\n\n\n\n\n\n\n\nWarningCritical Thinking Required\n\n\n\nAI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!",
     "crumbs": [
       "GitHub Copilot & AI"
     ]
@@ -502,7 +442,7 @@
     "href": "2-manipulation/tasks.html",
     "title": "Data Wrangling - Tasks",
     "section": "",
-    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file from the course resources and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
+    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file (here) and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace",
     "crumbs": [
       "Manipulation",
       "Tasks"

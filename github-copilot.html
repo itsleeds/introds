@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -276,23 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#for-students" id="toc-for-students" class="nav-link" data-scroll-target="#for-students">For Students</a></li>
   <li><a href="#installing-github-copilot" id="toc-installing-github-copilot" class="nav-link" data-scroll-target="#installing-github-copilot">Installing GitHub Copilot</a></li>
   </ul></li>
-  <li><a href="#using-ai-tools-effectively" id="toc-using-ai-tools-effectively" class="nav-link" data-scroll-target="#using-ai-tools-effectively">Using AI Tools Effectively</a>
-  <ul class="collapse">
   <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
-  <li><a href="#example-in-r" id="toc-example-in-r" class="nav-link" data-scroll-target="#example-in-r">Example in R</a></li>
-  <li><a href="#example-in-python" id="toc-example-in-python" class="nav-link" data-scroll-target="#example-in-python">Example in Python</a></li>
-  </ul></li>
-  <li><a href="#other-ai-tools-for-data-science" id="toc-other-ai-tools-for-data-science" class="nav-link" data-scroll-target="#other-ai-tools-for-data-science">Other AI Tools for Data Science</a>
-  <ul class="collapse">
-  <li><a href="#chatgpt-claude" id="toc-chatgpt-claude" class="nav-link" data-scroll-target="#chatgpt-claude">ChatGPT / Claude</a></li>
-  <li><a href="#stack-overflow-forums" id="toc-stack-overflow-forums" class="nav-link" data-scroll-target="#stack-overflow-forums">Stack Overflow &amp; Forums</a></li>
-  </ul></li>
-  <li><a href="#learning-with-ai" id="toc-learning-with-ai" class="nav-link" data-scroll-target="#learning-with-ai">Learning with AI</a>
-  <ul class="collapse">
-  <li><a href="#dos" id="toc-dos" class="nav-link" data-scroll-target="#dos">Dos ✅</a></li>
-  <li><a href="#donts" id="toc-donts" class="nav-link" data-scroll-target="#donts">Don’ts ❌</a></li>
-  </ul></li>
-  <li><a href="#practical-exercise" id="toc-practical-exercise" class="nav-link" data-scroll-target="#practical-exercise">Practical Exercise</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
@@ -338,7 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Visit <a href="https://education.github.com/">GitHub Education</a></li>
 <li>Apply for the Student Developer Pack</li>
-<li>Verify your student status (usually with university email)</li>
+<li>Verify your student status</li>
 <li>Access Copilot for free while you’re a student</li>
 </ol>
 </section>
@@ -346,8 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="installing-github-copilot">Installing GitHub Copilot</h3>
 <p><strong>For RStudio:</strong></p>
 <ul>
-<li>Currently, Copilot is not natively integrated in RStudio</li>
-<li>However, you can use VS Code with R extension as an alternative</li>
+<li>You can activate code completion via Tools -&gt; Global Options -&gt; Copilot.</li>
 </ul>
 <p><strong>For VS Code:</strong></p>
 <ol type="1">
@@ -355,17 +303,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Install the GitHub Copilot extension from the marketplace</li>
 <li>Sign in with your GitHub account</li>
 </ol>
-<p><strong>For Python/Jupyter:</strong></p>
-<ul>
-<li>Works seamlessly in VS Code with Python extension</li>
-<li>Also available in JupyterLab with Copilot extension</li>
-</ul>
 </section>
 </section>
-<section id="using-ai-tools-effectively" class="level2">
-<h2 class="anchored" data-anchor-id="using-ai-tools-effectively">Using AI Tools Effectively</h2>
-<section id="best-practices" class="level3">
-<h3 class="anchored" data-anchor-id="best-practices">Best Practices</h3>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -383,67 +324,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div>
 </div>
-</section>
-<section id="example-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="example-in-r">Example in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a CSV file of transport data and calculate average trip distance</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copilot might suggest:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"transport_data.csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>avg_distance <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_distance =</span> <span class="fu">mean</span>(trip_distance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="example-in-python" class="level3">
-<h3 class="anchored" data-anchor-id="example-in-python">Example in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load transport data and visualize trip distribution</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Copilot might suggest:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"transport_data.csv"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'trip_distance'</span>].hist(bins<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Trip Distance'</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-</section>
-<section id="other-ai-tools-for-data-science" class="level2">
-<h2 class="anchored" data-anchor-id="other-ai-tools-for-data-science">Other AI Tools for Data Science</h2>
-<section id="chatgpt-claude" class="level3">
-<h3 class="anchored" data-anchor-id="chatgpt-claude">ChatGPT / Claude</h3>
-<ul>
-<li>Great for explaining concepts</li>
-<li>Helps debug error messages</li>
-<li>Suggests approaches to data problems</li>
-<li><strong>Tip</strong>: Copy error messages and ask for explanations</li>
-</ul>
-</section>
-<section id="stack-overflow-forums" class="level3">
-<h3 class="anchored" data-anchor-id="stack-overflow-forums">Stack Overflow &amp; Forums</h3>
-<p>While not AI per se, these communities are invaluable:</p>
-<ul>
-<li><a href="https://stackoverflow.com/">Stack Overflow</a> - Programming Q&amp;A</li>
-<li><a href="https://community.rstudio.com/">RStudio Community</a> - R-specific help</li>
-<li><a href="https://www.reddit.com/r/datascience/">r/datascience</a> - Data science discussions</li>
-</ul>
-</section>
-</section>
-<section id="learning-with-ai" class="level2">
-<h2 class="anchored" data-anchor-id="learning-with-ai">Learning with AI</h2>
-<section id="dos" class="level3">
-<h3 class="anchored" data-anchor-id="dos">Dos ✅</h3>
+<p><strong>DOs</strong> ✅</p>
 <ul>
 <li>Use AI to understand error messages</li>
 <li>Ask AI to explain unfamiliar code</li>
 <li>Use suggestions to learn new approaches</li>
 <li>Verify AI-generated code before using it</li>
 </ul>
-</section>
-<section id="donts" class="level3">
-<h3 class="anchored" data-anchor-id="donts">Don’ts ❌</h3>
+<p><strong>DON’Ts</strong> ❌</p>
 <ul>
 <li>Don’t blindly copy-paste without understanding</li>
 <li>Don’t use AI to do all your work (you won’t learn!)</li>
@@ -463,18 +351,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>AI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!</p>
 </div>
 </div>
-</section>
-</section>
-<section id="practical-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="practical-exercise">Practical Exercise</h2>
-<p>Try this during the session:</p>
-<ol type="1">
-<li>Install Copilot (if you haven’t already)</li>
-<li>Write a comment describing a simple data task</li>
-<li>See what Copilot suggests</li>
-<li>Compare with how you would solve it</li>
-<li>Learn from the differences!</li>
-</ol>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
@@ -561,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/introdatascience\/");
+        var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/introds\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
