@@ -160,25 +160,274 @@
     ]
   },
   {
-    "objectID": "3-visualisation/tasks.html",
-    "href": "3-visualisation/tasks.html",
-    "title": "3. Visualisation - Tasks",
+    "objectID": "4-statistics/index.html",
+    "href": "4-statistics/index.html",
+    "title": "Statistics - Tasks",
     "section": "",
-    "text": "In this section, we will practice data visualization using R and the ggplot2 package from the tidyverse. Follow the steps below to create various types of plots.\nUsing the same script 2-data-wrangling-and-visualization.R from the previous section, continue with the following tasks:\nIf you have loaded the tidyverse package and read in the crashes dataset, you can proceed to the next steps. ggplot2 is part of the tidyverse, so you don’t need to load it separately.\n\nBox Plot:\n\nCreate a box plot to visualise the distribution of ages for different casualty types in the crashes dataset.\nUse ggplot() to specify the dataset and aesthetics, and geom_boxplot() to create the box plot.\nAdd appropriate labels and a title to your plot.\nSave the box plot to an object named age_boxplot.\nDisplay the plot by calling the object name.\n\nBar Plot (Optional):\n\nCreate a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).\nAdd custom colours and transparency to the bars.\nAdd appropriate labels and a title.\nSave the plot to an object named casualty_barplot.\n\nExport Your Plots:\n\nSave the box plot as a PNG file named age_boxplot.png using the ggsave() function.\nSave the bar plot as a PNG file named casualty_barplot.png.\nCheck the documentation for ggsave() by typing ?ggsave in the console.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
+    "text": "In this part of the practical, we will use what we have learned so far to perform the same analysis you have already learned with other tools, but this time using R.\n\nDownload the datasets for this exercises and save them in your data folder:\n\n\nParkRun Performance Data.xlsx\nRunning Data.xlsx\n\n\nDownload the following scripts and try to run the code in them. Your job is to debug these scripts by fixing the intentional errors so they run correctly.\n\n\nScript 1: Excel Task (R, Python)\nScript 2: SPSS Task (R, Python)\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
-      "Visualisation",
+      "Statistics",
+      "About this section"
+    ]
+  },
+  {
+    "objectID": "3-visualisation/slides.html#why-visualise",
+    "href": "3-visualisation/slides.html#why-visualise",
+    "title": "",
+    "section": "Why Visualise?",
+    "text": "Why Visualise?\n\nUnderstand patterns quickly\nCommunicate findings effectively\nIdentify outliers and anomalies\nExplore relationships"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#scatter-plots",
+    "href": "3-visualisation/slides.html#scatter-plots",
+    "title": "",
+    "section": "Scatter Plots",
+    "text": "Scatter Plots\nShow relationships between two continuous variables"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#bar-plots",
+    "href": "3-visualisation/slides.html#bar-plots",
+    "title": "",
+    "section": "Bar Plots",
+    "text": "Bar Plots\nShow counts or comparisons across categories"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#box-plots",
+    "href": "3-visualisation/slides.html#box-plots",
+    "title": "",
+    "section": "Box Plots",
+    "text": "Box Plots\nShow distributions and identify outliers"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#using-plots",
+    "href": "3-visualisation/slides.html#using-plots",
+    "title": "",
+    "section": "Using Plots",
+    "text": "Using Plots\nPlots can also be assigned to objects for further modification or saving:\n\n# Save plot to object\nfinal_plot &lt;- my_boxplot + theme_classic()\n\nfinal_plot"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#exporting-plots",
+    "href": "3-visualisation/slides.html#exporting-plots",
+    "title": "",
+    "section": "Exporting Plots",
+    "text": "Exporting Plots\nYou can save your plots using ggsave():\n# Save the final plot as a PNG file\nggsave(\"final_plot.png\", plot = final_plot,  width = 15,  height = 10, units = \"cm\", dpi = 300)"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#key-resources",
+    "href": "3-visualisation/slides.html#key-resources",
+    "title": "",
+    "section": "Key Resources",
+    "text": "Key Resources\n\nR for Data Science - Chapter 3: Data Visualisation\nggplot2 Documentation\nR Graphics Cookbook\nVisualization for Social Data Science"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#key-takeaways",
+    "href": "3-visualisation/slides.html#key-takeaways",
+    "title": "",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n✅ Start with a basic canvas and build incrementally\n✅ Choose the right geom for your data type\n✅ Customise colours, size, and transparency strategically\n✅ Add informative titles and axis labels\n✅ Use themes to improve presentation\n✅ Layer multiple geoms for richer visualisations"
+  },
+  {
+    "objectID": "3-visualisation/slides.html#python-content-optional",
+    "href": "3-visualisation/slides.html#python-content-optional",
+    "title": "",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts"
+  },
+  {
+    "objectID": "2-manipulation/tasks.html",
+    "href": "2-manipulation/tasks.html",
+    "title": "Data Wrangling - Tasks",
+    "section": "",
+    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file (here) and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
+    "crumbs": [
+      "Manipulation",
       "Tasks"
     ]
   },
   {
-    "objectID": "3-visualisation/index.html",
-    "href": "3-visualisation/index.html",
-    "title": "Visualisation",
+    "objectID": "2-manipulation/index.html",
+    "href": "2-manipulation/index.html",
+    "title": "Manipulation",
     "section": "",
     "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
-      "Visualisation",
+      "Manipulation",
       "About this section"
+    ]
+  },
+  {
+    "objectID": "1-basics/slides.html#integrated-development-environments-ides",
+    "href": "1-basics/slides.html#integrated-development-environments-ides",
+    "title": "",
+    "section": "Integrated Development Environments (IDEs)",
+    "text": "Integrated Development Environments (IDEs)\nYour toolkit for writing code"
+  },
+  {
+    "objectID": "1-basics/slides.html#the-fundamentals-of-r",
+    "href": "1-basics/slides.html#the-fundamentals-of-r",
+    "title": "",
+    "section": "The fundamentals of R",
+    "text": "The fundamentals of R\n\nhow to organize your work\nbasic data types and structures\nusing R for calculations"
+  },
+  {
+    "objectID": "1-basics/slides.html#using-r",
+    "href": "1-basics/slides.html#using-r",
+    "title": "",
+    "section": "Using R",
+    "text": "Using R"
+  },
+  {
+    "objectID": "1-basics/slides.html#control-flow",
+    "href": "1-basics/slides.html#control-flow",
+    "title": "",
+    "section": "Control Flow",
+    "text": "Control Flow\nMaking decisions and repeating tasks"
+  },
+  {
+    "objectID": "1-basics/slides.html#using-packages-in-r",
+    "href": "1-basics/slides.html#using-packages-in-r",
+    "title": "",
+    "section": "Using Packages in R",
+    "text": "Using Packages in R\nPackages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc.\n\nSource: Storybench"
+  },
+  {
+    "objectID": "1-basics/slides.html#key-takeaways",
+    "href": "1-basics/slides.html#key-takeaways",
+    "title": "",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n✅ Know your IDE (RStudio or VS Code)\n✅ Understand basic data types in R\n✅ Know the difference between data structures\n✅ Organize your work with folder structure\n✅ Use relative paths for portability\n✅ Control program flow with if statements and loops\n✅ Learn how to install and use packages\n✅ Know where to find documentation"
+  },
+  {
+    "objectID": "1-basics/slides.html#python-content-optional",
+    "href": "1-basics/slides.html#python-content-optional",
+    "title": "",
+    "section": "Python Content (Optional)",
+    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts"
+  },
+  {
+    "objectID": "1-basics/slides.html#the-fundamentals-of-python",
+    "href": "1-basics/slides.html#the-fundamentals-of-python",
+    "title": "",
+    "section": "The Fundamentals of Python",
+    "text": "The Fundamentals of Python\nOrganising Your Work\nProject structure and file paths\nRecommended Folder Structure\n\n\nmy-project/\n├── data/\n│   ├── raw/              # Original data files\n│   └── processed/        # Cleaned data\n├── code/\n│   ├── analysis.py\n│   └── plots.py\n├── outputs/\n│   ├── figures/\n│   └── results/\n├── README.md\n└── requirements.txt\n\n\nTips:\n\nKeep your work organised for easy maintenance\nUse meaningful folder and file names\nKeep data separate from code and outputs\nKeep raw data unchanged; process copies instead"
+  },
+  {
+    "objectID": "1-basics/slides.html#using-packages-in-python",
+    "href": "1-basics/slides.html#using-packages-in-python",
+    "title": "",
+    "section": "Using Packages in Python",
+    "text": "Using Packages in Python\nPackages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc."
+  },
+  {
+    "objectID": "prerequisites.html",
+    "href": "prerequisites.html",
+    "title": "Prerequisites",
+    "section": "",
+    "text": "Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#required-software",
+    "href": "prerequisites.html#required-software",
+    "title": "Prerequisites",
+    "section": "Required Software",
+    "text": "Required Software\n\nIf using AppsAnywhere\nIf you’re using AppsAnywhere (available on university computers or your own laptop):\n\nOpen AppsAnywhere on your computer\nSearch for and launch R first\nSearch for and launch RStudio (requires R to be installed)\nFor Python (optional), search for and launch Anaconda from AppsAnywhere\n\n\n\nIf installing on your own laptop\nThis approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:\n\n1. R and RStudio\nR is a programming language widely used for statistical computing and data science.\n\nDownload R from CRAN\nDownload RStudio Desktop (free) from Posit\n\n\n\n2. Python (Optional but Recommended)\nPython is another popular language for data science.\n\nDownload Python from python.org (version 3.8 or higher)\nOr install via Anaconda (includes many data science packages)",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "prerequisites.html#getting-help",
+    "href": "prerequisites.html#getting-help",
+    "title": "Prerequisites",
+    "section": "Getting Help",
+    "text": "Getting Help\nIf you encounter installation issues:\n\nCheck the RStudio Support page\nVisit Stack Overflow for troubleshooting\nAsk during the session!\n\n\n\n\n\n\n\nTipPro Tip\n\n\n\nIf you run into installation issues before the session, don’t spend too much time troubleshooting. We can help you during the practical!",
+    "crumbs": [
+      "Prerequisites"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Data Science",
+    "section": "",
+    "text": "Welcome to this practical introduction to data science! This session is designed for MSc students at the Institute for Transport Studies who are new to data science.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#about-this-session",
+    "href": "index.html#about-this-session",
+    "title": "Introduction to Data Science",
+    "section": "About This Session",
+    "text": "About This Session\nIn this practical, you’ll get hands-on experience with data science tools. We’ll cover implementations primarily in R. Python versions of the contents are provided for reference in some cases.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#logistics",
+    "href": "index.html#logistics",
+    "title": "Introduction to Data Science",
+    "section": "Logistics",
+    "text": "Logistics\n\nDate: Friday 28th November 2025\nTime: 09:00 - 12:00 (3 hours)\nLocation: Computer Cluster (Check timetable for specific room)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Introduction to Data Science",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 09:15\nWelcome & Setup: Introduction and getting ready\n\n\n09:15 - 09:45\nBasics: RStudio, Quarto, and basic syntax\n\n\n09:45 - 10:30\nManipulation: Cleaning and transforming data with dplyr\n\n\n10:30 - 10:45\nBreak\n\n\n10:45 - 11:30\nVisualisation: Creating plots with ggplot2\n\n\n11:30 - 11:50\nStatistics: Basic statistical analysis (R, SPSS, Excel)\n\n\n11:50 - 12:00\nWrap-up: Collaboration, AI tools and next steps",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "Introduction to Data Science",
+    "section": "What You’ll Learn",
+    "text": "What You’ll Learn\nThis session covers:\n\nPrerequisites: Tools and setup you need before getting started\nGitHub Copilot & AI Tools: Setting up for learning and coding more effectively\nPractical Exercises: Basic data science tasks using R\nNext Steps: Resources to help you continue learning data science",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Introduction to Data Science",
+    "section": "Getting Started",
+    "text": "Getting Started\nNavigate through the sections using the menu. We recommend following them in order if you’re new to data science.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "1-basics/index.html",
+    "href": "1-basics/index.html",
+    "title": "The Basics",
+    "section": "",
+    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
+    "crumbs": [
+      "Basics",
+      "About this section"
+    ]
+  },
+  {
+    "objectID": "1-basics/tasks.html",
+    "href": "1-basics/tasks.html",
+    "title": "The Basics - Tasks",
+    "section": "",
+    "text": "We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.\n\n\n\n\n\n\nTip\n\n\n\nGet R and RStudio running (see Prerequisites if needed) before.\n\n\nSetting up your first(?) project:\n\nIn RStudio, go to File &gt; New Project....\n\nSelect New Directory.\nSelect New Project.\nName the project DS-intro-2025 and choose a directory to save it in (your OneDrive might be a good choice).\nClick Create Project.\n\nNavigate to the Files tab, and create two folders in the project directory: data and scripts.\n\nNow using the console only:\n\nType: print(\"Hello, world!\") and hit Enter to see the output.\nNow try: 2 + 2 and hit Enter.\nFind what the current working directory is by typing getwd() and hitting Enter.\nAssign the value 10 to a variable named my_number using the assignment operator &lt;- or =.\nPrint the value of my_number to the console. Did it work?\n\nNow, let’s create your first R script: 8. In RStudio, go to File &gt; New File &gt; R Script.\n\n\n\n\n\n\nNote\n\n\n\nR scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.\nThink of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.\nAll lines in the script that start with # are comments. They are not executed as code but are there to help explain what the code does.\n\n\n\nSave the script in the scripts folder as 1-basics-intro.R.\nType the following code in the new script:\n# This is my first R script\nprint(\"Hello, world!\")\nmy_number &lt;- 10\nprint(my_number)\nRun the code in the script by placing your cursor on each line and pressing Ctrl + Enter (or Cmd + Enter on Mac). Observe the output in the console.\nCreate a vector with 1000 random numbers between 0 and 100. For this, you can use the runif() function. Assign this vector to a variable named random_numbers. Check how to specify the minimum and maximum values in the runif() function by typing ?runif in the console.\nInstall the tidyverse package by typing install.packages(\"tidyverse\") in the console. We won’t use it now, we will load it in the next part.\n\nOptional:\n\nCalculate the mean and standard deviation of the random_numbers vector using the mean() and sd() functions. Print the results to the console.\nSave your script by clicking File &gt; Save or pressing Ctrl + S (or Cmd + S on Mac).\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
+    "crumbs": [
+      "Basics",
+      "Tasks"
     ]
   },
   {
@@ -273,274 +522,58 @@
     "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts\nReading Data in Python\nCSV files are read similarly in Python using pandas\nimport pandas as pd\n\n# Read CSV file\ncrashes = pd.read_csv(\"data/crashes.csv\")"
   },
   {
-    "objectID": "1-basics/tasks.html",
-    "href": "1-basics/tasks.html",
-    "title": "The Basics - Tasks",
-    "section": "",
-    "text": "We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.\n\n\n\n\n\n\nTip\n\n\n\nGet R and RStudio running (see Prerequisites if needed) before.\n\n\nSetting up your first(?) project:\n\nIn RStudio, go to File &gt; New Project....\n\nSelect New Directory.\nSelect New Project.\nName the project DS-intro-2025 and choose a directory to save it in (your OneDrive might be a good choice).\nClick Create Project.\n\nNavigate to the Files tab, and create two folders in the project directory: data and scripts.\n\nNow using the console only:\n\nType: print(\"Hello, world!\") and hit Enter to see the output.\nNow try: 2 + 2 and hit Enter.\nFind what the current working directory is by typing getwd() and hitting Enter.\nAssign the value 10 to a variable named my_number using the assignment operator &lt;- or =.\nPrint the value of my_number to the console. Did it work?\n\nNow, let’s create your first R script: 8. In RStudio, go to File &gt; New File &gt; R Script.\n\n\n\n\n\n\nNote\n\n\n\nR scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.\nThink of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.\nAll lines in the script that start with # are comments. They are not executed as code but are there to help explain what the code does.\n\n\n\nSave the script in the scripts folder as 1-basics-intro.R.\nType the following code in the new script:\n# This is my first R script\nprint(\"Hello, world!\")\nmy_number &lt;- 10\nprint(my_number)\nRun the code in the script by placing your cursor on each line and pressing Ctrl + Enter (or Cmd + Enter on Mac). Observe the output in the console.\nCreate a vector with 1000 random numbers between 0 and 100. For this, you can use the runif() function. Assign this vector to a variable named random_numbers. Check how to specify the minimum and maximum values in the runif() function by typing ?runif in the console.\nInstall the tidyverse package by typing install.packages(\"tidyverse\") in the console. We won’t use it now, we will load it in the next part.\n\nOptional:\n\nCalculate the mean and standard deviation of the random_numbers vector using the mean() and sd() functions. Print the results to the console.\nSave your script by clicking File &gt; Save or pressing Ctrl + S (or Cmd + S on Mac).\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
-    "crumbs": [
-      "Basics",
-      "Tasks"
-    ]
-  },
-  {
-    "objectID": "1-basics/index.html",
-    "href": "1-basics/index.html",
-    "title": "The Basics",
+    "objectID": "3-visualisation/index.html",
+    "href": "3-visualisation/index.html",
+    "title": "Visualisation",
     "section": "",
     "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
-      "Basics",
+      "Visualisation",
       "About this section"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Data Science",
+    "objectID": "3-visualisation/tasks.html",
+    "href": "3-visualisation/tasks.html",
+    "title": "3. Visualisation - Tasks",
     "section": "",
-    "text": "Welcome to this practical introduction to data science! This session is designed for MSc students at the Institute for Transport Studies who are new to data science.",
+    "text": "In this section, we will practice data visualization using R and the ggplot2 package from the tidyverse. Follow the steps below to create various types of plots.\nUsing the same script 2-data-wrangling-and-visualization.R from the previous section, continue with the following tasks:\nIf you have loaded the tidyverse package and read in the crashes dataset, you can proceed to the next steps. ggplot2 is part of the tidyverse, so you don’t need to load it separately.\n\nBox Plot:\n\nCreate a box plot to visualise the distribution of ages for different casualty types in the crashes dataset.\nUse ggplot() to specify the dataset and aesthetics, and geom_boxplot() to create the box plot.\nAdd appropriate labels and a title to your plot.\nSave the box plot to an object named age_boxplot.\nDisplay the plot by calling the object name.\n\nBar Plot (Optional):\n\nCreate a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).\nAdd custom colours and transparency to the bars.\nAdd appropriate labels and a title.\nSave the plot to an object named casualty_barplot.\n\nExport Your Plots:\n\nSave the box plot as a PNG file named age_boxplot.png using the ggsave() function.\nSave the bar plot as a PNG file named casualty_barplot.png.\nCheck the documentation for ggsave() by typing ?ggsave in the console.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
     "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#about-this-session",
-    "href": "index.html#about-this-session",
-    "title": "Introduction to Data Science",
-    "section": "About This Session",
-    "text": "About This Session\nIn this practical, you’ll get hands-on experience with data science tools. We’ll cover implementations primarily in R. Python versions of the contents are provided for reference in some cases.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#logistics",
-    "href": "index.html#logistics",
-    "title": "Introduction to Data Science",
-    "section": "Logistics",
-    "text": "Logistics\n\nDate: Friday 28th November 2025\nTime: 09:00 - 12:00 (3 hours)\nLocation: Computer Cluster (Check timetable for specific room)",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "Introduction to Data Science",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 09:15\nWelcome & Setup: Introduction and getting ready\n\n\n09:15 - 09:45\nBasics: RStudio, Quarto, and basic syntax\n\n\n09:45 - 10:30\nManipulation: Cleaning and transforming data with dplyr\n\n\n10:30 - 10:45\nBreak\n\n\n10:45 - 11:30\nVisualisation: Creating plots with ggplot2\n\n\n11:30 - 11:50\nStatistics: Basic statistical analysis (R, SPSS, Excel)\n\n\n11:50 - 12:00\nWrap-up: Collaboration, AI tools and next steps",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#what-youll-learn",
-    "href": "index.html#what-youll-learn",
-    "title": "Introduction to Data Science",
-    "section": "What You’ll Learn",
-    "text": "What You’ll Learn\nThis session covers:\n\nPrerequisites: Tools and setup you need before getting started\nGitHub Copilot & AI Tools: Setting up for learning and coding more effectively\nPractical Exercises: Basic data science tasks using R\nNext Steps: Resources to help you continue learning data science",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#getting-started",
-    "href": "index.html#getting-started",
-    "title": "Introduction to Data Science",
-    "section": "Getting Started",
-    "text": "Getting Started\nNavigate through the sections using the menu. We recommend following them in order if you’re new to data science.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html",
-    "href": "prerequisites.html",
-    "title": "Prerequisites",
-    "section": "",
-    "text": "Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html#required-software",
-    "href": "prerequisites.html#required-software",
-    "title": "Prerequisites",
-    "section": "Required Software",
-    "text": "Required Software\n\nIf using AppsAnywhere\nIf you’re using AppsAnywhere (available on university computers or your own laptop):\n\nOpen AppsAnywhere on your computer\nSearch for and launch R first\nSearch for and launch RStudio (requires R to be installed)\nFor Python (optional), search for and launch Anaconda from AppsAnywhere\n\n\n\nIf installing on your own laptop\nThis approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:\n\n1. R and RStudio\nR is a programming language widely used for statistical computing and data science.\n\nDownload R from CRAN\nDownload RStudio Desktop (free) from Posit\n\n\n\n2. Python (Optional but Recommended)\nPython is another popular language for data science.\n\nDownload Python from python.org (version 3.8 or higher)\nOr install via Anaconda (includes many data science packages)",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "prerequisites.html#getting-help",
-    "href": "prerequisites.html#getting-help",
-    "title": "Prerequisites",
-    "section": "Getting Help",
-    "text": "Getting Help\nIf you encounter installation issues:\n\nCheck the RStudio Support page\nVisit Stack Overflow for troubleshooting\nAsk during the session!\n\n\n\n\n\n\n\nTipPro Tip\n\n\n\nIf you run into installation issues before the session, don’t spend too much time troubleshooting. We can help you during the practical!",
-    "crumbs": [
-      "Prerequisites"
-    ]
-  },
-  {
-    "objectID": "1-basics/slides.html#integrated-development-environments-ides",
-    "href": "1-basics/slides.html#integrated-development-environments-ides",
-    "title": "",
-    "section": "Integrated Development Environments (IDEs)",
-    "text": "Integrated Development Environments (IDEs)\nYour toolkit for writing code"
-  },
-  {
-    "objectID": "1-basics/slides.html#the-fundamentals-of-r",
-    "href": "1-basics/slides.html#the-fundamentals-of-r",
-    "title": "",
-    "section": "The fundamentals of R",
-    "text": "The fundamentals of R\n\nhow to organize your work\nbasic data types and structures\nusing R for calculations"
-  },
-  {
-    "objectID": "1-basics/slides.html#using-r",
-    "href": "1-basics/slides.html#using-r",
-    "title": "",
-    "section": "Using R",
-    "text": "Using R"
-  },
-  {
-    "objectID": "1-basics/slides.html#control-flow",
-    "href": "1-basics/slides.html#control-flow",
-    "title": "",
-    "section": "Control Flow",
-    "text": "Control Flow\nMaking decisions and repeating tasks"
-  },
-  {
-    "objectID": "1-basics/slides.html#using-packages-in-r",
-    "href": "1-basics/slides.html#using-packages-in-r",
-    "title": "",
-    "section": "Using Packages in R",
-    "text": "Using Packages in R\nPackages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc.\n\nSource: Storybench"
-  },
-  {
-    "objectID": "1-basics/slides.html#key-takeaways",
-    "href": "1-basics/slides.html#key-takeaways",
-    "title": "",
-    "section": "Key Takeaways",
-    "text": "Key Takeaways\n✅ Know your IDE (RStudio or VS Code)\n✅ Understand basic data types in R\n✅ Know the difference between data structures\n✅ Organize your work with folder structure\n✅ Use relative paths for portability\n✅ Control program flow with if statements and loops\n✅ Learn how to install and use packages\n✅ Know where to find documentation"
-  },
-  {
-    "objectID": "1-basics/slides.html#python-content-optional",
-    "href": "1-basics/slides.html#python-content-optional",
-    "title": "",
-    "section": "Python Content (Optional)",
-    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts"
-  },
-  {
-    "objectID": "1-basics/slides.html#the-fundamentals-of-python",
-    "href": "1-basics/slides.html#the-fundamentals-of-python",
-    "title": "",
-    "section": "The Fundamentals of Python",
-    "text": "The Fundamentals of Python\nOrganising Your Work\nProject structure and file paths\nRecommended Folder Structure\n\n\nmy-project/\n├── data/\n│   ├── raw/              # Original data files\n│   └── processed/        # Cleaned data\n├── code/\n│   ├── analysis.py\n│   └── plots.py\n├── outputs/\n│   ├── figures/\n│   └── results/\n├── README.md\n└── requirements.txt\n\n\nTips:\n\nKeep your work organised for easy maintenance\nUse meaningful folder and file names\nKeep data separate from code and outputs\nKeep raw data unchanged; process copies instead"
-  },
-  {
-    "objectID": "1-basics/slides.html#using-packages-in-python",
-    "href": "1-basics/slides.html#using-packages-in-python",
-    "title": "",
-    "section": "Using Packages in Python",
-    "text": "Using Packages in Python\nPackages are collections of functions to extend capabilities: Different types of data/sources, different methods, more efficient coding, etc."
-  },
-  {
-    "objectID": "2-manipulation/index.html",
-    "href": "2-manipulation/index.html",
-    "title": "Manipulation",
-    "section": "",
-    "text": "ReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
-    "crumbs": [
-      "Manipulation",
-      "About this section"
-    ]
-  },
-  {
-    "objectID": "2-manipulation/tasks.html",
-    "href": "2-manipulation/tasks.html",
-    "title": "Data Wrangling - Tasks",
-    "section": "",
-    "text": "In this section, we will practice data wrangling using R and the dplyr package from the tidyverse. Follow the steps below to manipulate and explore a dataset.\n\nCreate a new R script in your scripts folder and name it 2-data-wrangling-and-visualization.R.\nLoad the tidyverse package by adding the following line at the top of your script:\nlibrary(tidyverse)\nDownload the crashes file (here) and save it in your data folder.\nRead the crashes dataset into R using the read_csv() function and assign it to a variable named crashes:\ncrashes &lt;- read_csv(\"data/crashes.csv\")\nExplore the dataset:\n\nUse the head() function to view the first few rows of the dataset.\nUse the str() function to understand the structure of the dataset.\nUse the summary() function to get a summary of the dataset.\n\nData Wrangling Tasks:\n\nCreate a new data.frame named crashes_filtered that includes only cyclists.\nCreate a new data.frame named crashes_dark that includes only crashes that occurred in dark conditions.\nCreate a new data.frame named crashes_dark_cyclist that includes only crashes that involved cyclists and occurred in dark conditions.\nCreate a summary table named crashes_by_type that shows the median age by casualty type.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
-    "crumbs": [
-      "Manipulation",
+      "Visualisation",
       "Tasks"
     ]
   },
   {
-    "objectID": "3-visualisation/slides.html#why-visualise",
-    "href": "3-visualisation/slides.html#why-visualise",
-    "title": "",
-    "section": "Why Visualise?",
-    "text": "Why Visualise?\n\nUnderstand patterns quickly\nCommunicate findings effectively\nIdentify outliers and anomalies\nExplore relationships"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#scatter-plots",
-    "href": "3-visualisation/slides.html#scatter-plots",
-    "title": "",
-    "section": "Scatter Plots",
-    "text": "Scatter Plots\nShow relationships between two continuous variables"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#bar-plots",
-    "href": "3-visualisation/slides.html#bar-plots",
-    "title": "",
-    "section": "Bar Plots",
-    "text": "Bar Plots\nShow counts or comparisons across categories"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#box-plots",
-    "href": "3-visualisation/slides.html#box-plots",
-    "title": "",
-    "section": "Box Plots",
-    "text": "Box Plots\nShow distributions and identify outliers"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#using-plots",
-    "href": "3-visualisation/slides.html#using-plots",
-    "title": "",
-    "section": "Using Plots",
-    "text": "Using Plots\nPlots can also be assigned to objects for further modification or saving:\n\n# Save plot to object\nfinal_plot &lt;- my_boxplot + theme_classic()\n\nfinal_plot"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#exporting-plots",
-    "href": "3-visualisation/slides.html#exporting-plots",
-    "title": "",
-    "section": "Exporting Plots",
-    "text": "Exporting Plots\nYou can save your plots using ggsave():\n# Save the final plot as a PNG file\nggsave(\"final_plot.png\", plot = final_plot,  width = 15,  height = 10, units = \"cm\", dpi = 300)"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#key-resources",
-    "href": "3-visualisation/slides.html#key-resources",
-    "title": "",
-    "section": "Key Resources",
-    "text": "Key Resources\n\nR for Data Science - Chapter 3: Data Visualisation\nggplot2 Documentation\nR Graphics Cookbook\nVisualization for Social Data Science"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#key-takeaways",
-    "href": "3-visualisation/slides.html#key-takeaways",
-    "title": "",
-    "section": "Key Takeaways",
-    "text": "Key Takeaways\n✅ Start with a basic canvas and build incrementally\n✅ Choose the right geom for your data type\n✅ Customise colours, size, and transparency strategically\n✅ Add informative titles and axis labels\n✅ Use themes to improve presentation\n✅ Layer multiple geoms for richer visualisations"
-  },
-  {
-    "objectID": "3-visualisation/slides.html#python-content-optional",
-    "href": "3-visualisation/slides.html#python-content-optional",
-    "title": "",
-    "section": "Python Content (Optional)",
-    "text": "Python Content (Optional)\nIf you’re interested in Python, here are equivalent concepts"
-  },
-  {
-    "objectID": "4-statistics/index.html",
-    "href": "4-statistics/index.html",
-    "title": "Statistics - Tasks",
+    "objectID": "4-statistics/solutions.html",
+    "href": "4-statistics/solutions.html",
+    "title": "Statistics - Worked Solutions",
     "section": "",
-    "text": "In this part of the practical, we will use what we have learned so far to perform the same analysis you have already learned with other tools, but this time using R.\n\nDownload the datasets for this exercises and save them in your data folder:\n\n\nParkRun Performance Data.xlsx\nRunning Data.xlsx\n\n\nDownload the following scripts and try to run the code in them. You will have to fix some (intentionally added) errors to be able to run the code.\n\n\nScript 1: Excel Task\nScript 2: SPSS Task\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2025 Robin Lovelace & contributors",
+    "text": "This page presents the worked solutions for the statistics tasks, showing how to perform the same analyses in both R and Python.",
     "crumbs": [
       "Statistics",
-      "About this section"
+      "Worked Solutions"
+    ]
+  },
+  {
+    "objectID": "4-statistics/solutions.html#task-1-excel-data-analysis",
+    "href": "4-statistics/solutions.html#task-1-excel-data-analysis",
+    "title": "Statistics - Worked Solutions",
+    "section": "Task 1: Excel Data Analysis",
+    "text": "Task 1: Excel Data Analysis\nThis task involves reading data from an Excel file (ParkRunPerformanceData.xlsx), cleaning it, calculating summaries, and visualizing the distribution of run times.\n\nRPython\n\n\n\n\nCode\n# Loading the necessary libraries\nlibrary(tidyverse)\nlibrary(readxl)\n\n# Assigning the path to a variable\npath_to_file &lt;- \"../00_data/ParkRunPerformanceData.xlsx\" # Corrected path\n\n# Reading data from an Excel file\ndata &lt;- read_excel(path = path_to_file,\n                   sheet = \"Sheet1\",\n                   col_types = c(\"date\", \"numeric\"))\n\n# Exploring the data\ncat(\"---\\n--- Head of Data ---\\n---\")\n\n\n---\n--- Head of Data ---\n---\n\n\nCode\nprint(head(data))\n\n\n# A tibble: 6 × 2\n  `Event Date`        `Run Time (minutes)`\n  &lt;dttm&gt;                             &lt;dbl&gt;\n1 2015-08-22 00:00:00                 20.6\n2 2015-08-15 00:00:00                 22.4\n3 2015-08-08 00:00:00                 27.0\n4 2015-08-01 00:00:00                 22.2\n5 2015-07-25 00:00:00                 24.8\n6 2015-07-18 00:00:00                 21.4\n\n\nCode\ncat(\"\\n--- Structure of Data ---\")\n\n\n\n--- Structure of Data ---\n\n\nCode\nstr(data)\n\n\ntibble [120 × 2] (S3: tbl_df/tbl/data.frame)\n $ Event Date        : POSIXct[1:120], format: \"2015-08-22\" \"2015-08-15\" ...\n $ Run Time (minutes): num [1:120] 20.6 22.4 27 22.2 24.8 ...\n\n\nCode\ncat(\"\\n--- Summary Statistics ---\")\n\n\n\n--- Summary Statistics ---\n\n\nCode\nsummary(data)\n\n\n   Event Date                  Run Time (minutes)\n Min.   :2012-08-04 00:00:00   Min.   :20.63     \n 1st Qu.:2013-09-07 00:00:00   1st Qu.:21.78     \n Median :2014-04-08 12:00:00   Median :23.07     \n Mean   :2014-04-07 21:48:00   Mean   :23.42     \n 3rd Qu.:2014-11-23 18:00:00   3rd Qu.:24.82     \n Max.   :2015-08-22 00:00:00   Max.   :31.13     \n\n\nCode\n# Rename the columns to ensure consistency and ease manipulation\nnames(data) &lt;- c(\"date\",\"runtime\")\n\n# Sorting the data\ndata_sorted &lt;- data |&gt; arrange(runtime)\ncat(\"\\n--- Sorted Data (Ascending) ---\")\n\n\n\n--- Sorted Data (Ascending) ---\n\n\nCode\nprint(head(data_sorted))\n\n\n# A tibble: 6 × 2\n  date                runtime\n  &lt;dttm&gt;                &lt;dbl&gt;\n1 2015-08-22 00:00:00    20.6\n2 2014-09-27 00:00:00    20.7\n3 2015-04-18 00:00:00    20.7\n4 2015-04-25 00:00:00    20.8\n5 2015-04-04 00:00:00    21.0\n6 2014-11-29 00:00:00    21.0\n\n\nCode\ndata_sorted_inv &lt;- data |&gt; arrange(-runtime)\ncat(\"\\n--- Sorted Data (Descending) ---\")\n\n\n\n--- Sorted Data (Descending) ---\n\n\nCode\nprint(head(data_sorted_inv))\n\n\n# A tibble: 6 × 2\n  date                runtime\n  &lt;dttm&gt;                &lt;dbl&gt;\n1 2013-10-19 00:00:00    31.1\n2 2013-07-20 00:00:00    30.6\n3 2013-03-16 00:00:00    29.4\n4 2014-02-01 00:00:00    27.5\n5 2013-01-12 00:00:00    27.4\n6 2013-06-15 00:00:00    27.3\n\n\nCode\n# Calculating the summaries manually \nsummary_dates &lt;- \n  data |&gt;\n  summarise(min_date = min(date),\n            max_date = max(date))\ncat(\"\\n--- Summary Dates ---\")\n\n\n\n--- Summary Dates ---\n\n\nCode\nprint(summary_dates)\n\n\n# A tibble: 1 × 2\n  min_date            max_date           \n  &lt;dttm&gt;              &lt;dttm&gt;             \n1 2012-08-04 00:00:00 2015-08-22 00:00:00\n\n\nCode\nsummary_runtimes &lt;- \n  data |&gt;\n  summarise(\n            count = n(),\n            mean_runtime = mean(runtime),\n            slowest = max(runtime),\n            fastest = min(runtime))\ncat(\"\\n--- Summary Runtimes ---\")\n\n\n\n--- Summary Runtimes ---\n\n\nCode\nprint(summary_runtimes)\n\n\n# A tibble: 1 × 4\n  count mean_runtime slowest fastest\n  &lt;int&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1   120         23.4    31.1    20.6\n\n\nCode\n# Rounding the run times to the nearest minute\ndata_rounded &lt;- data |&gt; \n  mutate(runtime_mins = round(x = runtime, digits = 0))\ncat(\"\\n--- Data with Rounded Runtimes ---\")\n\n\n\n--- Data with Rounded Runtimes ---\n\n\nCode\nprint(head(data_rounded))\n\n\n# A tibble: 6 × 3\n  date                runtime runtime_mins\n  &lt;dttm&gt;                &lt;dbl&gt;        &lt;dbl&gt;\n1 2015-08-22 00:00:00    20.6           21\n2 2015-08-15 00:00:00    22.4           22\n3 2015-08-08 00:00:00    27.0           27\n4 2015-08-01 00:00:00    22.2           22\n5 2015-07-25 00:00:00    24.8           25\n6 2015-07-18 00:00:00    21.4           21\n\n\nCode\n# Counting the frequencies for each value\nfreq &lt;- data_rounded |&gt; \n  count(runtime_mins)\ncat(\"\\n--- Frequencies ---\")\n\n\n\n--- Frequencies ---\n\n\nCode\nprint(freq)\n\n\n# A tibble: 9 × 2\n  runtime_mins     n\n         &lt;dbl&gt; &lt;int&gt;\n1           21    19\n2           22    32\n3           23    17\n4           24    19\n5           25    15\n6           26    10\n7           27     5\n8           29     1\n9           31     2\n\n\nCode\n# A quick histogram\nhist(data_rounded$runtime_mins,breaks = 14:33, main = \"Quick Histogram of Run Times\")\n\n\n\n\n\nVarious Outputs from Excel Task (R)\n\n\n\n\nCode\n# A nicer histogram\ndata |&gt; \n  ggplot(aes(x = runtime))+\n  geom_histogram(binwidth = 1, col = \"white\",fill = \"steelblue\", alpha = 0.7)+\n  labs (x = \"Run time in seconds\",\n        y = \"frequency\",\n        title = \"Park Run Times Distribution\",\n        subtitle = \"Records from Aug 2012 to Aug 2015\",\n        caption = \"Source: Andrew Tomlinson\")+\n  scale_x_continuous(breaks = 14:33)+\n  geom_hline(yintercept = 0,linewidth = 1,col = \"grey30\")+\n  theme_minimal()+\n  theme(title = element_text(size = 15))\n\n\n\n\n\nVarious Outputs from Excel Task (R)\n\n\n\n\nCode\n# Have the run times improved?\n  # A different exploration\ndata |&gt; \n  ggplot(aes(x = date, y = runtime))+\n  geom_point() +  \n  geom_smooth(method = \"lm\")\n\n\n\n\n\nVarious Outputs from Excel Task (R)\n\n\n\n\n\n\n\n\nCode\nimport polars as pl\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport matplotlib.dates as mdates\n\nsns.set_theme(style=\"whitegrid\")\n\n# Assigning the path to a variable\npath_to_file = \"../00_data/ParkRunPerformanceData.xlsx\" # Corrected path\n\n# Reading data from an Excel file\ndata = pl.from_pandas(pd.read_excel(path_to_file, sheet_name=\"Sheet1\"))\n\n# Exploring the data\nprint(\"---\\n--- Head of Data ---\\n---\")\n\n\n---\n--- Head of Data ---\n---\n\n\nCode\nprint(data.head())\n\n\nshape: (5, 2)\n┌─────────────────────┬────────────────────┐\n│ Event Date          ┆ Run Time (minutes) │\n│ ---                 ┆ ---                │\n│ datetime[ns]        ┆ f64                │\n╞═════════════════════╪════════════════════╡\n│ 2015-08-22 00:00:00 ┆ 20.633333          │\n│ 2015-08-15 00:00:00 ┆ 22.383333          │\n│ 2015-08-08 00:00:00 ┆ 26.966667          │\n│ 2015-08-01 00:00:00 ┆ 22.25              │\n│ 2015-07-25 00:00:00 ┆ 24.816667          │\n└─────────────────────┴────────────────────┘\n\n\nCode\nprint(\"\\n--- Schema ---\")\n\n\n\n--- Schema ---\n\n\nCode\nprint(data.schema)\n\n\nSchema({'Event Date': Datetime(time_unit='ns', time_zone=None), 'Run Time (minutes)': Float64})\n\n\nCode\nprint(\"\\n--- Summary Statistics ---\")\n\n\n\n--- Summary Statistics ---\n\n\nCode\nprint(data.describe())\n\n\nshape: (9, 3)\n┌────────────┬─────────────────────┬────────────────────┐\n│ statistic  ┆ Event Date          ┆ Run Time (minutes) │\n│ ---        ┆ ---                 ┆ ---                │\n│ str        ┆ str                 ┆ f64                │\n╞════════════╪═════════════════════╪════════════════════╡\n│ count      ┆ 120                 ┆ 120.0              │\n│ null_count ┆ 0                   ┆ 0.0                │\n│ mean       ┆ 2014-04-07 21:48:00 ┆ 23.420278          │\n│ std        ┆ null                ┆ 2.059807           │\n│ min        ┆ 2012-08-04 00:00:00 ┆ 20.633333          │\n│ 25%        ┆ 2013-09-14 00:00:00 ┆ 21.8               │\n│ 50%        ┆ 2014-04-12 00:00:00 ┆ 23.116667          │\n│ 75%        ┆ 2014-11-22 00:00:00 ┆ 24.816667          │\n│ max        ┆ 2015-08-22 00:00:00 ┆ 31.133333          │\n└────────────┴─────────────────────┴────────────────────┘\n\n\nCode\n# Rename the columns\nif len(data.columns) &gt;= 2:\n    data = data.rename({data.columns[0]: \"date\", data.columns[1]: \"runtime\"})\n\n# Sorting the data\ndata_sorted = data.sort(\"runtime\")\nprint(\"\\n--- Sorted Data (Ascending) ---\")\n\n\n\n--- Sorted Data (Ascending) ---\n\n\nCode\nprint(data_sorted.head())\n\n\nshape: (5, 2)\n┌─────────────────────┬───────────┐\n│ date                ┆ runtime   │\n│ ---                 ┆ ---       │\n│ datetime[ns]        ┆ f64       │\n╞═════════════════════╪═══════════╡\n│ 2015-08-22 00:00:00 ┆ 20.633333 │\n│ 2014-09-27 00:00:00 ┆ 20.666667 │\n│ 2015-04-18 00:00:00 ┆ 20.733333 │\n│ 2015-04-25 00:00:00 ┆ 20.816667 │\n│ 2015-04-04 00:00:00 ┆ 20.966667 │\n└─────────────────────┴───────────┘\n\n\nCode\ndata_sorted_inv = data.sort(\"runtime\", descending=True)\nprint(\"\\n--- Sorted Data (Descending) ---\")\n\n\n\n--- Sorted Data (Descending) ---\n\n\nCode\nprint(data_sorted_inv.head())\n\n\nshape: (5, 2)\n┌─────────────────────┬───────────┐\n│ date                ┆ runtime   │\n│ ---                 ┆ ---       │\n│ datetime[ns]        ┆ f64       │\n╞═════════════════════╪═══════════╡\n│ 2013-10-19 00:00:00 ┆ 31.133333 │\n│ 2013-07-20 00:00:00 ┆ 30.566667 │\n│ 2013-03-16 00:00:00 ┆ 29.416667 │\n│ 2014-02-01 00:00:00 ┆ 27.466667 │\n│ 2013-01-12 00:00:00 ┆ 27.45     │\n└─────────────────────┴───────────┘\n\n\nCode\n# Calculating summaries\nsummary_dates = data.select([\n    pl.col(\"date\").min().alias(\"min_date\"),\n    pl.col(\"date\").max().alias(\"max_date\")\n])\nprint(\"\\n--- Summary Dates ---\")\n\n\n\n--- Summary Dates ---\n\n\nCode\nprint(summary_dates)\n\n\nshape: (1, 2)\n┌─────────────────────┬─────────────────────┐\n│ min_date            ┆ max_date            │\n│ ---                 ┆ ---                 │\n│ datetime[ns]        ┆ datetime[ns]        │\n╞═════════════════════╪═════════════════════╡\n│ 2012-08-04 00:00:00 ┆ 2015-08-22 00:00:00 │\n└─────────────────────┴─────────────────────┘\n\n\nCode\nsummary_runtimes = data.select([\n    pl.len().alias(\"count\"),\n    pl.col(\"runtime\").mean().alias(\"mean_runtime\"),\n    pl.col(\"runtime\").max().alias(\"slowest\"),\n    pl.col(\"runtime\").min().alias(\"fastest\")\n])\nprint(\"\\n--- Summary Runtimes ---\")\n\n\n\n--- Summary Runtimes ---\n\n\nCode\nprint(summary_runtimes)\n\n\nshape: (1, 4)\n┌───────┬──────────────┬───────────┬───────────┐\n│ count ┆ mean_runtime ┆ slowest   ┆ fastest   │\n│ ---   ┆ ---          ┆ ---       ┆ ---       │\n│ u32   ┆ f64          ┆ f64       ┆ f64       │\n╞═══════╪══════════════╪═══════════╪═══════════╡\n│ 120   ┆ 23.420278    ┆ 31.133333 ┆ 20.633333 │\n└───────┴──────────────┴───────────┴───────────┘\n\n\nCode\n# Rounding the run times\ndata_rounded = data.with_columns(\n    pl.col(\"runtime\").round(0).alias(\"runtime_mins\")\n)\nprint(\"\\n--- Data with Rounded Runtimes ---\")\n\n\n\n--- Data with Rounded Runtimes ---\n\n\nCode\nprint(data_rounded.head())\n\n\nshape: (5, 3)\n┌─────────────────────┬───────────┬──────────────┐\n│ date                ┆ runtime   ┆ runtime_mins │\n│ ---                 ┆ ---       ┆ ---          │\n│ datetime[ns]        ┆ f64       ┆ f64          │\n╞═════════════════════╪═══════════╪══════════════╡\n│ 2015-08-22 00:00:00 ┆ 20.633333 ┆ 21.0         │\n│ 2015-08-15 00:00:00 ┆ 22.383333 ┆ 22.0         │\n│ 2015-08-08 00:00:00 ┆ 26.966667 ┆ 27.0         │\n│ 2015-08-01 00:00:00 ┆ 22.25     ┆ 22.0         │\n│ 2015-07-25 00:00:00 ┆ 24.816667 ┆ 25.0         │\n└─────────────────────┴───────────┴──────────────┘\n\n\nCode\n# Frequencies\nfreq = data_rounded.group_by(\"runtime_mins\").len().sort(\"runtime_mins\")\nprint(\"\\n--- Frequencies ---\")\n\n\n\n--- Frequencies ---\n\n\nCode\nprint(freq)\n\n\nshape: (9, 2)\n┌──────────────┬─────┐\n│ runtime_mins ┆ len │\n│ ---          ┆ --- │\n│ f64          ┆ u32 │\n╞══════════════╪═════╡\n│ 21.0         ┆ 19  │\n│ 22.0         ┆ 32  │\n│ 23.0         ┆ 17  │\n│ 24.0         ┆ 19  │\n│ 25.0         ┆ 15  │\n│ 26.0         ┆ 10  │\n│ 27.0         ┆ 5   │\n│ 29.0         ┆ 1   │\n│ 31.0         ┆ 2   │\n└──────────────┴─────┘\n\n\nCode\n# Nicer Histogram\nplt.figure(figsize=(10, 6))\nsns.histplot(\n    data=data_rounded.to_pandas(), \n    x=\"runtime\", \n    binwidth=1, \n    color=\"steelblue\", \n    edgecolor=\"white\", \n    alpha=0.7\n)\nplt.title(\"Park Run Times Distribution\\nRecords from Aug 2012 to Aug 2015\", fontsize=15)\nplt.xlabel(\"Run time in seconds\")\nplt.ylabel(\"frequency\")\nplt.xlim(14, 33)\n\n\n(14.0, 33.0)\n\n\nCode\nplt.axhline(0, color=\"grey\", linewidth=1)\nplt.figtext(0.8, 0.01, \"Source: Andrew Tomlinson\", wrap=True, horizontalalignment='center', fontsize=10) # Uncommented\nplt.show()\n\n\n\n\n\nVarious Outputs from Excel Task (Python)\n\n\n\n\nCode\n# Have the run times improved?\nplt.figure(figsize=(10, 6))\npdf = data.to_pandas()\n# Ensure date is numeric for regression plot\npdf['date_num'] = mdates.date2num(pdf['date'])\n\nsns.regplot(\n    data=pdf, \n    x='date_num', \n    y=\"runtime\", \n    scatter_kws={'s':10}, \n    line_kws={'color':'blue'}\n)\n# Fix x-axis to show dates\nax = plt.gca()\nax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))\nplt.title(\"Run Times over Date\")\nplt.show() # Uncommented\n\n\n\n\n\nVarious Outputs from Excel Task (Python)",
+    "crumbs": [
+      "Statistics",
+      "Worked Solutions"
+    ]
+  },
+  {
+    "objectID": "4-statistics/solutions.html#task-2-spss-data-analysis",
+    "href": "4-statistics/solutions.html#task-2-spss-data-analysis",
+    "title": "Statistics - Worked Solutions",
+    "section": "Task 2: SPSS Data Analysis",
+    "text": "Task 2: SPSS Data Analysis\nThis task analyzes running data originally handled in SPSS (RunningData.xlsx), including filtering, grouping, and statistical tests.\n\nRPython\n\n\n\n\nCode\nlibrary(tidyverse)\nlibrary(readxl)\n\npath_to_file &lt;- \"../00_data/RunningData.xlsx\"\ndata &lt;- read_excel(path = path_to_file, sheet = \"Sheet1\")\n\n# Rename columns\nnames(data) &lt;- c(\"position\", \"time\", \"age_cat\", \"gender\", \"prev_runs\")\n\n# Summaries\ncat(\"---\\n--- Summary of Time ---\")\n\n\n---\n--- Summary of Time ---\n\n\nCode\nsummary(data$time)\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  16.90   24.40   27.88   28.31   32.00   43.23 \n\n\nCode\ncat(\"\\n--- Unique Age Categories ---\")\n\n\n\n--- Unique Age Categories ---\n\n\nCode\nunique(data$age_cat)\n\n\n [1] \"30-34\" \"20-24\" \"25-29\" \"40-44\" \"15-17\" \"35-39\" \"45-49\" \"50-54\" \"55-59\"\n[10] \"11-14\" \"10\"    \"60-64\" \"18-19\" \"65-69\" \"70-74\" \"75-79\"\n\n\nCode\n# Subset only adults \nchildren_cats &lt;- c(\"10\",\"11-14\",\"15-17\")\ndata_adults &lt;- data |&gt; \n  filter(!age_cat %in% children_cats)\n\ncat(\"\\n--- Unique Adult Age Categories ---\")\n\n\n\n--- Unique Adult Age Categories ---\n\n\nCode\nunique(data_adults$age_cat)\n\n\n [1] \"30-34\" \"20-24\" \"25-29\" \"40-44\" \"35-39\" \"45-49\" \"50-54\" \"55-59\" \"60-64\"\n[10] \"18-19\" \"65-69\" \"70-74\" \"75-79\"\n\n\nCode\ncat(\"\\n--- Summary of Adult Time ---\")\n\n\n\n--- Summary of Adult Time ---\n\n\nCode\nsummary(data_adults$time)\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  16.90   24.34   27.68   28.16   31.72   42.68 \n\n\nCode\n# Analysis by gender\ncat(\"\\n--- Analysis by Gender ---\")\n\n\n\n--- Analysis by Gender ---\n\n\nCode\ndata_adults |&gt; \n  group_by(gender) |&gt; \n  summarise(min = min(time),\n            mean = mean(time),\n            median = mean(time),\n            max = max(time))\n\n\n# A tibble: 2 × 5\n  gender   min  mean median   max\n  &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;\n1 F       21.1  31.0   31.0  42.7\n2 M       16.9  25.2   25.2  40.8\n\n\nCode\n# Comparing distributions\ndata_adults |&gt; \n  ggplot(aes(x = time, fill = gender))+\n  geom_histogram(col = \"white\")+\n  facet_grid(gender~.)\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\ndata_adults |&gt; \n  ggplot(aes(x = time, col = gender))+\n  geom_density()\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\ndata_adults |&gt; \n  ggplot(aes(x = time, col = gender))+\n  geom_boxplot()\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\ndata_adults |&gt; \n  ggplot(aes(x = time, y = gender, col = gender))+\n  geom_violin()\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\n## Statistical tests\n# Extracting the data\ntimes_female_adults &lt;- data_adults |&gt; filter(gender == \"F\") |&gt; pull(time)\ntimes_male_adults &lt;- data_adults |&gt; filter(gender == \"M\") |&gt; pull(time)\n\ncat(\"\\n--- T-Test Results (Male vs Female) ---\")\n\n\n\n--- T-Test Results (Male vs Female) ---\n\n\nCode\nt.test(times_male_adults, times_female_adults)\n\n\n\n    Welch Two Sample t-test\n\ndata:  times_male_adults and times_female_adults\nt = -14.636, df = 521.03, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -6.622564 -5.055101\nsample estimates:\nmean of x mean of y \n 25.15512  30.99395 \n\n\nCode\n# Previous runs vs times\ndata_adults |&gt; \n  ggplot(aes(x = prev_runs, y = time))+\n  geom_point()+\n  geom_smooth(method = \"lm\")\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\ndata_adults |&gt; \n  ggplot(aes(x = prev_runs, y =time, col = gender))+\n  geom_point() +\n  geom_smooth(method = \"lm\")\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\ncat(\"\\n--- Correlation Test (Time vs Previous Runs) ---\")\n\n\n\n--- Correlation Test (Time vs Previous Runs) ---\n\n\nCode\ncor.test(data_adults$time, data_adults$prev_runs)\n\n\n\n    Pearson's product-moment correlation\n\ndata:  data_adults$time and data_adults$prev_runs\nt = -5.4024, df = 522, p-value = 1.001e-07\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n -0.3096642 -0.1473580\nsample estimates:\n       cor \n-0.2301107 \n\n\nCode\n# Finding the median of prev runs\nmedian_prev_runs &lt;- median(data_adults$prev_runs)\ncat(\"\\n--- Median Previous Runs ---\")\n\n\n\n--- Median Previous Runs ---\n\n\nCode\nprint(median_prev_runs)\n\n\n[1] 18\n\n\nCode\ndata_adults_pr_gr &lt;- data_adults |&gt; \n  mutate(pr_gr = prev_runs&gt;=median_prev_runs)\n\ncat(\"\\n--- Data with pr_gr group ---\")\n\n\n\n--- Data with pr_gr group ---\n\n\nCode\nprint(head(data_adults_pr_gr))\n\n\n# A tibble: 6 × 6\n  position  time age_cat gender prev_runs pr_gr\n     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;lgl&gt;\n1        1  16.9 30-34   M             60 TRUE \n2        2  17.2 20-24   M             91 TRUE \n3        3  17.3 25-29   M             26 TRUE \n4        4  17.4 40-44   M             14 FALSE\n5        5  17.4 40-44   M              4 FALSE\n6        7  18.2 35-39   M             19 TRUE \n\n\nCode\n# a quick visual check\ndata_adults_pr_gr |&gt; \n  ggplot(aes(prev_runs,fill = pr_gr))+\n  geom_histogram()\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\n# Comparing times\ndata_adults_pr_gr |&gt; \n  ggplot(aes(x = time, col = pr_gr))+\n  geom_boxplot()\n\n\n\n\n\nVarious Outputs from SPSS Task (R)\n\n\n\n\nCode\n# Linear Model\n# Extract first two digits of age category for numeric age proxy\ndata_adults_lm &lt;- data_adults |&gt; \n  mutate(age = str_extract(age_cat, '^\\\\d{2}') |&gt; as.numeric())  \n\nmy_linear_model &lt;- lm(formula = \"time ~ age + gender + prev_runs\", data = data_adults_lm) \ncat(\"\\n--- Linear Model Summary ---\")\n\n\n\n--- Linear Model Summary ---\n\n\nCode\nsummary(my_linear_model)\n\n\n\nCall:\nlm(formula = \"time ~ age + gender + prev_runs\", data = data_adults_lm)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-10.3003  -3.3456  -0.3801   2.5654  15.2136 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 30.198335   0.723994  41.711  &lt; 2e-16 ***\nage          0.043466   0.018523   2.347   0.0193 *  \ngenderM     -5.657628   0.395852 -14.292  &lt; 2e-16 ***\nprev_runs   -0.035480   0.007473  -4.748 2.66e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.473 on 520 degrees of freedom\nMultiple R-squared:  0.322, Adjusted R-squared:  0.3181 \nF-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\n\nCode\nimport polars as pl\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport scipy.stats as stats\nimport statsmodels.formula.api as smf\nimport numpy as np\n\nsns.set_theme(style=\"whitegrid\")\n\npath_to_file = \"../00_data/RunningData.xlsx\"\ndata = pl.from_pandas(pd.read_excel(path_to_file, sheet_name=\"Sheet1\"))\n\n# Rename columns\nif len(data.columns) &gt;= 5:\n    data = data.rename({\n        data.columns[0]: \"position\",\n        data.columns[1]: \"time\",\n        data.columns[2]: \"age_cat\",\n        data.columns[3]: \"gender\",\n        data.columns[4]: \"prev_runs\"\n    })\n\nprint(\"---\\n--- Head ---\")\n\n\n---\n--- Head ---\n\n\nCode\nprint(data.head())\n\n\nshape: (5, 5)\n┌──────────┬───────────┬─────────┬────────┬───────────┐\n│ position ┆ time      ┆ age_cat ┆ gender ┆ prev_runs │\n│ ---      ┆ ---       ┆ ---     ┆ ---    ┆ ---       │\n│ i64      ┆ f64       ┆ str     ┆ str    ┆ i64       │\n╞══════════╪═══════════╪═════════╪════════╪═══════════╡\n│ 1        ┆ 16.9      ┆ 30-34   ┆ M      ┆ 60        │\n│ 2        ┆ 17.166667 ┆ 20-24   ┆ M      ┆ 91        │\n│ 3        ┆ 17.3      ┆ 25-29   ┆ M      ┆ 26        │\n│ 4        ┆ 17.366667 ┆ 40-44   ┆ M      ┆ 14        │\n│ 5        ┆ 17.383333 ┆ 40-44   ┆ M      ┆ 4         │\n└──────────┴───────────┴─────────┴────────┴───────────┘\n\n\nCode\nprint(\"\\n--- Schema ---\")\n\n\n\n--- Schema ---\n\n\nCode\nprint(data.schema)\n\n\nSchema({'position': Int64, 'time': Float64, 'age_cat': String, 'gender': String, 'prev_runs': Int64})\n\n\nCode\nprint(\"\\n--- Summary ---\")\n\n\n\n--- Summary ---\n\n\nCode\nprint(data.describe())\n\n\nshape: (9, 6)\n┌────────────┬───────────┬───────────┬─────────┬────────┬───────────┐\n│ statistic  ┆ position  ┆ time      ┆ age_cat ┆ gender ┆ prev_runs │\n│ ---        ┆ ---       ┆ ---       ┆ ---     ┆ ---    ┆ ---       │\n│ str        ┆ f64       ┆ f64       ┆ str     ┆ str    ┆ f64       │\n╞════════════╪═══════════╪═══════════╪═════════╪════════╪═══════════╡\n│ count      ┆ 608.0     ┆ 608.0     ┆ 608     ┆ 608    ┆ 608.0     │\n│ null_count ┆ 0.0       ┆ 0.0       ┆ 0       ┆ 0      ┆ 0.0       │\n│ mean       ┆ 304.5     ┆ 28.31176  ┆ null    ┆ null   ┆ 26.036184 │\n│ std        ┆ 175.65876 ┆ 5.473712  ┆ null    ┆ null   ┆ 26.738812 │\n│ min        ┆ 1.0       ┆ 16.9      ┆ 10      ┆ F      ┆ 1.0       │\n│ 25%        ┆ 153.0     ┆ 24.4      ┆ null    ┆ null   ┆ 8.0       │\n│ 50%        ┆ 305.0     ┆ 27.883333 ┆ null    ┆ null   ┆ 17.0      │\n│ 75%        ┆ 456.0     ┆ 32.0      ┆ null    ┆ null   ┆ 34.0      │\n│ max        ┆ 608.0     ┆ 43.233333 ┆ 75-79   ┆ M      ┆ 189.0     │\n└────────────┴───────────┴───────────┴─────────┴────────┴───────────┘\n\n\nCode\nprint(\"\\n--- Time Summary ---\")\n\n\n\n--- Time Summary ---\n\n\nCode\nprint(data[\"time\"].describe())\n\n\nshape: (9, 2)\n┌────────────┬───────────┐\n│ statistic  ┆ value     │\n│ ---        ┆ ---       │\n│ str        ┆ f64       │\n╞════════════╪═══════════╡\n│ count      ┆ 608.0     │\n│ null_count ┆ 0.0       │\n│ mean       ┆ 28.31176  │\n│ std        ┆ 5.473712  │\n│ min        ┆ 16.9      │\n│ 25%        ┆ 24.4      │\n│ 50%        ┆ 27.883333 │\n│ 75%        ┆ 32.0      │\n│ max        ┆ 43.233333 │\n└────────────┴───────────┘\n\n\nCode\n# Subset adults\nchildren_cats = [\"10\", \"11-14\", \"15-17\"]\ndata_adults = data.filter(~pl.col(\"age_cat\").is_in(children_cats))\n\nprint(\"\\n--- Adult Age Categories ---\\n\")\n\n\n\n--- Adult Age Categories ---\n\n\nCode\nprint(data_adults[\"age_cat\"].unique())\n\n\nshape: (13,)\nSeries: 'age_cat' [str]\n[\n    \"60-64\"\n    \"45-49\"\n    \"25-29\"\n    \"35-39\"\n    \"30-34\"\n    …\n    \"20-24\"\n    \"40-44\"\n    \"55-59\"\n    \"18-19\"\n    \"70-74\"\n]\n\n\nCode\nprint(\"\\n--- Adult Time Summary ---\")\n\n\n\n--- Adult Time Summary ---\n\n\nCode\nprint(data_adults[\"time\"].describe())\n\n\nshape: (9, 2)\n┌────────────┬───────────┐\n│ statistic  ┆ value     │\n│ ---        ┆ ---       │\n│ str        ┆ f64       │\n╞════════════╪═══════════╡\n│ count      ┆ 524.0     │\n│ null_count ┆ 0.0       │\n│ mean       ┆ 28.163677 │\n│ std        ┆ 5.417044  │\n│ min        ┆ 16.9      │\n│ 25%        ┆ 24.35     │\n│ 50%        ┆ 27.683333 │\n│ 75%        ┆ 31.716667 │\n│ max        ┆ 42.683333 │\n└────────────┴───────────┘\n\n\nCode\n# Analysis by gender\nprint(\"\\n--- Analysis by Gender ---\")\n\n\n\n--- Analysis by Gender ---\n\n\nCode\nsummary_gender = data_adults.group_by(\"gender\").agg([\n    pl.col(\"time\").min().alias(\"min\"),\n    pl.col(\"time\").mean().alias(\"mean\"),\n    pl.col(\"time\").median().alias(\"median\"),\n    pl.col(\"time\").max().alias(\"max\")\n])\nprint(summary_gender)\n\n\nshape: (2, 5)\n┌────────┬──────┬───────────┬───────────┬───────────┐\n│ gender ┆ min  ┆ mean      ┆ median    ┆ max       │\n│ ---    ┆ ---  ┆ ---       ┆ ---       ┆ ---       │\n│ str    ┆ f64  ┆ f64       ┆ f64       ┆ f64       │\n╞════════╪══════╪═══════════╪═══════════╪═══════════╡\n│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │\n│ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │\n└────────┴──────┴───────────┴───────────┴───────────┘\n\n\nCode\n# Comparing distributions\ng = sns.FacetGrid(data_adults.to_pandas(), row=\"gender\", hue=\"gender\", aspect=2, height=3)\ng.map(sns.histplot, \"time\", edgecolor=\"white\")\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\nplt.figure(figsize=(10,6)) # Added figure size for consistency\nsns.kdeplot(data=data_adults.to_pandas(), x=\"time\", hue=\"gender\")\nplt.title(\"Density by Gender\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\nplt.figure(figsize=(10,6)) # Added figure size for consistency\nsns.boxplot(data=data_adults.to_pandas(), x=\"time\", hue=\"gender\")\nplt.title(\"Boxplot by Gender\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\nplt.figure(figsize=(10,6)) # Added figure size for consistency\nsns.violinplot(data=data_adults.to_pandas(), x=\"time\", y=\"gender\", hue=\"gender\")\nplt.title(\"Violin Plot by Gender\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\n## Statistical tests\n# Extracting the data\ntimes_female_adults = data_adults.filter(pl.col(\"gender\") == \"F\")[\"time\"]\ntimes_male_adults = data_adults.filter(pl.col(\"gender\") == \"M\")[\"time\"]\n\nprint(\"\\n--- Female Times (Head) ---\")\n\n\n\n--- Female Times (Head) ---\n\n\nCode\nprint(times_female_adults.head())\n\n\nshape: (10,)\nSeries: 'time' [f64]\n[\n    21.1\n    22.483333\n    22.983333\n    23.45\n    23.5\n    23.983333\n    24.016667\n    24.016667\n    24.016667\n    24.2\n]\n\n\nCode\nprint(\"\\n--- Male Times (Head) ---\")\n\n\n\n--- Male Times (Head) ---\n\n\nCode\nprint(times_male_adults.head())\n\n\nshape: (10,)\nSeries: 'time' [f64]\n[\n    16.9\n    17.166667\n    17.3\n    17.366667\n    17.383333\n    18.216667\n    18.333333\n    18.383333\n    18.483333\n    18.65\n]\n\n\nCode\nt_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults)\nprint(f\"\\n--- T-Test Results ---\\nt-statistic: {t_stat}\\np-value: {p_val}\")\n\n\n\n--- T-Test Results ---\nt-statistic: -14.627688831201171\np-value: 7.426339858226408e-41\n\n\nCode\n# Previous runs vs times\nplt.figure(figsize=(10,6)) # Added figure size for consistency\nsns.regplot(data=data_adults.to_pandas(), x=\"prev_runs\", y=\"time\")\nplt.title(\"Time vs Previous Runs\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\nplt.figure(figsize=(10,6)) # Added figure size for consistency\nsns.lmplot(data=data_adults.to_pandas(), x=\"prev_runs\", y=\"time\", hue=\"gender\")\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\nplt.title(\"Time vs Previous Runs by Gender\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\n# Correlation\ncorr, p_corr = stats.pearsonr(data_adults[\"time\"], data_adults[\"prev_runs\"])\nprint(f\"\\n--- Correlation Test ---\\ncorrelation: {corr}\\np-value: {p_corr}\")\n\n\n\n--- Correlation Test ---\ncorrelation: -0.23011066826185408\np-value: 1.0010219010793921e-07\n\n\nCode\n# Finding the median of prev runs\nmedian_prev_runs = data_adults[\"prev_runs\"].median()\nprint(f\"\\nMedian Previous Runs: {median_prev_runs}\")\n\n\n\nMedian Previous Runs: 18.0\n\n\nCode\ndata_adults_pr_gr = data_adults.with_columns(\n    (pl.col(\"prev_runs\") &gt;= median_prev_runs).alias(\"pr_gr\")\n)\n\nprint(\"\\n--- Data with pr_gr group ---\")\n\n\n\n--- Data with pr_gr group ---\n\n\nCode\nprint(data_adults_pr_gr.select([\"prev_runs\", \"pr_gr\"]).head())\n\n\nshape: (5, 2)\n┌───────────┬───────┐\n│ prev_runs ┆ pr_gr │\n│ ---       ┆ ---   │\n│ i64       ┆ bool  │\n╞═══════════╪═══════╡\n│ 60        ┆ true  │\n│ 91        ┆ true  │\n│ 26        ┆ true  │\n│ 14        ┆ false │\n│ 4         ┆ false │\n└───────────┴───────┘\n\n\nCode\n# a quick visual check\nplt.figure(figsize=(10,6))\nsns.histplot(data=data_adults_pr_gr.to_pandas(), x=\"prev_runs\", hue=\"pr_gr\", multiple=\"stack\")\nplt.title(\"Previous Runs Split\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\n# Comparing times\nplt.figure(figsize=(10,6))\nsns.boxplot(data=data_adults_pr_gr.to_pandas(), x=\"time\", hue=\"pr_gr\")\nplt.title(\"Time by Previous Runs Group\")\nplt.show()\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)\n\n\n\n\nCode\n# Linear Model\ndata_adults_lm = data_adults.with_columns(\n    pl.col(\"age_cat\").str.extract(r\"^(\\d{2})\", 1).cast(pl.Float64).alias(\"age\")\n)\n\nmodel = smf.ols(formula=\"time ~ age + gender + prev_runs\", data=data_adults_lm.to_pandas())\nresults = model.fit()\nprint(\"\\n--- Linear Model Summary ---\\n\")\n\n\n\n--- Linear Model Summary ---\n\n\nCode\nprint(results.summary())\n\n\n                            OLS Regression Results                            \n==============================================================================\nDep. Variable:                   time   R-squared:                       0.322\nModel:                            OLS   Adj. R-squared:                  0.318\nMethod:                 Least Squares   F-statistic:                     82.31\nDate:                Tue, 25 Nov 2025   Prob (F-statistic):           1.39e-43\nTime:                        13:41:45   Log-Likelihood:                -1526.5\nNo. Observations:                 524   AIC:                             3061.\nDf Residuals:                     520   BIC:                             3078.\nDf Model:                           3                                         \nCovariance Type:            nonrobust                                         \n===============================================================================\n                  coef    std err          t      P&gt;|t|      [0.025      0.975]\n-------------------------------------------------------------------------------\nIntercept      30.1983      0.724     41.711      0.000      28.776      31.621\ngender[T.M]    -5.6576      0.396    -14.292      0.000      -6.435      -4.880\nage             0.0435      0.019      2.347      0.019       0.007       0.080\nprev_runs      -0.0355      0.007     -4.748      0.000      -0.050      -0.021\n==============================================================================\nOmnibus:                       27.598   Durbin-Watson:                   0.589\nProb(Omnibus):                  0.000   Jarque-Bera (JB):               30.512\nSkew:                           0.578   Prob(JB):                     2.37e-07\nKurtosis:                       3.248   Cond. No.                         193.\n==============================================================================\n\nNotes:\n[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n\n\n\n\n\nVarious Outputs from SPSS Task (Python)",
+    "crumbs": [
+      "Statistics",
+      "Worked Solutions"
     ]
   },
   {
