@@ -41,8 +41,8 @@ jobs:
 
       - name: Run Python Statistics Scripts
         run: |
-          python 4-statistics/Task_excel.py
-          python 4-statistics/Task_2_SPSS.py
+          python 4-statistics/task_excel.py
+          python 4-statistics/task_2_spss.py
 
       - name: Install R Dependencies
         run: |

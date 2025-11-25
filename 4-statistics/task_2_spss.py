@@ -1,5 +1,5 @@
 # This script demonstrates how to use Python for data analysis tasks that have been
-# previously performed in SPSS, replicating the logic from Task_2_SPSS.R
+# previously performed in SPSS, replicating the logic from task_2_spss.R
 
 import polars as pl
 import pandas as pd # For reading Excel

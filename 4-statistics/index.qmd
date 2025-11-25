@@ -11,8 +11,8 @@ In this part of the practical, we will use what we have learned so far to perfor
   
 2. Download the following scripts and try to run the code in them. You will have to fix some (intentionally added) errors to be able to run the code.
   
-  - Script 1: [Excel Task](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/4-statistics\Task_excel_DEBUG.R)
-  - Script 2: [SPSS Task](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/4-statistics\Task_2_SPSS_DEBUG.R)
+  - Script 1: [Excel Task](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/4-statistics/task_excel_debug.R)
+  - Script 2: [SPSS Task](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/4-statistics/task_2_spss_debug.R)
 
 
   

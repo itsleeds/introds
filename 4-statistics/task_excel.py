@@ -1,5 +1,5 @@
 # This script demonstrates how to use Python for data analysis tasks that have been
-# previously performed in Excel, replicating the logic from Task_excel.R
+# previously performed in Excel, replicating the logic from task_excel.R
 
 import polars as pl
 import pandas as pd # Used for reading Excel files
