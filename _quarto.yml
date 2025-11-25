@@ -30,6 +30,14 @@ format:
     css: styles.css
 
 website:
+  repo-url: https://github.com/itsleeds/introds
+  repo-actions: [edit, issue]
+  navbar:
+    background: primary
+    right:
+      - icon: github
+        href: https://github.com/itsleeds/introds
+        aria-label: View source on GitHub
   sidebar:
     title: "<span class='intro-text'>Introduction to</span> <span class='ds-text'>Data Science</span>"
     style: "docked"
