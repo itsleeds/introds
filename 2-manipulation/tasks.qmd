@@ -9,7 +9,7 @@ In this section, we will practice data wrangling using R and the `dplyr` package
    ```R
    library(tidyverse)
    ```
-3. Download the `crashes` file from the course resources and save it in your `data` folder.
+3. Download the `crashes` file ([here](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/crashes.csv)) and save it in your `data` folder.
 4. Read the `crashes` dataset into R using the `read_csv()` function and assign it to a variable named `crashes`:
    ```R
    crashes <- read_csv("data/crashes.csv")
