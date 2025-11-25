@@ -13,7 +13,7 @@ This website provides a brief introduction to data science concepts with impleme
 
 ## Viewing the Website
 
-Visit the published website at: https://itsleeds.github.io/introdatascience/
+Visit the published website at: https://itsleeds.github.io/introds/
 
 ## Local Development
 
