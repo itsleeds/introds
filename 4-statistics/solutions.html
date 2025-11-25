@@ -77,13 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c480acf56a2108335092ccc4c123f373.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-764422278bb4e8f7ed18004ac596272d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -110,10 +110,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/itsleeds/introds"> <i class="bi bi-github" role="img" aria-label="View source on GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -129,14 +148,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../"><span class="intro-text">Introduction to</span> <span class="ds-text">Data Science</span></a> 
-    </div>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -279,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#task-1-excel-data-analysis" id="toc-task-1-excel-data-analysis" class="nav-link active" data-scroll-target="#task-1-excel-data-analysis">Task 1: Excel Data Analysis</a></li>
   <li><a href="#task-2-spss-data-analysis" id="toc-task-2-spss-data-analysis" class="nav-link" data-scroll-target="#task-2-spss-data-analysis">Task 2: SPSS Data Analysis</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/4-statistics/solutions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1461,17 +1475,17 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>shape: (13,)
 Series: 'age_cat' [str]
 [
-    "50-54"
-    "25-29"
-    "55-59"
     "30-34"
-    "60-64"
-    …
+    "75-79"
+    "40-44"
     "65-69"
     "20-24"
-    "70-74"
+    …
+    "50-54"
+    "35-39"
     "45-49"
-    "18-19"
+    "25-29"
+    "60-64"
 ]</code></pre>
 </div>
 <details class="code-fold">
@@ -1530,8 +1544,8 @@ Series: 'age_cat' [str]
 │ ---    ┆ ---  ┆ ---       ┆ ---       ┆ ---       │
 │ str    ┆ f64  ┆ f64       ┆ f64       ┆ f64       │
 ╞════════╪══════╪═══════════╪═══════════╪═══════════╡
-│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
 │ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │
+│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
 └────────┴──────┴───────────┴───────────┴───────────┘</code></pre>
 </div>
 <details class="code-fold">
@@ -1829,7 +1843,7 @@ Dep. Variable:                   time   R-squared:                       0.322
 Model:                            OLS   Adj. R-squared:                  0.318
 Method:                 Least Squares   F-statistic:                     82.31
 Date:                Tue, 25 Nov 2025   Prob (F-statistic):           1.39e-43
-Time:                        14:31:27   Log-Likelihood:                -1526.5
+Time:                        14:34:34   Log-Likelihood:                -1526.5
 No. Observations:                 524   AIC:                             3061.
 Df Residuals:                     520   BIC:                             3078.
 Df Model:                           3                                         
@@ -2273,4 +2287,4 @@ Notes:
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/4-statistics/solutions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
