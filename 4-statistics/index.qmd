@@ -1,7 +1,18 @@
 ---
-title: "Statistics"
+title: "Statistics - Tasks"
 ---
 
-```{=html}
-<iframe src="slides.html" width="100%" height="800" frameborder="3px solid #d3d3d3" allowfullscreen style="border: 3px solid #d3d3d3;"></iframe>
-```
+In this part of the practical, we will use what we have learned so far to perform the same analysis you have already learned with other tools, but this time using R.
+
+1. Download the datasets for this exercises and save them in your `data` folder:
+  
+  - [ParkRun Performance Data.xlsx](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/ParkRunPerformanceData.xlsx)
+  - [Running Data.xlsx](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/00_data/RunningData.xlsx)
+  
+2. Download the following scripts and try to run the code in them. You will have to fix some (intentionally added) errors to be able to run the code.
+  
+  - Script 1: [Excel Task](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/4-statistics\Task_excel_DEBUG.R)
+  - Script 2: [SPSS Task](https://raw.githubusercontent.com/itsleeds/introdatascience/refs/heads/main/4-statistics\Task_2_SPSS_DEBUG.R)
+
+
+  

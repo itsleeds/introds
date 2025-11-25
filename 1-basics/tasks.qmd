@@ -9,14 +9,18 @@ Get R and RStudio running (see Prerequisites if needed) before.
 :::
 
 Setting up your first(?) project:
+
 1. In RStudio, go to `File` > `New Project...`.
+   
    - Select `New Directory`.
    - Select `New Project`.
    - Name the project `DS-intro-2025` and choose a directory to save it in (your OneDrive might be a good choice).
    - Click `Create Project`.
+
 2. Navigate to the `Files` tab, and create two folders in the project directory: `data` and `scripts`.
 
 Now using the console ***only***:
+
 3. Type: `print("Hello, world!")` and hit Enter to see the output.
 4. Now try: `2 + 2` and hit Enter.
 5. Find what the current working directory is by typing `getwd()` and hitting Enter.
