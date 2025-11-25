@@ -9,7 +9,7 @@
 <meta name="author" content="Robin Lovelace &amp; Juan Fonseca-Zamora">
 <meta name="dcterms.date" content="2025">
 
-<title>Statistics - Worked Solutions</title>
+<title>Statistics - Worked Solutions – Introduction to Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -77,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-764422278bb4e8f7ed18004ac596272d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-846020290eed3f23b386f36f40a70b5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,6 +115,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><span class="intro-text">Introduction to</span> <span class="ds-text">Data Science</span></span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -141,9 +145,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../4-statistics/index.html">Statistics</a></li><li class="breadcrumb-item"><a href="../4-statistics/solutions.html">Worked Solutions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -151,11 +152,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -1475,17 +1471,17 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>shape: (13,)
 Series: 'age_cat' [str]
 [
-    "30-34"
-    "50-54"
+    "70-74"
     "35-39"
     "75-79"
+    "65-69"
     "55-59"
     …
     "60-64"
-    "70-74"
-    "65-69"
-    "45-49"
-    "25-29"
+    "20-24"
+    "50-54"
+    "18-19"
+    "30-34"
 ]</code></pre>
 </div>
 <details class="code-fold">
@@ -1544,8 +1540,8 @@ Series: 'age_cat' [str]
 │ ---    ┆ ---  ┆ ---       ┆ ---       ┆ ---       │
 │ str    ┆ f64  ┆ f64       ┆ f64       ┆ f64       │
 ╞════════╪══════╪═══════════╪═══════════╪═══════════╡
-│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
 │ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │
+│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
 └────────┴──────┴───────────┴───────────┴───────────┘</code></pre>
 </div>
 <details class="code-fold">
@@ -1843,7 +1839,7 @@ Dep. Variable:                   time   R-squared:                       0.322
 Model:                            OLS   Adj. R-squared:                  0.318
 Method:                 Least Squares   F-statistic:                     82.31
 Date:                Tue, 25 Nov 2025   Prob (F-statistic):           1.39e-43
-Time:                        15:03:57   Log-Likelihood:                -1526.5
+Time:                        16:33:29   Log-Likelihood:                -1526.5
 No. Observations:                 524   AIC:                             3061.
 Df Residuals:                     520   BIC:                             3078.
 Df Model:                           3                                         
