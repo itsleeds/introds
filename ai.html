@@ -9,7 +9,7 @@
 <meta name="author" content="Robin Lovelace &amp; contributors">
 <meta name="dcterms.date" content="2025">
 
-<title>Prerequisites</title>
+<title>GitHub Copilot &amp; AI Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prerequisites.html">Prerequisites</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai.html">AI Tools</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -117,14 +117,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prerequisites.html" class="sidebar-item-text sidebar-link active">
+  <a href="./prerequisites.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prerequisites</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./github-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitHub Copilot &amp; AI</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -138,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1-basics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./1-basics/index.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About this section</span></a>
   </div>
 </li>
@@ -215,6 +209,18 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./collaboration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Collaboration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">AI Tools</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./next-steps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Next Steps</span></a>
   </div>
@@ -229,12 +235,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#required-software" id="toc-required-software" class="nav-link active" data-scroll-target="#required-software">Required Software</a>
+  <li><a href="#github-copilot" id="toc-github-copilot" class="nav-link active" data-scroll-target="#github-copilot">GitHub Copilot</a>
   <ul class="collapse">
-  <li><a href="#if-using-appsanywhere" id="toc-if-using-appsanywhere" class="nav-link" data-scroll-target="#if-using-appsanywhere">If using AppsAnywhere</a></li>
-  <li><a href="#if-installing-on-your-own-laptop" id="toc-if-installing-on-your-own-laptop" class="nav-link" data-scroll-target="#if-installing-on-your-own-laptop">If installing on your own laptop</a></li>
+  <li><a href="#what-is-github-copilot" id="toc-what-is-github-copilot" class="nav-link" data-scroll-target="#what-is-github-copilot">What is GitHub Copilot?</a></li>
+  <li><a href="#for-students" id="toc-for-students" class="nav-link" data-scroll-target="#for-students">For Students</a></li>
+  <li><a href="#installing-github-copilot" id="toc-installing-github-copilot" class="nav-link" data-scroll-target="#installing-github-copilot">Installing GitHub Copilot</a></li>
   </ul></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
+  <li><a href="#google-gemini" id="toc-google-gemini" class="nav-link" data-scroll-target="#google-gemini">Google Gemini</a>
+  <ul class="collapse">
+  <li><a href="#free-access-for-students" id="toc-free-access-for-students" class="nav-link" data-scroll-target="#free-access-for-students">Free Access for Students</a></li>
+  </ul></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -243,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prerequisites</h1>
+<h1 class="title">GitHub Copilot &amp; AI Tools</h1>
 </div>
 
 
@@ -260,61 +272,113 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!</p>
-<section id="required-software" class="level2">
-<h2 class="anchored" data-anchor-id="required-software">Required Software</h2>
-<section id="if-using-appsanywhere" class="level3">
-<h3 class="anchored" data-anchor-id="if-using-appsanywhere">If using AppsAnywhere</h3>
-<p>If you’re using AppsAnywhere (available on university computers or your own laptop):</p>
+<p>AI-powered coding assistants can significantly accelerate your data science learning journey. Let’s explore how to use them effectively!</p>
+<section id="github-copilot" class="level2">
+<h2 class="anchored" data-anchor-id="github-copilot">GitHub Copilot</h2>
+<p><strong>GitHub Copilot</strong> is an AI pair programmer that helps you write code faster and with fewer errors.</p>
+<section id="what-is-github-copilot" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-github-copilot">What is GitHub Copilot?</h3>
+<ul>
+<li>AI-powered code completion tool</li>
+<li>Suggests whole lines or blocks of code as you type</li>
+<li>Understands context from your code and comments</li>
+<li>Trained on billions of lines of public code</li>
+</ul>
+</section>
+<section id="for-students" class="level3">
+<h3 class="anchored" data-anchor-id="for-students">For Students</h3>
+<p>Good news! Students get <strong>free access</strong> to GitHub Copilot:</p>
 <ol type="1">
-<li>Open AppsAnywhere on your computer</li>
-<li>Search for and launch <strong>R</strong> first</li>
-<li>Search for and launch <strong>RStudio</strong> (requires R to be installed)</li>
-<li>For Python (optional), search for and launch <strong>Anaconda</strong> from AppsAnywhere</li>
+<li>Visit <a href="https://education.github.com/">GitHub Education</a></li>
+<li>Apply for the Student Developer Pack</li>
+<li>Verify your student status</li>
+<li>Access Copilot for free while you’re a student</li>
 </ol>
 </section>
-<section id="if-installing-on-your-own-laptop" class="level3">
-<h3 class="anchored" data-anchor-id="if-installing-on-your-own-laptop">If installing on your own laptop</h3>
-<p>This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:</p>
-<section id="r-and-rstudio" class="level4">
-<h4 class="anchored" data-anchor-id="r-and-rstudio">1. R and RStudio</h4>
-<p><strong>R</strong> is a programming language widely used for statistical computing and data science.</p>
+<section id="installing-github-copilot" class="level3">
+<h3 class="anchored" data-anchor-id="installing-github-copilot">Installing GitHub Copilot</h3>
+<p><strong>For RStudio:</strong></p>
 <ul>
-<li>Download R from <a href="https://cran.r-project.org/">CRAN</a></li>
-<li>Download RStudio Desktop (free) from <a href="https://posit.co/download/rstudio-desktop/">Posit</a></li>
+<li>You can activate code completion via Tools -&gt; Global Options -&gt; Copilot.</li>
 </ul>
-</section>
-<section id="python-optional-but-recommended" class="level4">
-<h4 class="anchored" data-anchor-id="python-optional-but-recommended">2. Python (Optional but Recommended)</h4>
-<p><strong>Python</strong> is another popular language for data science.</p>
-<ul>
-<li>Download Python from <a href="https://www.python.org/downloads/">python.org</a> (version 3.8 or higher)</li>
-<li>Or install via <a href="https://www.anaconda.com/download">Anaconda</a> (includes many data science packages)</li>
-</ul>
+<p><strong>For VS Code:</strong></p>
+<ol type="1">
+<li>Install <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li>Install the GitHub Copilot extension from the marketplace</li>
+<li>Sign in with your GitHub account</li>
+</ol>
 </section>
 </section>
+<section id="google-gemini" class="level2">
+<h2 class="anchored" data-anchor-id="google-gemini">Google Gemini</h2>
+<p><strong>Google Gemini</strong> is a powerful multimodal AI model that can assist with coding, data analysis, and more.</p>
+<section id="free-access-for-students" class="level3">
+<h3 class="anchored" data-anchor-id="free-access-for-students">Free Access for Students</h3>
+<p>Eligible students can get <strong>free access</strong> to Gemini Advanced for 12 months:</p>
+<ol type="1">
+<li>Visit <a href="https://gemini.google/students">gemini.google/students</a></li>
+<li>Click on “Get the offer”</li>
+<li>Sign in with your <strong>personal</strong> Google account (not your university email)</li>
+<li>Verify your student status via SheerID</li>
+<li>Enjoy 1 year of free access to Gemini Advanced</li>
+</ol>
+<p><em>Note: Requires being 18+ and enrolled at an eligible institution.</em></p>
 </section>
-<section id="getting-help" class="level2">
-<h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
-<p>If you encounter installation issues:</p>
-<ul>
-<li>Check the <a href="https://support.posit.co/hc/en-us">RStudio Support</a> page</li>
-<li>Visit <a href="https://stackoverflow.com/">Stack Overflow</a> for troubleshooting</li>
-<li>Ask during the session!</li>
-</ul>
+</section>
+<section id="best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Pro Tip
+<span class="screen-reader-only">Tip</span>Writing Good Prompts
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you run into installation issues before the session, don’t spend too much time troubleshooting. We can help you during the practical!</p>
+<ul>
+<li>Write clear comments describing what you want to do</li>
+<li>Use descriptive variable names</li>
+<li>Break complex tasks into smaller steps</li>
+</ul>
 </div>
 </div>
+<p><strong>DOs</strong> ✅</p>
+<ul>
+<li>Use AI to understand error messages</li>
+<li>Ask AI to explain unfamiliar code</li>
+<li>Use suggestions to learn new approaches</li>
+<li>Verify AI-generated code before using it</li>
+</ul>
+<p><strong>DON’Ts</strong> ❌</p>
+<ul>
+<li>Don’t blindly copy-paste without understanding</li>
+<li>Don’t use AI to do all your work (you won’t learn!)</li>
+<li>Don’t share sensitive data with AI tools</li>
+<li>Don’t assume AI code is always correct</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Critical Thinking Required
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!</p>
+</div>
+</div>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><a href="https://docs.github.com/en/copilot">GitHub Copilot Documentation</a></li>
+<li><a href="https://education.github.com/pack">GitHub Student Developer Pack</a></li>
+<li><a href="https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/">Effective Copilot Prompts</a></li>
+</ul>
 
 
 </section>

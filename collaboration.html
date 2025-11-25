@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robin Lovelace &amp; contributors">
+<meta name="dcterms.date" content="2025">
+
+<title>Collaboration with Git &amp; GitHub</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c480acf56a2108335092ccc4c123f373.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./collaboration.html">Collaboration</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"><span class="intro-text">Introduction to</span> <span class="ds-text">Data Science</span></a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prerequisites.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prerequisites</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-basics/index.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this section</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-basics/tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tasks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Manipulation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-manipulation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this section</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-manipulation/tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tasks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Visualisation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-visualisation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this section</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-visualisation/tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tasks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this section</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./collaboration.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Collaboration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI Tools</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./next-steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Next Steps</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link active" data-scroll-target="#what-is-version-control">What is Version Control?</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
+  <ul class="collapse">
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a></li>
+  </ul></li>
+  <li><a href="#collaboration-features" id="toc-collaboration-features" class="nav-link" data-scroll-target="#collaboration-features">Collaboration Features</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#deep-dive-into-github" id="toc-deep-dive-into-github" class="nav-link" data-scroll-target="#deep-dive-into-github">Deep Dive into GitHub</a></li>
+  <li><a href="#introduction-to-version-control" id="toc-introduction-to-version-control" class="nav-link" data-scroll-target="#introduction-to-version-control">Introduction to Version control</a>
+  <ul class="collapse">
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
+  <li><a href="#github-1" id="toc-github-1" class="nav-link" data-scroll-target="#github-1">GitHub</a></li>
+  <li><a href="#working-with-github" id="toc-working-with-github" class="nav-link" data-scroll-target="#working-with-github">Working with GitHub</a></li>
+  <li><a href="#navigating-github" id="toc-navigating-github" class="nav-link" data-scroll-target="#navigating-github">Navigating GitHub</a></li>
+  <li><a href="#creating-and-managing-repositories" id="toc-creating-and-managing-repositories" class="nav-link" data-scroll-target="#creating-and-managing-repositories">Creating and managing repositories</a></li>
+  <li><a href="#cloning-and-forking-repositories" id="toc-cloning-and-forking-repositories" class="nav-link" data-scroll-target="#cloning-and-forking-repositories">Cloning and Forking repositories</a></li>
+  <li><a href="#making-changes-and-committing" id="toc-making-changes-and-committing" class="nav-link" data-scroll-target="#making-changes-and-committing">Making changes and committing</a></li>
+  <li><a href="#pushing-changes-to-github" id="toc-pushing-changes-to-github" class="nav-link" data-scroll-target="#pushing-changes-to-github">Pushing changes to GitHub</a></li>
+  <li><a href="#collaboration-with-github" id="toc-collaboration-with-github" class="nav-link" data-scroll-target="#collaboration-with-github">Collaboration with GitHub</a></li>
+  <li><a href="#branches-and-pull-requests" id="toc-branches-and-pull-requests" class="nav-link" data-scroll-target="#branches-and-pull-requests">Branches and pull requests</a></li>
+  <li><a href="#merging-changes" id="toc-merging-changes" class="nav-link" data-scroll-target="#merging-changes">Merging changes</a></li>
+  <li><a href="#resolving-conflicts" id="toc-resolving-conflicts" class="nav-link" data-scroll-target="#resolving-conflicts">Resolving conflicts</a></li>
+  <li><a href="#automated-workflows-with-github-actions" id="toc-automated-workflows-with-github-actions" class="nav-link" data-scroll-target="#automated-workflows-with-github-actions">Automated workflows with GitHub Actions</a></li>
+  <li><a href="#best-practices-for-collaboration-sharing-code-and-data" id="toc-best-practices-for-collaboration-sharing-code-and-data" class="nav-link" data-scroll-target="#best-practices-for-collaboration-sharing-code-and-data">Best practices for collaboration, sharing code and data</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-quarto" id="toc-introduction-to-quarto" class="nav-link" data-scroll-target="#introduction-to-quarto">Introduction to Quarto</a>
+  <ul class="collapse">
+  <li><a href="#quarto-projects" id="toc-quarto-projects" class="nav-link" data-scroll-target="#quarto-projects">Quarto projects</a></li>
+  <li><a href="#creating-a-quarto-project" id="toc-creating-a-quarto-project" class="nav-link" data-scroll-target="#creating-a-quarto-project">Creating a Quarto project</a></li>
+  <li><a href="#blockschunks" id="toc-blockschunks" class="nav-link" data-scroll-target="#blockschunks">Blocks/Chunks</a></li>
+  <li><a href="#code-chunks-and-settings" id="toc-code-chunks-and-settings" class="nav-link" data-scroll-target="#code-chunks-and-settings">Code chunks and settings</a></li>
+  <li><a href="#publishing-your-work" id="toc-publishing-your-work" class="nav-link" data-scroll-target="#publishing-your-work">Publishing your work</a></li>
+  </ul></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Collaboration with Git &amp; GitHub</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Data science is rarely a solo endeavour. As you work on more complex projects, you’ll need to collaborate with others and keep track of changes to your code. This is where version control comes in.</p>
+<section id="what-is-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-version-control">What is Version Control?</h2>
+<p>Version control systems allow you to track changes to your files over time. They are like “save points” in a video game, allowing you to:</p>
+<ul>
+<li>Revert to previous versions of your code if something breaks.</li>
+<li>Compare changes over time to understand what happened.</li>
+<li>Collaborate with others without overwriting each other’s work.</li>
+</ul>
+<p><strong>Git</strong> is the most popular version control system in the world.</p>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">GitHub</h2>
+<p>While Git runs locally on your computer, <strong>GitHub</strong> is a cloud platform for hosting and sharing Git repositories.</p>
+<blockquote class="blockquote">
+<p>“GitHub is like Facebook but for people who want to do useful things and share code!”</p>
+</blockquote>
+<p>It acts as a central hub where you can store your projects, share them with the world, and collaborate with others.</p>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts</h3>
+<ol type="1">
+<li><strong>Repository (Repo):</strong> A project folder tracked by Git.</li>
+<li><strong>Commit:</strong> A snapshot of your code at a specific point in time.</li>
+<li><strong>Push:</strong> Sending your local commits to GitHub.</li>
+<li><strong>Pull:</strong> Downloading the latest changes from GitHub to your computer.</li>
+<li><strong>Branch:</strong> A parallel version of your code where you can work on new features safely.</li>
+</ol>
+</section>
+</section>
+<section id="collaboration-features" class="level2">
+<h2 class="anchored" data-anchor-id="collaboration-features">Collaboration Features</h2>
+<p>GitHub isn’t just for storing code; it provides powerful tools for teamwork:</p>
+<ul>
+<li><strong>Issues:</strong> Track bugs, tasks, and feature requests.</li>
+<li><strong>Pull Requests (PRs):</strong> Propose changes to a repository and request a review from teammates before merging them.</li>
+<li><strong>Discussions:</strong> Ask questions and share ideas with the community.</li>
+</ul>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>To start using Git and GitHub, we recommend installing <a href="https://desktop.github.com/">GitHub Desktop</a> or using the Git integration within RStudio or VS Code.</p>
+<p>For an ideal next step in your learning journey, check out the courses available at <a href="https://skills.github.com/">GitHub Skills</a>.</p>
+</section>
+<section id="deep-dive-into-github" class="level2">
+<h2 class="anchored" data-anchor-id="deep-dive-into-github">Deep Dive into GitHub</h2>
+<p>The following section provides a detailed look at using GitHub, including using the command line interface (<code>gh</code>), creating repositories, and understanding workflows in depth.</p>
+<p><strong>Note:</strong> This content and the associated exercises are <strong>bonus material</strong> and are <strong>not expected</strong> to be completed during the 3-hour session. We recommend reading the “Introduction to GitHub” course on <a href="https://skills.github.com/">GitHub Skills</a> before attempting the exercises in this area.</p>
+<details>
+<summary>
+<strong>Click here to expand the Advanced GitHub Material</strong>
+</summary>
+<p>There are significant advantages to using GitHub via the command line interface (CLI), known as <code>gh</code>. However, we acknowledge that interacting with a computer via the command line can take time to get used to. This learning curve is similar to the shift you might be experiencing moving from Excel-based workflows to code-based data science workflows. Both require a shift in mindset but offer powerful rewards in terms of reproducibility and efficiency.</p>
+</details></section>
+<section id="introduction-to-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-version-control">Introduction to Version control</h2>
+<section id="git" class="level3">
+<h3 class="anchored" data-anchor-id="git">Git</h3>
+<p>Working with code/scripts/notebooks usually involves preparing them, revising and editing their content, and sharing with others. After completing at least one round of this process you can end up with several different versions of the same file. Are you familiar with <a href="#fig-no-version-control" class="quarto-xref">Figure&nbsp;1</a>?</p>
+<div id="fig-no-version-control" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-no-version-control-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/version_control_humour.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-no-version-control-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Version control. From: <a href="https://programmerhumor.io/">programmerhumor.io</a>
+</figcaption>
+</figure>
+</div>
+<p>Git is a great tool that tracks changes to files over time, especially in <strong>text-based files</strong> such as scripts, allowing multiple people to work on the same project without overwriting each other’s work. When Git is used as a version control system, a full copy of the entire project history is stored, making it easy to keep track of any changes, and even revert any changes. By using Git, it is possible to have different alternative versions of the same project, i.e.&nbsp;repository, without the need for independent files or folders for each version.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git-branches.png" class="img-fluid figure-img"></p>
+<figcaption>Git Workflow. From: <a href="https://valohai.com/blog/git-for-data-science/">Git for Data Science</a> by Juha Kiili</figcaption>
+</figure>
+</div>
+</section>
+<section id="github-1" class="level3">
+<h3 class="anchored" data-anchor-id="github-1">GitHub</h3>
+<p>GitHub is a platform that provides hosting for Git repositories. As a cloud-based service GitHub works as a <em>Hub</em> for storing, sharing and collaborating with others. Some tools in GitHub, like <strong>pull requests</strong> for proposing changes, <strong>reviews</strong> for asking others to check your work, and <strong>issue tracking</strong> for monitoring things to be corrected or improved, ease the collaborative work in different projects. Other features (GitHub Actions) allow the automation of different processes, for example, building a web, and testing and deploying code.</p>
+<p>To learn more about the different elements in GitHub, you can start exploring the <a href="https://skills.github.com/">GitHub skills courses</a>.</p>
+</section>
+<section id="working-with-github" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-github">Working with GitHub</h3>
+<p>Any Data Science project will benefit from having a clear file structure. The starting point will be a folder (a.k.a. repository) in which we will store the code, data and other relevant files. We are going to use both Git and GitHub for keeping track of all changes.</p>
+<p>You might already be familiar with some key terms in a typical Git workflow: clone, commit, push, pull, or branch. Here is a useful <a href="https://www.jrebel.com/system/files?file=2025-06/git-cheat-sheet.pdf">cheat sheet</a>.</p>
+<p>There are two main ways of working with GitHub repositories in your machine: the <code>gh</code> command-line tool from the shell and the GitHub desktop graphical user interface. It is also possible to use the built-in IDEs’ extensions, but they generally have fewer features available. We will explore the different actions in the next session.</p>
+</section>
+<section id="navigating-github" class="level3">
+<h3 class="anchored" data-anchor-id="navigating-github">Navigating GitHub</h3>
+<section id="using-the-gh-command-line-interface-cli" class="level4">
+<h4 class="anchored" data-anchor-id="using-the-gh-command-line-interface-cli">Using the <code>gh</code> command line interface (CLI)</h4>
+<p>You can search repos, commits, issues, pull requests, and code with the <code>gh</code> CLI tool. For example, to search for repositories related to “transport” sorted by the number of stars, you can run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> search repos <span class="at">--topic</span> transport <span class="at">--sort</span> stars <span class="at">--limit</span> 5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That outputs the following:</p>
+<pre><code>Showing 5 of 1081 repositories
+
+NAME                    DESCRIPTION                                                                                   VISIBILITY  UPDATED             
+gboeing/osmnx           Download, model, analyze, and visualize street networks and other geospatial features fro...  public      about 10 hours ago
+eclipse-sumo/sumo       Eclipse SUMO is an open source, highly portable, microscopic and continuous traffic simul...  public      about 19 minutes ago
+Haivision/srt           Secure, Reliable, Transport                                                                   public      about 6 hours ago
+enisdenjo/graphql-ws    Coherent, zero-dependency, lazy, simple, GraphQL over WebSocket Protocol compliant server...  public      about 6 hours ago
+gboeing/osmnx-examples  Gallery of OSMnx tutorials, usage examples, and feature demonstrations.                       public      about 16 hours ago</code></pre>
+<p>You can search for repos related to transport data science with the following and similar commands, as shown in <a href="#fig-search-repos-gh-cli" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gh</span> search repos <span class="st">"transport data science"</span> <span class="at">--sort</span> stars <span class="at">--limit</span> 5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fig-search-repos-gh-cli" class="lightbox quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-search-repos-gh-cli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/search-repos-gh-cli.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;2: Search results for transport data science repositories on GitHub using the gh CLI"><img src="images/search-repos-gh-cli.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-search-repos-gh-cli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Search results for transport data science repositories on GitHub using the gh CLI
+</figcaption>
+</figure>
+</div>
+<p>See the <a href="https://cli.github.com/manual/gh_search">gh CLI manual</a> for more details.</p>
+</section>
+<section id="exploring-githubs-web-interface" class="level4">
+<h4 class="anchored" data-anchor-id="exploring-githubs-web-interface">Exploring GitHub’s web interface</h4>
+<p>After you have logged into <a href="https://github.com">github.com</a>, you can use the web application to explore open source software. You can search for people’s profiles and repositories (the public ones) using the search bar. Try looking for a topic, package, or researcher/developer whose work interests you.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/search_bar.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>When you access any public repository, you will typically see the same information in a similar layout:</p>
+<div id="fig-repo-layout" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-repo-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/repo_layout.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;3: "><img src="images/repo_layout.png" id="fig-repo-layout" class="img-fluid quarto-figure quarto-figure-center anchored figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-repo-layout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
+</div>
+<p>GitHub organizes a repository’s content and collaboration tools into several key tabs. These tabs act as a dashboard, each providing a different view of the project’s status and activity.</p>
+</section>
+<section id="the-main-tabs" class="level4">
+<h4 class="anchored" data-anchor-id="the-main-tabs">The Main Tabs</h4>
+<ul>
+<li><strong>Code:</strong> This is the repository’s home page. It displays the project’s file and folder structure as it currently exists on the main branch. You can browse and view all the code, read the README file, and see the latest commits, providing a snapshot of the project’s current state.</li>
+<li><strong>Issues:</strong> This tab is a central hub for tracking tasks, bugs, and feature requests. It’s a key collaboration tool where developers can open new issues to report problems, ask questions, or propose new ideas. The discussion around an issue is contained in a single thread, keeping conversations organized and searchable.</li>
+<li><strong>Pull requests:</strong> When a contributor wants to merge their changes from one branch into another, they create a pull request. This tab lists all open, closed, and merged pull requests. Pull requests are where code review happens; collaborators can discuss the proposed changes, add comments, and approve the code before it is integrated into the main project.</li>
+<li><strong>Discussions:</strong> This tab is a more free-form space for conversations that are not tied to a specific bug or feature. It is a place for general questions, project announcements, or sharing ideas with the community. Think of it as a forum built right into the repository, allowing for broader, non-code-related conversations.</li>
+</ul>
+</section>
+</section>
+<section id="creating-and-managing-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="creating-and-managing-repositories">Creating and managing repositories</h3>
+<p>You can create a repository from scratch or using an existing folder. The following instructions show the basic process for creating a new repository, which will create a Git repository on your machine and upload it to GitHub.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can use the <code>gh</code> command line interface (CLI) or a graphical user interface (GUI) like GitHub Desktop to create and manage repositories.</p>
+<p>While both approaches work, we recommend using the <code>gh</code> CLI because, after you have learned the commands, it is faster, more flexible, and easier to automate repetitive tasks.</p>
+<p>If you want to create a repository using an existing folder, make sure to navigate to that folder in your terminal before running the <code>gh repo create</code> command.</p>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><code>gh</code> CLI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">GitHub Desktop</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>To create a repository from scratch, go to the location where you want to create your project using the shell, then run <code>gh repo create</code> to access the interactive mode.</p>
+<p>We will select the first option:</p>
+<pre><code>? What would you like to do?  [Use arrows to move, type to filter] 
+&gt; Create a new repository on github.com from scratch
+  Create a new repository on github.com from a template repository
+  Push an existing local repository to github.com</code></pre>
+<p>Assign a name. Remember that this will create a new folder with that name. We will call it <code>myrepository</code>.</p>
+<pre><code>? Repository name</code></pre>
+<p>Now select the owner of the repository, in this case, your username on GitHub.</p>
+<pre><code>? Repository owner  [Use arrows to move, type to filter]
+&gt; yourGHname</code></pre>
+<p>You can provide a description for the repository. This can be edited afterwards.</p>
+<pre><code>? Repository owner yourGHname
+? Description</code></pre>
+<p>You can choose whether your repository will be private or public. This can also be edited afterwards.</p>
+<pre><code>? Visibility  [Use arrows to move, type to filter]
+&gt; Public
+  Private</code></pre>
+<p>The next steps will ask if you want to add <code>README</code>, <code>.gitignore</code>, and license files to your repository. A <code>README</code> file typically explains what the project is, why it is useful, and how others can get started using or contributing to it. A <code>.gitignore</code> file is a plain text file that tells Git which files or directories to intentionally ignore and not track. This is crucial for keeping a repository clean and secure. There are readily available templates based on programming languages; you can pick <code>R</code> in this case. Finally, the license file, if created, clearly states the legal terms under which the project’s code is distributed.</p>
+<p>After all questions, the interactive assistant will confirm if you want to create the repository.</p>
+<pre><code>? Would you like to add a README file? Yes
+? Would you like to add a .gitignore? Yes
+? Choose a .gitignore template R
+? Would you like to add a license? Yes
+? Choose a license GNU Affero General Public License v3.0
+? This will create "myrepository" as a public repository on github.com. Continue? (Y/n) </code></pre>
+<p>Confirm your repository and explore its contents!</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Open the GitHub Desktop app. Click on the <code>File</code> menu and select <code>New repository...</code></p>
+<p><img src="images/menu_new.png" class="img-fluid"></p>
+<p>A window asking for the details of your repository will appear.</p>
+<p><img src="images/window_new.png" class="img-fluid"></p>
+<p>A <code>.gitignore</code> file is a plain text file that tells Git which files or directories to intentionally ignore and not track. This is crucial for keeping a repository clean and secure. There are readily available templates based on programming languages; you can pick <code>R</code> in this case. Finally, the license file, if created, clearly states the legal terms under which the project’s code is distributed.</p>
+<p>This process will create the repository locally. In order to publish it on GitHub, you have to click on <code>Publish repository</code>.</p>
+<p><img src="images/publish_new.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Once your repository is created, you should be able to see it online. To access it, click on the Repositories tab in your profile page and select the repository you just created. You can see a list of repositories in your profile page by clicking on the <code>Repositories</code> tab, or typing <code>github.com/username?tab=repositories</code> in your browser, replacing <code>username</code> with your GitHub username. To see robinlovelace’s repositories, for example, you can type the following into your browser: <a href="https://github.com/Robinlovelace?tab=repositories"><code>github.com/Robinlovelace?tab=repositories</code></a>.</p>
+<!-- https://github.com/Robinlovelace?tab=repositories -->
+<p><img src="images/nav_bar_repos.png" class="img-fluid"></p>
+<p>If you want to create a repository from an existing project, you will need to initialize your repository. For this, go to the folder where you have your project with <code>cd &lt;folder path&gt;</code>, and run <code>git init</code>. This will create a local repository.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To be able to use <code>git</code> in the command line, you need to have installed it from <a href="https://git-scm.com/downloads">here</a></p>
+</div>
+</div>
+</section>
+<section id="cloning-and-forking-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="cloning-and-forking-repositories">Cloning and Forking repositories</h3>
+<p>To work on a project from GitHub, you first need to create a local copy of the project/repository in your machine. This is referred as <strong>cloning</strong> the repository. Cloning creates an identical copy of the project, with all the files and their history. If you want to work on someone’s repository and make some changes, you should fork it first. <strong>Forking</strong> a repository, creates a copy of the project in you own GitHub account, allowing you to make changes and, potentially, contributing to the code/work of others.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href=""><code>gh</code> cli</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">GitHub Desktop</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Go to the location where you want to store the repository and run: <code>gh repo clone username/repositoryname</code> Replace <code>username/repositoryname</code> with the actual repository path on GitHub.</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Click <code>File</code> &gt; <code>Clone repository</code>, search for the repository, and choose a local path.</p>
+<p><img src="images/clone_repo.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="making-changes-and-committing" class="level3">
+<h3 class="anchored" data-anchor-id="making-changes-and-committing">Making changes and committing</h3>
+<p>A key part of version control is <em>recording</em> the changes in the repository. Once you have created or deleted files, or made any changes, you need to <strong>commit</strong> them to save a snapshot of your work. In the diagram below, each dot is a commit with a set of changes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git-branches.png" class="img-fluid figure-img"></p>
+<figcaption>Git Workflow. From: <a href="https://valohai.com/blog/git-for-data-science/">Git for Data Science</a> by Juha Kiili</figcaption>
+</figure>
+</div>
+<p>To commit changes, you will first need to <strong>stage</strong> the files containing the changes. <strong>Staging</strong> means selecting what goes into the</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">From terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">GitHub Desktop</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>From the terminal, you can stage a file with the following code:</p>
+<pre><code>git add &lt;filename&gt;</code></pre>
+<p>Alternatively, if you want to stage all files you can use</p>
+<pre><code>git add .</code></pre>
+<p>Then, to finally commit changes, use the following code:</p>
+<pre><code>git commit -m "Describe your changes"</code></pre>
+<p>It is good practice to use concise but clear messages to describe what the change was.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>In GitHub Desktop, changes are shown automatically. You may select the files that you want to include in the commit (<em>stage</em> them). Add a descriptive message and click “Commit to main”.</p>
+<p><img src="images/commit_changes.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="pushing-changes-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="pushing-changes-to-github">Pushing changes to GitHub</h3>
+<p>Using <code>git</code> gives you full control of the version control process. This means, that you decide when to <em>publish/synchronise</em> what you have done to the cloud. To update a repository on GitHub with your local commits, push your changes:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">From terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">GitHub Desktop</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>From the terminal, use the following code to push your changes to the cloud:</p>
+<pre><code>  git push</code></pre>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Click “Push origin”.</p>
+<p><img src="images/push_commit.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="collaboration-with-github" class="level3">
+<h3 class="anchored" data-anchor-id="collaboration-with-github">Collaboration with GitHub</h3>
+<p>GitHub enables collaboration by allowing multiple people to work on the same repository. You can use <strong>Issues</strong> and Discussions to communicate. Imagine that you are working on some analysis in a team. One person in the team identifies a problem with the analysis. That person can open an issue to inform the rest of the team about this problem.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">From terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">GitHub web</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Using the command line, you can create an issue by running:</p>
+<pre><code>gh issue create</code></pre>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<p>On the repository’s site, go to the Issues tab, and then create an issue.</p>
+<p><img src="images/paste-1.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="branches-and-pull-requests" class="level3">
+<h3 class="anchored" data-anchor-id="branches-and-pull-requests">Branches and pull requests</h3>
+<p><strong>Branches</strong> let you work on new features or fixes without affecting the main codebase. When you create a branch, you effectively create a snapshot of the project at that point and use it as a starting point. It is recommended that you create a branch based on an existing issue, so there is some traceability of why there is a new variation of the project.</p>
+<p>Each issue is assigned a unique numeric ID that you can use to create a branch:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">From terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">GitHub web</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>To list all the issues in your repository you can run:</p>
+<pre><code>gh issue list</code></pre>
+<p>To create a branch from an issue, e.g.&nbsp;#3, you can run:</p>
+<pre><code>gh issue develop 3 --checkout</code></pre>
+<p>Using <code>--checkout</code> will move you from the main version of the project to the version where you are going to do the work to implement the solution to the issue. You can now start working and committing all necessary changes without affecting the main project. If you need to return to the main branch, you can run <code>git checkout main</code>.</p>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>If you open the page of an issue in your repository, you should be able to create a branch from the Development section in the side panel on the right.</p>
+<p><img src="images/paste-2.png" class="img-fluid"></p>
+<p>Then switch to the branch from the home page of the repository.</p>
+<p><img src="images/paste-3.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Once you have finished working with your branch, you can create a <strong>pull request</strong> so the changes are incorporated into the main version.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">From terminal</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">GitHub web</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<p>Using the command line, you can create a pull request by running:</p>
+<pre><code>gh pr create</code></pre>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<p>In GitHub Desktop, every time you commit a change on a different branch to main, it will ask you if you want to create a pull request.</p>
+</div>
+</div>
+</div>
+<p>After creating a pull request, the owner of the repository, reviews and approves your contribution.</p>
+</section>
+<section id="merging-changes" class="level3">
+<h3 class="anchored" data-anchor-id="merging-changes">Merging changes</h3>
+<p>if you are the owner of a repository and you receive a <strong>pull request.</strong> You can review it and merge it into the main branch.</p>
+<ul>
+<li><p>On GitHub, click “Merge pull request”.</p></li>
+<li><p>Locally, use:</p>
+<pre><code>gh pr merge 1</code></pre></li>
+</ul>
+</section>
+<section id="resolving-conflicts" class="level3">
+<h3 class="anchored" data-anchor-id="resolving-conflicts">Resolving conflicts</h3>
+<p>Conflicts occur when changes in different branches overlap. Git will mark the conflicting files.</p>
+<ul>
+<li><p>Open the file, look for conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>), and edit to resolve.</p></li>
+<li><p>After resolving, add and commit the file:</p>
+<pre><code>git add &lt;filename&gt;
+git commit</code></pre></li>
+</ul>
+</section>
+<section id="automated-workflows-with-github-actions" class="level3">
+<h3 class="anchored" data-anchor-id="automated-workflows-with-github-actions">Automated workflows with GitHub Actions</h3>
+<p>GitHub Actions lets you automate tasks like testing or deployment.</p>
+<ul>
+<li>Add workflow files in <code>.github/workflows/</code>.</li>
+<li>Example: Run tests on every push.</li>
+</ul>
+</section>
+<section id="best-practices-for-collaboration-sharing-code-and-data" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-for-collaboration-sharing-code-and-data">Best practices for collaboration, sharing code and data</h3>
+<ul>
+<li>Write clear commit messages.</li>
+<li>Use branches for features and fixes.</li>
+<li>Keep your repository organized with README, .gitignore, and license files.</li>
+<li>Communicate using Issues and Discussions.</li>
+<li>Review code via pull requests.</li>
+<li>Protect sensitive data by not uploading secrets.</li>
+</ul>
+</section>
+</section>
+<section id="introduction-to-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-quarto">Introduction to Quarto</h2>
+<p>Quarto is a next-generation open-source publishing system that allows you to combine text, code, and the output of that code into a single document. It is designed for technical and scientific communication, enabling the creation of reproducible documents that can be published in a wide variety of formats. You can use Quarto to produce reports, journal articles, presentation slides, books, and dashboards.</p>
+<section id="quarto-projects" class="level3">
+<h3 class="anchored" data-anchor-id="quarto-projects">Quarto projects</h3>
+<p>Quarto documents are authored in a plain text format, using a markup language called Markdown. A markup language is a system for annotating a document using a set of tags or symbols to define the structure, formatting, and other properties of the text within a digital document. You might be familiar with commonly used markup languages like HTML or LaTeX. These languages make the text readable by both humans and machines. Since Quarto documents are based on plain text files, you can use Git and GitHub for version control.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are not familiar with using Markdown, take a look at the short course <a href="https://github.com/skills/communicate-using-markdown">Communicate using Markdown</a> on GitHub Skills.</p>
+</div>
+</div>
+<p>A Quarto project has two key parts:</p>
+<ul>
+<li><strong>Source files:</strong> These are the individual documents written in Quarto Markdown, typically with a <code>.qmd</code> extension. They contain the narrative text, code chunks, other blocks, and a header for document-specific options.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/qmd_file.png" class="img-fluid figure-img"></p>
+<figcaption>A <code>qmd</code> file of this website</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Project File (<code>_quarto.yml</code>):</strong> It’s a YAML (<em>YAML Ain’t Markup Language</em>) configuration file that lives in the project’s root directory. It defines global settings for all the documents in the project, such as the project type, metadata, output directories, and project-wide configuration for execution, style, and format. The contents of this file will depend on the type of project you are working on. Here is a sneak peek of the project file for this website:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/yml_file.png" class="img-fluid figure-img"></p>
+<figcaption>The project file of this web</figcaption>
+</figure>
+</div>
+</section>
+<section id="creating-a-quarto-project" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-quarto-project">Creating a Quarto project</h3>
+<p>You can create a Quarto project from scratch in an existing repository. First, let’s check that you can use <code>quarto</code> in your command line, and the version you have installed. If you run <code>quarto -v</code> in your shell, you should get the version of Quarto you have installed.</p>
+<pre><code>PS C:\temp\tdscience&gt; quarto -v
+1.7.34</code></pre>
+<p>To create a new project in an existing directory, follow these steps:</p>
+<ol type="1">
+<li>Go to your repository with <code>cd &lt;path to repo&gt;</code></li>
+<li>Run <code>quarto create</code></li>
+<li>Choose the name and type of project</li>
+<li>Open the project in your preferred IDE.</li>
+</ol>
+<p>As you see in the following code, Quarto will automatically create a source file and the project file.</p>
+<pre><code>PS C:\temp&gt; quarto create
+? Create » project
+? Type » default
+? Directory » my-first-quarto-project
+? Title (my-first-quarto-project) » My first quarto project
+Creating project at C:\temp\my-first-quarto-project:
+  - Created _quarto.yml
+  - Created My first quarto project.qmd
+? Open With
+❯ positron
+  vscode
+  (don't open)</code></pre>
+<p>You can also create Quarto projects interactively from the IDE. If you are interested, explore the documentation for <a href="https://quarto.org/docs/tools/rstudio.html">RStudio</a>, <a href="https://quarto.org/docs/tools/vscode/index.html">VSCode</a>, or <a href="https://quarto.org/docs/tools/positron/">Positron</a>.</p>
+</section>
+<section id="blockschunks" class="level3">
+<h3 class="anchored" data-anchor-id="blockschunks">Blocks/Chunks</h3>
+<p>Blocks in the <code>qmd</code> files are sections that are processed and formatted in a specific way. Blocks can contain code that can be processed in different ways. Chunks are delimited with <code>```</code> at the top and bottom, like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="in">This is a block</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Blocks allow you to include content in HTML or LaTeX in the <code>qmd</code> files as raw code. Specifically for equations, you can use <code>$$</code> as a delimiter. You can find more useful information on how to use Markdown in Quarto in the <a href="https://quarto.org/docs/authoring/markdown-basics.html#raw-content">Quarto documentation</a>.</p>
+</section>
+<section id="code-chunks-and-settings" class="level3">
+<h3 class="anchored" data-anchor-id="code-chunks-and-settings">Code chunks and settings</h3>
+<p>Code chunks that have the language name between braces at the start are executed as if you run the code in the console. For example:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a code chunk/block that executes R code</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a code chunk/block that executes python code</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>There are several execution options that are useful, for example, to identify each code chunk, or to hide the code, the output, or both. These options are set in the code chunk header and allow you to precisely manage what is visible to the reader. As an example, the following code will hide the source code and only the output <code>Hello World!</code> will be visible in the rendered document.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false" href="">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: hello-block-r</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: hello-block-python</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello World!"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>See the full details on execution options <a href="https://quarto.org/docs/computations/execution-options.html">here</a>. Other options allow you to reference the output of the block. For example, if your code is producing a figure, you can use the <code>label</code> for cross-referencing (more about this will be detailed in the next session), or to set the caption.</p>
+</section>
+<section id="publishing-your-work" class="level3">
+<h3 class="anchored" data-anchor-id="publishing-your-work">Publishing your work</h3>
+<p>Quarto enables you to generate a wide range of output formats from your project, whether you need an HTML report, a PDF article, a slideshow, or an entire website (like this one). From the command line, you can run <code>quarto render</code> to produce the rendered version of your project, or <code>quarto preview</code> to inspect your edits interactively.</p>
+<p>Combining Quarto and GitHub helps you make your research transparent, collaborative, and easy to share, ensuring that your work is not just published, but also verifiable and ready for future use.</p>
+</section>
+</section>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<p>For this exercise you will not be creating a repository. Instead you will contribute to an existing repository. You may use the <code>gh</code> command line or the web interface from GitHub.</p>
+<p>Follow the following steps</p>
+<ol type="1">
+<li>Fork the following repository: <code>juanfonsecaLS1/dstp-jf-git-exercise</code>, and, <strong>If you have <code>gh</code> or GitHub Desktop installed</strong>, clone it in your machine.</li>
+<li>Create an issue in your repository.</li>
+<li>Create a branch related to that issue in your repository.</li>
+<li><strong>In the new branch</strong> Make a change in the file you are assigned during the session. Then commit the changes.</li>
+<li><strong>If you are working locally,</strong> push the changes to GitHub</li>
+<li>Create a pull request</li>
+</ol>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2025 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/introds\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
