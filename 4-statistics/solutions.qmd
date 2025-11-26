@@ -124,6 +124,15 @@ data |>
 
 ### Python
 
+```{r}
+#| include: false
+# Install Python packages from requirements.txt
+reticulate::virtualenv_install(
+  packages = readLines("../requirements.txt"),
+  ignore_installed = TRUE
+)
+```
+
 ```{python}
 #| label: excel-task-py
 #| warning: false
@@ -286,7 +295,7 @@ data_adults |>
   group_by(gender) |> 
   summarise(min = min(time),
             mean = mean(time),
-            median = mean(time),
+            median = median(time),
             max = max(time))
 
 # Comparing distributions
@@ -495,7 +504,7 @@ plt.show()
 
 # Linear Model
 data_adults_lm = data_adults.with_columns(
-    pl.col("age_cat").str.extract(r"^(\d{{2}})", 1).cast(pl.Float64).alias("age") # FIXED: Regex error
+    pl.col("age_cat").str.extract(r"^(\d{2})", 1).cast(pl.Float64).alias("age")
 )
 
 model = smf.ols(formula="time ~ age + gender + prev_runs", data=data_adults_lm.to_pandas())

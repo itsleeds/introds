@@ -30,17 +30,24 @@ format:
     css: styles.css
 
 website:
-  sidebar:
-    title: "<span class='intro-text'>Introduction to</span> <span class='ds-text'>Data Science</span>"
-    style: "docked"
-    search: true
+  title: "<span class='intro-text'>Introduction to</span> <span class='ds-text'>Data Science</span>"
+  repo-url: https://github.com/itsleeds/introds
+  repo-actions: [edit, issue]
+  navbar:
     background: primary
+    pinned: true
+    right:
+      - icon: github
+        href: https://github.com/itsleeds/introds
+        aria-label: View source on GitHub
+  sidebar:
+    style: "docked"
+    background: dark
     contents:
       - text: "Home"
         href: index.qmd
       - text: "Prerequisites"
         href: prerequisites.qmd
-
       - section: "Basics"
         contents:
           - text: "About this section"

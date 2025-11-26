@@ -10,11 +10,13 @@ This section covers the essentials you need to get started with the concepts and
 
 ## Integrated Development Environments (IDEs)
 
-Your toolkit for writing code
+An **IDE** (Integrated Development Environment) is your toolkit for writing code efficiently.
 
 ------------------------------------------------------------------------
 
 ### RStudio
+
+Popular IDE specifically designed for R programming
 
 ![](images/paste-1.png)
 
@@ -31,6 +33,8 @@ Your toolkit for writing code
 
 ### VS Code
 
+Versatile IDE supporting multiple languages including R and Python
+
 ![](images/paste-2.png)
 
 ----
@@ -42,6 +46,14 @@ Your toolkit for writing code
 4.  **Output**: (right): Preview visual outputs/documents
 
 **Popular Extensions**: Python, R, Pylance, Quarto
+
+------------------------------------------------------------------------
+
+### Positron
+
+New IDE from Posit (makers of RStudio) supporting R and Python equally
+
+**Note**: Currently in beta but shows great promise for bilingual data scientists
 
 ------------------------------------------------------------------------
 

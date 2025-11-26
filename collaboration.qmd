@@ -40,7 +40,7 @@ GitHub isn't just for storing code; it provides powerful tools for teamwork:
 
 ## Getting Started
 
-To start using Git and GitHub, we recommend installing [GitHub Desktop](https://desktop.github.com/) or using the Git integration within RStudio or VS Code.
+To start using Git and GitHub, we recommend installing [GitHub Desktop](https://desktop.github.com/) or using the Git integration within your IDE (RStudio, VS Code, or Positron).
 
 For an ideal next step in your learning journey, check out the courses available at [GitHub Skills](https://skills.github.com/).
 
@@ -52,6 +52,7 @@ The following section provides a detailed look at using GitHub, including using 
 
 <details>
 <summary><strong>Click here to expand the Advanced GitHub Material</strong></summary>
+<div>
 
 There are significant advantages to using GitHub via the command line interface (CLI), known as `gh`. However, we acknowledge that interacting with a computer via the command line can take time to get used to. This learning curve is similar to the shift you might be experiencing moving from Excel-based workflows to code-based data science workflows. Both require a shift in mindset but offer powerful rewards in terms of reproducibility and efficiency.
 
@@ -560,4 +561,5 @@ Follow the following steps
 4. **If you are working locally,** push the changes to GitHub
 5. Create a pull request
 
+</div>
 </details>

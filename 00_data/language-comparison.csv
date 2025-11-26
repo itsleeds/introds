@@ -1,0 +1,15 @@
+Attribute,R,Python
+Primary use,Statistical computing & data analysis,General purpose programming & data science
+Syntax,Domain-specific for statistics,"General purpose, readable"
+Data structures,"Data frames, vectors, lists","Pandas DataFrames, NumPy arrays, lists"
+Package ecosystem,CRAN (~20k packages),PyPI (~500k packages)
+IDE support,"RStudio, Positron, VS Code","VS Code, PyCharm, Jupyter, Positron"
+Learning curve,Moderate (statistics focus),Moderate (programming focus)
+Visualization,"ggplot2, base R graphics","matplotlib, seaborn, plotly"
+Statistical analysis,Excellent built-in support,Requires packages (scipy, statsmodels)
+Machine learning,"tidymodels, caret",scikit-learn
+Community,Academic & statistical focus,Broad & diverse
+Performance,Vectorized operations fast,Vectorized operations fast (NumPy)
+Quarto support,Native integration,Native integration
+Reproducibility,R Markdown/Quarto,Jupyter notebooks/Quarto
+Data manipulation,"dplyr, data.table","pandas, polars"

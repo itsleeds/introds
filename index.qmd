@@ -1,13 +1,46 @@
 ---
 title: Introduction to Data Science
-subtitle: Practical Session for MSc Students
+subtitle: Practical Session for MSc Students and Beginners
 ---
 
-Welcome to this practical introduction to data science! This session is designed for MSc students at the Institute for Transport Studies who are new to data science.
+Welcome to this practical introduction to data science! This session was developed for MSc students at the Institute for Transport Studies who are new to data science.
+We teach modern data science tools (R, Python, Git), plus how to get started with AI tools like GitHub Copilot.
 
 ## About This Session
 
-In this practical, you'll get hands-on experience with data science tools. We'll cover implementations primarily in **R**. **Python** versions of the contents are provided for reference in some cases.
+In this practical, you'll get hands-on experience with data science tools. We'll cover implementations primarily in **R**. **Python** versions of the contents are provided, take your pick!
+
+## Languages
+
+<details>
+<summary>Which language should I use?</summary>
+
+There are a number of languages that can be used for data science, including JavaScript/TypeScript, Julia, and MATLAB. However, the two most popular languages are **R** and **Python**. Both are excellent choices for data science, and each has its own strengths, as outlined below.
+
+**Integrated Development Environments (IDEs):** An IDE is a software application that provides comprehensive facilities for writing, testing, and debugging code. Popular IDEs for data science include RStudio, VS Code, and Positron. See the [detailed IDE comparison](https://tdscience.github.io/course/s1.html) for more information.
+
+![IDE Comparison: RStudio, Positron, and VS Code](images/ide-comparison.png){#fig-ide-comparison fig-align="center" width="80%"}
+
+::: {.callout-tip}
+## R vs Python
+
+If you are unsure which language to pick, we recommend trying both for 10 minutes to see which one "clicks" for you.
+
+**Why choose R?**
+
+-   **"Batteries included":** Base R has built-in support for data frames, reading data from URLs, and statistical models (like linear regression) without needing extra packages.
+-   **Development environments:** RStudio and Positron provide excellent Integrated Development Environments (IDEs) for R that are user-friendly and often feel familiar to those coming from MATLAB.
+-   **Stability:** You are less likely to encounter "dependency hell" because CRAN enforces strict checks on package compatibility.
+-   **Community:** R has a massive community specifically focused on statistics and data visualization.
+
+**Why choose Python?**
+
+-   **General Purpose:** Python is used for everything from web development to automation, not just data science.
+-   **Deep Learning:** It is the industry standard for machine learning and AI frameworks (like `pytorch` and `openai`).
+-   **Readability:** Python syntax is designed to be very readable and close to English.
+:::
+
+</details>
 
 ## Logistics
 
@@ -20,7 +53,7 @@ In this practical, you'll get hands-on experience with data science tools. We'll
 | Time | Activity |
 |------|----------|
 | 09:00 - 09:15 | **Welcome & Setup**: Introduction and getting ready |
-| 09:15 - 09:45 | **Basics**: RStudio, Quarto, and basic syntax |
+| 09:15 - 09:45 | **Basics**: Development environments (IDEs), Quarto, and basic syntax |
 | 09:45 - 10:30 | **Manipulation**: Cleaning and transforming data with dplyr |
 | 10:30 - 10:45 | *Break* |
 | 10:45 - 11:30 | **Visualisation**: Creating plots with ggplot2 |

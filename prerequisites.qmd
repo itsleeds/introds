@@ -19,16 +19,24 @@ If you're using AppsAnywhere (available on university computers or your own lapt
 
 This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:
 
-#### 1. R and RStudio
+#### 1. Development Environment (IDE)
+
+An **IDE** (Integrated Development Environment) provides a comprehensive workspace for coding. Popular options include:
+
+**For R:**
+- **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
+- **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both R and Python (beta)
+
+**For multiple languages:**
+- **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for R, Python, and more
+
+#### 2. Programming Languages
 
 **R** is a programming language widely used for statistical computing and data science.
 
 - Download R from [CRAN](https://cran.r-project.org/)
-- Download RStudio Desktop (free) from [Posit](https://posit.co/download/rstudio-desktop/)
 
-#### 2. Python (Optional but Recommended)
-
-**Python** is another popular language for data science.
+**Python** (Optional but Recommended) is another popular language for data science.
 
 - Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
 - Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)

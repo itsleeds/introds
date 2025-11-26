@@ -5,17 +5,19 @@ title: "The Basics - Tasks"
 We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.
 
 ::: {.callout-tip}
-Get R and RStudio running (see Prerequisites if needed) before.
+Get R and your IDE (RStudio, VS Code, or Positron) running (see Prerequisites if needed) before starting.
 :::
 
 Setting up your first(?) project:
 
-1. In RStudio, go to `File` > `New Project...`.
+1. In your IDE (RStudio example shown), go to `File` > `New Project...`.
    
    - Select `New Directory`.
    - Select `New Project`.
    - Name the project `DS-intro-2025` and choose a directory to save it in (your OneDrive might be a good choice).
    - Click `Create Project`.
+   
+   **Note**: The exact steps may vary slightly in VS Code or Positron, but the concept of project organization remains the same.
 
 2. Navigate to the `Files` tab, and create two folders in the project directory: `data` and `scripts`.
 
