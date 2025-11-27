@@ -1,0 +1,188 @@
+---
+title: "Job Market Analysis"
+---
+
+Data science isn't just about analysing scientific data; it's also about understanding the market you're entering. In this section, we'll explore how to find and analyse job postings data to understand what employers are looking for.
+
+## Where to Find Data
+
+There are several sources for job market data:
+
+1.  **Job Board APIs:**
+    *   [Adzuna API](https://developer.adzuna.com/): Offers a wealth of data on UK job listings.
+    *   [Reed.co.uk API](https://www.reed.co.uk/developers): Another major UK job board with developer access.
+    *   **Note:** These usually require signing up for an API key.
+
+2.  **Open Datasets:**
+    *   [Kaggle](https://www.kaggle.com/datasets?search=job+postings): A treasure trove of historical job datasets (e.g., LinkedIn, Indeed, Glassdoor scrapes).
+    *   **GitHub:** Many researchers and developers share scraped datasets.
+
+3.  **Web Scraping:**
+    *   Using tools like `rvest` (R) or `BeautifulSoup` (Python) to collect your own data (always check the website's `robots.txt` and terms of service!).
+
+## Practical Example: Analyzing Indeed Job Postings
+
+For this exercise, we'll use a sample dataset of job postings from Indeed.
+
+### 1. Loading the Data
+
+We'll read a CSV file containing job descriptions, titles, and salaries.
+
+::: panel-tabset
+#### R
+
+```{r}
+#| label: load-jobs-r
+#| message: false
+#| warning: false
+
+library(tidyverse)
+
+# Check if data exists, if not, download it
+data_path <- "00_data/indeed_sample.csv"
+if (!file.exists(data_path)) {
+  download.file(
+    "https://raw.githubusercontent.com/luminati-io/Indeed-dataset-samples/main/indeed-job-listings-information.csv",
+    destfile = data_path
+  )
+}
+
+jobs <- read_csv(data_path, show_col_types = FALSE)
+
+# Quick look
+glimpse(jobs)
+```
+
+#### Python
+
+```{python}
+#| label: load-jobs-py
+
+import pandas as pd
+import os
+import urllib.request
+
+data_path = "00_data/indeed_sample.csv"
+
+# Check if data exists, if not, download it
+if not os.path.exists(data_path):
+    url = "https://raw.githubusercontent.com/luminati-io/Indeed-dataset-samples/main/indeed-job-listings-information.csv"
+    urllib.request.urlretrieve(url, data_path)
+
+jobs = pd.read_csv(data_path)
+
+# Quick look
+print(jobs.info())
+print(jobs.head())
+```
+:::
+
+### 2. What are the most common Job Titles?
+
+Let's see what roles are being advertised in this sample.
+
+::: panel-tabset
+#### R
+
+```{r}
+#| label: titles-r
+
+# Count and plot top 10 job titles
+jobs |>
+  count(job_title, sort = TRUE) |>
+  head(10) |>
+  ggplot(aes(x = reorder(job_title, n), y = n)) +
+  geom_col(fill = "#40666e") +
+  coord_flip() +
+  labs(title = "Top 10 Job Titles", x = NULL, y = "Count") +
+  theme_minimal()
+```
+
+#### Python
+
+```{python}
+#| label: titles-py
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Count top 10 job titles
+top_titles = jobs['job_title'].value_counts().head(10).reset_index()
+top_titles.columns = ['job_title', 'count']
+
+plt.figure(figsize=(10, 6))
+sns.barplot(data=top_titles, y='job_title', x='count', color="#40666e")
+plt.title("Top 10 Job Titles")
+plt.xlabel("Count")
+plt.ylabel(None)
+plt.show()
+```
+:::
+
+### 3. Skill keyword search
+
+A powerful technique is to search for specific keywords (like "Python", "SQL", "Communication") within the job descriptions to see what's in demand.
+
+::: panel-tabset
+#### R
+
+```{r}
+#| label: skills-r
+
+# Define skills to look for
+skills <- c("Python", "R", "SQL", "Excel", "Communication", "Remote")
+
+# Function to count occurrences
+count_skill <- function(skill, text) {
+  sum(str_detect(text, regex(skill, ignore_case = TRUE)), na.rm = TRUE)
+}
+
+# Calculate counts
+skill_counts <- tibble(skill = skills) |>
+  mutate(count = map_int(skill, ~count_skill(.x, jobs$description_text))) |>
+  arrange(desc(count))
+
+# Display
+skill_counts |>
+  ggplot(aes(x = reorder(skill, count), y = count)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(title = "Demand for Key Skills", x = NULL, y = "Mentions in Job Descriptions") +
+  theme_minimal()
+```
+
+#### Python
+
+```{python}
+#| label: skills-py
+
+# Define skills
+skills = ["Python", "R", "SQL", "Excel", "Communication", "Remote"]
+
+# Count occurrences
+skill_counts = {}
+for skill in skills:
+    # simple case-insensitive check
+    count = jobs['description_text'].str.contains(skill, case=False, na=False).sum()
+    skill_counts[skill] = count
+
+# Convert to DataFrame for plotting
+df_skills = pd.DataFrame(list(skill_counts.items()), columns=['Skill', 'Count'])
+df_skills = df_skills.sort_values('Count', ascending=False)
+
+plt.figure(figsize=(10, 6))
+sns.barplot(data=df_skills, y='Skill', x='Count', color="steelblue")
+plt.title("Demand for Key Skills")
+plt.xlabel("Mentions in Job Descriptions")
+plt.ylabel(None)
+plt.show()
+```
+:::
+
+## Summary
+
+This short analysis shows how you can use simple text processing to extract insights from unstructured job data. In a real-world project, you could:
+
+1.  **Scrape** fresh data daily.
+2.  **Categorize** jobs (e.g., "Entry Level" vs "Senior").
+3.  **Visualize** geospatial data to find hotspots for your role.

@@ -16,6 +16,7 @@ project:
     - 4-statistics/solutions.qmd
     - collaboration.qmd
     - ai.qmd
+    - jobs.qmd
     - next-steps.qmd
 
 format:
@@ -76,5 +77,7 @@ website:
         href: collaboration.qmd
       - text: "AI Tools"
         href: ai.qmd
+      - text: "Job Market Analysis"
+        href: jobs.qmd
       - text: "Next Steps"
         href: next-steps.qmd
