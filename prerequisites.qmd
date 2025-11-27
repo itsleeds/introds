@@ -15,6 +15,20 @@ If you're using AppsAnywhere (available on university computers or your own lapt
 3. Search for and launch **RStudio** (requires R to be installed)
 4. For Python (optional), search for and launch **Anaconda** from AppsAnywhere
 
+### Cloud-based Development Environments (Recommended)
+
+For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
+
+To open this project in GitHub Codespaces, click the badge below:
+
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1)
+
+**Benefits:**
+-   **Zero Setup:** No need to install anything on your local machine.
+-   **Consistent Environment:** Everyone uses the exact same tools and configurations.
+-   **Powerful:** Runs on cloud servers, providing ample computing resources.
+-   **Accessible:** Works from any modern web browser.
+
 ### If installing on your own laptop
 
 This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:
