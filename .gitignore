@@ -3,4 +3,3 @@ _site/
 
 **/*.quarto_ipynb
 .Rproj.user
-00_data/indeed_sample.csv
