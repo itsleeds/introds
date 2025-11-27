@@ -47,6 +47,11 @@ To start using Git and GitHub, we recommend installing [GitHub Desktop](https://
 GitHub is an excellent tool for code and open data. However, **do not** upload unpublished assessment data, sensitive research participant info, or confidential University documents to public GitHub repositories.
 :::
 
+::: callout-note
+### University GitHub Login (SSO)
+The way to log in to University-owned GitHub resources is changing. You may be prompted to link your university credentials to your GitHub account. See [The way to log in to GitHub is changing](https://desystemshelp.leeds.ac.uk/news-and-updates/the-way-to-log-in-to-github-is-changing/) for details.
+:::
+
 
 For an ideal next step in your learning journey, check out the courses available at [GitHub Skills](https://skills.github.com/).
 

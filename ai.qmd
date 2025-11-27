@@ -6,7 +6,7 @@ AI-powered coding assistants can significantly accelerate your data science lear
 
 ## The "Traffic Light" System
 
-The University of Leeds uses a traffic light system to indicate how AI can be used in assessments. **Always check your specific module guidelines.**
+The University of Leeds uses a [traffic light system](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/) to indicate how AI can be used in assessments. **Always check your specific module guidelines.**
 
 -   🔴 **Red:** No AI permitted. You must do all the work yourself.
 -   🟠 **Amber:** AI permitted as a supportive tool (e.g., for ideation, debugging, or explaining concepts) but not for generating the final output.
@@ -16,7 +16,7 @@ The University of Leeds uses a traffic light system to indicate how AI can be us
 
 **Microsoft 365 Copilot** (Enterprise) is the University-endorsed tool.
 
-*   **Why:** This version is **private**. Your data is *not* used to train the model. This is the recommended tool for university work where AI is permitted.
+*   **Why:** This version is **private**. Your data is *not* used to train the model (see [University guidance on GenAI tools](https://generative-ai.leeds.ac.uk/intro-gen-ai/generative-ai-tools/)). This is the recommended tool for university work where AI is permitted.
 *   **Access:** Log in to [Microsoft 365](https://www.microsoft365.com) with your University credentials (`@leeds.ac.uk`).
 *   **Usage:** Use it to draft text, summarize documents, or explain code concepts securely.
 
@@ -69,5 +69,7 @@ AI tools are powerful assistants, but they can make mistakes. Always review and 
 ## Resources
 
 -   [University of Leeds AI Guidance](https://library.leeds.ac.uk/info/1401/academic_skills/134/artificial_intelligence)
+-   [Generative AI at Leeds](https://generative-ai.leeds.ac.uk/)
+-   [AI Assessment Categories](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/)
 -   [Microsoft 365 Copilot](https://www.microsoft365.com)
 -   [GitHub Student Developer Pack](https://education.github.com/pack)
