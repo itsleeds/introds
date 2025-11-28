@@ -1,25 +1,30 @@
-
 Before starting this practical session, you'll need to set up a few essential tools. Don't worry—we'll keep this brief!
 
-## Required Software {-}
+## Required Software {.unnumbered}
 
-### If using AppsAnywhere {-}
+### If using AppsAnywhere {.unnumbered}
 
-If you're using AppsAnywhere (available on university computers or your own laptop):
+If you're using [AppsAnywhere ](https://appsanywhere.leeds.ac.uk/)(available on university computers or your own laptop):
 
-1. Open AppsAnywhere on your computer
-2. Search for and launch **R** first
-3. Search for and launch **RStudio** (requires R to be installed)
-4. For Python (optional), search for and launch **Anaconda** from AppsAnywhere
+1.  Open AppsAnywhere on your computer
 
-### Cloud-based Development Environments (Recommended) {-}
+2.  Search for and launch **R for Wndows** first
+
+    ![](images/paste-4.png){width="551"}
+
+3.  Search for and launch **RStudio** (requires R to be installed)
+
+    ![](images/paste-5.png){width="544"}
+
+4.  For Python (optional), search for and launch **Anaconda** from AppsAnywhere
+
+### Cloud-based Development Environments (Recommended) {.unnumbered}
 
 For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
 
 To open this project in GitHub Codespaces, click the link below:
 
-[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1)
-<!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
+[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
 
 **Benefits:**
 
@@ -30,43 +35,44 @@ To open this project in GitHub Codespaces, click the link below:
 -   **GitHub Account Required:** You need a GitHub account to use Codespaces.
 -   **Free Usage Tier:** As of November 2025, GitHub Codespaces offers a free tier of 120 hours of CPU time per month.
 
-### If installing on your own laptop {-}
+### If installing on your own laptop {.unnumbered}
 
 This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:
 
-#### 1. Development Environment (IDE) {-}
+#### 1. Development Environment (IDE) {.unnumbered}
 
 An **IDE** (Integrated Development Environment) provides a comprehensive workspace for coding. Popular options include:
 
 **For R:**
 
-- **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
-- **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both R and Python (beta)
+-   **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
+-   **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both R and Python (beta)
 
 **For multiple languages:**
 
-- **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for R, Python, and more
+-   **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for R, Python, and more
 
-#### 2. Programming Languages {-}
+#### 2. Programming Languages {.unnumbered}
 
 **R** is a programming language widely used for statistical computing and data science.
 
-- Download R from [CRAN](https://cran.r-project.org/)
+-   Download R from [CRAN](https://cran.r-project.org/)
 
 **Python** (Optional but Recommended) is another popular language for data science.
 
-- Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
-- Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
+-   Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
+-   Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
 
-## Getting Help {-}
+## Getting Help {.unnumbered}
 
 If you encounter installation issues:
 
-- Check the [RStudio Support](https://support.posit.co/hc/en-us) page
-- Visit [Stack Overflow](https://stackoverflow.com/) for troubleshooting
-- Ask during the session!
+-   Check the [RStudio Support](https://support.posit.co/hc/en-us) page
+-   Visit [Stack Overflow](https://stackoverflow.com/) for troubleshooting
+-   Ask during the session!
 
-::: {.callout-tip}
-## Pro Tip {-}
+::: callout-tip
+## Pro Tip {.unnumbered}
+
 If you run into installation issues before the session, don't spend too much time troubleshooting. We can help you during the practical!
 :::
