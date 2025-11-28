@@ -31,13 +31,13 @@ This workbook accompanies the Introduction to Data Science course. You can acces
 
 {{< include 4-statistics/_index.qmd >}}
 
-# Collaboration
+<!-- # Collaboration
 
 {{< include _collaboration.qmd >}}
 
 # AI Tools
 
-{{< include _ai.qmd >}}
+{{< include _ai.qmd >}} -->
 
 # Next Steps
 
