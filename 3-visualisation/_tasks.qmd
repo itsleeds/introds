@@ -1,24 +1,29 @@
 
-In this section, we will practice data visualization using R and the `ggplot2` package from the `tidyverse`. Follow the steps below to create various types of plots.
+In this section, we will practice data visualization using Python and the `matplotlib` and `seaborn` packages. Follow the steps below to create various types of plots.
 
-Using the same script `2-data-wrangling-and-visualization.R` from the previous section, continue with the following tasks:
+Using the same script `2-data-wrangling-and-visualization.py` from the previous section, continue with the following tasks:
 
-If you have loaded the `tidyverse` package and read in the `crashes` dataset, you can proceed to the next steps. `ggplot2` is part of the `tidyverse`, so you don't need to load it separately.
+If you have imported pandas and read in the `crashes` dataset, you can proceed to the next steps. You will need to import `matplotlib.pyplot` and `seaborn` as well.
 
 1. **Box Plot:**
    - Create a box plot to visualise the distribution of ages for different casualty types in the `crashes` dataset.
-   - Use `ggplot()` to specify the dataset and aesthetics, and `geom_boxplot()` to create the box plot.
+   - Use `sns.boxplot()` to create the box plot.
    - Add appropriate labels and a title to your plot.
-   - Save the box plot to an object named `age_boxplot`.
-   - Display the plot by calling the object name.
+   - Save the box plot to a file named `age_boxplot.png` using `plt.savefig()`.
+   - Display the plot with `plt.show()`.
 
 2. **Bar Plot (Optional):**
    - Create a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).
+   - Use `sns.countplot()` or `value_counts().plot(kind='bar')`.
    - Add custom colours and transparency to the bars.
    - Add appropriate labels and a title.
-   - Save the plot to an object named `casualty_barplot`.
+   - Save the plot to a file named `casualty_barplot.png`.
 
 3. **Export Your Plots:**
-   - Save the box plot as a PNG file named `age_boxplot.png` using the `ggsave()` function.
+   - Save the box plot as a PNG file named `age_boxplot.png`.
    - Save the bar plot as a PNG file named `casualty_barplot.png`.
-   - Check the documentation for `ggsave()` by typing `?ggsave` in the console.
+   - Check the documentation for `plt.savefig()` by typing `help(plt.savefig)` in the console.
+
+---
+
+**R version:** If you prefer R, the same exercises are available in R. Continue using the `2-data-wrangling-and-visualization.R` script, load `ggplot2` (part of `tidyverse`), and use `geom_boxplot()`, `geom_bar()`, and `ggsave()` to complete the same tasks.

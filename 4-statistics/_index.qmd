@@ -1,5 +1,5 @@
 
-In this part of the practical, we will use what we have learned so far to perform the same analysis you have already learned with other tools, but this time using R.
+In this part of the practical, we will use what we have learned so far to perform the same analysis you have already learned with other tools, but this time using Python.
 
 1. Download the datasets for this exercises and save them in your `data` folder:
   
@@ -8,5 +8,7 @@ In this part of the practical, we will use what we have learned so far to perfor
   
 2. Download the following scripts and try to run the code in them. Your job is to **debug these scripts** by fixing the intentional errors so they run correctly.
   
-  - Script 1: Excel Task ([R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_excel_debug.R), [Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_excel_debug.py))
-  - Script 2: SPSS Task ([R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.R), [Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.py))
+  - Script 1: Excel Task ([Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_excel_debug.py), [R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_excel_debug.R))
+  - Script 2: SPSS Task ([Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.py), [R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.R))
+
+**R version:** If you prefer R, the same exercises are available in R. See the R script links above.
