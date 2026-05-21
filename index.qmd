@@ -75,3 +75,4 @@ This session covers:
 ## Getting Started
 
 Navigate through the sections using the menu. We recommend following them in order if you're new to data science.
+<!-- Trigger rebuild Thu 21 May 12:50:22 BST 2026 -->
