@@ -1,58 +1,68 @@
 
-We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.
+We are going to start from scratch and build up some basic skills in Python. Follow the steps below to get started.
 
 ::: {.callout-tip}
-Get R and your IDE (RStudio, VS Code, or Positron) running (see Prerequisites if needed) before starting.
+Get Python and your IDE (VS Code, Positron, or RStudio) running (see Prerequisites if needed) before starting.
 :::
 
 Setting up your first(?) project:
 
-1. In your IDE (RStudio example shown), go to `File` > `New Project...`.
+1. In your IDE (VS Code example shown), go to `File` > `New Folder...` and name it `DS-intro-2025`.
    
-   - Select `New Directory`.
-   - Select `New Project`.
-   - Name the project `DS-intro-2025` and choose a directory to save it in (your OneDrive might be a good choice).
-   - Click `Create Project`.
+   - Alternatively, open a terminal and run: `mkdir DS-intro-2025`
+   - Open the folder in your IDE.
    
-   **Note**: The exact steps may vary slightly in VS Code or Positron, but the concept of project organization remains the same.
+   **Note**: The exact steps may vary slightly in Positron or RStudio, but the concept of project organization remains the same.
 
-2. Navigate to the `Files` tab, and create two folders in the project directory: `data` and `scripts`.
+2. Create two folders in the project directory: `data` and `scripts`.
 
 Now using the console ***only***:
 
 3. Type: `print("Hello, world!")` and hit Enter to see the output.
 4. Now try: `2 + 2` and hit Enter.
-5. Find what the current working directory is by typing `getwd()` and hitting Enter.
-6. Assign the value `10` to a variable named `my_number` using the assignment operator `<-` or `=`.
+5. Find what the current working directory is by typing:
+   ```python
+   import os
+   os.getcwd()
+   ```
+6. Assign the value `10` to a variable named `my_number` using the assignment operator `=`.
 7. Print the value of `my_number` to the console. Did it work?
 
-Now, let's create your first R script:
+Now, let's create your first Python script:
 
-8. In RStudio, go to `File` > `New File` > `R Script`.
+8. In VS Code, go to `File` > `New File` and save it with a `.py` extension.
 
 ::: {.callout-note}
-R scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.
+Python scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.
 
 Think of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.
 
 All lines in the script that start with `#` are comments. They are not executed as code but are there to help explain what the code does.
 :::
 
-9. Save the script in the `scripts` folder as `1-basics-intro.R`.
+9. Save the script in the `scripts` folder as `1-basics-intro.py`.
 
 10. Type the following code in the new script:
-   ```R
-   # This is my first R script
+   ```python
+   # This is my first Python script
    print("Hello, world!")
-   my_number <- 10
+   my_number = 10
    print(my_number)
    ```
-11. Run the code in the script by placing your cursor on each line and pressing `Ctrl + Enter` (or `Cmd + Enter` on Mac). Observe the output in the console.
+11. Run the code in the script by clicking the play button or using the terminal: `python scripts/1-basics-intro.py`. Observe the output.
 
-12. Create a vector with 1000 random numbers between 0 and 100. For this, you can use the `runif()` function. Assign this vector to a variable named `random_numbers`. Check how to specify the minimum and maximum values in the `runif()` function by typing `?runif` in the console.
-13. Install the `tidyverse` package by typing `install.packages("tidyverse")` in the console. We won't use it now, we will load it in the next part.
+12. Create a list with 1000 random numbers between 0 and 100. For this, you can use the `random` module. Assign this list to a variable named `random_numbers`. Check how to specify the range in the `random.uniform()` function by typing `help(random.uniform)` in the console.
+   ```python
+   import random
+   random_numbers = [random.uniform(0, 100) for _ in range(1000)]
+   ```
+13. Install the `pandas` package by typing `pip install pandas` in the terminal. We won't use it now, we will import it in the next part.
 
 **Optional:**
 
-14. Calculate the mean and standard deviation of the `random_numbers` vector using the `mean()` and `sd()` functions. Print the results to the console.
+14. Calculate the mean and standard deviation of the `random_numbers` list using the `statistics` module or `numpy`. Print the results to the console.
 15. Save your script by clicking `File` > `Save` or pressing `Ctrl + S` (or `Cmd + S` on Mac).
+
+---
+
+**R version:** If you prefer R, the same exercises are available in R. Create a new R script (`1-basics-intro.R`) and follow the equivalent steps using R syntax (e.g., `print("Hello, world!")`, `my_number <- 10`, `runif(1000, 0, 100)`).
