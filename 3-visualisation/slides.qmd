@@ -46,18 +46,18 @@ fig, ax = plt.subplots(figsize=(10, 6))
 Add points to visualise individual observations:
 
 ```python
-# Step 2: Create scatter plot
+# Step 2: Create scatter plot with custom styling
 ax.scatter(df['weight'], df['mpg'], s=100, alpha=0.6, color='steelblue')
 ```
 
 ------------------------------------------------------------------------
 
-### Step 3: Customise Points
+### Step 3: Add Labels and Theme
 
-Adjust size, transparency, and colour:
+Add titles, axis labels, and a grid to make the plot publication-ready:
 
 ```python
-# Customise the plot
+# Add labels and theme
 ax.set_xlabel('Weight')
 ax.set_ylabel('Miles per Gallon')
 ax.set_title('Fuel Efficiency vs Weight')
@@ -156,7 +156,7 @@ sns.boxplot(data=df, x='cylinders', y='mpg', ax=ax, palette='Set2')
 
 ------------------------------------------------------------------------
 
-### Step 2: Customise Box Plot
+### Step 2: Customize Box Plot
 
 Add individual points and improve aesthetics:
 
@@ -209,7 +209,7 @@ fig.savefig("final_plot.png", dpi=300, bbox_inches='tight')
 
 ✅ Choose the right plot type for your data
 
-✅ Customise colours, size, and transparency strategically
+✅ Customize colors, size, and transparency strategically
 
 ✅ Add informative titles and axis labels
 
@@ -252,15 +252,15 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
 
 ------------------------------------------------------------------------
 
-### Step 3: Customise Points
+### Step 3: Customize Points
 
-Adjust size, transparency, and colour:
+Adjust size, transparency, and color:
 
 ```{r}
 #| echo: true
 # Make points larger and semi-transparent
 ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point(size = 3, alpha = 0.6, colour = "steelblue")
+  geom_point(size = 3, alpha = 0.6, color = "steelblue")
 ```
 
 ------------------------------------------------------------------------
@@ -273,8 +273,8 @@ Add a smoothing layer to show the pattern:
 #| echo: true
 # Add linear regression line
 ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point(size = 3, alpha = 0.6, colour = "steelblue") +
-  geom_smooth(method = "lm", se = TRUE, colour = "red")
+  geom_point(size = 3, alpha = 0.6, color = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, color = "red")
 ```
 
 ------------------------------------------------------------------------
@@ -287,8 +287,8 @@ Make it publication-ready with titles and formatting:
 #| echo: true
 # Build the complete scatter plot
 scatter_plot <- ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point(size = 3, alpha = 0.6, colour = "steelblue") +
-  geom_smooth(method = "lm", se = TRUE, colour = "red") +
+  geom_point(size = 3, alpha = 0.6, color = "steelblue") +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
   labs(
     title = "Fuel Efficiency vs Weight",
     subtitle = "mtcars dataset",
@@ -334,13 +334,13 @@ ggplot(mtcars, aes(x = factor(cyl))) +
 
 ### Step 2: Add Colour
 
-Customise the appearance with colours:
+Customize the appearance with colors:
 
 ```{r}
 #| echo: true
-# Add custom fill colour
+# Add custom fill color
 ggplot(mtcars, aes(x = factor(cyl))) +
-  geom_bar(fill = "steelblue", colour = "black", alpha = 0.7)
+  geom_bar(fill = "steelblue", color = "black", alpha = 0.7)
 ```
 
 ------------------------------------------------------------------------
@@ -353,7 +353,7 @@ Add titles and axis labels:
 #| echo: true
 # Build the complete bar plot
 bar_plot <- ggplot(mtcars, aes(x = factor(cyl))) +
-  geom_bar(fill = "steelblue", colour = "black", alpha = 0.7) +
+  geom_bar(fill = "steelblue", color = "black", alpha = 0.7) +
   labs(
     title = "Number of Cars by Cylinders",
     x = "Cylinders",
@@ -394,13 +394,13 @@ ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
 
 ------------------------------------------------------------------------
 
-### Step 2: Customise Box Plot
+### Step 2: Customize Box Plot
 
-Add colours and improve aesthetics:
+Add colors and improve aesthetics:
 
 ```{r}
 #| echo: true
-# Customised box plot with colour
+# Customized box plot with color
 ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
   geom_boxplot(alpha = 0.7) +
   geom_jitter(width = 0.1, alpha = 0.3)  # Add individual points

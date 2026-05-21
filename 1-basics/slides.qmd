@@ -376,8 +376,9 @@ from matplotlib import pyplot as plt
 ``` python
 help(sum)              # Help on sum function
 help(pd.read_csv)      # Help on pandas read_csv
-?np.array              # In Jupyter notebooks
 ```
+
+**Note:** `?np.array` works in Jupyter notebooks but not in standard Python scripts.
 
 ------------------------------------------------------------------------
 

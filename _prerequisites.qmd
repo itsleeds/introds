@@ -8,15 +8,14 @@ If you're using [AppsAnywhere ](https://appsanywhere.leeds.ac.uk/)(available on 
 
 1.  Open AppsAnywhere on your computer
 
-2.  Search for and launch **R for Wndows** first
+2.  Search for and launch **Anaconda** (for Python)
+
+3.  Search for and launch **VS Code** or **Positron**
+
+4.  For R (optional), search for and launch **R for Windows** first, then **RStudio**
 
     ![](images/paste-4.png){width="551"}
-
-3.  Search for and launch **RStudio** (requires R to be installed)
-
     ![](images/paste-5.png){width="544"}
-
-4.  For Python (optional), search for and launch **Anaconda** from AppsAnywhere
 
 ### Cloud-based Development Environments (Recommended) {.unnumbered}
 
@@ -43,25 +42,25 @@ This approach is recommended if you want more control over your installations an
 
 An **IDE** (Integrated Development Environment) provides a comprehensive workspace for coding. Popular options include:
 
+**For Python:**
+
+-   **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for Python, R, and more
+-   **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both Python and R (beta)
+
 **For R:**
 
 -   **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
--   **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both R and Python (beta)
-
-**For multiple languages:**
-
--   **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for R, Python, and more
 
 #### 2. Programming Languages {.unnumbered}
 
-**R** is a programming language widely used for statistical computing and data science.
-
--   Download R from [CRAN](https://cran.r-project.org/)
-
-**Python** (Optional but Recommended) is another popular language for data science.
+**Python** is a general-purpose programming language widely used for data science, machine learning, and AI.
 
 -   Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
 -   Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
+
+**R** (Optional) is another popular language for statistical computing.
+
+-   Download R from [CRAN](https://cran.r-project.org/)
 
 ## Getting Help {.unnumbered}
 
