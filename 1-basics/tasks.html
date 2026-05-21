@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>The Basics - Tasks – Introduction to Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-846020290eed3f23b386f36f40a70b5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c36986e3ce6a2384da8e26f7cbffe185.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -306,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We are going to start from scratch and build up some basic skills in R. Follow the steps below to get started.</p>
+<p>We are going to start from scratch and build up some basic skills in Python. Follow the steps below to get started.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -317,32 +319,32 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Get R and your IDE (RStudio, VS Code, or Positron) running (see Prerequisites if needed) before starting.</p>
+<p>Get Python and your IDE (VS Code, Positron, or RStudio) running (see Prerequisites if needed) before starting.</p>
 </div>
 </div>
 <p>Setting up your first(?) project:</p>
 <ol type="1">
-<li><p>In your IDE (RStudio example shown), go to <code>File</code> &gt; <code>New Project...</code>.</p>
+<li><p>In your IDE (VS Code example shown), go to <code>File</code> &gt; <code>New Folder...</code> and name it <code>DS-intro-2025</code>.</p>
 <ul>
-<li>Select <code>New Directory</code>.</li>
-<li>Select <code>New Project</code>.</li>
-<li>Name the project <code>DS-intro-2025</code> and choose a directory to save it in (your OneDrive might be a good choice).</li>
-<li>Click <code>Create Project</code>.</li>
+<li>Alternatively, open a terminal and run: <code>mkdir DS-intro-2025</code></li>
+<li>Open the folder in your IDE.</li>
 </ul>
-<p><strong>Note</strong>: The exact steps may vary slightly in VS Code or Positron, but the concept of project organization remains the same.</p></li>
-<li><p>Navigate to the <code>Files</code> tab, and create two folders in the project directory: <code>data</code> and <code>scripts</code>.</p></li>
+<p><strong>Note</strong>: The exact steps may vary slightly in Positron or RStudio, but the concept of project organization remains the same.</p></li>
+<li><p>Create two folders in the project directory: <code>data</code> and <code>scripts</code>.</p></li>
 </ol>
 <p>Now using the console <strong><em>only</em></strong>:</p>
 <ol start="3" type="1">
-<li>Type: <code>print("Hello, world!")</code> and hit Enter to see the output.</li>
-<li>Now try: <code>2 + 2</code> and hit Enter.</li>
-<li>Find what the current working directory is by typing <code>getwd()</code> and hitting Enter.</li>
-<li>Assign the value <code>10</code> to a variable named <code>my_number</code> using the assignment operator <code>&lt;-</code> or <code>=</code>.</li>
-<li>Print the value of <code>my_number</code> to the console. Did it work?</li>
+<li><p>Type: <code>print("Hello, world!")</code> and hit Enter to see the output.</p></li>
+<li><p>Now try: <code>2 + 2</code> and hit Enter.</p></li>
+<li><p>Find what the current working directory is by typing:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Assign the value <code>10</code> to a variable named <code>my_number</code> using the assignment operator <code>=</code>.</p></li>
+<li><p>Print the value of <code>my_number</code> to the console. Did it work?</p></li>
 </ol>
-<p>Now, let’s create your first R script:</p>
+<p>Now, let’s create your first Python script:</p>
 <ol start="8" type="1">
-<li>In RStudio, go to <code>File</code> &gt; <code>New File</code> &gt; <code>R Script</code>.</li>
+<li>In VS Code, go to <code>File</code> &gt; <code>New File</code> and save it with a <code>.py</code> extension.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -354,29 +356,35 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>R scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.</p>
+<p>Python scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.</p>
 <p>Think of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.</p>
 <p>All lines in the script that start with <code>#</code> are comments. They are not executed as code but are there to help explain what the code does.</p>
 </div>
 </div>
 <ol start="9" type="1">
-<li><p>Save the script in the <code>scripts</code> folder as <code>1-basics-intro.R</code>.</p></li>
+<li><p>Save the script in the <code>scripts</code> folder as <code>1-basics-intro.py</code>.</p></li>
 <li><p>Type the following code in the new script:</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is my first R script</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, world!"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>my_number <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_number)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is my first Python script</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, world!"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_number <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_number)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="11" type="1">
-<li><p>Run the code in the script by placing your cursor on each line and pressing <code>Ctrl + Enter</code> (or <code>Cmd + Enter</code> on Mac). Observe the output in the console.</p></li>
-<li><p>Create a vector with 1000 random numbers between 0 and 100. For this, you can use the <code>runif()</code> function. Assign this vector to a variable named <code>random_numbers</code>. Check how to specify the minimum and maximum values in the <code>runif()</code> function by typing <code>?runif</code> in the console.</p></li>
-<li><p>Install the <code>tidyverse</code> package by typing <code>install.packages("tidyverse")</code> in the console. We won’t use it now, we will load it in the next part.</p></li>
+<li><p>Run the code in the script by clicking the play button or using the terminal: <code>python scripts/1-basics-intro.py</code>. Observe the output.</p></li>
+<li><p>Create a list with 1000 random numbers between 0 and 100. For this, you can use the <code>random</code> module. Assign this list to a variable named <code>random_numbers</code>. Check how to specify the range in the <code>random.uniform()</code> function by typing <code>help(random.uniform)</code> in the console.</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>random_numbers <span class="op">=</span> [random.uniform(<span class="dv">0</span>, <span class="dv">100</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="13" type="1">
+<li>Install the <code>pandas</code> package by typing <code>pip install pandas</code> in the terminal. We won’t use it now, we will import it in the next part.</li>
 </ol>
 <p><strong>Optional:</strong></p>
 <ol start="14" type="1">
-<li>Calculate the mean and standard deviation of the <code>random_numbers</code> vector using the <code>mean()</code> and <code>sd()</code> functions. Print the results to the console.</li>
+<li>Calculate the mean and standard deviation of the <code>random_numbers</code> list using the <code>statistics</code> module or <code>numpy</code>. Print the results to the console.</li>
 <li>Save your script by clicking <code>File</code> &gt; <code>Save</code> or pressing <code>Ctrl + S</code> (or <code>Cmd + S</code> on Mac).</li>
 </ol>
+<hr>
+<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Create a new R script (<code>1-basics-intro.R</code>) and follow the equivalent steps using R syntax (e.g., <code>print("Hello, world!")</code>, <code>my_number &lt;- 10</code>, <code>runif(1000, 0, 100)</code>).</p>
 
 
 

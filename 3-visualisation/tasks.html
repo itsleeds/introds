@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>3. Visualisation - Tasks – Introduction to Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -33,15 +36,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-846020290eed3f23b386f36f40a70b5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c36986e3ce6a2384da8e26f7cbffe185.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -271,32 +273,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In this section, we will practice data visualization using R and the <code>ggplot2</code> package from the <code>tidyverse</code>. Follow the steps below to create various types of plots.</p>
-<p>Using the same script <code>2-data-wrangling-and-visualization.R</code> from the previous section, continue with the following tasks:</p>
-<p>If you have loaded the <code>tidyverse</code> package and read in the <code>crashes</code> dataset, you can proceed to the next steps. <code>ggplot2</code> is part of the <code>tidyverse</code>, so you don’t need to load it separately.</p>
+<p>In this section, we will practice data visualization using Python and the <code>matplotlib</code> and <code>seaborn</code> packages. Follow the steps below to create various types of plots.</p>
+<p>Using the same script <code>2-data-wrangling-and-visualization.py</code> from the previous section, continue with the following tasks:</p>
+<p>If you have imported pandas and read in the <code>crashes</code> dataset, you can proceed to the next steps. You will need to import <code>matplotlib.pyplot</code> and <code>seaborn</code> as well.</p>
 <ol type="1">
 <li><strong>Box Plot:</strong>
 <ul>
 <li>Create a box plot to visualise the distribution of ages for different casualty types in the <code>crashes</code> dataset.</li>
-<li>Use <code>ggplot()</code> to specify the dataset and aesthetics, and <code>geom_boxplot()</code> to create the box plot.</li>
+<li>Use <code>sns.boxplot()</code> to create the box plot.</li>
 <li>Add appropriate labels and a title to your plot.</li>
-<li>Save the box plot to an object named <code>age_boxplot</code>.</li>
-<li>Display the plot by calling the object name.</li>
+<li>Save the box plot to a file named <code>age_boxplot.png</code> using <code>plt.savefig()</code>.</li>
+<li>Display the plot with <code>plt.show()</code>.</li>
 </ul></li>
 <li><strong>Bar Plot (Optional):</strong>
 <ul>
 <li>Create a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).</li>
+<li>Use <code>sns.countplot()</code> or <code>value_counts().plot(kind='bar')</code>.</li>
 <li>Add custom colours and transparency to the bars.</li>
 <li>Add appropriate labels and a title.</li>
-<li>Save the plot to an object named <code>casualty_barplot</code>.</li>
+<li>Save the plot to a file named <code>casualty_barplot.png</code>.</li>
 </ul></li>
 <li><strong>Export Your Plots:</strong>
 <ul>
-<li>Save the box plot as a PNG file named <code>age_boxplot.png</code> using the <code>ggsave()</code> function.</li>
+<li>Save the box plot as a PNG file named <code>age_boxplot.png</code>.</li>
 <li>Save the bar plot as a PNG file named <code>casualty_barplot.png</code>.</li>
-<li>Check the documentation for <code>ggsave()</code> by typing <code>?ggsave</code> in the console.</li>
+<li>Check the documentation for <code>plt.savefig()</code> by typing <code>help(plt.savefig)</code> in the console.</li>
 </ul></li>
 </ol>
+<hr>
+<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Continue using the <code>2-data-wrangling-and-visualization.R</code> script, load <code>ggplot2</code> (part of <code>tidyverse</code>), and use <code>geom_boxplot()</code>, <code>geom_bar()</code>, and <code>ggsave()</code> to complete the same tasks.</p>
 
 
 

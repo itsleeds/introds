@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Statistics - Worked Solutions – Introduction to Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-846020290eed3f23b386f36f40a70b5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c36986e3ce6a2384da8e26f7cbffe185.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -656,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ┌─────────────────────┬────────────────────┐
 │ Event Date          ┆ Run Time (minutes) │
 │ ---                 ┆ ---                │
-│ datetime[ns]        ┆ f64                │
+│ datetime[μs]        ┆ f64                │
 ╞═════════════════════╪════════════════════╡
 │ 2015-08-22 00:00:00 ┆ 20.633333          │
 │ 2015-08-15 00:00:00 ┆ 22.383333          │
@@ -678,7 +680,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.schema)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Schema({'Event Date': Datetime(time_unit='ns', time_zone=None), 'Run Time (minutes)': Float64})</code></pre>
+<pre><code>Schema({'Event Date': Datetime(time_unit='us', time_zone=None), 'Run Time (minutes)': Float64})</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -733,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ┌─────────────────────┬───────────┐
 │ date                ┆ runtime   │
 │ ---                 ┆ ---       │
-│ datetime[ns]        ┆ f64       │
+│ datetime[μs]        ┆ f64       │
 ╞═════════════════════╪═══════════╡
 │ 2015-08-22 00:00:00 ┆ 20.633333 │
 │ 2014-09-27 00:00:00 ┆ 20.666667 │
@@ -760,7 +762,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ┌─────────────────────┬───────────┐
 │ date                ┆ runtime   │
 │ ---                 ┆ ---       │
-│ datetime[ns]        ┆ f64       │
+│ datetime[μs]        ┆ f64       │
 ╞═════════════════════╪═══════════╡
 │ 2013-10-19 00:00:00 ┆ 31.133333 │
 │ 2013-07-20 00:00:00 ┆ 30.566667 │
@@ -791,7 +793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ┌─────────────────────┬─────────────────────┐
 │ min_date            ┆ max_date            │
 │ ---                 ┆ ---                 │
-│ datetime[ns]        ┆ datetime[ns]        │
+│ datetime[μs]        ┆ datetime[μs]        │
 ╞═════════════════════╪═════════════════════╡
 │ 2012-08-04 00:00:00 ┆ 2015-08-22 00:00:00 │
 └─────────────────────┴─────────────────────┘</code></pre>
@@ -845,7 +847,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ┌─────────────────────┬───────────┬──────────────┐
 │ date                ┆ runtime   ┆ runtime_mins │
 │ ---                 ┆ ---       ┆ ---          │
-│ datetime[ns]        ┆ f64       ┆ f64          │
+│ datetime[μs]        ┆ f64       ┆ f64          │
 ╞═════════════════════╪═══════════╪══════════════╡
 │ 2015-08-22 00:00:00 ┆ 20.633333 ┆ 21.0         │
 │ 2015-08-15 00:00:00 ┆ 22.383333 ┆ 22.0         │
@@ -1471,17 +1473,17 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <pre><code>shape: (13,)
 Series: 'age_cat' [str]
 [
-    "45-49"
-    "55-59"
-    "25-29"
+    "35-39"
     "70-74"
     "30-34"
+    "50-54"
+    "45-49"
     …
-    "18-19"
+    "75-79"
     "20-24"
+    "18-19"
+    "65-69"
     "60-64"
-    "35-39"
-    "40-44"
 ]</code></pre>
 </div>
 <details class="code-fold">
@@ -1540,8 +1542,8 @@ Series: 'age_cat' [str]
 │ ---    ┆ ---  ┆ ---       ┆ ---       ┆ ---       │
 │ str    ┆ f64  ┆ f64       ┆ f64       ┆ f64       │
 ╞════════╪══════╪═══════════╪═══════════╪═══════════╡
-│ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │
 │ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
+│ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │
 └────────┴──────┴───────────┴───────────┴───────────┘</code></pre>
 </div>
 <details class="code-fold">
@@ -1685,7 +1687,7 @@ Series: 'time' [f64]
 <pre><code>
 --- T-Test Results ---
 t-statistic: -14.627688831201171
-p-value: 7.426339858226408e-41</code></pre>
+p-value: 7.426339858226416e-41</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1838,8 +1840,8 @@ Median Previous Runs: 18.0</code></pre>
 Dep. Variable:                   time   R-squared:                       0.322
 Model:                            OLS   Adj. R-squared:                  0.318
 Method:                 Least Squares   F-statistic:                     82.31
-Date:                Fri, 28 Nov 2025   Prob (F-statistic):           1.39e-43
-Time:                        15:29:03   Log-Likelihood:                -1526.5
+Date:                Thu, 21 May 2026   Prob (F-statistic):           1.39e-43
+Time:                        13:07:13   Log-Likelihood:                -1526.5
 No. Observations:                 524   AIC:                             3061.
 Df Residuals:                     520   BIC:                             3078.
 Df Model:                           3                                         

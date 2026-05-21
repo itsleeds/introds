@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Data Wrangling - Tasks – Introduction to Data Science</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -68,15 +71,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-846020290eed3f23b386f36f40a70b5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c36986e3ce6a2384da8e26f7cbffe185.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -306,28 +308,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this section, we will practice data wrangling using R and the <code>dplyr</code> package from the <code>tidyverse</code>. Follow the steps below to manipulate and explore a dataset.</p>
+<p>In this section, we will practice data wrangling using Python and the <code>pandas</code> package. Follow the steps below to manipulate and explore a dataset.</p>
 <ol type="1">
-<li><p>Create a new R script in your <code>scripts</code> folder and name it <code>2-data-wrangling-and-visualization.R</code>.</p></li>
-<li><p>Load the <code>tidyverse</code> package by adding the following line at the top of your script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Create a new Python script in your <code>scripts</code> folder and name it <code>2-data-wrangling-and-visualization.py</code>.</p></li>
+<li><p>Import pandas by adding the following line at the top of your script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Download the <code>crashes</code> file (<a href="https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/crashes.csv">here</a>) and save it in your <code>data</code> folder.</p></li>
-<li><p>Read the <code>crashes</code> dataset into R using the <code>read_csv()</code> function and assign it to a variable named <code>crashes</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Read the <code>crashes</code> dataset into Python using the <code>pd.read_csv()</code> function and assign it to a variable named <code>crashes</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>crashes <span class="op">=</span> pd.read_csv(<span class="st">"data/crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Explore the dataset:</p>
 <ul>
-<li>Use the <code>head()</code> function to view the first few rows of the dataset.</li>
-<li>Use the <code>str()</code> function to understand the structure of the dataset.</li>
-<li>Use the <code>summary()</code> function to get a summary of the dataset.</li>
+<li>Use the <code>head()</code> method to view the first few rows of the dataset.</li>
+<li>Use the <code>info()</code> method to understand the structure of the dataset.</li>
+<li>Use the <code>describe()</code> method to get a summary of the dataset.</li>
 </ul></li>
 <li><p>Data Wrangling Tasks:</p>
 <ul>
-<li>Create a new data.frame named <code>crashes_filtered</code> that includes only cyclists.</li>
-<li>Create a new data.frame named <code>crashes_dark</code> that includes only crashes that occurred in dark conditions.</li>
-<li>Create a new data.frame named <code>crashes_dark_cyclist</code> that includes only crashes that involved cyclists <strong>and</strong> occurred in dark conditions.</li>
+<li>Create a new DataFrame named <code>crashes_filtered</code> that includes only cyclists.</li>
+<li>Create a new DataFrame named <code>crashes_dark</code> that includes only crashes that occurred in dark conditions.</li>
+<li>Create a new DataFrame named <code>crashes_dark_cyclist</code> that includes only crashes that involved cyclists <strong>and</strong> occurred in dark conditions.</li>
 <li>Create a summary table named <code>crashes_by_type</code> that shows the median age by casualty type.</li>
 </ul></li>
 </ol>
+<hr>
+<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Create a new R script (<code>2-data-wrangling-and-visualization.R</code>), load the <code>tidyverse</code> package, and use <code>read_csv()</code>, <code>filter()</code>, <code>select()</code>, <code>group_by()</code>, and <code>summarise()</code> to complete the same tasks.</p>
 
 
 
