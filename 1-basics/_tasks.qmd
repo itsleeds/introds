@@ -33,7 +33,7 @@ Now, let's create your first Python script:
 8. In VS Code, go to `File` > `New File` and save it with a `.py` extension.
 
 ::: {.callout-note}
-Python scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organized.
+Python scripts allow you to write and save your code. You can run the code directly from the script, and it helps you keep your work organised.
 
 Think of the script as a recipe that you can follow again and again! If you want to repeat your analysis or share it with others, having it in a script makes it easy.
 

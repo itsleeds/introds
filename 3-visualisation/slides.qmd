@@ -46,18 +46,18 @@ fig, ax = plt.subplots(figsize=(10, 6))
 Add points to visualise individual observations:
 
 ```python
-# Step 2: Create scatter plot
+# Step 2: Create scatter plot with custom styling
 ax.scatter(df['weight'], df['mpg'], s=100, alpha=0.6, color='steelblue')
 ```
 
 ------------------------------------------------------------------------
 
-### Step 3: Customise Points
+### Step 3: Add Labels and Theme
 
-Adjust size, transparency, and colour:
+Add titles, axis labels, and a grid to make the plot publication-ready:
 
 ```python
-# Customise the plot
+# Add labels and theme
 ax.set_xlabel('Weight')
 ax.set_ylabel('Miles per Gallon')
 ax.set_title('Fuel Efficiency vs Weight')
