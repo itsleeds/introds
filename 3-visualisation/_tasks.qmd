@@ -15,7 +15,7 @@ If you have imported pandas and read in the `crashes` dataset, you can proceed t
 2. **Bar Plot (Optional):**
    - Create a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).
    - Use `sns.countplot()` or `value_counts().plot(kind='bar')`.
-   - Add custom colors and transparency to the bars.
+   - Add custom colours and transparency to the bars.
    - Add appropriate labels and a title.
    - Save the plot to a file named `casualty_barplot.png`.
 

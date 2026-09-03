@@ -10,6 +10,8 @@ If you're using [AppsAnywhere ](https://appsanywhere.leeds.ac.uk/)(available on 
 
 2.  Search for and launch **Anaconda** (for Python)
 
+    ![](images/appsanywhere-anaconda.png){width="551"}
+
 3.  Search for and launch **VS Code** or **Positron**
 
 4.  For R (optional), search for and launch **R for Windows** first, then **RStudio**
