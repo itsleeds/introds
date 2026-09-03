@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>&lt;span class='intro-text'&gt;Introduction to&lt;/span&gt; &lt;span class='ds-text'&gt;Data Science&lt;/span&gt; – slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -259,19 +262,19 @@
 <li><strong>Environment/History</strong> (top-right): Variables and command history</li>
 <li><strong>Files/Plots/Packages/Help</strong> (bottom-right): File browser and help</li>
 </ol>
-<p><strong>Tip</strong>: Customize the layout via View → Panes → Pane Layout</p>
+<p><strong>Tip</strong>: Customise the layout via View → Panes → Pane Layout</p>
 </section>
 <section id="the-fundamentals-of-python" class="slide level2">
 <h2>The fundamentals of Python</h2>
 <ul>
-<li>how to organize your work</li>
+<li>how to organise your work</li>
 <li>basic data types and structures</li>
 <li>using Python for calculations</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="organizing-your-work">Organizing Your Work</h3>
+<h3 id="organising-your-work">Organising Your Work</h3>
 <p>Project structure and file paths</p>
 </section>
 <section class="slide level2">
@@ -303,28 +306,28 @@
 
 <h3 id="working-with-paths-in-python">Working with Paths in Python</h3>
 <p><strong>Relative paths</strong> (from current working directory):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> os</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="co"># Change working directory</span></span>
-<span id="cb2-4"><a></a>os.chdir(<span class="st">"C:/Users/Alice/my-project"</span>)</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co"># Read data using relative path</span></span>
-<span id="cb2-7"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-8"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">"data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a aria-label="2"></a></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="co"># Change working directory</span></span>
+<span id="cb2-4"><a aria-label="4"></a>os.chdir(<span class="st">"C:/Users/Alice/my-project"</span>)</span>
+<span id="cb2-5"><a aria-label="5"></a></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co"># Read data using relative path</span></span>
+<span id="cb2-7"><a aria-label="7"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-8"><a aria-label="8"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Absolute paths</strong> (full path from root):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>data <span class="op">=</span> pd.read_csv(<span class="st">"C:/Users/Alice/my-project/data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"C:/Users/Alice/my-project/data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Best practice</strong>: Avoid using absolute paths when working locally.</p>
 </section>
 <section class="slide level2">
 
 <h3 id="data-types-in-python">Data Types in Python</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>x <span class="op">=</span> <span class="dv">42</span>          <span class="co"># int</span></span>
-<span id="cb4-2"><a></a>y <span class="op">=</span> <span class="fl">3.14</span>        <span class="co"># float</span></span>
-<span id="cb4-3"><a></a>name <span class="op">=</span> <span class="st">"Alice"</span>  <span class="co"># str</span></span>
-<span id="cb4-4"><a></a>flag <span class="op">=</span> <span class="va">True</span>     <span class="co"># bool</span></span>
-<span id="cb4-5"><a></a></span>
-<span id="cb4-6"><a></a><span class="bu">type</span>(x)</span>
-<span id="cb4-7"><a></a><span class="bu">type</span>(name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a>x <span class="op">=</span> <span class="dv">42</span>          <span class="co"># int</span></span>
+<span id="cb4-2"><a aria-label="2"></a>y <span class="op">=</span> <span class="fl">3.14</span>        <span class="co"># float</span></span>
+<span id="cb4-3"><a aria-label="3"></a>name <span class="op">=</span> <span class="st">"Alice"</span>  <span class="co"># str</span></span>
+<span id="cb4-4"><a aria-label="4"></a>flag <span class="op">=</span> <span class="va">True</span>     <span class="co"># bool</span></span>
+<span id="cb4-5"><a aria-label="5"></a></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="bu">type</span>(x)</span>
+<span id="cb4-7"><a aria-label="7"></a><span class="bu">type</span>(name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Key Types</strong>:</p>
 <ul>
 <li><code>int</code>: Integers</li>
@@ -337,52 +340,52 @@
 
 <h3 id="lists-in-python">Lists in Python</h3>
 <p>Ordered collections (can be mixed types):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb5-2"><a></a>names <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>]</span>
-<span id="cb5-3"><a></a>mixed <span class="op">=</span> [<span class="dv">1</span>, <span class="st">"Alice"</span>, <span class="fl">3.14</span>, <span class="va">True</span>]</span>
-<span id="cb5-4"><a></a></span>
-<span id="cb5-5"><a></a>first <span class="op">=</span> numbers[<span class="dv">0</span>]      <span class="co"># 0-based indexing!</span></span>
-<span id="cb5-6"><a></a>first_three <span class="op">=</span> numbers[<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-label="1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb5-2"><a aria-label="2"></a>names <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>]</span>
+<span id="cb5-3"><a aria-label="3"></a>mixed <span class="op">=</span> [<span class="dv">1</span>, <span class="st">"Alice"</span>, <span class="fl">3.14</span>, <span class="va">True</span>]</span>
+<span id="cb5-4"><a aria-label="4"></a></span>
+<span id="cb5-5"><a aria-label="5"></a>first <span class="op">=</span> numbers[<span class="dv">0</span>]      <span class="co"># 0-based indexing!</span></span>
+<span id="cb5-6"><a aria-label="6"></a>first_three <span class="op">=</span> numbers[<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="dictionaries-in-python">Dictionaries in Python</h3>
 <p>Key-value pairs:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>student <span class="op">=</span> {</span>
-<span id="cb6-2"><a></a>    <span class="st">"name"</span>: <span class="st">"Alice"</span>,</span>
-<span id="cb6-3"><a></a>    <span class="st">"age"</span>: <span class="dv">20</span>,</span>
-<span id="cb6-4"><a></a>    <span class="st">"grade"</span>: <span class="st">"A"</span></span>
-<span id="cb6-5"><a></a>}</span>
-<span id="cb6-6"><a></a></span>
-<span id="cb6-7"><a></a>student[<span class="st">"name"</span>]</span>
-<span id="cb6-8"><a></a>student.get(<span class="st">"age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a>student <span class="op">=</span> {</span>
+<span id="cb6-2"><a aria-label="2"></a>    <span class="st">"name"</span>: <span class="st">"Alice"</span>,</span>
+<span id="cb6-3"><a aria-label="3"></a>    <span class="st">"age"</span>: <span class="dv">20</span>,</span>
+<span id="cb6-4"><a aria-label="4"></a>    <span class="st">"grade"</span>: <span class="st">"A"</span></span>
+<span id="cb6-5"><a aria-label="5"></a>}</span>
+<span id="cb6-6"><a aria-label="6"></a></span>
+<span id="cb6-7"><a aria-label="7"></a>student[<span class="st">"name"</span>]</span>
+<span id="cb6-8"><a aria-label="8"></a>student.get(<span class="st">"age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="numpy-arrays">NumPy Arrays</h3>
 <p>Similar to Python lists but more efficient for numerical operations:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-2"><a></a></span>
-<span id="cb7-3"><a></a>numbers <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb7-4"><a></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]])</span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a>first <span class="op">=</span> numbers[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a aria-label="2"></a></span>
+<span id="cb7-3"><a aria-label="3"></a>numbers <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb7-4"><a aria-label="4"></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]])</span>
+<span id="cb7-5"><a aria-label="5"></a></span>
+<span id="cb7-6"><a aria-label="6"></a>first <span class="op">=</span> numbers[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="pandas-dataframes">Pandas DataFrames</h3>
 <p>Tables with rows and columns:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-2"><a></a></span>
-<span id="cb8-3"><a></a>students <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb8-4"><a></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>],</span>
-<span id="cb8-5"><a></a>    <span class="st">"age"</span>: [<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>],</span>
-<span id="cb8-6"><a></a>    <span class="st">"grade"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>]</span>
-<span id="cb8-7"><a></a>})</span>
-<span id="cb8-8"><a></a></span>
-<span id="cb8-9"><a></a>students[<span class="st">"name"</span>]      <span class="co"># access column</span></span>
-<span id="cb8-10"><a></a>students.iloc[<span class="dv">0</span>, :]   <span class="co"># access row</span></span>
-<span id="cb8-11"><a></a>students.head()       <span class="co"># view data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-label="1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a aria-label="2"></a></span>
+<span id="cb8-3"><a aria-label="3"></a>students <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb8-4"><a aria-label="4"></a>    <span class="st">"name"</span>: [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>],</span>
+<span id="cb8-5"><a aria-label="5"></a>    <span class="st">"age"</span>: [<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>],</span>
+<span id="cb8-6"><a aria-label="6"></a>    <span class="st">"grade"</span>: [<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>]</span>
+<span id="cb8-7"><a aria-label="7"></a>})</span>
+<span id="cb8-8"><a aria-label="8"></a></span>
+<span id="cb8-9"><a aria-label="9"></a>students[<span class="st">"name"</span>]      <span class="co"># access column</span></span>
+<span id="cb8-10"><a aria-label="10"></a>students.iloc[<span class="dv">0</span>, :]   <span class="co"># access row</span></span>
+<span id="cb8-11"><a aria-label="11"></a>students.head()       <span class="co"># view data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="using-python" class="slide level2">
 <h2>Using Python</h2>
@@ -391,12 +394,12 @@
 
 <h3 id="python-as-a-calculator">Python as a Calculator</h3>
 <p>Simple operations:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>           <span class="co"># Addition</span></span>
-<span id="cb9-2"><a></a><span class="dv">10</span> <span class="op">-</span> <span class="dv">4</span>          <span class="co"># Subtraction</span></span>
-<span id="cb9-3"><a></a><span class="dv">5</span> <span class="op">*</span> <span class="dv">6</span>           <span class="co"># Multiplication</span></span>
-<span id="cb9-4"><a></a><span class="dv">20</span> <span class="op">/</span> <span class="dv">4</span>          <span class="co"># Division</span></span>
-<span id="cb9-5"><a></a><span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span>          <span class="co"># Exponentiation</span></span>
-<span id="cb9-6"><a></a><span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span>          <span class="co"># Modulo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span>           <span class="co"># Addition</span></span>
+<span id="cb9-2"><a aria-label="2"></a><span class="dv">10</span> <span class="op">-</span> <span class="dv">4</span>          <span class="co"># Subtraction</span></span>
+<span id="cb9-3"><a aria-label="3"></a><span class="dv">5</span> <span class="op">*</span> <span class="dv">6</span>           <span class="co"># Multiplication</span></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="dv">20</span> <span class="op">/</span> <span class="dv">4</span>          <span class="co"># Division</span></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="dv">2</span> <span class="op">**</span> <span class="dv">3</span>          <span class="co"># Exponentiation</span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="dv">10</span> <span class="op">%</span> <span class="dv">3</span>          <span class="co"># Modulo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>See: <a href="https://docs.python.org/3/reference/lexical_analysis.html#operators">Python Operators</a></p>
 </section>
 <section class="slide level2">
@@ -406,31 +409,31 @@
 <ul>
 <li>Assignment: <code>=</code> to assign values to variables</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Assignment</span></span>
-<span id="cb10-2"><a></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb10-3"><a></a>y <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb10-4"><a></a>total <span class="op">=</span> x <span class="op">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="co"># Assignment</span></span>
+<span id="cb10-2"><a aria-label="2"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb10-3"><a aria-label="3"></a>y <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb10-4"><a aria-label="4"></a>total <span class="op">=</span> x <span class="op">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Method chaining with <code>.</code> to chain operations</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>result <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>] <span class="co"># create a list</span></span>
-<span id="cb11-2"><a></a>sum_result <span class="op">=</span> <span class="bu">sum</span>(result)  <span class="co"># calculate sum</span></span>
-<span id="cb11-3"><a></a>sqrt_result <span class="op">=</span> sum_result <span class="op">**</span> <span class="fl">0.5</span>  <span class="co"># calculate square root</span></span>
-<span id="cb11-4"><a></a><span class="bu">print</span>(sqrt_result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a><span class="co"># Calling methods and chaining operations with '.'</span></span>
+<span id="cb11-2"><a aria-label="2"></a>text <span class="op">=</span> <span class="st">"  introduction to data science  "</span></span>
+<span id="cb11-3"><a aria-label="3"></a>clean_text <span class="op">=</span> text.strip().title()</span>
+<span id="cb11-4"><a aria-label="4"></a><span class="bu">print</span>(clean_text)  <span class="co"># "Introduction To Data Science"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="subsetting-data">Subsetting Data</h3>
 <p>Extract specific elements from data structures:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>lst <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
-<span id="cb12-2"><a></a>first_element <span class="op">=</span> lst[<span class="dv">0</span>]        <span class="co"># 10</span></span>
-<span id="cb12-3"><a></a>subset <span class="op">=</span> lst[<span class="dv">1</span>:<span class="dv">4</span>]             <span class="co"># [20, 30, 40]</span></span>
-<span id="cb12-4"><a></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb12-5"><a></a>    <span class="st">'a'</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>),</span>
-<span id="cb12-6"><a></a>    <span class="st">'b'</span>: <span class="bu">range</span>(<span class="dv">6</span>, <span class="dv">11</span>),</span>
-<span id="cb12-7"><a></a>    <span class="st">'c'</span>: <span class="bu">list</span>(<span class="st">'abcde'</span>)})</span>
-<span id="cb12-8"><a></a>df[<span class="st">'a'</span>]  <span class="co"># access column `a`</span></span>
-<span id="cb12-9"><a></a>df.iloc[<span class="dv">0</span>, :]   <span class="co"># access first row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a>lst <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb12-2"><a aria-label="2"></a>first_element <span class="op">=</span> lst[<span class="dv">0</span>]        <span class="co"># 10</span></span>
+<span id="cb12-3"><a aria-label="3"></a>subset <span class="op">=</span> lst[<span class="dv">1</span>:<span class="dv">4</span>]             <span class="co"># [20, 30, 40]</span></span>
+<span id="cb12-4"><a aria-label="4"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb12-5"><a aria-label="5"></a>    <span class="st">'a'</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>),</span>
+<span id="cb12-6"><a aria-label="6"></a>    <span class="st">'b'</span>: <span class="bu">range</span>(<span class="dv">6</span>, <span class="dv">11</span>),</span>
+<span id="cb12-7"><a aria-label="7"></a>    <span class="st">'c'</span>: <span class="bu">list</span>(<span class="st">'abcde'</span>)})</span>
+<span id="cb12-8"><a aria-label="8"></a>df[<span class="st">'a'</span>]  <span class="co"># access column `a`</span></span>
+<span id="cb12-9"><a aria-label="9"></a>df.iloc[<span class="dv">0</span>, :]   <span class="co"># access first row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>More on subsetting here: <a href="https://numpy.org/doc/stable/user/basics.indexing.html">NumPy Indexing</a></p>
 </section>
 <section id="control-flow" class="slide level2">
@@ -441,39 +444,39 @@
 
 <h3 id="if-statements-in-python">If Statements in Python</h3>
 <p>Execute code conditionally:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>age <span class="op">=</span> <span class="dv">25</span></span>
-<span id="cb13-2"><a></a></span>
-<span id="cb13-3"><a></a><span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
-<span id="cb13-4"><a></a>    <span class="bu">print</span>(<span class="st">"Adult"</span>)</span>
-<span id="cb13-5"><a></a><span class="cf">else</span>:</span>
-<span id="cb13-6"><a></a>    <span class="bu">print</span>(<span class="st">"Minor"</span>)</span>
-<span id="cb13-7"><a></a></span>
-<span id="cb13-8"><a></a><span class="co"># Multiple conditions</span></span>
-<span id="cb13-9"><a></a><span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">13</span>:</span>
-<span id="cb13-10"><a></a>    category <span class="op">=</span> <span class="st">"Child"</span></span>
-<span id="cb13-11"><a></a><span class="cf">elif</span> age <span class="op">&lt;</span> <span class="dv">18</span>:</span>
-<span id="cb13-12"><a></a>    category <span class="op">=</span> <span class="st">"Teen"</span></span>
-<span id="cb13-13"><a></a><span class="cf">else</span>:</span>
-<span id="cb13-14"><a></a>    category <span class="op">=</span> <span class="st">"Adult"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a aria-label="1"></a>age <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb13-2"><a aria-label="2"></a></span>
+<span id="cb13-3"><a aria-label="3"></a><span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
+<span id="cb13-4"><a aria-label="4"></a>    <span class="bu">print</span>(<span class="st">"Adult"</span>)</span>
+<span id="cb13-5"><a aria-label="5"></a><span class="cf">else</span>:</span>
+<span id="cb13-6"><a aria-label="6"></a>    <span class="bu">print</span>(<span class="st">"Minor"</span>)</span>
+<span id="cb13-7"><a aria-label="7"></a></span>
+<span id="cb13-8"><a aria-label="8"></a><span class="co"># Multiple conditions</span></span>
+<span id="cb13-9"><a aria-label="9"></a><span class="cf">if</span> age <span class="op">&lt;</span> <span class="dv">13</span>:</span>
+<span id="cb13-10"><a aria-label="10"></a>    category <span class="op">=</span> <span class="st">"Child"</span></span>
+<span id="cb13-11"><a aria-label="11"></a><span class="cf">elif</span> age <span class="op">&lt;</span> <span class="dv">18</span>:</span>
+<span id="cb13-12"><a aria-label="12"></a>    category <span class="op">=</span> <span class="st">"Teen"</span></span>
+<span id="cb13-13"><a aria-label="13"></a><span class="cf">else</span>:</span>
+<span id="cb13-14"><a aria-label="14"></a>    category <span class="op">=</span> <span class="st">"Adult"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="for-loops-in-python">For Loops in Python</h3>
 <p>Repeat code multiple times:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Simple loop</span></span>
-<span id="cb14-2"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
-<span id="cb14-3"><a></a>    <span class="bu">print</span>(i)</span>
-<span id="cb14-4"><a></a></span>
-<span id="cb14-5"><a></a><span class="co"># Loop over list</span></span>
-<span id="cb14-6"><a></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
-<span id="cb14-7"><a></a><span class="cf">for</span> fruit <span class="kw">in</span> fruits:</span>
-<span id="cb14-8"><a></a>    <span class="bu">print</span>(<span class="ss">f"I like </span><span class="sc">{</span>fruit<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb14-9"><a></a></span>
-<span id="cb14-10"><a></a><span class="co"># Store results</span></span>
-<span id="cb14-11"><a></a>results <span class="op">=</span> []</span>
-<span id="cb14-12"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
-<span id="cb14-13"><a></a>    results.append(i <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb14-14"><a></a><span class="bu">print</span>(results)  <span class="co"># [1, 4, 9, 16, 25]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a aria-label="1"></a><span class="co"># Simple loop</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
+<span id="cb14-3"><a aria-label="3"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb14-4"><a aria-label="4"></a></span>
+<span id="cb14-5"><a aria-label="5"></a><span class="co"># Loop over list</span></span>
+<span id="cb14-6"><a aria-label="6"></a>fruits <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>]</span>
+<span id="cb14-7"><a aria-label="7"></a><span class="cf">for</span> fruit <span class="kw">in</span> fruits:</span>
+<span id="cb14-8"><a aria-label="8"></a>    <span class="bu">print</span>(<span class="ss">f"I like </span><span class="sc">{</span>fruit<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-9"><a aria-label="9"></a></span>
+<span id="cb14-10"><a aria-label="10"></a><span class="co"># Store results</span></span>
+<span id="cb14-11"><a aria-label="11"></a>results <span class="op">=</span> []</span>
+<span id="cb14-12"><a aria-label="12"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
+<span id="cb14-13"><a aria-label="13"></a>    results.append(i <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb14-14"><a aria-label="14"></a><span class="bu">print</span>(results)  <span class="co"># [1, 4, 9, 16, 25]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="using-packages-in-python" class="slide level2">
 <h2>Using Packages in Python</h2>
@@ -482,28 +485,28 @@
 <section class="slide level2">
 
 <h3 id="installing-and-importing-packages">Installing and Importing Packages</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Install via pip (run in terminal)</span></span>
-<span id="cb15-2"><a></a><span class="co"># pip install pandas</span></span>
-<span id="cb15-3"><a></a></span>
-<span id="cb15-4"><a></a><span class="co"># Import in your script</span></span>
-<span id="cb15-5"><a></a><span class="co"># This usually goes at the top of your script/notebook</span></span>
-<span id="cb15-6"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb15-7"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb15-8"><a></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a aria-label="1"></a><span class="co"># Install via pip (run in terminal)</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="co"># pip install pandas</span></span>
+<span id="cb15-3"><a aria-label="3"></a></span>
+<span id="cb15-4"><a aria-label="4"></a><span class="co"># Import in your script</span></span>
+<span id="cb15-5"><a aria-label="5"></a><span class="co"># This usually goes at the top of your script/notebook</span></span>
+<span id="cb15-6"><a aria-label="6"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb15-7"><a aria-label="7"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-8"><a aria-label="8"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="finding-documentation">Finding Documentation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="bu">help</span>(<span class="bu">sum</span>)              <span class="co"># Help on sum function</span></span>
-<span id="cb16-2"><a></a><span class="bu">help</span>(pd.read_csv)      <span class="co"># Help on pandas read_csv</span></span>
-<span id="cb16-3"><a></a>?np.array              <span class="co"># In Jupyter notebooks</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a aria-label="1"></a><span class="bu">help</span>(<span class="bu">sum</span>)              <span class="co"># Help on sum function</span></span>
+<span id="cb16-2"><a aria-label="2"></a><span class="bu">help</span>(pd.read_csv)      <span class="co"># Help on pandas read_csv</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Note:</strong> <code>?np.array</code> works in Jupyter notebooks but not in standard Python scripts.</p>
 </section>
 <section id="key-takeaways" class="slide level2">
 <h2>Key Takeaways</h2>
 <p>✅ Know your IDE (VS Code, Positron, or RStudio)</p>
 <p>✅ Understand basic data types in Python</p>
 <p>✅ Know the difference between data structures</p>
-<p>✅ Organize your work with folder structure</p>
+<p>✅ Organise your work with folder structure</p>
 <p>✅ Use relative paths for portability</p>
 <p>✅ Control program flow with if statements and loops</p>
 <p>✅ Learn how to install and use packages</p>
@@ -516,14 +519,14 @@
 <section id="the-fundamentals-of-r" class="slide level2">
 <h2>The Fundamentals of R</h2>
 <ul>
-<li>how to organize your work</li>
+<li>how to organise your work</li>
 <li>basic data types and structures</li>
 <li>using R for calculations</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="organizing-your-work-1">Organizing Your Work</h3>
+<h3 id="organising-your-work-1">Organising Your Work</h3>
 <p>Project structure and file paths</p>
 </section>
 <section class="slide level2">
@@ -556,27 +559,27 @@
 
 <h3 id="working-with-paths-in-r">Working with Paths in R</h3>
 <p><strong>Relative paths</strong> (from current working directory):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Set working directory</span></span>
-<span id="cb18-2"><a></a><span class="fu">setwd</span>(<span class="st">"C:/Users/Alice/my-project"</span>)</span>
-<span id="cb18-3"><a></a></span>
-<span id="cb18-4"><a></a><span class="co"># Read data using relative path</span></span>
-<span id="cb18-5"><a></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="co"># Set working directory</span></span>
+<span id="cb18-2"><a aria-label="2"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/Alice/my-project"</span>)</span>
+<span id="cb18-3"><a aria-label="3"></a></span>
+<span id="cb18-4"><a aria-label="4"></a><span class="co"># Read data using relative path</span></span>
+<span id="cb18-5"><a aria-label="5"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Absolute paths</strong> (full path from root):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Read using absolute path</span></span>
-<span id="cb19-2"><a></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/Alice/my-project/data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="co"># Read using absolute path</span></span>
+<span id="cb19-2"><a aria-label="2"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"C:/Users/Alice/my-project/data/raw/mydata.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Best practice</strong>: Avoid using absolute paths when working locally.</p>
 </section>
 <section class="slide level2">
 
 <h3 id="data-types-in-r">Data Types in R</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Numeric, Integer, Character, Logical</span></span>
-<span id="cb20-2"><a></a>x <span class="ot">&lt;-</span> <span class="dv">42</span>          <span class="co"># numeric</span></span>
-<span id="cb20-3"><a></a>y <span class="ot">&lt;-</span> <span class="dv">42</span>L         <span class="co"># integer</span></span>
-<span id="cb20-4"><a></a>name <span class="ot">&lt;-</span> <span class="st">"Alice"</span>  <span class="co"># character</span></span>
-<span id="cb20-5"><a></a>flag <span class="ot">&lt;-</span> <span class="cn">TRUE</span>     <span class="co"># logical</span></span>
-<span id="cb20-6"><a></a></span>
-<span id="cb20-7"><a></a><span class="fu">class</span>(x)</span>
-<span id="cb20-8"><a></a><span class="fu">typeof</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="co"># Numeric, Integer, Character, Logical</span></span>
+<span id="cb20-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="dv">42</span>          <span class="co"># numeric</span></span>
+<span id="cb20-3"><a aria-label="3"></a>y <span class="ot">&lt;-</span> <span class="dv">42</span>L         <span class="co"># integer</span></span>
+<span id="cb20-4"><a aria-label="4"></a>name <span class="ot">&lt;-</span> <span class="st">"Alice"</span>  <span class="co"># character</span></span>
+<span id="cb20-5"><a aria-label="5"></a>flag <span class="ot">&lt;-</span> <span class="cn">TRUE</span>     <span class="co"># logical</span></span>
+<span id="cb20-6"><a aria-label="6"></a></span>
+<span id="cb20-7"><a aria-label="7"></a><span class="fu">class</span>(x)</span>
+<span id="cb20-8"><a aria-label="8"></a><span class="fu">typeof</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Key Types</strong>:</p>
 <ul>
 <li><code>numeric</code>: Real numbers</li>
@@ -589,40 +592,40 @@
 
 <h3 id="vectors-in-r">Vectors in R</h3>
 <p>Sequences of values of the same type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb21-2"><a></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>)</span>
-<span id="cb21-3"><a></a>flags <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb21-4"><a></a></span>
-<span id="cb21-5"><a></a>first_number <span class="ot">&lt;-</span> numbers[<span class="dv">1</span>]</span>
-<span id="cb21-6"><a></a>first_three <span class="ot">&lt;-</span> numbers[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb21-2"><a aria-label="2"></a>names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>)</span>
+<span id="cb21-3"><a aria-label="3"></a>flags <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb21-4"><a aria-label="4"></a></span>
+<span id="cb21-5"><a aria-label="5"></a>first_number <span class="ot">&lt;-</span> numbers[<span class="dv">1</span>]</span>
+<span id="cb21-6"><a aria-label="6"></a>first_three <span class="ot">&lt;-</span> numbers[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="data-frames-in-r">Data Frames in R</h3>
 <p>Tables with rows and columns:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>students <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb22-2"><a></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
-<span id="cb22-3"><a></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>),</span>
-<span id="cb22-4"><a></a>  <span class="at">grade =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
-<span id="cb22-5"><a></a>)</span>
-<span id="cb22-6"><a></a></span>
-<span id="cb22-7"><a></a>students<span class="sc">$</span>name      <span class="co"># access column</span></span>
-<span id="cb22-8"><a></a>students[<span class="dv">1</span>, ]      <span class="co"># access row</span></span>
-<span id="cb22-9"><a></a><span class="fu">head</span>(students)     <span class="co"># view data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>students <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb22-2"><a aria-label="2"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
+<span id="cb22-3"><a aria-label="3"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>),</span>
+<span id="cb22-4"><a aria-label="4"></a>  <span class="at">grade =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>)</span>
+<span id="cb22-5"><a aria-label="5"></a>)</span>
+<span id="cb22-6"><a aria-label="6"></a></span>
+<span id="cb22-7"><a aria-label="7"></a>students<span class="sc">$</span>name      <span class="co"># access column</span></span>
+<span id="cb22-8"><a aria-label="8"></a>students[<span class="dv">1</span>, ]      <span class="co"># access row</span></span>
+<span id="cb22-9"><a aria-label="9"></a><span class="fu">head</span>(students)     <span class="co"># view data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="lists-in-r">Lists in R</h3>
 <p>Flexible containers for mixed types:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb23-2"><a></a>  <span class="at">name =</span> <span class="st">"Alice"</span>,</span>
-<span id="cb23-3"><a></a>  <span class="at">age =</span> <span class="dv">20</span>,</span>
-<span id="cb23-4"><a></a>  <span class="at">scores =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">88</span>),</span>
-<span id="cb23-5"><a></a>  <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb23-6"><a></a>)</span>
-<span id="cb23-7"><a></a></span>
-<span id="cb23-8"><a></a>my_list<span class="sc">$</span>name</span>
-<span id="cb23-9"><a></a>my_list[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb23-2"><a aria-label="2"></a>  <span class="at">name =</span> <span class="st">"Alice"</span>,</span>
+<span id="cb23-3"><a aria-label="3"></a>  <span class="at">age =</span> <span class="dv">20</span>,</span>
+<span id="cb23-4"><a aria-label="4"></a>  <span class="at">scores =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">88</span>),</span>
+<span id="cb23-5"><a aria-label="5"></a>  <span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb23-6"><a aria-label="6"></a>)</span>
+<span id="cb23-7"><a aria-label="7"></a></span>
+<span id="cb23-8"><a aria-label="8"></a>my_list<span class="sc">$</span>name</span>
+<span id="cb23-9"><a aria-label="9"></a>my_list[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="using-r" class="slide level2">
 <h2>Using R</h2>
@@ -631,12 +634,12 @@
 
 <h3 id="r-as-a-calculator">R as a Calculator</h3>
 <p>Simple operations:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>           <span class="co"># Addition</span></span>
-<span id="cb24-2"><a></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">4</span>          <span class="co"># Subtraction</span></span>
-<span id="cb24-3"><a></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">6</span>           <span class="co"># Multiplication</span></span>
-<span id="cb24-4"><a></a><span class="dv">20</span> <span class="sc">/</span> <span class="dv">4</span>          <span class="co"># Division</span></span>
-<span id="cb24-5"><a></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">3</span>           <span class="co"># Exponentiation</span></span>
-<span id="cb24-6"><a></a><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span>         <span class="co"># Modulo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>           <span class="co"># Addition</span></span>
+<span id="cb24-2"><a aria-label="2"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">4</span>          <span class="co"># Subtraction</span></span>
+<span id="cb24-3"><a aria-label="3"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">6</span>           <span class="co"># Multiplication</span></span>
+<span id="cb24-4"><a aria-label="4"></a><span class="dv">20</span> <span class="sc">/</span> <span class="dv">4</span>          <span class="co"># Division</span></span>
+<span id="cb24-5"><a aria-label="5"></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">3</span>           <span class="co"># Exponentiation</span></span>
+<span id="cb24-6"><a aria-label="6"></a><span class="dv">10</span> <span class="sc">%%</span> <span class="dv">3</span>         <span class="co"># Modulo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>See: <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Arithmetic.html">Arithmetic Operators</a></p>
 </section>
 <section class="slide level2">
@@ -646,31 +649,31 @@
 <ul>
 <li>Assignment: <code>&lt;-</code> or <code>=</code> to assign values to variables</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Assignment</span></span>
-<span id="cb25-2"><a></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb25-3"><a></a>y <span class="ot">=</span> <span class="dv">20</span></span>
-<span id="cb25-4"><a></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="co"># Assignment</span></span>
+<span id="cb25-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb25-3"><a aria-label="3"></a>y <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb25-4"><a aria-label="4"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Pipe: <code>|&gt;</code> to chain commands (introduced in R 4.1.0) <strong>read it as “then”</strong></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>result <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="co"># create a vector `then`</span></span>
-<span id="cb26-2"><a></a>   <span class="fu">sum</span>() <span class="sc">|&gt;</span> <span class="co"># calculate sum `then`</span></span>
-<span id="cb26-3"><a></a>   <span class="fu">sqrt</span>() <span class="co"># calculate square root</span></span>
-<span id="cb26-4"><a></a><span class="fu">print</span>(result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>result <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="co"># create a vector `then`</span></span>
+<span id="cb26-2"><a aria-label="2"></a>   <span class="fu">sum</span>() <span class="sc">|&gt;</span> <span class="co"># calculate sum `then`</span></span>
+<span id="cb26-3"><a aria-label="3"></a>   <span class="fu">sqrt</span>() <span class="co"># calculate square root</span></span>
+<span id="cb26-4"><a aria-label="4"></a><span class="fu">print</span>(result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="subsetting-data-1">Subsetting data</h3>
 <p>Extract specific elements from data structures:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
-<span id="cb27-2"><a></a>first_element <span class="ot">&lt;-</span> vec[<span class="dv">1</span>]        <span class="co"># 10</span></span>
-<span id="cb27-3"><a></a>subset <span class="ot">&lt;-</span> vec[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]             <span class="co"># 20, 30, 40</span></span>
-<span id="cb27-4"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb27-5"><a></a>  <span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb27-6"><a></a>  <span class="at">b =</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb27-7"><a></a> <span class="at">c =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb27-8"><a></a>df<span class="sc">$</span>a  <span class="co"># access column `a`</span></span>
-<span id="cb27-9"><a></a>df[<span class="dv">1</span>, ]   <span class="co"># access first row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
+<span id="cb27-2"><a aria-label="2"></a>first_element <span class="ot">&lt;-</span> vec[<span class="dv">1</span>]        <span class="co"># 10</span></span>
+<span id="cb27-3"><a aria-label="3"></a>subset <span class="ot">&lt;-</span> vec[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]             <span class="co"># 20, 30, 40</span></span>
+<span id="cb27-4"><a aria-label="4"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-5"><a aria-label="5"></a>  <span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb27-6"><a aria-label="6"></a>  <span class="at">b =</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb27-7"><a aria-label="7"></a> <span class="at">c =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb27-8"><a aria-label="8"></a>df<span class="sc">$</span>a  <span class="co"># access column `a`</span></span>
+<span id="cb27-9"><a aria-label="9"></a>df[<span class="dv">1</span>, ]   <span class="co"># access first row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>More on subsetting: <a href="https://adv-r.hadley.nz/subsetting.html">Advanced R</a></p>
 </section>
 <section id="control-flow-1" class="slide level2">
@@ -681,44 +684,44 @@
 
 <h3 id="if-statements-in-r">If Statements in R</h3>
 <p>Execute code conditionally:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>age <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb28-2"><a></a></span>
-<span id="cb28-3"><a></a><span class="cf">if</span> (age <span class="sc">&gt;=</span> <span class="dv">18</span>) {</span>
-<span id="cb28-4"><a></a>  <span class="fu">print</span>(<span class="st">"Adult"</span>)</span>
-<span id="cb28-5"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb28-6"><a></a>  <span class="fu">print</span>(<span class="st">"Minor"</span>)</span>
-<span id="cb28-7"><a></a>}</span>
-<span id="cb28-8"><a></a></span>
-<span id="cb28-9"><a></a><span class="co"># Multiple conditions</span></span>
-<span id="cb28-10"><a></a><span class="cf">if</span> (age <span class="sc">&lt;</span> <span class="dv">13</span>) {</span>
-<span id="cb28-11"><a></a>  category <span class="ot">&lt;-</span> <span class="st">"Child"</span></span>
-<span id="cb28-12"><a></a>} <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&lt;</span> <span class="dv">18</span>) {</span>
-<span id="cb28-13"><a></a>  category <span class="ot">&lt;-</span> <span class="st">"Teen"</span></span>
-<span id="cb28-14"><a></a>} <span class="cf">else</span> {</span>
-<span id="cb28-15"><a></a>  category <span class="ot">&lt;-</span> <span class="st">"Adult"</span></span>
-<span id="cb28-16"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>age <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb28-2"><a aria-label="2"></a></span>
+<span id="cb28-3"><a aria-label="3"></a><span class="cf">if</span> (age <span class="sc">&gt;=</span> <span class="dv">18</span>) {</span>
+<span id="cb28-4"><a aria-label="4"></a>  <span class="fu">print</span>(<span class="st">"Adult"</span>)</span>
+<span id="cb28-5"><a aria-label="5"></a>} <span class="cf">else</span> {</span>
+<span id="cb28-6"><a aria-label="6"></a>  <span class="fu">print</span>(<span class="st">"Minor"</span>)</span>
+<span id="cb28-7"><a aria-label="7"></a>}</span>
+<span id="cb28-8"><a aria-label="8"></a></span>
+<span id="cb28-9"><a aria-label="9"></a><span class="co"># Multiple conditions</span></span>
+<span id="cb28-10"><a aria-label="10"></a><span class="cf">if</span> (age <span class="sc">&lt;</span> <span class="dv">13</span>) {</span>
+<span id="cb28-11"><a aria-label="11"></a>  category <span class="ot">&lt;-</span> <span class="st">"Child"</span></span>
+<span id="cb28-12"><a aria-label="12"></a>} <span class="cf">else</span> <span class="cf">if</span> (age <span class="sc">&lt;</span> <span class="dv">18</span>) {</span>
+<span id="cb28-13"><a aria-label="13"></a>  category <span class="ot">&lt;-</span> <span class="st">"Teen"</span></span>
+<span id="cb28-14"><a aria-label="14"></a>} <span class="cf">else</span> {</span>
+<span id="cb28-15"><a aria-label="15"></a>  category <span class="ot">&lt;-</span> <span class="st">"Adult"</span></span>
+<span id="cb28-16"><a aria-label="16"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="for-loops-in-r">For Loops in R</h3>
 <p>Repeat code multiple times:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># Simple loop</span></span>
-<span id="cb29-2"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb29-3"><a></a>  <span class="fu">print</span>(i)</span>
-<span id="cb29-4"><a></a>}</span>
-<span id="cb29-5"><a></a></span>
-<span id="cb29-6"><a></a><span class="co"># Loop over vector</span></span>
-<span id="cb29-7"><a></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>)</span>
-<span id="cb29-8"><a></a><span class="cf">for</span> (fruit <span class="cf">in</span> fruits) {</span>
-<span id="cb29-9"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"I like"</span>, fruit))</span>
-<span id="cb29-10"><a></a>}</span>
-<span id="cb29-11"><a></a></span>
-<span id="cb29-12"><a></a><span class="co"># Store results</span></span>
-<span id="cb29-13"><a></a>results <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">5</span>)</span>
-<span id="cb29-14"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb29-15"><a></a>  results[i] <span class="ot">&lt;-</span> i <span class="sc">^</span> <span class="dv">2</span></span>
-<span id="cb29-16"><a></a>}</span>
-<span id="cb29-17"><a></a>results  <span class="co"># 1, 4, 9, 16, 25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="co"># Simple loop</span></span>
+<span id="cb29-2"><a aria-label="2"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb29-3"><a aria-label="3"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb29-4"><a aria-label="4"></a>}</span>
+<span id="cb29-5"><a aria-label="5"></a></span>
+<span id="cb29-6"><a aria-label="6"></a><span class="co"># Loop over vector</span></span>
+<span id="cb29-7"><a aria-label="7"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>)</span>
+<span id="cb29-8"><a aria-label="8"></a><span class="cf">for</span> (fruit <span class="cf">in</span> fruits) {</span>
+<span id="cb29-9"><a aria-label="9"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"I like"</span>, fruit))</span>
+<span id="cb29-10"><a aria-label="10"></a>}</span>
+<span id="cb29-11"><a aria-label="11"></a></span>
+<span id="cb29-12"><a aria-label="12"></a><span class="co"># Store results</span></span>
+<span id="cb29-13"><a aria-label="13"></a>results <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">5</span>)</span>
+<span id="cb29-14"><a aria-label="14"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb29-15"><a aria-label="15"></a>  results[i] <span class="ot">&lt;-</span> i <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb29-16"><a aria-label="16"></a>}</span>
+<span id="cb29-17"><a aria-label="17"></a>results  <span class="co"># 1, 4, 9, 16, 25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="using-packages-in-r" class="slide level2">
 <h2>Using Packages in R</h2>
@@ -728,16 +731,16 @@
 <section class="slide level2">
 
 <h3 id="installing-and-loading-packages">Installing and Loading Packages</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># Install once</span></span>
-<span id="cb30-2"><a></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb30-3"><a></a></span>
-<span id="cb30-4"><a></a><span class="co"># Load each session</span></span>
-<span id="cb30-5"><a></a><span class="co"># This usually goes at the top of your script/document</span></span>
-<span id="cb30-6"><a></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="co"># Install once</span></span>
+<span id="cb30-2"><a aria-label="2"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb30-3"><a aria-label="3"></a></span>
+<span id="cb30-4"><a aria-label="4"></a><span class="co"># Load each session</span></span>
+<span id="cb30-5"><a aria-label="5"></a><span class="co"># This usually goes at the top of your script/document</span></span>
+<span id="cb30-6"><a aria-label="6"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <h3 id="finding-documentation-1">Finding Documentation</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>?mean               <span class="co"># Help on mean function</span></span>
-<span id="cb31-2"><a></a><span class="fu">help</span>(<span class="st">"lm"</span>)          <span class="co"># Help on lm function</span></span>
-<span id="cb31-3"><a></a><span class="fu">example</span>(<span class="st">"plot"</span>)     <span class="co"># Examples for plot function</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>?mean               <span class="co"># Help on mean function</span></span>
+<span id="cb31-2"><a aria-label="2"></a><span class="fu">help</span>(<span class="st">"lm"</span>)          <span class="co"># Help on lm function</span></span>
+<span id="cb31-3"><a aria-label="3"></a><span class="fu">example</span>(<span class="st">"plot"</span>)     <span class="co"># Examples for plot function</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section></section>

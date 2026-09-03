@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c36986e3ce6a2384da8e26f7cbffe185.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-82531eaee7b4a51174e8a5a8249f2170.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -293,11 +296,11 @@ ul.task-list li input[type="checkbox"] {
 <p>If you’re using <a href="https://appsanywhere.leeds.ac.uk/">AppsAnywhere</a>(available on university computers or your own laptop):</p>
 <ol type="1">
 <li><p>Open AppsAnywhere on your computer</p></li>
-<li><p>Search for and launch <strong>R for Wndows</strong> first</p>
-<p><img src="images/paste-4.png" class="img-fluid" width="551"></p></li>
-<li><p>Search for and launch <strong>RStudio</strong> (requires R to be installed)</p>
-<p><img src="images/paste-5.png" class="img-fluid" width="544"></p></li>
-<li><p>For Python (optional), search for and launch <strong>Anaconda</strong> from AppsAnywhere</p></li>
+<li><p>Search for and launch <strong>Anaconda</strong> (for Python)</p>
+<p><img src="images/appsanywhere-anaconda.png" class="img-fluid" width="551"></p></li>
+<li><p>Search for and launch <strong>VS Code</strong> or <strong>Positron</strong></p></li>
+<li><p>For R (optional), search for and launch <strong>R for Windows</strong> first, then <strong>RStudio</strong></p>
+<p><img src="images/paste-4.png" class="img-fluid" width="551"> <img src="images/paste-5.png" class="img-fluid" width="544"></p></li>
 </ol>
 </section>
 <section id="cloud-based-development-environments-recommended" class="level3 unnumbered">
@@ -321,26 +324,26 @@ ul.task-list li input[type="checkbox"] {
 <section id="development-environment-ide" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="development-environment-ide">1. Development Environment (IDE)</h4>
 <p>An <strong>IDE</strong> (Integrated Development Environment) provides a comprehensive workspace for coding. Popular options include:</p>
+<p><strong>For Python:</strong></p>
+<ul>
+<li><strong>VS Code</strong> from <a href="https://code.visualstudio.com/">Microsoft</a> - Versatile IDE with extensions for Python, R, and more</li>
+<li><strong>Positron</strong> from <a href="https://github.com/posit-dev/positron">Posit</a> - New IDE supporting both Python and R (beta)</li>
+</ul>
 <p><strong>For R:</strong></p>
 <ul>
 <li><strong>RStudio Desktop</strong> (free) from <a href="https://posit.co/download/rstudio-desktop/">Posit</a> - Specifically designed for R</li>
-<li><strong>Positron</strong> from <a href="https://github.com/posit-dev/positron">Posit</a> - New IDE supporting both R and Python (beta)</li>
-</ul>
-<p><strong>For multiple languages:</strong></p>
-<ul>
-<li><strong>VS Code</strong> from <a href="https://code.visualstudio.com/">Microsoft</a> - Versatile IDE with extensions for R, Python, and more</li>
 </ul>
 </section>
 <section id="programming-languages" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="programming-languages">2. Programming Languages</h4>
-<p><strong>R</strong> is a programming language widely used for statistical computing and data science.</p>
-<ul>
-<li>Download R from <a href="https://cran.r-project.org/">CRAN</a></li>
-</ul>
-<p><strong>Python</strong> (Optional but Recommended) is another popular language for data science.</p>
+<p><strong>Python</strong> is a general-purpose programming language widely used for data science, machine learning, and AI.</p>
 <ul>
 <li>Download Python from <a href="https://www.python.org/downloads/">python.org</a> (version 3.8 or higher)</li>
 <li>Or install via <a href="https://www.anaconda.com/download">Anaconda</a> (includes many data science packages)</li>
+</ul>
+<p><strong>R</strong> (Optional) is another popular language for statistical computing.</p>
+<ul>
+<li>Download R from <a href="https://cran.r-project.org/">CRAN</a></li>
 </ul>
 </section>
 </section>

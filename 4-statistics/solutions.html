@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c36986e3ce6a2384da8e26f7cbffe185.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-82531eaee7b4a51174e8a5a8249f2170.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -1474,16 +1477,16 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 Series: 'age_cat' [str]
 [
     "35-39"
-    "70-74"
-    "30-34"
-    "50-54"
     "45-49"
-    …
-    "75-79"
-    "20-24"
-    "18-19"
-    "65-69"
     "60-64"
+    "50-54"
+    "18-19"
+    …
+    "25-29"
+    "30-34"
+    "20-24"
+    "75-79"
+    "40-44"
 ]</code></pre>
 </div>
 <details class="code-fold">
@@ -1542,8 +1545,8 @@ Series: 'age_cat' [str]
 │ ---    ┆ ---  ┆ ---       ┆ ---       ┆ ---       │
 │ str    ┆ f64  ┆ f64       ┆ f64       ┆ f64       │
 ╞════════╪══════╪═══════════╪═══════════╪═══════════╡
-│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
 │ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │
+│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
 └────────┴──────┴───────────┴───────────┴───────────┘</code></pre>
 </div>
 <details class="code-fold">
@@ -1713,7 +1716,7 @@ p-value: 7.426339858226416e-41</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="solutions_files/figure-html/spss-task-py-7.png" class="img-fluid figure-img" width="277"></p>
+<p><img src="solutions_files/figure-html/spss-task-py-7.png" class="img-fluid figure-img" width="278"></p>
 <figcaption>Various Outputs from SPSS Task (Python)</figcaption>
 </figure>
 </div>
@@ -1726,7 +1729,7 @@ p-value: 7.426339858226416e-41</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="solutions_files/figure-html/spss-task-py-8.png" class="img-fluid figure-img" width="548"></p>
+<p><img src="solutions_files/figure-html/spss-task-py-8.png" class="img-fluid figure-img" width="549"></p>
 <figcaption>Various Outputs from SPSS Task (Python)</figcaption>
 </figure>
 </div>
@@ -1840,8 +1843,8 @@ Median Previous Runs: 18.0</code></pre>
 Dep. Variable:                   time   R-squared:                       0.322
 Model:                            OLS   Adj. R-squared:                  0.318
 Method:                 Least Squares   F-statistic:                     82.31
-Date:                Thu, 21 May 2026   Prob (F-statistic):           1.39e-43
-Time:                        13:07:13   Log-Likelihood:                -1526.5
+Date:                Thu, 03 Sep 2026   Prob (F-statistic):           1.39e-43
+Time:                        10:01:12   Log-Likelihood:                -1526.5
 No. Observations:                 524   AIC:                             3061.
 Df Residuals:                     520   BIC:                             3078.
 Df Model:                           3                                         

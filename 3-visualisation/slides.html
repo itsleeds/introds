@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>&lt;span class='intro-text'&gt;Introduction to&lt;/span&gt; &lt;span class='ds-text'&gt;Data Science&lt;/span&gt; – slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,10 +19,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -217,48 +220,48 @@
 
 <h3 id="step-1-create-basic-figure">Step 1: Create Basic Figure</h3>
 <p>Start with the data and create a figure:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a></a></span>
-<span id="cb1-5"><a></a><span class="co"># Read data</span></span>
-<span id="cb1-6"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a><span class="co"># Step 1: Create figure and axis</span></span>
-<span id="cb1-9"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a aria-label="2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co"># Read data</span></span>
+<span id="cb1-6"><a aria-label="6"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="co"># Step 1: Create figure and axis</span></span>
+<span id="cb1-9"><a aria-label="9"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="step-2-add-points">Step 2: Add Points</h3>
 <p>Add points to visualise individual observations:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co"># Step 2: Create scatter plot</span></span>
-<span id="cb2-2"><a></a>ax.scatter(df[<span class="st">'weight'</span>], df[<span class="st">'mpg'</span>], s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Step 2: Create scatter plot with custom styling</span></span>
+<span id="cb2-2"><a aria-label="2"></a>ax.scatter(df[<span class="st">'weight'</span>], df[<span class="st">'mpg'</span>], s<span class="op">=</span><span class="dv">100</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span><span class="st">'steelblue'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
-<h3 id="step-3-customise-points">Step 3: Customise Points</h3>
-<p>Adjust size, transparency, and colour:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Customise the plot</span></span>
-<span id="cb3-2"><a></a>ax.set_xlabel(<span class="st">'Weight'</span>)</span>
-<span id="cb3-3"><a></a>ax.set_ylabel(<span class="st">'Miles per Gallon'</span>)</span>
-<span id="cb3-4"><a></a>ax.set_title(<span class="st">'Fuel Efficiency vs Weight'</span>)</span>
-<span id="cb3-5"><a></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="step-3-add-labels-and-theme">Step 3: Add Labels and Theme</h3>
+<p>Add titles, axis labels, and a grid to make the plot publication-ready:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a aria-label="1"></a><span class="co"># Add labels and theme</span></span>
+<span id="cb3-2"><a aria-label="2"></a>ax.set_xlabel(<span class="st">'Weight'</span>)</span>
+<span id="cb3-3"><a aria-label="3"></a>ax.set_ylabel(<span class="st">'Miles per Gallon'</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a>ax.set_title(<span class="st">'Fuel Efficiency vs Weight'</span>)</span>
+<span id="cb3-5"><a aria-label="5"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="step-4-add-trend-line">Step 4: Add Trend Line</h3>
 <p>Add a regression line to show the pattern:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Add regression line</span></span>
-<span id="cb4-2"><a></a>sns.regplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, </span>
-<span id="cb4-3"><a></a>            scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>, line_kws<span class="op">=</span>{<span class="st">'label'</span>:<span class="st">'Trend'</span>})</span>
-<span id="cb4-4"><a></a>ax.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a aria-label="1"></a><span class="co"># Add regression line</span></span>
+<span id="cb4-2"><a aria-label="2"></a>sns.regplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, </span>
+<span id="cb4-3"><a aria-label="3"></a>            scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>, line_kws<span class="op">=</span>{<span class="st">'label'</span>:<span class="st">'Trend'</span>})</span>
+<span id="cb4-4"><a aria-label="4"></a>ax.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="step-5-final-plot">Step 5: Final Plot</h3>
 <p>View the complete publication-ready plot:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>plt.tight_layout()</span>
-<span id="cb5-2"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a aria-label="1"></a>plt.tight_layout()</span>
+<span id="cb5-2"><a aria-label="2"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="bar-plots" class="slide level2">
 <h2>Bar Plots</h2>
@@ -268,28 +271,28 @@
 
 <h3 id="step-1-basic-bar-plot">Step 1: Basic Bar Plot</h3>
 <p>Create bars for each category:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb6-5"><a></a></span>
-<span id="cb6-6"><a></a><span class="co"># Create figure</span></span>
-<span id="cb6-7"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a><span class="co"># Create bar plot</span></span>
-<span id="cb6-10"><a></a>df[<span class="st">'cylinders'</span>].value_counts().sort_index().plot(</span>
-<span id="cb6-11"><a></a>    kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span></span>
-<span id="cb6-12"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb6-3"><a aria-label="3"></a></span>
+<span id="cb6-4"><a aria-label="4"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<span id="cb6-5"><a aria-label="5"></a></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="co"># Create figure</span></span>
+<span id="cb6-7"><a aria-label="7"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb6-8"><a aria-label="8"></a></span>
+<span id="cb6-9"><a aria-label="9"></a><span class="co"># Create bar plot</span></span>
+<span id="cb6-10"><a aria-label="10"></a>df[<span class="st">'cylinders'</span>].value_counts().sort_index().plot(</span>
+<span id="cb6-11"><a aria-label="11"></a>    kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span></span>
+<span id="cb6-12"><a aria-label="12"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="step-2-add-labels">Step 2: Add Labels</h3>
 <p>Add titles and axis labels:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Add labels</span></span>
-<span id="cb7-2"><a></a>ax.set_title(<span class="st">'Number of Cars by Cylinders'</span>)</span>
-<span id="cb7-3"><a></a>ax.set_xlabel(<span class="st">'Cylinders'</span>)</span>
-<span id="cb7-4"><a></a>ax.set_ylabel(<span class="st">'Count'</span>)</span>
-<span id="cb7-5"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a aria-label="1"></a><span class="co"># Add labels</span></span>
+<span id="cb7-2"><a aria-label="2"></a>ax.set_title(<span class="st">'Number of Cars by Cylinders'</span>)</span>
+<span id="cb7-3"><a aria-label="3"></a>ax.set_xlabel(<span class="st">'Cylinders'</span>)</span>
+<span id="cb7-4"><a aria-label="4"></a>ax.set_ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb7-5"><a aria-label="5"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="box-plots" class="slide level2">
 <h2>Box Plots</h2>
@@ -299,42 +302,42 @@
 
 <h3 id="step-1-basic-box-plot">Step 1: Basic Box Plot</h3>
 <p>Create a box plot to show distribution:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-2"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb8-3"><a></a></span>
-<span id="cb8-4"><a></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
-<span id="cb8-5"><a></a></span>
-<span id="cb8-6"><a></a><span class="co"># Create figure</span></span>
-<span id="cb8-7"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb8-8"><a></a></span>
-<span id="cb8-9"><a></a><span class="co"># Create box plot</span></span>
-<span id="cb8-10"><a></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, palette<span class="op">=</span><span class="st">'Set2'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb8-3"><a aria-label="3"></a></span>
+<span id="cb8-4"><a aria-label="4"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'mpg'</span>)</span>
+<span id="cb8-5"><a aria-label="5"></a></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="co"># Create figure</span></span>
+<span id="cb8-7"><a aria-label="7"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb8-8"><a aria-label="8"></a></span>
+<span id="cb8-9"><a aria-label="9"></a><span class="co"># Create box plot</span></span>
+<span id="cb8-10"><a aria-label="10"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, palette<span class="op">=</span><span class="st">'Set2'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section class="slide level2">
 
 <h3 id="step-2-customise-box-plot">Step 2: Customise Box Plot</h3>
 <p>Add individual points and improve aesthetics:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Add individual points</span></span>
-<span id="cb9-2"><a></a>sns.stripplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, </span>
-<span id="cb9-3"><a></a>              color<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb9-4"><a></a></span>
-<span id="cb9-5"><a></a><span class="co"># Add labels</span></span>
-<span id="cb9-6"><a></a>ax.set_title(<span class="st">'MPG Distribution by Number of Cylinders'</span>)</span>
-<span id="cb9-7"><a></a>ax.set_xlabel(<span class="st">'Cylinders'</span>)</span>
-<span id="cb9-8"><a></a>ax.set_ylabel(<span class="st">'Miles per Gallon'</span>)</span>
-<span id="cb9-9"><a></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a aria-label="1"></a><span class="co"># Add individual points</span></span>
+<span id="cb9-2"><a aria-label="2"></a>sns.stripplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'cylinders'</span>, y<span class="op">=</span><span class="st">'mpg'</span>, ax<span class="op">=</span>ax, </span>
+<span id="cb9-3"><a aria-label="3"></a>              color<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb9-4"><a aria-label="4"></a></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="co"># Add labels</span></span>
+<span id="cb9-6"><a aria-label="6"></a>ax.set_title(<span class="st">'MPG Distribution by Number of Cylinders'</span>)</span>
+<span id="cb9-7"><a aria-label="7"></a>ax.set_xlabel(<span class="st">'Cylinders'</span>)</span>
+<span id="cb9-8"><a aria-label="8"></a>ax.set_ylabel(<span class="st">'Miles per Gallon'</span>)</span>
+<span id="cb9-9"><a aria-label="9"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="using-plots" class="slide level2">
 <h2>Using Plots</h2>
 <p>Plots can also be assigned to objects for further modification or saving:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Save plot to file</span></span>
-<span id="cb10-2"><a></a>fig.savefig(<span class="st">'my_boxplot.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="co"># Save plot to file</span></span>
+<span id="cb10-2"><a aria-label="2"></a>fig.savefig(<span class="st">'my_boxplot.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="exporting-plots" class="slide level2">
 <h2>Exporting Plots</h2>
 <p>You can save your plots using <code>fig.savefig()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Save the final plot as a PNG file</span></span>
-<span id="cb11-2"><a></a>fig.savefig(<span class="st">"final_plot.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a aria-label="1"></a><span class="co"># Save the final plot as a PNG file</span></span>
+<span id="cb11-2"><a aria-label="2"></a>fig.savefig(<span class="st">"final_plot.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="key-resources" class="slide level2">
 <h2>Key Resources</h2>
@@ -363,10 +366,10 @@
 <h3 id="scatter-plot-in-r">Scatter Plot in R</h3>
 <p>Step-by-step construction of a scatter plot:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-2"><a></a></span>
-<span id="cb12-3"><a></a><span class="co"># Create the basic ggplot object with axes</span></span>
-<span id="cb12-4"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a aria-label="2"></a></span>
+<span id="cb12-3"><a aria-label="3"></a><span class="co"># Create the basic ggplot object with axes</span></span>
+<span id="cb12-4"><a aria-label="4"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
@@ -375,20 +378,20 @@
 <h3 id="step-2-add-points-1">Step 2: Add Points</h3>
 <p>Add points to visualise individual observations:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Add points to show the relationship</span></span>
-<span id="cb13-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="co"># Add points to show the relationship</span></span>
+<span id="cb13-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb13-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section class="slide level2">
 
-<h3 id="step-3-customise-points-1">Step 3: Customise Points</h3>
+<h3 id="step-3-customise-points">Step 3: Customise Points</h3>
 <p>Adjust size, transparency, and colour:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Make points larger and semi-transparent</span></span>
-<span id="cb14-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="co"># Make points larger and semi-transparent</span></span>
+<span id="cb14-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb14-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
@@ -397,10 +400,10 @@
 <h3 id="step-4-add-trend-line-1">Step 4: Add Trend Line</h3>
 <p>Add a smoothing layer to show the pattern:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Add linear regression line</span></span>
-<span id="cb15-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="co"># Add linear regression line</span></span>
+<span id="cb15-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb15-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a aria-label="4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
@@ -409,19 +412,19 @@
 <h3 id="step-5-add-labels-and-theme">Step 5: Add Labels and Theme</h3>
 <p>Make it publication-ready with titles and formatting:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Build the complete scatter plot</span></span>
-<span id="cb16-2"><a></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb16-4"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb16-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb16-6"><a></a>    <span class="at">title =</span> <span class="st">"Fuel Efficiency vs Weight"</span>,</span>
-<span id="cb16-7"><a></a>    <span class="at">subtitle =</span> <span class="st">"mtcars dataset"</span>,</span>
-<span id="cb16-8"><a></a>    <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>,</span>
-<span id="cb16-9"><a></a>    <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
-<span id="cb16-10"><a></a>    <span class="at">caption =</span> <span class="st">"Data: Henderson &amp; Velleman (1981)"</span></span>
-<span id="cb16-11"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb16-12"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb16-13"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="co"># Build the complete scatter plot</span></span>
+<span id="cb16-2"><a aria-label="2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb16-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a aria-label="4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a aria-label="5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-6"><a aria-label="6"></a>    <span class="at">title =</span> <span class="st">"Fuel Efficiency vs Weight"</span>,</span>
+<span id="cb16-7"><a aria-label="7"></a>    <span class="at">subtitle =</span> <span class="st">"mtcars dataset"</span>,</span>
+<span id="cb16-8"><a aria-label="8"></a>    <span class="at">x =</span> <span class="st">"Weight (1000 lbs)"</span>,</span>
+<span id="cb16-9"><a aria-label="9"></a>    <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
+<span id="cb16-10"><a aria-label="10"></a>    <span class="at">caption =</span> <span class="st">"Data: Henderson &amp; Velleman (1981)"</span></span>
+<span id="cb16-11"><a aria-label="11"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-12"><a aria-label="12"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb16-13"><a aria-label="13"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -439,9 +442,9 @@
 <h3 id="step-1-basic-bar-plot-1">Step 1: Basic Bar Plot</h3>
 <p>Create bars for each category:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Create basic bar plot</span></span>
-<span id="cb17-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb17-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="co"># Create basic bar plot</span></span>
+<span id="cb17-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb17-3"><a aria-label="3"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
@@ -450,9 +453,9 @@
 <h3 id="step-2-add-colour">Step 2: Add Colour</h3>
 <p>Customise the appearance with colours:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># Add custom fill colour</span></span>
-<span id="cb18-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb18-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="co"># Add custom fill colour</span></span>
+<span id="cb18-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
@@ -461,15 +464,15 @@
 <h3 id="step-3-add-labels">Step 3: Add Labels</h3>
 <p>Add titles and axis labels:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Build the complete bar plot</span></span>
-<span id="cb19-2"><a></a>bar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb19-3"><a></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb19-4"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb19-5"><a></a>    <span class="at">title =</span> <span class="st">"Number of Cars by Cylinders"</span>,</span>
-<span id="cb19-6"><a></a>    <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
-<span id="cb19-7"><a></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
-<span id="cb19-8"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb19-9"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="co"># Build the complete bar plot</span></span>
+<span id="cb19-2"><a aria-label="2"></a>bar_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb19-3"><a aria-label="3"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a aria-label="4"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-5"><a aria-label="5"></a>    <span class="at">title =</span> <span class="st">"Number of Cars by Cylinders"</span>,</span>
+<span id="cb19-6"><a aria-label="6"></a>    <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
+<span id="cb19-7"><a aria-label="7"></a>    <span class="at">y =</span> <span class="st">"Count"</span></span>
+<span id="cb19-8"><a aria-label="8"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-9"><a aria-label="9"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -487,9 +490,9 @@
 <h3 id="step-1-basic-box-plot-1">Step 1: Basic Box Plot</h3>
 <p>Create a box plot to show distribution:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># Create basic box plot</span></span>
-<span id="cb20-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
-<span id="cb20-3"><a></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="co"># Create basic box plot</span></span>
+<span id="cb20-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb20-3"><a aria-label="3"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
@@ -498,10 +501,10 @@
 <h3 id="step-2-customise-box-plot-1">Step 2: Customise Box Plot</h3>
 <p>Add colours and improve aesthetics:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Customised box plot with colour</span></span>
-<span id="cb21-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb21-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>)  <span class="co"># Add individual points</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="co"># Customised box plot with colour</span></span>
+<span id="cb21-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a aria-label="4"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>)  <span class="co"># Add individual points</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
@@ -510,18 +513,18 @@
 <h3 id="step-3-add-labels-1">Step 3: Add Labels</h3>
 <p>Make it clear and publication-ready:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Complete box plot with labels</span></span>
-<span id="cb22-2"><a></a>my_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb22-3"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb22-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-6"><a></a>    <span class="at">title =</span> <span class="st">"MPG Distribution by Number of Cylinders"</span>,</span>
-<span id="cb22-7"><a></a>    <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
-<span id="cb22-8"><a></a>    <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
-<span id="cb22-9"><a></a>    <span class="at">fill =</span> <span class="st">"Cylinders"</span></span>
-<span id="cb22-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb22-11"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb22-12"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="co"># Complete box plot with labels</span></span>
+<span id="cb22-2"><a aria-label="2"></a>my_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb22-3"><a aria-label="3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a aria-label="4"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a aria-label="5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-6"><a aria-label="6"></a>    <span class="at">title =</span> <span class="st">"MPG Distribution by Number of Cylinders"</span>,</span>
+<span id="cb22-7"><a aria-label="7"></a>    <span class="at">x =</span> <span class="st">"Cylinders"</span>,</span>
+<span id="cb22-8"><a aria-label="8"></a>    <span class="at">y =</span> <span class="st">"Miles per Gallon"</span>,</span>
+<span id="cb22-9"><a aria-label="9"></a>    <span class="at">fill =</span> <span class="st">"Cylinders"</span></span>
+<span id="cb22-10"><a aria-label="10"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-11"><a aria-label="11"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-12"><a aria-label="12"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section class="slide level2">
@@ -534,18 +537,18 @@
 <h2>Using Plots in R</h2>
 <p>Plots can also be assigned to objects for further modification or saving:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># Save plot to object</span></span>
-<span id="cb23-2"><a></a>final_plot <span class="ot">&lt;-</span> my_boxplot <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
-<span id="cb23-3"><a></a></span>
-<span id="cb23-4"><a></a>final_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="co"># Save plot to object</span></span>
+<span id="cb23-2"><a aria-label="2"></a>final_plot <span class="ot">&lt;-</span> my_boxplot <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb23-3"><a aria-label="3"></a></span>
+<span id="cb23-4"><a aria-label="4"></a>final_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
 <section id="exporting-plots-in-r" class="slide level2">
 <h2>Exporting Plots in R</h2>
 <p>You can save your plots using <code>ggsave()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Save the final plot as a PNG file</span></span>
-<span id="cb24-2"><a></a><span class="fu">ggsave</span>(<span class="st">"final_plot.png"</span>, <span class="at">plot =</span> final_plot,  <span class="at">width =</span> <span class="dv">15</span>,  <span class="at">height =</span> <span class="dv">10</span>, <span class="at">units =</span> <span class="st">"cm"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="co"># Save the final plot as a PNG file</span></span>
+<span id="cb24-2"><a aria-label="2"></a><span class="fu">ggsave</span>(<span class="st">"final_plot.png"</span>, <span class="at">plot =</span> final_plot,  <span class="at">width =</span> <span class="dv">15</span>,  <span class="at">height =</span> <span class="dv">10</span>, <span class="at">units =</span> <span class="st">"cm"</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section></section>
