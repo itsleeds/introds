@@ -4,7 +4,7 @@ Before starting this practical session, you'll need to set up a few essential to
 
 ### If using AppsAnywhere {.unnumbered}
 
-If you're using [AppsAnywhere ](https://appsanywhere.leeds.ac.uk/)(available on university computers or your own laptop):
+If you're using [AppsAnywhere](https://appsanywhere.leeds.ac.uk/)(available on university computers or your own laptop):
 
 1.  Open AppsAnywhere on your computer
 
@@ -16,8 +16,7 @@ If you're using [AppsAnywhere ](https://appsanywhere.leeds.ac.uk/)(available on 
 
 4.  For R (optional), search for and launch **R for Windows** first, then **RStudio**
 
-    ![](images/paste-4.png){width="551"}
-    ![](images/paste-5.png){width="544"}
+    ![](images/paste-4.png){width="551"} ![](images/paste-5.png){width="544"}
 
 ### Cloud-based Development Environments (Recommended) {.unnumbered}
 
@@ -29,12 +28,12 @@ To open this project in GitHub Codespaces, click the link below:
 
 **Benefits:**
 
--   **Zero Setup:** No need to install anything on your local machine.
--   **Consistent Environment:** Everyone uses the exact same tools and configurations.
--   **Powerful:** Runs on cloud servers, providing ample computing resources.
--   **Accessible:** Works from any modern web browser.
--   **GitHub Account Required:** You need a GitHub account to use Codespaces.
--   **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
+- **Zero Setup:** No need to install anything on your local machine.
+- **Consistent Environment:** Everyone uses the exact same tools and configurations.
+- **Powerful:** Runs on cloud servers, providing ample computing resources.
+- **Accessible:** Works from any modern web browser.
+- **GitHub Account Required:** You need a GitHub account to use Codespaces.
+- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
 
 ### If installing on your own laptop {.unnumbered}
 
@@ -46,31 +45,46 @@ An **IDE** (Integrated Development Environment) provides a comprehensive workspa
 
 **For Python:**
 
--   **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for Python, R, and more
--   **Positron** from [Posit](https://github.com/posit-dev/positron) - Next-generation data science IDE supporting both Python and R
+- **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for Python, R, and more
+- **Positron** from [Posit](https://github.com/posit-dev/positron) - Next-generation data science IDE supporting both Python and R
 
 **For R:**
 
--   **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
+- **RStudio Desktop** (free) from [Posit](https://posit.co/download/rstudio-desktop/) - Specifically designed for R
 
 #### 2. Programming Languages {.unnumbered}
 
-**Python** is a general-purpose programming language widely used for data science, machine learning, and AI.
+##### Python
 
--   Download Python from [python.org](https://www.python.org/downloads/) (version 3.11 or higher recommended)
--   Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
+Python is a general-purpose programming language widely used for data science, machine learning, and AI.
 
-**R** (Optional) is another popular language for statistical computing.
+To be able to run Python code in your own laptop. You have two options:
 
--   Download R from [CRAN](https://cran.r-project.org/)
+- **Option A - Global Python:** Every project you create/use will use the same Pyhon installation and packages.
+
+  - Pros: Simple (but slow) initial set up. Once installed, you run code directly without managing environments.
+  - Cons: Slower initial setup and fragile over time. Installing or updating a package for one module can break older projects, and sharing your exact setup with teammates or markers is difficult
+  - You can install Python in your system using the installers from [python.org](https://www.python.org/downloads/) (version 3.11 or higher recommended) or via [Anaconda](https://www.anaconda.com/download).
+
+- **Option B - Project Environments via `pixi` (Recommended):** Python and all required libraries are self-contained inside each project folder.
+
+  - Pros: Installs in seconds, prevents dependency conflicts between assignments, and guarantees your code runs identically on anyone else's machine.
+  - Cons: Requires learning a couple of basic command-line interactions.
+  - You will need to install `pixi` just once from [pixi.prefix.dev](https://pixi.prefix.dev/latest/#installation) just once. We will cover how to set up a project in [the first section](1-basics/index.qmd)
+
+Beside the being the fastest way to set everything up for your projects, it also makes it easy to share/reproduce your projects. To do this, you will need to install `pixi` from [pixi.prefix.dev](https://pixi.prefix.dev/latest/#installation) just once.
+
+##### R (Optional)
+
+R is another popular language for statistical computing. You can download the R installers from [CRAN](https://cran.r-project.org/)
 
 ## Getting Help {.unnumbered}
 
 If you encounter installation issues:
 
--   Check the [RStudio Support](https://support.posit.co/hc/en-us) page
--   Visit [Stack Overflow](https://stackoverflow.com/) for troubleshooting
--   Ask during the session!
+- Check the [RStudio Support](https://support.posit.co/hc/en-us) page
+- Visit [Stack Overflow](https://stackoverflow.com/) for troubleshooting
+- Ask during the session!
 
 ::: callout-tip
 ## Pro Tip {.unnumbered}

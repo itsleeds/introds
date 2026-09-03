@@ -14,6 +14,20 @@ Setting up your first(?) project:
    
    **Note**: The exact steps may vary slightly in Positron or RStudio, but the concept of project organization remains the same.
 
+::: {.callout-caution collapse="true"}
+## If you are using `pixi` expand this
+
+If you are using `pixi` in your own machine, you will have to set up your project with the *tools* you will use. For this, run in the terminal:
+
+```bash
+pixi init .
+pixi add python pandas openpyxl seaborn matplotlib scipy statsmodels
+```
+After a minute, you will have a fully functional python installation available for this project. 
+:::
+
+
+
 2. Create two folders in the project directory: `data` and `scripts`.
 
 Now using the console ***only***:
