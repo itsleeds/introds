@@ -219,6 +219,15 @@ fig.savefig("final_plot.png", dpi=300, bbox_inches='tight')
 
 ------------------------------------------------------------------------
 
+## Modern Python Visualisation
+
+Beyond standard Matplotlib and Seaborn:
+
+-   **[Seaborn Objects API](https://seaborn.pydata.org/tutorial/objects_overview.html):** A grammar-of-graphics interface (`import seaborn.objects as so`) that closely mirrors `ggplot2`.
+-   **[Plotly](https://plotly.com/python/):** Interactive web figures with zoom, pan, and hover tooltips for Quarto reports.
+
+------------------------------------------------------------------------
+
 ## R Content (Optional)
 
 If you're interested in R, here are equivalent concepts

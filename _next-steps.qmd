@@ -6,8 +6,7 @@ Congratulations on completing the practical! Here are some useful resources.
 These communities are invaluable:
 
 -   [Stack Overflow](https://stackoverflow.com/) - Programming Q&A
--   [RStudio Community](https://community.rstudio.com/) - R-specific help
-
+-   [Posit Community](https://forum.posit.co/) - Helpful community for R and Python data science
 
 ## For R
 
@@ -17,28 +16,34 @@ These communities are invaluable:
 
 ## For Python
 
+- [Python for Data Analysis (3e)](https://wesmckinney.com/book/) - Free online book by Wes McKinney (creator of pandas)
 - [Python for Everybody](https://www.py4e.com/) - Free course by University of Michigan
 - [Kaggle Learn](https://www.kaggle.com/learn) - Practical micro-courses
 - [DataCamp](https://www.datacamp.com/) - First course free, student discounts available
+
+### Modern High-Performance Tools
+
+- [DuckDB](https://duckdb.org/) - Fast, embedded SQL analytical engine, great for querying large CSV, Parquet, and transport datasets directly
+- [Polars](https://docs.pola.rs/) - Lightning-fast multi-threaded DataFrame library for Python and Rust
 
 **Statistics with R/Python:**
 
 - [StatQuest](https://www.youtube.com/c/joshstarmer) - Excellent YouTube channel for statistics
 - [Introduction to Statistical Learning](https://www.statlearning.com/) - Free book with R and Python code
 
-
 ## Build Your Portfolio
 
 ### Project Ideas
 
-1. **Analyze local transport patterns** using open transport data
+1. **Analyse local transport patterns** using open transport data
 2. **Recreate published analyses** to learn techniques
+3. **Explore open road safety data** using UK crash statistics
 4. **Contribute to open source** R or Python packages
 
 ### Share Your Work
 
 - Create a [GitHub](https://github.com/) profile for your code (use the [Student Developer Pack](https://education.github.com/pack) for free perks!)
-  - *Note: Keep university assessment data private unless authorized.*
+  - *Note: Keep university assessment data private unless authorised.*
 - Build a portfolio website with [Quarto](https://quarto.org/)
 - Write blog posts about what you learn
 - Share projects on social media (#RStats, #DataScience)
@@ -50,15 +55,15 @@ Once you're comfortable with basics:
 ### Data Science Skills
 
 - **Version Control**: Git and GitHub for collaboration
-- **Reproducible Research**: R Markdown, Quarto, Jupyter notebooks
+- **Reproducible Research**: Quarto and reproducible notebooks for dissertations
 
 ### Specialized Topics
 
-- **Spatial Data Science**: Working with spatial data (check out [geocompx.org](https://geocompx.org/))
+- **Spatial Data Science**: Working with spatial and transport data — see [Geocomputation with Python](https://py.geocompx.org/) and [Geocomputation with R](https://r.geocompx.org/) at [geocompx.org](https://geocompx.org/)
 - **Machine Learning**: Supervised and unsupervised learning
 - **Deep Learning**: Neural networks for complex patterns
 - **Time Series Analysis**: For temporal data
-- **Network Analysis**: For transport networks and relationships
+- **Network Analysis**: For transport networks and routing
 
 
 ## Final Tips

@@ -13,6 +13,7 @@ project:
     - 3-visualisation/slides.qmd
     - 3-visualisation/tasks.qmd
     - 4-statistics/index.qmd
+    - 4-statistics/slides.qmd
     - 4-statistics/solutions.qmd
     - collaboration.qmd
     - ai.qmd
@@ -23,8 +24,8 @@ format:
     toc: true
     toc-location: right
     author-meta: "Robin Lovelace & Juan Fonseca-Zamora"
-    date-meta: "2025"
-    copyright: "© 2025 Robin Lovelace & contributors"
+    date-meta: "2026"
+    copyright: "© 2026 Robin Lovelace & contributors"
     license: "CC BY-SA"
     theme: lux
     css: styles.css
@@ -70,6 +71,8 @@ website:
         contents:
           - text: "About this section"
             href: 4-statistics/index.qmd
+          - text: "Slides"
+            href: 4-statistics/slides.qmd
           - text: "Worked Solutions"
             href: 4-statistics/solutions.qmd
       - text: "Collaboration"

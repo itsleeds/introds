@@ -34,7 +34,7 @@ To open this project in GitHub Codespaces, click the link below:
 -   **Powerful:** Runs on cloud servers, providing ample computing resources.
 -   **Accessible:** Works from any modern web browser.
 -   **GitHub Account Required:** You need a GitHub account to use Codespaces.
--   **Free Usage Tier:** As of November 2025, GitHub Codespaces offers a free tier of 120 hours of CPU time per month.
+-   **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
 
 ### If installing on your own laptop {.unnumbered}
 
@@ -47,7 +47,7 @@ An **IDE** (Integrated Development Environment) provides a comprehensive workspa
 **For Python:**
 
 -   **VS Code** from [Microsoft](https://code.visualstudio.com/) - Versatile IDE with extensions for Python, R, and more
--   **Positron** from [Posit](https://github.com/posit-dev/positron) - New IDE supporting both Python and R (beta)
+-   **Positron** from [Posit](https://github.com/posit-dev/positron) - Next-generation data science IDE supporting both Python and R
 
 **For R:**
 
@@ -57,7 +57,7 @@ An **IDE** (Integrated Development Environment) provides a comprehensive workspa
 
 **Python** is a general-purpose programming language widely used for data science, machine learning, and AI.
 
--   Download Python from [python.org](https://www.python.org/downloads/) (version 3.8 or higher)
+-   Download Python from [python.org](https://www.python.org/downloads/) (version 3.11 or higher recommended)
 -   Or install via [Anaconda](https://www.anaconda.com/download) (includes many data science packages)
 
 **R** (Optional) is another popular language for statistical computing.

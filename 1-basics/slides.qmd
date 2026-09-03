@@ -284,15 +284,19 @@ print(clean_text)  # "Introduction To Data Science"
 Extract specific elements from data structures:
 
 ``` python
+# Subsetting lists
 lst = [10, 20, 30, 40, 50]
 first_element = lst[0]        # 10
 subset = lst[1:4]             # [20, 30, 40]
+
+# Subsetting DataFrames (using pandas)
+import pandas as pd
 df = pd.DataFrame({
     'a': range(1, 6),
     'b': range(6, 11),
     'c': list('abcde')})
-df['a']  # access column `a`
-df.iloc[0, :]   # access first row
+df['a']          # access column `a`
+df.iloc[0, :]    # access first row
 ```
 More on subsetting here: [NumPy Indexing](https://numpy.org/doc/stable/user/basics.indexing.html)
 

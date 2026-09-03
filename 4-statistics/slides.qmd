@@ -1,0 +1,97 @@
+---
+format: revealjs
+---
+
+# Session 2: Workflows & Statistics
+
+Quarto for Reproducible Research, Tool Comparisons, and Statistical Computing
+
+------------------------------------------------------------------------
+
+## Welcome to Session 2
+
+Today's roadmap:
+
+-   **Quarto & Reproducibility:** Structuring dissertations and research
+-   **Tool Comparison:** Excel & SPSS vs Python & R
+-   **Hands-on Debugging:** Replicating Excel & SPSS tasks
+-   **Collaboration & AI:** Version control with Git & safe AI usage
+
+------------------------------------------------------------------------
+
+## Quarto for Reproducible Research
+
+Why write code and reports together?
+
+-   **Single Source of Truth:** Data, code, results, and text in one `.qmd` document.
+-   **No More Copy-Paste:** Tables and figures update automatically when data changes.
+-   **Transparency:** Anyone (including your supervisor and examiners) can reproduce your results.
+-   **Multiple Formats:** Render to HTML, PDF, Word, or presentation slides.
+
+------------------------------------------------------------------------
+
+## Quarto for Your Dissertation
+
+A typical dissertation project structure:
+
+```
+dissertation/
+├── data/              # Raw data files (kept unchanged)
+├── scripts/           # Standalone Python or R scripts
+├── figures/           # Exported publication-ready plots
+├── chapters/          # Individual Quarto chapter files
+│   ├── 01-intro.qmd
+│   ├── 02-literature.qmd
+│   ├── 03-methods.qmd
+│   └── 04-results.qmd
+├── references.bib     # Bibliography file
+└── _quarto.yml        # Book / thesis project configuration
+```
+
+------------------------------------------------------------------------
+
+## Comparing Data Tools
+
+Choosing the right tool for the job:
+
+| Tool | Strengths | Limitations |
+|------|-----------|-------------|
+| **Excel** | Visual, quick inspection, low barrier | Error-prone, hard to audit, limited scale |
+| **SPSS** | Standard social science stats menus | Proprietary, expensive, rigid workflows |
+| **Python / R** | Free, reproducible, scalable, automated | Steeper learning curve, syntax debugging |
+
+------------------------------------------------------------------------
+
+## Moving from Point-and-Click to Code
+
+In today's practical tasks:
+
+1.  **Task 1 (Excel Replication):**
+    - Reading spreadsheet data (`ParkRunPerformanceData.xlsx`)
+    - Computing summary statistics and frequency distributions
+    - Visualizing run time trends over time
+
+2.  **Task 2 (SPSS Replication):**
+    - Subsetting cohorts (adult runners)
+    - Independent samples t-test (Male vs Female)
+    - Correlation and multivariable regression modeling
+
+------------------------------------------------------------------------
+
+## The Skill of Debugging
+
+Real data science involves fixing errors!
+
+-   Read error messages carefully—Python and R usually point to the exact line number.
+-   Check column names for typos (`runtime` vs `run_time`).
+-   Verify data types before running mathematical functions.
+-   Use AI assistants (M365 Copilot) to explain cryptic tracebacks safely.
+
+------------------------------------------------------------------------
+
+## Looking Ahead: Modern Big Data Tools
+
+When datasets exceed memory limits (>1 GB):
+
+-   **[DuckDB](https://duckdb.org/):** Fast embedded SQL database for analytical queries directly on CSV/Parquet files.
+-   **[Polars](https://docs.pola.rs/):** Lightning-fast multi-threaded DataFrame engine for Python and Rust.

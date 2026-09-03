@@ -56,7 +56,7 @@ For an ideal next step in your learning journey, check out the courses available
 
 The following section provides a detailed look at using GitHub, including using the command line interface (`gh`), creating repositories, and understanding workflows in depth.
 
-**Note:** This content and the associated exercises are **bonus material** and are **not expected** to be completed during the 3-hour session. We recommend reading the "Introduction to GitHub" course on [GitHub Skills](https://skills.github.com/) before attempting the exercises in this area.
+**Note:** This extended material and the associated command-line exercises are **optional extension material**. Core collaboration workflows are covered in Session 2, and we recommend completing the "Introduction to GitHub" course on [GitHub Skills](https://skills.github.com/) to build your confidence further.
 
 <details>
 <summary><strong>Click here to expand the Advanced GitHub Material</strong></summary>

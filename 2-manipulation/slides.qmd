@@ -265,6 +265,15 @@ Good practice: Use descriptive variable names that show the transformation at ea
 
 ------------------------------------------------------------------------
 
+## Beyond Pandas: Polars and DuckDB
+
+For large datasets or high-performance data processing:
+
+-   **[Polars](https://docs.pola.rs/):** A modern, lightning-fast DataFrame library written in Rust with parallel processing and an expressive query syntax.
+-   **[DuckDB](https://duckdb.org/):** An embedded analytical SQL database ("SQLite for analytics") capable of querying millions of rows directly from CSV or Parquet files.
+
+------------------------------------------------------------------------
+
 ## R Content (Optional)
 
 If you're interested in R, here are equivalent concepts

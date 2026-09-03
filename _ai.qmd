@@ -1,13 +1,15 @@
 
 AI-powered coding assistants can significantly accelerate your data science learning journey. However, it is critical to use them safely and in compliance with University regulations.
 
-## The "Traffic Light" System
+## University AI Policy and Assessment Guidelines
 
-The University of Leeds uses a [traffic light system](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/) to indicate how AI can be used in assessments. **Always check your specific module guidelines.**
+The University of Leeds provides comprehensive guidance on the responsible use of generative artificial intelligence. **Always check the specific assessment brief for each of your modules** before using AI tools for coursework.
 
--   🔴 **Red:** No AI permitted. You must do all the work yourself.
--   🟠 **Amber:** AI permitted as a supportive tool (e.g., for ideation, debugging, or explaining concepts) but not for generating the final output.
--   🟢 **Green:** AI is integral to the assessment and can be used freely (with appropriate acknowledgement).
+When using AI in your learning:
+
+-   **Check Module Permissions:** Requirements vary across modules—always follow the explicit instructions in your module handbook and assignment briefs.
+-   **Acknowledge and Attribute:** Where generative AI is permitted, clearly declare which tools were used and how they contributed to your work.
+-   **Academic Integrity:** You are responsible for all submitted code, analysis, and interpretation. Never submit AI-generated output without understanding and verifying it.
 
 ## 1. The "Official" Route (Safe for Coursework)
 
@@ -67,6 +69,5 @@ AI tools are powerful assistants, but they can make mistakes. Always review and 
 
 -   [University of Leeds AI Guidance](https://library.leeds.ac.uk/info/1401/academic_skills/134/artificial_intelligence)
 -   [Generative AI at Leeds](https://generative-ai.leeds.ac.uk/)
--   [AI Assessment Categories](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/)
 -   [Microsoft 365 Copilot](https://www.microsoft365.com)
 -   [GitHub Student Developer Pack](https://education.github.com/pack)
