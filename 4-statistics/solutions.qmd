@@ -5,12 +5,12 @@ format:
     code-fold: true
 ---
 
-This page presents the worked solutions for the statistics tasks, showing how to perform the same analyses in both R and Python.
+This page presents the worked solutions for the statistics tasks, showing how to perform the same analyses in both Python and R.
 
 ::: callout-warning
 ## Before you proceed...
 
-These are worked solutions. We strongly recommend attempting to debug the R and Python problem scripts in the [Tasks section](index.qmd) before reviewing these solutions. Learning to debug is a crucial data science skill!
+These are worked solutions. We strongly recommend attempting to debug the Python and R problem scripts in the [Tasks section](index.qmd) before reviewing these solutions. Learning to debug is a crucial data science skill!
 :::
 
 ::: {.callout-note}
@@ -28,119 +28,7 @@ This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx
 
 ::: panel-tabset
 
-### R
-
-```{r}
-#| label: excel-task-r
-#| warning: false
-#| message: false
-#| fig-width: 10
-#| fig-height: 6
-#| fig-align: center
-#| fig-cap: "Various Outputs from Excel Task (R)"
-
-# Loading the necessary libraries
-library(tidyverse)
-library(readxl)
-
-# Assigning the path to a variable
-path_to_file <- "../00_data/ParkRunPerformanceData.xlsx" # Corrected path
-
-# Reading data from an Excel file
-data <- read_excel(path = path_to_file,
-                   sheet = "Sheet1",
-                   col_types = c("date", "numeric"))
-
-# Exploring the data
-cat("---\n--- Head of Data ---\n---")
-print(head(data))
-
-cat("\n--- Structure of Data ---")
-str(data)
-
-cat("\n--- Summary Statistics ---")
-summary(data)
-
-
-# Rename the columns to ensure consistency and ease manipulation
-names(data) <- c("date","runtime")
-
-# Sorting the data
-data_sorted <- data |> arrange(runtime)
-cat("\n--- Sorted Data (Ascending) ---")
-print(head(data_sorted))
-
-data_sorted_inv <- data |> arrange(-runtime)
-cat("\n--- Sorted Data (Descending) ---")
-print(head(data_sorted_inv))
-
-
-# Calculating the summaries manually 
-summary_dates <- 
-  data |>
-  summarise(min_date = min(date),
-            max_date = max(date))
-cat("\n--- Summary Dates ---")
-print(summary_dates)
-
-summary_runtimes <- 
-  data |>
-  summarise(
-            count = n(),
-            mean_runtime = mean(runtime),
-            slowest = max(runtime),
-            fastest = min(runtime))
-cat("\n--- Summary Runtimes ---")
-print(summary_runtimes)
-
-# Rounding the run times to the nearest minute
-data_rounded <- data |> 
-  mutate(runtime_mins = round(x = runtime, digits = 0))
-cat("\n--- Data with Rounded Runtimes ---")
-print(head(data_rounded))
-
-
-# Counting the frequencies for each value
-freq <- data_rounded |> 
-  count(runtime_mins)
-cat("\n--- Frequencies ---")
-print(freq)
-
-# A quick histogram
-hist(data_rounded$runtime_mins,breaks = 14:33, main = "Quick Histogram of Run Times")
-
-# A nicer histogram
-data |> 
-  ggplot(aes(x = runtime))+
-  geom_histogram(binwidth = 1, col = "white",fill = "steelblue", alpha = 0.7)+
-  labs (x = "Run time in seconds",
-        y = "frequency",
-        title = "Park Run Times Distribution",
-        subtitle = "Records from Aug 2012 to Aug 2015",
-        caption = "Source: Andrew Tomlinson")+
-  scale_x_continuous(breaks = 14:33)+
-  geom_hline(yintercept = 0,linewidth = 1,col = "grey30")+
-  theme_minimal()+
-  theme(title = element_text(size = 15))
-
-# Have the run times improved?
-  # A different exploration
-data |> 
-  ggplot(aes(x = date, y = runtime))+
-  geom_point() +  
-  geom_smooth(method = "lm")
-```
-
 ### Python
-
-```{r}
-#| include: false
-# Install Python packages from requirements.txt
-reticulate::virtualenv_install(
-  packages = readLines("../requirements.txt"),
-  ignore_installed = TRUE
-)
-```
 
 ```{python}
 #| label: excel-task-py
@@ -250,6 +138,109 @@ plt.title("Run Times over Date")
 plt.show()
 ```
 
+### R
+
+```{r}
+#| label: excel-task-r
+#| warning: false
+#| message: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: "Various Outputs from Excel Task (R)"
+
+# Loading the necessary libraries
+library(tidyverse)
+library(readxl)
+
+# Assigning the path to a variable
+path_to_file <- "../00_data/ParkRunPerformanceData.xlsx" # Corrected path
+
+# Reading data from an Excel file
+data <- read_excel(path = path_to_file,
+                   sheet = "Sheet1",
+                   col_types = c("date", "numeric"))
+
+# Exploring the data
+cat("---\n--- Head of Data ---\n---")
+print(head(data))
+
+cat("\n--- Structure of Data ---")
+str(data)
+
+cat("\n--- Summary Statistics ---")
+summary(data)
+
+
+# Rename the columns to ensure consistency and ease manipulation
+names(data) <- c("date","runtime")
+
+# Sorting the data
+data_sorted <- data |> arrange(runtime)
+cat("\n--- Sorted Data (Ascending) ---")
+print(head(data_sorted))
+
+data_sorted_inv <- data |> arrange(-runtime)
+cat("\n--- Sorted Data (Descending) ---")
+print(head(data_sorted_inv))
+
+
+# Calculating the summaries manually 
+summary_dates <- 
+  data |>
+  summarise(min_date = min(date),
+            max_date = max(date))
+cat("\n--- Summary Dates ---")
+print(summary_dates)
+
+summary_runtimes <- 
+  data |>
+  summarise(
+            count = n(),
+            mean_runtime = mean(runtime),
+            slowest = max(runtime),
+            fastest = min(runtime))
+cat("\n--- Summary Runtimes ---")
+print(summary_runtimes)
+
+# Rounding the run times to the nearest minute
+data_rounded <- data |> 
+  mutate(runtime_mins = round(x = runtime, digits = 0))
+cat("\n--- Data with Rounded Runtimes ---")
+print(head(data_rounded))
+
+
+# Counting the frequencies for each value
+freq <- data_rounded |> 
+  count(runtime_mins)
+cat("\n--- Frequencies ---")
+print(freq)
+
+# A quick histogram
+hist(data_rounded$runtime_mins,breaks = 14:33, main = "Quick Histogram of Run Times")
+
+# A nicer histogram
+data |> 
+  ggplot(aes(x = runtime))+
+  geom_histogram(binwidth = 1, col = "white",fill = "steelblue", alpha = 0.7)+
+  labs (x = "Run time in seconds",
+        y = "frequency",
+        title = "Park Run Times Distribution",
+        subtitle = "Records from Aug 2012 to Aug 2015",
+        caption = "Source: Andrew Tomlinson")+
+  scale_x_continuous(breaks = 14:33)+
+  geom_hline(yintercept = 0,linewidth = 1,col = "grey30")+
+  theme_minimal()+
+  theme(title = element_text(size = 15))
+
+# Have the run times improved?
+  # A different exploration
+data |> 
+  ggplot(aes(x = date, y = runtime))+
+  geom_point() +  
+  geom_smooth(method = "lm")
+```
+
 :::
 
 ## Task 2: SPSS Data Analysis
@@ -257,122 +248,6 @@ plt.show()
 This task analyzes running data originally handled in SPSS (`RunningData.xlsx`), including filtering, grouping, and statistical tests.
 
 ::: panel-tabset
-
-### R
-
-```{r}
-#| label: spss-task-r
-#| warning: false
-#| message: false
-#| fig-width: 10
-#| fig-height: 6
-#| fig-align: center
-#| fig-cap: "Various Outputs from SPSS Task (R)"
-
-library(tidyverse)
-library(readxl)
-
-path_to_file <- "../00_data/RunningData.xlsx"
-data <- read_excel(path = path_to_file, sheet = "Sheet1")
-
-# Rename columns
-names(data) <- c("position", "time", "age_cat", "gender", "prev_runs")
-
-# Summaries
-cat("---\n--- Summary of Time ---")
-summary(data$time)
-cat("\n--- Unique Age Categories ---")
-unique(data$age_cat)
-
-# Subset only adults 
-children_cats <- c("10","11-14","15-17")
-data_adults <- data |> 
-  filter(!age_cat %in% children_cats)
-
-cat("\n--- Unique Adult Age Categories ---")
-unique(data_adults$age_cat)
-cat("\n--- Summary of Adult Time ---")
-summary(data_adults$time)
-
-# Analysis by gender
-cat("\n--- Analysis by Gender ---")
-data_adults |> 
-  group_by(gender) |> 
-  summarise(min = min(time),
-            mean = mean(time),
-            median = median(time),
-            max = max(time))
-
-# Comparing distributions
-data_adults |> 
-  ggplot(aes(x = time, fill = gender))+
-  geom_histogram(col = "white")+
-  facet_grid(gender~.)
-
-data_adults |> 
-  ggplot(aes(x = time, col = gender))+
-  geom_density()
-
-data_adults |> 
-  ggplot(aes(x = time, col = gender))+
-  geom_boxplot()
-
-data_adults |> 
-  ggplot(aes(x = time, y = gender, col = gender))+
-  geom_violin()
-
-## Statistical tests
-# Extracting the data
-times_female_adults <- data_adults |> filter(gender == "F") |> pull(time)
-times_male_adults <- data_adults |> filter(gender == "M") |> pull(time)
-
-cat("\n--- T-Test Results (Male vs Female) ---")
-t.test(times_male_adults, times_female_adults)
-
-# Previous runs vs times
-data_adults |> 
-  ggplot(aes(x = prev_runs, y = time))+
-  geom_point()+
-  geom_smooth(method = "lm")
-
-data_adults |> 
-  ggplot(aes(x = prev_runs, y =time, col = gender))+
-  geom_point() +
-  geom_smooth(method = "lm")
-
-cat("\n--- Correlation Test (Time vs Previous Runs) ---")
-cor.test(data_adults$time, data_adults$prev_runs)
-
-# Finding the median of prev runs
-median_prev_runs <- median(data_adults$prev_runs)
-cat("\n--- Median Previous Runs ---")
-print(median_prev_runs)
-
-data_adults_pr_gr <- data_adults |> 
-  mutate(pr_gr = prev_runs>=median_prev_runs)
-
-cat("\n--- Data with pr_gr group ---")
-print(head(data_adults_pr_gr))
-
-# a quick visual check
-data_adults_pr_gr |> 
-  ggplot(aes(prev_runs,fill = pr_gr))+
-  geom_histogram()
-
-# Comparing times
-data_adults_pr_gr |> 
-  ggplot(aes(x = time, col = pr_gr))+
-  geom_boxplot()
-
-# Linear Model
-# Extract first two digits of age category for numeric age proxy
-data_adults_lm <- data_adults |> 
-  mutate(age = str_extract(age_cat, '^\\d{2}') |> as.numeric())  
-
-my_linear_model <- lm(formula = "time ~ age + gender + prev_runs", data = data_adults_lm) 
-cat("\n--- Linear Model Summary ---")
-summary(my_linear_model)
-```
 
 ### Python
 
@@ -499,4 +374,121 @@ results = model.fit()
 print("\n--- Linear Model Summary ---\n")
 print(results.summary())
 ```
+
+### R
+
+```{r}
+#| label: spss-task-r
+#| warning: false
+#| message: false
+#| fig-width: 10
+#| fig-height: 6
+#| fig-align: center
+#| fig-cap: "Various Outputs from SPSS Task (R)"
+
+library(tidyverse)
+library(readxl)
+
+path_to_file <- "../00_data/RunningData.xlsx"
+data <- read_excel(path = path_to_file, sheet = "Sheet1")
+
+# Rename columns
+names(data) <- c("position", "time", "age_cat", "gender", "prev_runs")
+
+# Summaries
+cat("---\n--- Summary of Time ---")
+summary(data$time)
+cat("\n--- Unique Age Categories ---")
+unique(data$age_cat)
+
+# Subset only adults 
+children_cats <- c("10","11-14","15-17")
+data_adults <- data |> 
+  filter(!age_cat %in% children_cats)
+
+cat("\n--- Unique Adult Age Categories ---")
+unique(data_adults$age_cat)
+cat("\n--- Summary of Adult Time ---")
+summary(data_adults$time)
+
+# Analysis by gender
+cat("\n--- Analysis by Gender ---")
+data_adults |> 
+  group_by(gender) |> 
+  summarise(min = min(time),
+            mean = mean(time),
+            median = median(time),
+            max = max(time))
+
+# Comparing distributions
+data_adults |> 
+  ggplot(aes(x = time, fill = gender))+
+  geom_histogram(col = "white")+
+  facet_grid(gender~.)
+
+data_adults |> 
+  ggplot(aes(x = time, col = gender))+
+  geom_density()
+
+data_adults |> 
+  ggplot(aes(x = time, col = gender))+
+  geom_boxplot()
+
+data_adults |> 
+  ggplot(aes(x = time, y = gender, col = gender))+
+  geom_violin()
+
+## Statistical tests
+# Extracting the data
+times_female_adults <- data_adults |> filter(gender == "F") |> pull(time)
+times_male_adults <- data_adults |> filter(gender == "M") |> pull(time)
+
+cat("\n--- T-Test Results (Male vs Female) ---")
+t.test(times_male_adults, times_female_adults)
+
+# Previous runs vs times
+data_adults |> 
+  ggplot(aes(x = prev_runs, y = time))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+data_adults |> 
+  ggplot(aes(x = prev_runs, y =time, col = gender))+
+  geom_point() +
+  geom_smooth(method = "lm")
+
+cat("\n--- Correlation Test (Time vs Previous Runs) ---")
+cor.test(data_adults$time, data_adults$prev_runs)
+
+# Finding the median of prev runs
+median_prev_runs <- median(data_adults$prev_runs)
+cat("\n--- Median Previous Runs ---")
+print(median_prev_runs)
+
+data_adults_pr_gr <- data_adults |> 
+  mutate(pr_gr = prev_runs>=median_prev_runs)
+
+cat("\n--- Data with pr_gr group ---")
+print(head(data_adults_pr_gr))
+
+# a quick visual check
+data_adults_pr_gr |> 
+  ggplot(aes(prev_runs,fill = pr_gr))+
+  geom_histogram()
+
+# Comparing times
+data_adults_pr_gr |> 
+  ggplot(aes(x = time, col = pr_gr))+
+  geom_boxplot()
+
+# Linear Model
+# Extract first two digits of age category for numeric age proxy
+data_adults_lm <- data_adults |> 
+  mutate(age = str_extract(age_cat, '^\\d{2}') |> as.numeric())  
+
+my_linear_model <- lm(formula = "time ~ age + gender + prev_runs", data = data_adults_lm) 
+cat("\n--- Linear Model Summary ---")
+summary(my_linear_model)
+```
+
 :::
