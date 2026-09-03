@@ -1,16 +1,16 @@
 ---
 title: Introduction to Data Science
-subtitle: Practical Session for MSc Students and Beginners
+subtitle: Practical Sessions for MSc Students and Beginners
 ---
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1)
 
-Welcome to this practical introduction to data science! This session was developed for MSc students at the Institute for Transport Studies who are new to data science.
+Welcome to this practical introduction to data science! These sessions were developed for MSc students at the Institute for Transport Studies who are new to data science.
 We teach modern data science tools (Python, R, Git), plus how to safely use AI tools like Microsoft 365 Copilot and GitHub Copilot.
 
-## About This Session
+## About These Sessions
 
-In this practical, you'll get hands-on experience with data science tools. We'll cover implementations primarily in **Python**. **R** versions of the contents are provided, take your pick!
+In these practicals, you'll get hands-on experience with data science tools. We'll cover implementations primarily in **Python**. **R** versions of the contents are provided, take your pick!
 
 ## Languages
 
@@ -47,30 +47,42 @@ If you are unsure which language to pick, we recommend trying both for 10 minute
 
 ## Logistics
 
--   **Date:** Friday 28th November 2025
--   **Time:** 09:00 - 12:00 (3 hours)
--   **Location:** Computer Cluster (Check timetable for specific room)
+-   **Session 1:** Friday 27 November, 09:00 - 12:00 (3 hours)
+-   **Session 2:** Wednesday 2 December, 09:00 - 11:00 (2 hours)
+-   **Timetable:** [Module Timetable](https://mytimetable.leeds.ac.uk/link?timetable.id=202627!module!AECF29AAE3D6233AD5D55B21751D6E7C) (check for room locations; requires a University of Leeds login to access)
 
 ## Schedule
 
+### Session 1: Friday 27 November (09:00 - 12:00)
+
 | Time | Activity |
 |------|----------|
-| 09:00 - 09:15 | **Welcome & Setup**: Introduction and getting ready |
-| 09:15 - 09:45 | **Basics**: Development environments (IDEs), Quarto, and basic syntax |
-| 09:45 - 10:30 | **Manipulation**: Cleaning and transforming data with pandas |
-| 10:30 - 10:45 | *Break* |
-| 10:45 - 11:30 | **Visualisation**: Creating plots with matplotlib and seaborn |
-| 11:30 - 11:50 | **Statistics**: Basic statistical analysis (Python, R, SPSS, Excel) |
-| 11:50 - 12:00 | **Wrap-up**: Collaboration, AI tools and next steps |
+| 09:00 - 09:15 | **Welcome & Setup**: Introduction and environment check |
+| 09:15 - 09:55 | **Basics**: Development environments (IDEs), Quarto, and basic syntax |
+| 09:55 - 10:45 | **Manipulation**: Cleaning and transforming data with pandas |
+| 10:45 - 11:00 | *Break* |
+| 11:00 - 11:45 | **Visualisation**: Creating plots with matplotlib and seaborn |
+| 11:45 - 12:00 | **Session 1 Wrap-up**: Review, reflections, and Q&A |
+
+### Session 2: Wednesday 2 December (09:00 - 11:00)
+
+| Time | Activity |
+|------|----------|
+| 09:00 - 09:10 | **Welcome Back**: Setup and goals for Session 2 |
+| 09:10 - 09:40 | **Workflow Recap**: Quarto for Reproducible Research and Your Dissertation |
+| 09:40 - 10:25 | **Statistics**: Basic statistical analysis and script debugging (Python, R, SPSS, Excel) |
+| 10:25 - 10:35 | *Break* |
+| 10:35 - 10:55 | **Collaboration & AI Tools**: Version control with Git/GitHub and AI assistants |
+| 10:55 - 11:00 | **Wrap-up**: Next steps and continuing your data science journey |
 
 ## What You'll Learn
 
-This session covers:
+These sessions cover:
 
-- **Prerequisites**: Tools and setup you need before getting started
-- **AI Tools & Policy**: Safe and effective use of AI (Microsoft 365 Copilot vs GitHub Copilot)
-- **Practical Exercises**: Basic data science tasks using Python
-- **Next Steps**: Resources to help you continue learning data science
+-   **Prerequisites**: Tools and setup you need before getting started
+-   **AI Tools & Policy**: Safe and effective use of AI (Microsoft 365 Copilot vs GitHub Copilot)
+-   **Practical Exercises**: Hands-on data science tasks using Python and R
+-   **Next Steps**: Resources to help you continue learning data science
 
 ## Getting Started
 
