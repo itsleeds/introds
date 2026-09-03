@@ -69,7 +69,7 @@ If you are unsure which language to pick, we recommend trying both for 10 minute
 | Time | Activity |
 |------|----------|
 | 09:00 - 09:10 | **Welcome Back**: Setup and goals for Session 2 |
-| 09:10 - 09:40 | **Workflow Recap**: End-to-end data science workflows |
+| 09:10 - 09:40 | **Workflow Recap**: Quarto for Reproducible Research and Your Dissertation |
 | 09:40 - 10:25 | **Statistics**: Basic statistical analysis and script debugging (Python, R, SPSS, Excel) |
 | 10:25 - 10:35 | *Break* |
 | 10:35 - 10:55 | **Collaboration & AI Tools**: Version control with Git/GitHub and AI assistants |
