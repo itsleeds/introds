@@ -133,12 +133,12 @@ When you access any public repository, you will typically see the same informati
 
 ![](images/repo_layout.png){#fig-repo-layout .lightbox fig-align="center"}
 
-GitHub organizes a repository's content and collaboration tools into several key tabs. These tabs act as a dashboard, each providing a different view of the project's status and activity.
+GitHub organises a repository's content and collaboration tools into several key tabs. These tabs act as a dashboard, each providing a different view of the project's status and activity.
 
 #### The Main Tabs
 
 -   **Code:** This is the repository's home page. It displays the project's file and folder structure as it currently exists on the main branch. You can browse and view all the code, read the README file, and see the latest commits, providing a snapshot of the project's current state.
--   **Issues:** This tab is a central hub for tracking tasks, bugs, and feature requests. It's a key collaboration tool where developers can open new issues to report problems, ask questions, or propose new ideas. The discussion around an issue is contained in a single thread, keeping conversations organized and searchable.
+-   **Issues:** This tab is a central hub for tracking tasks, bugs, and feature requests. It's a key collaboration tool where developers can open new issues to report problems, ask questions, or propose new ideas. The discussion around an issue is contained in a single thread, keeping conversations organised and searchable.
 -   **Pull requests:** When a contributor wants to merge their changes from one branch into another, they create a pull request. This tab lists all open, closed, and merged pull requests. Pull requests are where code review happens; collaborators can discuss the proposed changes, add comments, and approve the code before it is integrated into the main project.
 -   **Discussions:** This tab is a more free-form space for conversations that are not tied to a specific bug or feature. It is a place for general questions, project announcements, or sharing ideas with the community. Think of it as a forum built right into the repository, allowing for broader, non-code-related conversations.
 
@@ -424,7 +424,7 @@ GitHub Actions lets you automate tasks like testing or deployment.
 
 -   Write clear commit messages.
 -   Use branches for features and fixes.
--   Keep your repository organized with README, .gitignore, and license files.
+-   Keep your repository organised with README, .gitignore, and license files.
 -   Communicate using Issues and Discussions.
 -   Review code via pull requests.
 -   Protect sensitive data by not uploading secrets.

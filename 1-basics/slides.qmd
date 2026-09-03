@@ -75,19 +75,19 @@ Popular IDE specifically designed for R programming
 3.  **Environment/History** (top-right): Variables and command history
 4.  **Files/Plots/Packages/Help** (bottom-right): File browser and help
 
-**Tip**: Customize the layout via View → Panes → Pane Layout
+**Tip**: Customise the layout via View → Panes → Pane Layout
 
 ------------------------------------------------------------------------
 
 ## The fundamentals of Python
 
-- how to organize your work
+- how to organise your work
 - basic data types and structures
 - using Python for calculations
 
 ------------------------------------------------------------------------
 
-### Organizing Your Work
+### Organising Your Work
 
 Project structure and file paths
 
@@ -271,10 +271,10 @@ total = x + y
 -   Method chaining with `.` to chain operations
 
 ``` python
-result = [1, 2, 3, 4, 5] # create a list
-sum_result = sum(result)  # calculate sum
-sqrt_result = sum_result ** 0.5  # calculate square root
-print(sqrt_result)
+# Calling methods and chaining operations with '.'
+text = "  introduction to data science  "
+clean_text = text.strip().title()
+print(clean_text)  # "Introduction To Data Science"
 ```
 
 ------------------------------------------------------------------------
@@ -376,8 +376,9 @@ from matplotlib import pyplot as plt
 ``` python
 help(sum)              # Help on sum function
 help(pd.read_csv)      # Help on pandas read_csv
-?np.array              # In Jupyter notebooks
 ```
+
+**Note:** `?np.array` works in Jupyter notebooks but not in standard Python scripts.
 
 ------------------------------------------------------------------------
 
@@ -389,7 +390,7 @@ help(pd.read_csv)      # Help on pandas read_csv
 
 ✅ Know the difference between data structures
 
-✅ Organize your work with folder structure
+✅ Organise your work with folder structure
 
 ✅ Use relative paths for portability
 
@@ -407,14 +408,14 @@ If you're interested in R, here are equivalent concepts
 
 ## The Fundamentals of R
 
-- how to organize your work
+- how to organise your work
 - basic data types and structures
 - using R for calculations
 
 
 ------------------------------------------------------------------------
 
-### Organizing Your Work
+### Organising Your Work
 
 Project structure and file paths
 
