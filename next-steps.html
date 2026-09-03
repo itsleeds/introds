@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Robin Lovelace &amp; Juan Fonseca-Zamora">
-<meta name="dcterms.date" content="2025">
+<meta name="dcterms.date" content="2026">
 
 <title>Next Steps – Introduction to Data Science</title>
 <style>
@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4d3a2660ff4a13c895c083f6fc392b76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-82531eaee7b4a51174e8a5a8249f2170.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -222,6 +222,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./4-statistics/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./4-statistics/solutions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Worked Solutions</span></a>
   </div>
@@ -258,7 +264,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#stack-overflow-forums" id="toc-stack-overflow-forums" class="nav-link active" data-scroll-target="#stack-overflow-forums">Stack Overflow &amp; Forums</a></li>
   <li><a href="#for-r" id="toc-for-r" class="nav-link" data-scroll-target="#for-r">For R</a></li>
-  <li><a href="#for-python" id="toc-for-python" class="nav-link" data-scroll-target="#for-python">For Python</a></li>
+  <li><a href="#for-python" id="toc-for-python" class="nav-link" data-scroll-target="#for-python">For Python</a>
+  <ul class="collapse">
+  <li><a href="#modern-high-performance-tools" id="toc-modern-high-performance-tools" class="nav-link" data-scroll-target="#modern-high-performance-tools">Modern High-Performance Tools</a></li>
+  </ul></li>
   <li><a href="#build-your-portfolio" id="toc-build-your-portfolio" class="nav-link" data-scroll-target="#build-your-portfolio">Build Your Portfolio</a>
   <ul class="collapse">
   <li><a href="#project-ideas" id="toc-project-ideas" class="nav-link" data-scroll-target="#project-ideas">Project Ideas</a></li>
@@ -301,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 <p>These communities are invaluable:</p>
 <ul>
 <li><a href="https://stackoverflow.com/">Stack Overflow</a> - Programming Q&amp;A</li>
-<li><a href="https://community.rstudio.com/">RStudio Community</a> - R-specific help</li>
+<li><a href="https://forum.posit.co/">Posit Community</a> - Helpful community for R and Python data science</li>
 </ul>
 </section>
 <section id="for-r" class="level2">
@@ -315,9 +324,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="for-python" class="level2">
 <h2 class="anchored" data-anchor-id="for-python">For Python</h2>
 <ul>
+<li><a href="https://wesmckinney.com/book/">Python for Data Analysis (3e)</a> - Free online book by Wes McKinney (creator of pandas)</li>
 <li><a href="https://www.py4e.com/">Python for Everybody</a> - Free course by University of Michigan</li>
 <li><a href="https://www.kaggle.com/learn">Kaggle Learn</a> - Practical micro-courses</li>
 <li><a href="https://www.datacamp.com/">DataCamp</a> - First course free, student discounts available</li>
+</ul>
+<section id="modern-high-performance-tools" class="level3">
+<h3 class="anchored" data-anchor-id="modern-high-performance-tools">Modern High-Performance Tools</h3>
+<ul>
+<li><a href="https://duckdb.org/">DuckDB</a> - Fast, embedded SQL analytical engine, great for querying large CSV, Parquet, and transport datasets directly</li>
+<li><a href="https://docs.pola.rs/">Polars</a> - Lightning-fast multi-threaded DataFrame library for Python and Rust</li>
 </ul>
 <p><strong>Statistics with R/Python:</strong></p>
 <ul>
@@ -325,13 +341,15 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.statlearning.com/">Introduction to Statistical Learning</a> - Free book with R and Python code</li>
 </ul>
 </section>
+</section>
 <section id="build-your-portfolio" class="level2">
 <h2 class="anchored" data-anchor-id="build-your-portfolio">Build Your Portfolio</h2>
 <section id="project-ideas" class="level3">
 <h3 class="anchored" data-anchor-id="project-ideas">Project Ideas</h3>
 <ol type="1">
-<li><strong>Analyze local transport patterns</strong> using open transport data</li>
+<li><strong>Analyse local transport patterns</strong> using open transport data</li>
 <li><strong>Recreate published analyses</strong> to learn techniques</li>
+<li><strong>Explore open road safety data</strong> using UK crash statistics</li>
 <li><strong>Contribute to open source</strong> R or Python packages</li>
 </ol>
 </section>
@@ -340,7 +358,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Create a <a href="https://github.com/">GitHub</a> profile for your code (use the <a href="https://education.github.com/pack">Student Developer Pack</a> for free perks!)
 <ul>
-<li><em>Note: Keep university assessment data private unless authorized.</em></li>
+<li><em>Note: Keep university assessment data private unless authorised.</em></li>
 </ul></li>
 <li>Build a portfolio website with <a href="https://quarto.org/">Quarto</a></li>
 <li>Write blog posts about what you learn</li>
@@ -355,17 +373,17 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="data-science-skills">Data Science Skills</h3>
 <ul>
 <li><strong>Version Control</strong>: Git and GitHub for collaboration</li>
-<li><strong>Reproducible Research</strong>: R Markdown, Quarto, Jupyter notebooks</li>
+<li><strong>Reproducible Research</strong>: Quarto and reproducible notebooks for dissertations</li>
 </ul>
 </section>
 <section id="specialized-topics" class="level3">
 <h3 class="anchored" data-anchor-id="specialized-topics">Specialized Topics</h3>
 <ul>
-<li><strong>Spatial Data Science</strong>: Working with spatial data (check out <a href="https://geocompx.org/">geocompx.org</a>)</li>
+<li><strong>Spatial Data Science</strong>: Working with spatial and transport data — see <a href="https://py.geocompx.org/">Geocomputation with Python</a> and <a href="https://r.geocompx.org/">Geocomputation with R</a> at <a href="https://geocompx.org/">geocompx.org</a></li>
 <li><strong>Machine Learning</strong>: Supervised and unsupervised learning</li>
 <li><strong>Deep Learning</strong>: Neural networks for complex patterns</li>
 <li><strong>Time Series Analysis</strong>: For temporal data</li>
-<li><strong>Network Analysis</strong>: For transport networks and relationships</li>
+<li><strong>Network Analysis</strong>: For transport networks and routing</li>
 </ul>
 </section>
 </section>
@@ -414,7 +432,7 @@ ul.task-list li input[type="checkbox"] {
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2025 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2026 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

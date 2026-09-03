@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Robin Lovelace &amp; Juan Fonseca-Zamora">
-<meta name="dcterms.date" content="2025">
+<meta name="dcterms.date" content="2026">
 
 <title>Statistics - Worked Solutions – Introduction to Data Science</title>
 <style>
@@ -81,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4d3a2660ff4a13c895c083f6fc392b76.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-82531eaee7b4a51174e8a5a8249f2170.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -257,6 +257,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../4-statistics/slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../4-statistics/solutions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Worked Solutions</span></a>
   </div>
@@ -330,6 +336,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>These are worked solutions. We strongly recommend attempting to debug the R and Python problem scripts in the <a href="../4-statistics/index.html">Tasks section</a> before reviewing these solutions. Learning to debug is a crucial data science skill!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>High-Performance Alternatives: Polars and DuckDB
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Python solutions below use <strong>pandas</strong> for seamless integration with <code>seaborn</code> and <code>statsmodels</code>. When working with larger-than-RAM datasets or complex data engineering pipelines, modern alternatives to explore include:</p>
+<ul>
+<li><strong><a href="https://docs.pola.rs/">Polars</a></strong>: A fast, multi-threaded DataFrame library built in Rust.</li>
+<li><strong><a href="https://duckdb.org/">DuckDB</a></strong>: An in-process SQL analytical engine for querying files directly without database overhead.</li>
+</ul>
 </div>
 </div>
 <section id="task-1-excel-data-analysis" class="level2">
@@ -630,22 +653,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.dates <span class="im">as</span> mdates</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assigning the path to a variable</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>path_to_file <span class="op">=</span> <span class="st">"../00_data/ParkRunPerformanceData.xlsx"</span> <span class="co"># Corrected path</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading data from an Excel file</span></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.from_pandas(pd.read_excel(path_to_file, sheet_name<span class="op">=</span><span class="st">"Sheet1"</span>))</span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Exploring the data</span></span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"---</span><span class="ch">\n</span><span class="st">--- Head of Data ---</span><span class="ch">\n</span><span class="st">---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.dates <span class="im">as</span> mdates</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Assigning the path to a variable</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>path_to_file <span class="op">=</span> <span class="st">"../00_data/ParkRunPerformanceData.xlsx"</span> <span class="co"># Corrected path</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading data from an Excel file</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_excel(path_to_file, sheet_name<span class="op">=</span><span class="st">"Sheet1"</span>)</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Exploring the data</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"---</span><span class="ch">\n</span><span class="st">--- Head of Data ---</span><span class="ch">\n</span><span class="st">---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>---
@@ -657,33 +679,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (5, 2)
-┌─────────────────────┬────────────────────┐
-│ Event Date          ┆ Run Time (minutes) │
-│ ---                 ┆ ---                │
-│ datetime[μs]        ┆ f64                │
-╞═════════════════════╪════════════════════╡
-│ 2015-08-22 00:00:00 ┆ 20.633333          │
-│ 2015-08-15 00:00:00 ┆ 22.383333          │
-│ 2015-08-08 00:00:00 ┆ 26.966667          │
-│ 2015-08-01 00:00:00 ┆ 22.25              │
-│ 2015-07-25 00:00:00 ┆ 24.816667          │
-└─────────────────────┴────────────────────┘</code></pre>
+<pre><code>  Event Date  Run Time (minutes)
+0 2015-08-22           20.633333
+1 2015-08-15           22.383333
+2 2015-08-08           26.966667
+3 2015-08-01           22.250000
+4 2015-07-25           24.816667</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Schema ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Info ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
---- Schema ---</code></pre>
+--- Info ---</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.schema)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Schema({'Event Date': Datetime(time_unit='us', time_zone=None), 'Run Time (minutes)': Float64})</code></pre>
+<pre><code>&lt;class 'pandas.DataFrame'&gt;
+RangeIndex: 120 entries, 0 to 119
+Data columns (total 2 columns):
+ #   Column              Non-Null Count  Dtype         
+---  ------              --------------  -----         
+ 0   Event Date          120 non-null    datetime64[us]
+ 1   Run Time (minutes)  120 non-null    float64       
+dtypes: datetime64[us](1), float64(1)
+memory usage: 2.0 KB</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -698,31 +722,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.describe())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (9, 3)
-┌────────────┬─────────────────────┬────────────────────┐
-│ statistic  ┆ Event Date          ┆ Run Time (minutes) │
-│ ---        ┆ ---                 ┆ ---                │
-│ str        ┆ str                 ┆ f64                │
-╞════════════╪═════════════════════╪════════════════════╡
-│ count      ┆ 120                 ┆ 120.0              │
-│ null_count ┆ 0                   ┆ 0.0                │
-│ mean       ┆ 2014-04-07 21:48:00 ┆ 23.420278          │
-│ std        ┆ null                ┆ 2.059807           │
-│ min        ┆ 2012-08-04 00:00:00 ┆ 20.633333          │
-│ 25%        ┆ 2013-09-14 00:00:00 ┆ 21.8               │
-│ 50%        ┆ 2014-04-12 00:00:00 ┆ 23.116667          │
-│ 75%        ┆ 2014-11-22 00:00:00 ┆ 24.816667          │
-│ max        ┆ 2015-08-22 00:00:00 ┆ 31.133333          │
-└────────────┴─────────────────────┴────────────────────┘</code></pre>
+<pre><code>                Event Date  Run Time (minutes)
+count                  120          120.000000
+mean   2014-04-07 21:48:00           23.420278
+min    2012-08-04 00:00:00           20.633333
+25%    2013-09-07 00:00:00           21.783333
+50%    2014-04-08 12:00:00           23.075000
+75%    2014-11-23 18:00:00           24.820833
+max    2015-08-22 00:00:00           31.133333
+std                    NaN            2.059807</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename the columns</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(data.columns) <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> data.rename({data.columns[<span class="dv">0</span>]: <span class="st">"date"</span>, data.columns[<span class="dv">1</span>]: <span class="st">"runtime"</span>})</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    data.columns <span class="op">=</span> [<span class="st">"date"</span>, <span class="st">"runtime"</span>]</span>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting the data</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>data_sorted <span class="op">=</span> data.sort(<span class="st">"runtime"</span>)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>data_sorted <span class="op">=</span> data.sort_values(by<span class="op">=</span><span class="st">"runtime"</span>)</span>
 <span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Sorted Data (Ascending) ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -734,22 +751,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_sorted.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (5, 2)
-┌─────────────────────┬───────────┐
-│ date                ┆ runtime   │
-│ ---                 ┆ ---       │
-│ datetime[μs]        ┆ f64       │
-╞═════════════════════╪═══════════╡
-│ 2015-08-22 00:00:00 ┆ 20.633333 │
-│ 2014-09-27 00:00:00 ┆ 20.666667 │
-│ 2015-04-18 00:00:00 ┆ 20.733333 │
-│ 2015-04-25 00:00:00 ┆ 20.816667 │
-│ 2015-04-04 00:00:00 ┆ 20.966667 │
-└─────────────────────┴───────────┘</code></pre>
+<pre><code>         date    runtime
+0  2015-08-22  20.633333
+37 2014-09-27  20.666667
+15 2015-04-18  20.733333
+14 2015-04-25  20.816667
+17 2015-04-04  20.966667</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>data_sorted_inv <span class="op">=</span> data.sort(<span class="st">"runtime"</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>data_sorted_inv <span class="op">=</span> data.sort_values(by<span class="op">=</span><span class="st">"runtime"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Sorted Data (Descending) ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -761,26 +772,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_sorted_inv.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (5, 2)
-┌─────────────────────┬───────────┐
-│ date                ┆ runtime   │
-│ ---                 ┆ ---       │
-│ datetime[μs]        ┆ f64       │
-╞═════════════════════╪═══════════╡
-│ 2013-10-19 00:00:00 ┆ 31.133333 │
-│ 2013-07-20 00:00:00 ┆ 30.566667 │
-│ 2013-03-16 00:00:00 ┆ 29.416667 │
-│ 2014-02-01 00:00:00 ┆ 27.466667 │
-│ 2013-01-12 00:00:00 ┆ 27.45     │
-└─────────────────────┴───────────┘</code></pre>
+<pre><code>          date    runtime
+84  2013-10-19  31.133333
+94  2013-07-20  30.566667
+106 2013-03-16  29.416667
+68  2014-02-01  27.466667
+111 2013-01-12  27.450000</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating summaries</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>summary_dates <span class="op">=</span> data.select([</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"date"</span>).<span class="bu">min</span>().alias(<span class="st">"min_date"</span>),</span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"date"</span>).<span class="bu">max</span>().alias(<span class="st">"max_date"</span>)</span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>summary_dates <span class="op">=</span> pd.Series({</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"min_date"</span>: data[<span class="st">"date"</span>].<span class="bu">min</span>(),</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"max_date"</span>: data[<span class="st">"date"</span>].<span class="bu">max</span>()</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Summary Dates ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -792,23 +797,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary_dates)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (1, 2)
-┌─────────────────────┬─────────────────────┐
-│ min_date            ┆ max_date            │
-│ ---                 ┆ ---                 │
-│ datetime[μs]        ┆ datetime[μs]        │
-╞═════════════════════╪═════════════════════╡
-│ 2012-08-04 00:00:00 ┆ 2015-08-22 00:00:00 │
-└─────────────────────┴─────────────────────┘</code></pre>
+<pre><code>min_date   2012-08-04
+max_date   2015-08-22
+dtype: datetime64[us]</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>summary_runtimes <span class="op">=</span> data.select([</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    pl.<span class="bu">len</span>().alias(<span class="st">"count"</span>),</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"runtime"</span>).mean().alias(<span class="st">"mean_runtime"</span>),</span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"runtime"</span>).<span class="bu">max</span>().alias(<span class="st">"slowest"</span>),</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"runtime"</span>).<span class="bu">min</span>().alias(<span class="st">"fastest"</span>)</span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>summary_runtimes <span class="op">=</span> pd.Series({</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"count"</span>: data[<span class="st">"runtime"</span>].count(),</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mean_runtime"</span>: data[<span class="st">"runtime"</span>].mean(),</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"slowest"</span>: data[<span class="st">"runtime"</span>].<span class="bu">max</span>(),</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"fastest"</span>: data[<span class="st">"runtime"</span>].<span class="bu">min</span>()</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Summary Runtimes ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -820,22 +820,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary_runtimes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (1, 4)
-┌───────┬──────────────┬───────────┬───────────┐
-│ count ┆ mean_runtime ┆ slowest   ┆ fastest   │
-│ ---   ┆ ---          ┆ ---       ┆ ---       │
-│ u32   ┆ f64          ┆ f64       ┆ f64       │
-╞═══════╪══════════════╪═══════════╪═══════════╡
-│ 120   ┆ 23.420278    ┆ 31.133333 ┆ 20.633333 │
-└───────┴──────────────┴───────────┴───────────┘</code></pre>
+<pre><code>count           120.000000
+mean_runtime     23.420278
+slowest          31.133333
+fastest          20.633333
+dtype: float64</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rounding the run times</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>data_rounded <span class="op">=</span> data.with_columns(</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"runtime"</span>).<span class="bu">round</span>(<span class="dv">0</span>).alias(<span class="st">"runtime_mins"</span>)</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Data with Rounded Runtimes ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"runtime_mins"</span>] <span class="op">=</span> data[<span class="st">"runtime"</span>].<span class="bu">round</span>(<span class="dv">0</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Data with Rounded Runtimes ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -843,26 +838,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_rounded.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (5, 3)
-┌─────────────────────┬───────────┬──────────────┐
-│ date                ┆ runtime   ┆ runtime_mins │
-│ ---                 ┆ ---       ┆ ---          │
-│ datetime[μs]        ┆ f64       ┆ f64          │
-╞═════════════════════╪═══════════╪══════════════╡
-│ 2015-08-22 00:00:00 ┆ 20.633333 ┆ 21.0         │
-│ 2015-08-15 00:00:00 ┆ 22.383333 ┆ 22.0         │
-│ 2015-08-08 00:00:00 ┆ 26.966667 ┆ 27.0         │
-│ 2015-08-01 00:00:00 ┆ 22.25     ┆ 22.0         │
-│ 2015-07-25 00:00:00 ┆ 24.816667 ┆ 25.0         │
-└─────────────────────┴───────────┴──────────────┘</code></pre>
+<pre><code>        date    runtime  runtime_mins
+0 2015-08-22  20.633333          21.0
+1 2015-08-15  22.383333          22.0
+2 2015-08-08  26.966667          27.0
+3 2015-08-01  22.250000          22.0
+4 2015-07-25  24.816667          25.0</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequencies</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>freq <span class="op">=</span> data_rounded.group_by(<span class="st">"runtime_mins"</span>).<span class="bu">len</span>().sort(<span class="st">"runtime_mins"</span>)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>freq <span class="op">=</span> data[<span class="st">"runtime_mins"</span>].value_counts().sort_index()</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Frequencies ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -874,29 +863,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(freq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (9, 2)
-┌──────────────┬─────┐
-│ runtime_mins ┆ len │
-│ ---          ┆ --- │
-│ f64          ┆ u32 │
-╞══════════════╪═════╡
-│ 21.0         ┆ 19  │
-│ 22.0         ┆ 32  │
-│ 23.0         ┆ 17  │
-│ 24.0         ┆ 19  │
-│ 25.0         ┆ 15  │
-│ 26.0         ┆ 10  │
-│ 27.0         ┆ 5   │
-│ 29.0         ┆ 1   │
-│ 31.0         ┆ 2   │
-└──────────────┴─────┘</code></pre>
+<pre><code>runtime_mins
+21.0    19
+22.0    32
+23.0    17
+24.0    19
+25.0    15
+26.0    10
+27.0     5
+29.0     1
+31.0     2
+Name: count, dtype: int64</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nicer Histogram</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_rounded.to_pandas(), </span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data, </span>
 <span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"runtime"</span>, </span>
 <span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>    binwidth<span class="op">=</span><span class="dv">1</span>, </span>
 <span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"steelblue"</span>, </span>
@@ -914,7 +898,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"grey"</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>plt.figtext(<span class="fl">0.8</span>, <span class="fl">0.01</span>, <span class="st">"Source: Andrew Tomlinson"</span>, wrap<span class="op">=</span><span class="va">True</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">10</span>) <span class="co"># Uncommented</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>plt.figtext(<span class="fl">0.8</span>, <span class="fl">0.01</span>, <span class="st">"Source: Andrew Tomlinson"</span>, wrap<span class="op">=</span><span class="va">True</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
@@ -929,22 +913,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Have the run times improved?</span></span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>pdf <span class="op">=</span> data.to_pandas()</span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure date is numeric for regression plot</span></span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>pdf[<span class="st">'date_num'</span>] <span class="op">=</span> mdates.date2num(pdf[<span class="st">'date'</span>])</span>
-<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
-<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>pdf, </span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'date_num'</span>, </span>
-<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"runtime"</span>, </span>
-<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>    scatter_kws<span class="op">=</span>{<span class="st">'s'</span>:<span class="dv">10</span>}, </span>
-<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>    line_kws<span class="op">=</span>{<span class="st">'color'</span>:<span class="st">'blue'</span>}</span>
-<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix x-axis to show dates</span></span>
-<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
-<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">'%Y-%m'</span>))</span>
-<span id="cb79-17"><a href="#cb79-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Run Times over Date"</span>)</span>
-<span id="cb79-18"><a href="#cb79-18" aria-hidden="true" tabindex="-1"></a>plt.show() <span class="co"># Uncommented</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>data_reg <span class="op">=</span> data.copy()</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>data_reg[<span class="st">"date_num"</span>] <span class="op">=</span> mdates.date2num(data_reg[<span class="st">"date"</span>])</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>sns.regplot(</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>data_reg, </span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'date_num'</span>, </span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"runtime"</span>, </span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>    scatter_kws<span class="op">=</span>{<span class="st">'s'</span>:<span class="dv">10</span>}, </span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>    line_kws<span class="op">=</span>{<span class="st">'color'</span>:<span class="st">'blue'</span>}</span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix x-axis to show dates</span></span>
+<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">'%Y-%m'</span>))</span>
+<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Run Times over Date"</span>)</span>
+<span id="cb79-17"><a href="#cb79-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1334,30 +1317,22 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell" data-layout-align="center">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb128"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
-<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
-<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb128"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
 <span id="cb128-8"><a href="#cb128-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
-<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-11"><a href="#cb128-11" aria-hidden="true" tabindex="-1"></a>path_to_file <span class="op">=</span> <span class="st">"../00_data/RunningData.xlsx"</span></span>
-<span id="cb128-12"><a href="#cb128-12" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pl.from_pandas(pd.read_excel(path_to_file, sheet_name<span class="op">=</span><span class="st">"Sheet1"</span>))</span>
-<span id="cb128-13"><a href="#cb128-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-14"><a href="#cb128-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns</span></span>
-<span id="cb128-15"><a href="#cb128-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(data.columns) <span class="op">&gt;=</span> <span class="dv">5</span>:</span>
-<span id="cb128-16"><a href="#cb128-16" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> data.rename({</span>
-<span id="cb128-17"><a href="#cb128-17" aria-hidden="true" tabindex="-1"></a>        data.columns[<span class="dv">0</span>]: <span class="st">"position"</span>,</span>
-<span id="cb128-18"><a href="#cb128-18" aria-hidden="true" tabindex="-1"></a>        data.columns[<span class="dv">1</span>]: <span class="st">"time"</span>,</span>
-<span id="cb128-19"><a href="#cb128-19" aria-hidden="true" tabindex="-1"></a>        data.columns[<span class="dv">2</span>]: <span class="st">"age_cat"</span>,</span>
-<span id="cb128-20"><a href="#cb128-20" aria-hidden="true" tabindex="-1"></a>        data.columns[<span class="dv">3</span>]: <span class="st">"gender"</span>,</span>
-<span id="cb128-21"><a href="#cb128-21" aria-hidden="true" tabindex="-1"></a>        data.columns[<span class="dv">4</span>]: <span class="st">"prev_runs"</span></span>
-<span id="cb128-22"><a href="#cb128-22" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb128-23"><a href="#cb128-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-24"><a href="#cb128-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"---</span><span class="ch">\n</span><span class="st">--- Head ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a>path_to_file <span class="op">=</span> <span class="st">"../00_data/RunningData.xlsx"</span></span>
+<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_excel(path_to_file, sheet_name<span class="op">=</span><span class="st">"Sheet1"</span>)</span>
+<span id="cb128-11"><a href="#cb128-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-12"><a href="#cb128-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns</span></span>
+<span id="cb128-13"><a href="#cb128-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(data.columns) <span class="op">&gt;=</span> <span class="dv">5</span>:</span>
+<span id="cb128-14"><a href="#cb128-14" aria-hidden="true" tabindex="-1"></a>    data.columns <span class="op">=</span> [<span class="st">"position"</span>, <span class="st">"time"</span>, <span class="st">"age_cat"</span>, <span class="st">"gender"</span>, <span class="st">"prev_runs"</span>]</span>
+<span id="cb128-15"><a href="#cb128-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-16"><a href="#cb128-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"---</span><span class="ch">\n</span><span class="st">--- Head ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>---
@@ -1368,33 +1343,38 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (5, 5)
-┌──────────┬───────────┬─────────┬────────┬───────────┐
-│ position ┆ time      ┆ age_cat ┆ gender ┆ prev_runs │
-│ ---      ┆ ---       ┆ ---     ┆ ---    ┆ ---       │
-│ i64      ┆ f64       ┆ str     ┆ str    ┆ i64       │
-╞══════════╪═══════════╪═════════╪════════╪═══════════╡
-│ 1        ┆ 16.9      ┆ 30-34   ┆ M      ┆ 60        │
-│ 2        ┆ 17.166667 ┆ 20-24   ┆ M      ┆ 91        │
-│ 3        ┆ 17.3      ┆ 25-29   ┆ M      ┆ 26        │
-│ 4        ┆ 17.366667 ┆ 40-44   ┆ M      ┆ 14        │
-│ 5        ┆ 17.383333 ┆ 40-44   ┆ M      ┆ 4         │
-└──────────┴───────────┴─────────┴────────┴───────────┘</code></pre>
+<pre><code>   position       time age_cat gender  prev_runs
+0         1  16.900000   30-34      M         60
+1         2  17.166667   20-24      M         91
+2         3  17.300000   25-29      M         26
+3         4  17.366667   40-44      M         14
+4         5  17.383333   40-44      M          4</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Schema ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Info ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
---- Schema ---</code></pre>
+--- Info ---</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.schema)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Schema({'position': Int64, 'time': Float64, 'age_cat': String, 'gender': String, 'prev_runs': Int64})</code></pre>
+<pre><code>&lt;class 'pandas.DataFrame'&gt;
+RangeIndex: 608 entries, 0 to 607
+Data columns (total 5 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   position   608 non-null    int64  
+ 1   time       608 non-null    float64
+ 2   age_cat    608 non-null    str    
+ 3   gender     608 non-null    str    
+ 4   prev_runs  608 non-null    int64  
+dtypes: float64(1), int64(2), str(2)
+memory usage: 27.3 KB</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1409,22 +1389,15 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.describe())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (9, 6)
-┌────────────┬───────────┬───────────┬─────────┬────────┬───────────┐
-│ statistic  ┆ position  ┆ time      ┆ age_cat ┆ gender ┆ prev_runs │
-│ ---        ┆ ---       ┆ ---       ┆ ---     ┆ ---    ┆ ---       │
-│ str        ┆ f64       ┆ f64       ┆ str     ┆ str    ┆ f64       │
-╞════════════╪═══════════╪═══════════╪═════════╪════════╪═══════════╡
-│ count      ┆ 608.0     ┆ 608.0     ┆ 608     ┆ 608    ┆ 608.0     │
-│ null_count ┆ 0.0       ┆ 0.0       ┆ 0       ┆ 0      ┆ 0.0       │
-│ mean       ┆ 304.5     ┆ 28.31176  ┆ null    ┆ null   ┆ 26.036184 │
-│ std        ┆ 175.65876 ┆ 5.473712  ┆ null    ┆ null   ┆ 26.738812 │
-│ min        ┆ 1.0       ┆ 16.9      ┆ 10      ┆ F      ┆ 1.0       │
-│ 25%        ┆ 153.0     ┆ 24.4      ┆ null    ┆ null   ┆ 8.0       │
-│ 50%        ┆ 305.0     ┆ 27.883333 ┆ null    ┆ null   ┆ 17.0      │
-│ 75%        ┆ 456.0     ┆ 32.0      ┆ null    ┆ null   ┆ 34.0      │
-│ max        ┆ 608.0     ┆ 43.233333 ┆ 75-79   ┆ M      ┆ 189.0     │
-└────────────┴───────────┴───────────┴─────────┴────────┴───────────┘</code></pre>
+<pre><code>        position        time   prev_runs
+count  608.00000  608.000000  608.000000
+mean   304.50000   28.311760   26.036184
+std    175.65876    5.473712   26.738812
+min      1.00000   16.900000    1.000000
+25%    152.75000   24.400000    8.000000
+50%    304.50000   27.875000   17.000000
+75%    456.25000   32.000000   34.250000
+max    608.00000   43.233333  189.000000</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1439,28 +1412,21 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">"time"</span>].describe())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (9, 2)
-┌────────────┬───────────┐
-│ statistic  ┆ value     │
-│ ---        ┆ ---       │
-│ str        ┆ f64       │
-╞════════════╪═══════════╡
-│ count      ┆ 608.0     │
-│ null_count ┆ 0.0       │
-│ mean       ┆ 28.31176  │
-│ std        ┆ 5.473712  │
-│ min        ┆ 16.9      │
-│ 25%        ┆ 24.4      │
-│ 50%        ┆ 27.883333 │
-│ 75%        ┆ 32.0      │
-│ max        ┆ 43.233333 │
-└────────────┴───────────┘</code></pre>
+<pre><code>count    608.000000
+mean      28.311760
+std        5.473712
+min       16.900000
+25%       24.400000
+50%       27.875000
+75%       32.000000
+max       43.233333
+Name: time, dtype: float64</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb144"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset adults</span></span>
 <span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a>children_cats <span class="op">=</span> [<span class="st">"10"</span>, <span class="st">"11-14"</span>, <span class="st">"15-17"</span>]</span>
-<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a>data_adults <span class="op">=</span> data.<span class="bu">filter</span>(<span class="op">~</span>pl.col(<span class="st">"age_cat"</span>).is_in(children_cats))</span>
+<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a>data_adults <span class="op">=</span> data[<span class="op">~</span>data[<span class="st">"age_cat"</span>].isin(children_cats)].copy()</span>
 <span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Adult Age Categories ---</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1473,21 +1439,10 @@ F-statistic: 82.31 on 3 and 520 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_adults[<span class="st">"age_cat"</span>].unique())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (13,)
-Series: 'age_cat' [str]
-[
-    "70-74"
-    "35-39"
-    "60-64"
-    "65-69"
-    "25-29"
-    …
-    "75-79"
-    "55-59"
-    "50-54"
-    "45-49"
-    "18-19"
-]</code></pre>
+<pre><code>&lt;ArrowStringArray&gt;
+['30-34', '20-24', '25-29', '40-44', '35-39', '45-49', '50-54', '55-59',
+ '60-64', '18-19', '65-69', '70-74', '75-79']
+Length: 13, dtype: str</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1502,22 +1457,15 @@ Series: 'age_cat' [str]
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_adults[<span class="st">"time"</span>].describe())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (9, 2)
-┌────────────┬───────────┐
-│ statistic  ┆ value     │
-│ ---        ┆ ---       │
-│ str        ┆ f64       │
-╞════════════╪═══════════╡
-│ count      ┆ 524.0     │
-│ null_count ┆ 0.0       │
-│ mean       ┆ 28.163677 │
-│ std        ┆ 5.417044  │
-│ min        ┆ 16.9      │
-│ 25%        ┆ 24.35     │
-│ 50%        ┆ 27.683333 │
-│ 75%        ┆ 31.716667 │
-│ max        ┆ 42.683333 │
-└────────────┴───────────┘</code></pre>
+<pre><code>count    524.000000
+mean      28.163677
+std        5.417044
+min       16.900000
+25%       24.341667
+50%       27.675000
+75%       31.720833
+max       42.683333
+Name: time, dtype: float64</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1530,29 +1478,19 @@ Series: 'age_cat' [str]
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb154"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>summary_gender <span class="op">=</span> data_adults.group_by(<span class="st">"gender"</span>).agg([</span>
-<span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"time"</span>).<span class="bu">min</span>().alias(<span class="st">"min"</span>),</span>
-<span id="cb154-3"><a href="#cb154-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"time"</span>).mean().alias(<span class="st">"mean"</span>),</span>
-<span id="cb154-4"><a href="#cb154-4" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"time"</span>).median().alias(<span class="st">"median"</span>),</span>
-<span id="cb154-5"><a href="#cb154-5" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"time"</span>).<span class="bu">max</span>().alias(<span class="st">"max"</span>)</span>
-<span id="cb154-6"><a href="#cb154-6" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb154-7"><a href="#cb154-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary_gender)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb154"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>summary_gender <span class="op">=</span> data_adults.groupby(<span class="st">"gender"</span>)[<span class="st">"time"</span>].agg([<span class="st">"min"</span>, <span class="st">"mean"</span>, <span class="st">"median"</span>, <span class="st">"max"</span>])</span>
+<span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary_gender)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (2, 5)
-┌────────┬──────┬───────────┬───────────┬───────────┐
-│ gender ┆ min  ┆ mean      ┆ median    ┆ max       │
-│ ---    ┆ ---  ┆ ---       ┆ ---       ┆ ---       │
-│ str    ┆ f64  ┆ f64       ┆ f64       ┆ f64       │
-╞════════╪══════╪═══════════╪═══════════╪═══════════╡
-│ F      ┆ 21.1 ┆ 30.993951 ┆ 30.841667 ┆ 42.683333 │
-│ M      ┆ 16.9 ┆ 25.155118 ┆ 24.725    ┆ 40.783333 │
-└────────┴──────┴───────────┴───────────┴───────────┘</code></pre>
+<pre><code>         min       mean     median        max
+gender                                       
+F       21.1  30.993951  30.841667  42.683333
+M       16.9  25.155118  24.725000  40.783333</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb156"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing distributions</span></span>
-<span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(data_adults.to_pandas(), row<span class="op">=</span><span class="st">"gender"</span>, hue<span class="op">=</span><span class="st">"gender"</span>, aspect<span class="op">=</span><span class="dv">2</span>, height<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(data_adults, row<span class="op">=</span><span class="st">"gender"</span>, hue<span class="op">=</span><span class="st">"gender"</span>, aspect<span class="op">=</span><span class="dv">2</span>, height<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(sns.histplot, <span class="st">"time"</span>, edgecolor<span class="op">=</span><span class="st">"white"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
@@ -1577,8 +1515,8 @@ Series: 'age_cat' [str]
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>)) <span class="co"># Added figure size for consistency</span></span>
-<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>data_adults.to_pandas(), x<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb158"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span>
 <span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Density by Gender"</span>)</span>
 <span id="cb158-4"><a href="#cb158-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1592,8 +1530,8 @@ Series: 'age_cat' [str]
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb159"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>)) <span class="co"># Added figure size for consistency</span></span>
-<span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>data_adults.to_pandas(), x<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb159"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span>
 <span id="cb159-3"><a href="#cb159-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Boxplot by Gender"</span>)</span>
 <span id="cb159-4"><a href="#cb159-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1607,8 +1545,8 @@ Series: 'age_cat' [str]
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb160"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>)) <span class="co"># Added figure size for consistency</span></span>
-<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a>sns.violinplot(data<span class="op">=</span>data_adults.to_pandas(), x<span class="op">=</span><span class="st">"time"</span>, y<span class="op">=</span><span class="st">"gender"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb160"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a>sns.violinplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"time"</span>, y<span class="op">=</span><span class="st">"gender"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span>
 <span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Violin Plot by Gender"</span>)</span>
 <span id="cb160-4"><a href="#cb160-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1624,8 +1562,8 @@ Series: 'age_cat' [str]
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb161"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Statistical tests</span></span>
 <span id="cb161-2"><a href="#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting the data</span></span>
-<span id="cb161-3"><a href="#cb161-3" aria-hidden="true" tabindex="-1"></a>times_female_adults <span class="op">=</span> data_adults.<span class="bu">filter</span>(pl.col(<span class="st">"gender"</span>) <span class="op">==</span> <span class="st">"F"</span>)[<span class="st">"time"</span>]</span>
-<span id="cb161-4"><a href="#cb161-4" aria-hidden="true" tabindex="-1"></a>times_male_adults <span class="op">=</span> data_adults.<span class="bu">filter</span>(pl.col(<span class="st">"gender"</span>) <span class="op">==</span> <span class="st">"M"</span>)[<span class="st">"time"</span>]</span>
+<span id="cb161-3"><a href="#cb161-3" aria-hidden="true" tabindex="-1"></a>times_female_adults <span class="op">=</span> data_adults[data_adults[<span class="st">"gender"</span>] <span class="op">==</span> <span class="st">"F"</span>][<span class="st">"time"</span>]</span>
+<span id="cb161-4"><a href="#cb161-4" aria-hidden="true" tabindex="-1"></a>times_male_adults <span class="op">=</span> data_adults[data_adults[<span class="st">"gender"</span>] <span class="op">==</span> <span class="st">"M"</span>][<span class="st">"time"</span>]</span>
 <span id="cb161-5"><a href="#cb161-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb161-6"><a href="#cb161-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Female Times (Head) ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1638,20 +1576,12 @@ Series: 'age_cat' [str]
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb163"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(times_female_adults.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (10,)
-Series: 'time' [f64]
-[
-    21.1
-    22.483333
-    22.983333
-    23.45
-    23.5
-    23.983333
-    24.016667
-    24.016667
-    24.016667
-    24.2
-]</code></pre>
+<pre><code>54     21.100000
+90     22.483333
+104    22.983333
+117    23.450000
+119    23.500000
+Name: time, dtype: float64</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1666,20 +1596,12 @@ Series: 'time' [f64]
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb167"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(times_male_adults.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (10,)
-Series: 'time' [f64]
-[
-    16.9
-    17.166667
-    17.3
-    17.366667
-    17.383333
-    18.216667
-    18.333333
-    18.383333
-    18.483333
-    18.65
-]</code></pre>
+<pre><code>0    16.900000
+1    17.166667
+2    17.300000
+3    17.366667
+4    17.383333
+Name: time, dtype: float64</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1695,8 +1617,8 @@ p-value: 7.426339858226416e-41</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb171"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Previous runs vs times</span></span>
-<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>)) <span class="co"># Added figure size for consistency</span></span>
-<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>data_adults.to_pandas(), x<span class="op">=</span><span class="st">"prev_runs"</span>, y<span class="op">=</span><span class="st">"time"</span>)</span>
+<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"prev_runs"</span>, y<span class="op">=</span><span class="st">"time"</span>)</span>
 <span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Time vs Previous Runs"</span>)</span>
 <span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1710,8 +1632,8 @@ p-value: 7.426339858226416e-41</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>)) <span class="co"># Added figure size for consistency</span></span>
-<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data<span class="op">=</span>data_adults.to_pandas(), x<span class="op">=</span><span class="st">"prev_runs"</span>, y<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb172"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>sns.lmplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"prev_runs"</span>, y<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"gender"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1758,11 +1680,9 @@ Median Previous Runs: 18.0</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb178"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>data_adults_pr_gr <span class="op">=</span> data_adults.with_columns(</span>
-<span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a>    (pl.col(<span class="st">"prev_runs"</span>) <span class="op">&gt;=</span> median_prev_runs).alias(<span class="st">"pr_gr"</span>)</span>
-<span id="cb178-3"><a href="#cb178-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb178-4"><a href="#cb178-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-5"><a href="#cb178-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Data with pr_gr group ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb178"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>data_adults[<span class="st">"pr_gr"</span>] <span class="op">=</span> data_adults[<span class="st">"prev_runs"</span>] <span class="op">&gt;=</span> median_prev_runs</span>
+<span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb178-3"><a href="#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Data with pr_gr group ---"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1770,27 +1690,21 @@ Median Previous Runs: 18.0</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb180"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_adults_pr_gr.select([<span class="st">"prev_runs"</span>, <span class="st">"pr_gr"</span>]).head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb180"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_adults[[<span class="st">"prev_runs"</span>, <span class="st">"pr_gr"</span>]].head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>shape: (5, 2)
-┌───────────┬───────┐
-│ prev_runs ┆ pr_gr │
-│ ---       ┆ ---   │
-│ i64       ┆ bool  │
-╞═══════════╪═══════╡
-│ 60        ┆ true  │
-│ 91        ┆ true  │
-│ 26        ┆ true  │
-│ 14        ┆ false │
-│ 4         ┆ false │
-└───────────┴───────┘</code></pre>
+<pre><code>   prev_runs  pr_gr
+0         60   True
+1         91   True
+2         26   True
+3         14  False
+4          4  False</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb182"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a quick visual check</span></span>
-<span id="cb182-2"><a href="#cb182-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
-<span id="cb182-3"><a href="#cb182-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>data_adults_pr_gr.to_pandas(), x<span class="op">=</span><span class="st">"prev_runs"</span>, hue<span class="op">=</span><span class="st">"pr_gr"</span>, multiple<span class="op">=</span><span class="st">"stack"</span>)</span>
+<span id="cb182-2"><a href="#cb182-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb182-3"><a href="#cb182-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"prev_runs"</span>, hue<span class="op">=</span><span class="st">"pr_gr"</span>, multiple<span class="op">=</span><span class="st">"stack"</span>)</span>
 <span id="cb182-4"><a href="#cb182-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Previous Runs Split"</span>)</span>
 <span id="cb182-5"><a href="#cb182-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1805,8 +1719,8 @@ Median Previous Runs: 18.0</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb183"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing times</span></span>
-<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
-<span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>data_adults_pr_gr.to_pandas(), x<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"pr_gr"</span>)</span>
+<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>data_adults, x<span class="op">=</span><span class="st">"time"</span>, hue<span class="op">=</span><span class="st">"pr_gr"</span>)</span>
 <span id="cb183-4"><a href="#cb183-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Time by Previous Runs Group"</span>)</span>
 <span id="cb183-5"><a href="#cb183-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1821,13 +1735,11 @@ Median Previous Runs: 18.0</code></pre>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb184"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear Model</span></span>
-<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>data_adults_lm <span class="op">=</span> data_adults.with_columns(</span>
-<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"age_cat"</span>).<span class="bu">str</span>.extract(<span class="vs">r"</span><span class="dv">^</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{2}</span><span class="kw">)</span><span class="vs">"</span>, <span class="dv">1</span>).cast(pl.Float64).alias(<span class="st">"age"</span>)</span>
-<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"time ~ age + gender + prev_runs"</span>, data<span class="op">=</span>data_adults_lm.to_pandas())</span>
-<span id="cb184-7"><a href="#cb184-7" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> model.fit()</span>
-<span id="cb184-8"><a href="#cb184-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Linear Model Summary ---</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb184-2"><a href="#cb184-2" aria-hidden="true" tabindex="-1"></a>data_adults[<span class="st">"age"</span>] <span class="op">=</span> data_adults[<span class="st">"age_cat"</span>].<span class="bu">str</span>.extract(<span class="vs">r"</span><span class="dv">^</span><span class="kw">(</span><span class="dv">\d</span><span class="op">{2}</span><span class="kw">)</span><span class="vs">"</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb184-3"><a href="#cb184-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-4"><a href="#cb184-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"time ~ age + gender + prev_runs"</span>, data<span class="op">=</span>data_adults)</span>
+<span id="cb184-5"><a href="#cb184-5" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> model.fit()</span>
+<span id="cb184-6"><a href="#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">--- Linear Model Summary ---</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1844,7 +1756,7 @@ Dep. Variable:                   time   R-squared:                       0.322
 Model:                            OLS   Adj. R-squared:                  0.318
 Method:                 Least Squares   F-statistic:                     82.31
 Date:                Thu, 03 Sep 2026   Prob (F-statistic):           1.39e-43
-Time:                        10:24:24   Log-Likelihood:                -1526.5
+Time:                        10:41:59   Log-Likelihood:                -1526.5
 No. Observations:                 524   AIC:                             3061.
 Df Residuals:                     520   BIC:                             3078.
 Df Model:                           3                                         
@@ -1882,7 +1794,7 @@ Notes:
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2025 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2026 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

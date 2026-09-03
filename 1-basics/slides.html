@@ -425,15 +425,19 @@
 
 <h3 id="subsetting-data">Subsetting Data</h3>
 <p>Extract specific elements from data structures:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a>lst <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
-<span id="cb12-2"><a aria-label="2"></a>first_element <span class="op">=</span> lst[<span class="dv">0</span>]        <span class="co"># 10</span></span>
-<span id="cb12-3"><a aria-label="3"></a>subset <span class="op">=</span> lst[<span class="dv">1</span>:<span class="dv">4</span>]             <span class="co"># [20, 30, 40]</span></span>
-<span id="cb12-4"><a aria-label="4"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb12-5"><a aria-label="5"></a>    <span class="st">'a'</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>),</span>
-<span id="cb12-6"><a aria-label="6"></a>    <span class="st">'b'</span>: <span class="bu">range</span>(<span class="dv">6</span>, <span class="dv">11</span>),</span>
-<span id="cb12-7"><a aria-label="7"></a>    <span class="st">'c'</span>: <span class="bu">list</span>(<span class="st">'abcde'</span>)})</span>
-<span id="cb12-8"><a aria-label="8"></a>df[<span class="st">'a'</span>]  <span class="co"># access column `a`</span></span>
-<span id="cb12-9"><a aria-label="9"></a>df.iloc[<span class="dv">0</span>, :]   <span class="co"># access first row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a aria-label="1"></a><span class="co"># Subsetting lists</span></span>
+<span id="cb12-2"><a aria-label="2"></a>lst <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>]</span>
+<span id="cb12-3"><a aria-label="3"></a>first_element <span class="op">=</span> lst[<span class="dv">0</span>]        <span class="co"># 10</span></span>
+<span id="cb12-4"><a aria-label="4"></a>subset <span class="op">=</span> lst[<span class="dv">1</span>:<span class="dv">4</span>]             <span class="co"># [20, 30, 40]</span></span>
+<span id="cb12-5"><a aria-label="5"></a></span>
+<span id="cb12-6"><a aria-label="6"></a><span class="co"># Subsetting DataFrames (using pandas)</span></span>
+<span id="cb12-7"><a aria-label="7"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-8"><a aria-label="8"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb12-9"><a aria-label="9"></a>    <span class="st">'a'</span>: <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>),</span>
+<span id="cb12-10"><a aria-label="10"></a>    <span class="st">'b'</span>: <span class="bu">range</span>(<span class="dv">6</span>, <span class="dv">11</span>),</span>
+<span id="cb12-11"><a aria-label="11"></a>    <span class="st">'c'</span>: <span class="bu">list</span>(<span class="st">'abcde'</span>)})</span>
+<span id="cb12-12"><a aria-label="12"></a>df[<span class="st">'a'</span>]          <span class="co"># access column `a`</span></span>
+<span id="cb12-13"><a aria-label="13"></a>df.iloc[<span class="dv">0</span>, :]    <span class="co"># access first row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>More on subsetting here: <a href="https://numpy.org/doc/stable/user/basics.indexing.html">NumPy Indexing</a></p>
 </section>
 <section id="control-flow" class="slide level2">
