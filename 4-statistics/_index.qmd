@@ -12,3 +12,15 @@ In this part of the practical, we will use what we have learned so far to perfor
   - Script 2: SPSS Task ([Python](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.py), [R](https://github.com/itsleeds/introds/blob/main/4-statistics/task_2_spss_debug.R))
 
 **R version:** If you prefer R, the same exercises are available in R. See the R script links above.
+
+## More Debugging Practice
+
+If you want more of the same once those two scripts run, the follow-on course [Python for Transport & Civil Engineering](https://github.com/chris-r-uol/python_learning) has a **traceback safari**: six short scripts, each containing one deliberate error, with a marker that reports which ones you have fixed without telling you how to fix them. It uses only the Python standard library, so there is nothing to install.
+
+```sh
+git clone https://github.com/chris-r-uol/python_learning.git
+cd python_learning/week1_setup/exercises
+python check.py
+```
+
+Python only — this exercise has no R version.

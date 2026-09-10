@@ -48,6 +48,26 @@ These communities are invaluable:
 - Write blog posts about what you learn
 - Share projects on social media (#RStats, #DataScience)
 
+## Go Further: A Five-Week Course
+
+If this practical clicked and you want the long version, **[Python for Transport & Civil Engineering](https://github.com/chris-r-uol/python_learning)** by Chris Russell (University of Liverpool) is a free, five-week course aimed at transport and civil engineering students. It starts where we started — running your first script, reading a traceback — and ends with you building a transport atlas of a place you choose from national open data (NaPTAN stops, STATS19 road casualties, IMD, Census 2021, PCT, OpenStreetMap and weather), directing an AI assistant as you go and checking its output rather than trusting it.
+
+It is more demanding than this session, and self-directed: expect to get stuck, and expect to work it out yourself.
+
+What it adds:
+
+- Setup guides for Windows, macOS, locked-down laptops, GitHub Codespaces and Google Colab, plus a script that diagnoses what is wrong with your installation
+- Twelve self-checking programming drills and a "traceback safari" of six deliberately broken scripts that mark themselves
+- A full method for working with AI: how to specify a task, and the four checks to run before you believe the result
+- A worked Leeds atlas you can follow chapter by chapter, and a brief for building your own
+
+Two things to know before you start:
+
+- **Python only.** There is no R version, so if you are on the R track, [R for Data Science (2e)](https://r4ds.hadley.nz/) and [Geocomputation with R](https://r.geocompx.org/) are the better follow-ons.
+- **Budget about 45 minutes for setup** before week 1. The guides assume a local Python and VS Code, with Codespaces or Colab as the fallback if that is not possible.
+
+The same text is published as a searchable website at <https://chris-r-uol.github.io/python_learning/>, but the [repository](https://github.com/chris-r-uol/python_learning) is the copy to clone or download, since the site is built from it.
+
 ## Advanced Topics to Explore
 
 Once you're comfortable with basics:
