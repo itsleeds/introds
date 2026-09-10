@@ -1,5 +1,5 @@
 # This script demonstrates how to use Python (pandas) for data analysis tasks that have been
-# previously performed in Excel, replicating the logic from Task_excel.R.
+# previously performed in Excel, reproducing the logic of Task_excel.R.
 #
 # NOTE: This version contains intentional typos/syntax errors for debugging practice.
 # Find and fix them to make the script run!

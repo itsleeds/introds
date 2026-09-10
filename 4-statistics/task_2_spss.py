@@ -1,5 +1,5 @@
 # This script demonstrates how to use Python (pandas) for data analysis tasks that have been
-# previously performed in SPSS, replicating the logic from Task_2_SPSS.R.
+# previously performed in SPSS, reproducing the logic of Task_2_SPSS.R.
 # Note: For large datasets, high-performance alternatives include Polars (https://docs.pola.rs/)
 # and DuckDB (https://duckdb.org/).
 

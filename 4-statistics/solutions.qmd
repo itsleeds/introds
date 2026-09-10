@@ -22,9 +22,9 @@ The Python solutions below use **pandas** for seamless integration with `seaborn
 -   **[DuckDB](https://duckdb.org/)**: An in-process SQL analytical engine for querying files directly without database overhead.
 :::
 
-## Task 1: Excel Data Analysis
+## Task 1: Reproducing the Excel exercise
 
-This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx`), cleaning it, calculating summaries, and visualizing the distribution of run times.
+This exercise involves reading data from an Excel file (`ParkRunPerformanceData.xlsx`), cleaning it, calculating summaries, and visualizing the distribution of run times.
 
 ::: panel-tabset
 
@@ -36,7 +36,7 @@ This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from Excel Task (Python)"
+#| fig-cap: "Various Outputs from the Excel Exercise (Python)"
 
 import pandas as pd
 import seaborn as sns
@@ -147,7 +147,7 @@ plt.show()
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from Excel Task (R)"
+#| fig-cap: "Various Outputs from the Excel Exercise (R)"
 
 # Loading the necessary libraries
 library(tidyverse)
@@ -243,9 +243,9 @@ data |>
 
 :::
 
-## Task 2: SPSS Data Analysis
+## Task 2: Reproducing the SPSS exercise
 
-This task analyzes running data originally handled in SPSS (`RunningData.xlsx`), including filtering, grouping, and statistical tests.
+This exercise reproduces in code an analysis originally carried out in SPSS (`RunningData.xlsx`), including filtering, grouping, and statistical tests.
 
 ::: panel-tabset
 
@@ -257,7 +257,7 @@ This task analyzes running data originally handled in SPSS (`RunningData.xlsx`),
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from SPSS Task (Python)"
+#| fig-cap: "Various Outputs from the SPSS Exercise (Python)"
 
 import pandas as pd
 import seaborn as sns
@@ -384,7 +384,7 @@ print(results.summary())
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from SPSS Task (R)"
+#| fig-cap: "Various Outputs from the SPSS Exercise (R)"
 
 library(tidyverse)
 library(readxl)

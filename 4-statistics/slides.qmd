@@ -14,7 +14,7 @@ Today's roadmap:
 
 -   **Quarto & Reproducibility:** Structuring dissertations and research
 -   **Tool Comparison:** Excel & SPSS vs Python & R
--   **Hands-on Debugging:** Replicating Excel & SPSS tasks
+-   **Hands-on Debugging:** Reproducing the Excel and SPSS exercises in code
 -   **Collaboration & AI:** Version control with Git & safe AI usage
 
 ------------------------------------------------------------------------
@@ -64,14 +64,14 @@ Choosing the right tool for the job:
 
 ## Moving from Point-and-Click to Code
 
-In today's practical tasks:
+In today's practical exercises:
 
-1.  **Task 1 (Excel Replication):**
+1.  **Task 1 (reproducing the Excel exercise):**
     - Reading spreadsheet data (`ParkRunPerformanceData.xlsx`)
     - Computing summary statistics and frequency distributions
     - Visualizing run time trends over time
 
-2.  **Task 2 (SPSS Replication):**
+2.  **Task 2 (reproducing the SPSS exercise):**
     - Subsetting cohorts (adult runners)
     - Independent samples t-test (Male vs Female)
     - Correlation and multivariable regression modeling
