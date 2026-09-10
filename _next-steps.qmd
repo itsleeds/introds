@@ -50,7 +50,7 @@ These communities are invaluable:
 
 ## Go Further: A Five-Week Course
 
-If this practical clicked and you want the long version, **[Python for Transport & Civil Engineering](https://github.com/chris-r-uol/python_learning)** by Chris Russell (University of Liverpool) is a free, five-week course aimed at transport and civil engineering students. It starts where we started — running your first script, reading a traceback — and ends with you building a transport atlas of a place you choose from national open data (NaPTAN stops, STATS19 road casualties, IMD, Census 2021, PCT, OpenStreetMap and weather), directing an AI assistant as you go and checking its output rather than trusting it.
+If this practical clicked and you want the long version, **[Python for Transport & Civil Engineering](https://github.com/chris-r-uol/python_learning)** by [Dr Chris Rushton](https://environment.leeds.ac.uk/transport/staff/8835/dr-chris-rushton) at the Institute for Transport Studies here at Leeds is a free, five-week course aimed at transport and civil engineering students. It starts where we started — running your first script, reading a traceback — and ends with you building a transport atlas of a place you choose from national open data (NaPTAN stops, STATS19 road casualties, IMD, Census 2021, PCT, OpenStreetMap and weather), directing an AI assistant as you go and checking its output rather than trusting it.
 
 It is more demanding than this session, and self-directed: expect to get stuck, and expect to work it out yourself.
 
