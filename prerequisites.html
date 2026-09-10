@@ -342,15 +342,30 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="programming-languages" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="programming-languages">2. Programming Languages</h4>
-<p><strong>Python</strong> is a general-purpose programming language widely used for data science, machine learning, and AI.</p>
+<section id="python" class="level5">
+<h5 class="anchored" data-anchor-id="python">Python</h5>
+<p>Python is a general-purpose programming language widely used for data science, machine learning, and AI.</p>
+<p>To be able to run Python code in your own laptop. You have two options:</p>
 <ul>
-<li>Download Python from <a href="https://www.python.org/downloads/">python.org</a> (version 3.11 or higher recommended)</li>
-<li>Or install via <a href="https://www.anaconda.com/download">Anaconda</a> (includes many data science packages)</li>
-</ul>
-<p><strong>R</strong> (Optional) is another popular language for statistical computing.</p>
+<li><p><strong>Option A - Global Python:</strong> Every project you create/use will use the same Pyhon installation and packages.</p>
 <ul>
-<li>Download R from <a href="https://cran.r-project.org/">CRAN</a></li>
+<li>Pros: Simple (but slow) initial set up. Once installed, you run code directly without managing environments.</li>
+<li>Cons: Slower initial setup and fragile over time. Installing or updating a package for one module can break older projects, and sharing your exact setup with teammates or markers is difficult</li>
+<li>You can install Python in your system using the installers from <a href="https://www.python.org/downloads/">python.org</a> (version 3.11 or higher recommended) or via <a href="https://www.anaconda.com/download">Anaconda</a>.</li>
+</ul></li>
+<li><p><strong>Option B - Project Environments via <code>pixi</code> (Recommended):</strong> Python and all required libraries are self-contained inside each project folder.</p>
+<ul>
+<li>Pros: Installs in seconds, prevents dependency conflicts between assignments, and guarantees your code runs identically on anyone else’s machine.</li>
+<li>Cons: Requires learning a couple of basic command-line interactions.</li>
+<li>You will need to install <code>pixi</code> just once from <a href="https://pixi.prefix.dev/latest/#installation">pixi.prefix.dev</a> just once. We will cover how to set up a project in <a href="./1-basics/index.html">the first section</a></li>
+</ul></li>
 </ul>
+<p>Beside the being the fastest way to set everything up for your projects, it also makes it easy to share/reproduce your projects. To do this, you will need to install <code>pixi</code> from <a href="https://pixi.prefix.dev/latest/#installation">pixi.prefix.dev</a> just once.</p>
+</section>
+<section id="r-optional" class="level5">
+<h5 class="anchored" data-anchor-id="r-optional">R (Optional)</h5>
+<p>R is another popular language for statistical computing. You can download the R installers from <a href="https://cran.r-project.org/">CRAN</a></p>
+</section>
 </section>
 </section>
 </section>
