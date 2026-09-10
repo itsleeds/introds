@@ -15,15 +15,33 @@ Setting up your first(?) project:
    **Note**: The exact steps may vary slightly in Positron or RStudio, but the concept of project organization remains the same.
 
 ::: {.callout-caution collapse="true"}
-## If you are using `pixi` expand this
+## Using `pixi` or `uv`? Set the project environment up first
 
-If you are using `pixi` in your own machine, you will have to set up your project with the *tools* you will use. For this, run in the terminal:
+Some students use a project environment manager instead of a plain `venv`. If
+you use `pixi` or `uv` on your own machine, create the environment before you
+start.
+
+With `pixi`:
 
 ```bash
 pixi init .
-pixi add python pandas openpyxl seaborn matplotlib scipy statsmodels
+pixi add python pandas openpyxl seaborn matplotlib scipy statsmodels pyarrow
 ```
-After a minute, you will have a fully functional python installation available for this project. 
+
+With `uv`:
+
+```bash
+uv init .
+uv add pandas openpyxl seaborn matplotlib scipy statsmodels pyarrow
+```
+
+Either way you get a working Python with every package this practical uses —
+the same list as `requirements.txt`. Run your scripts inside that environment:
+
+```bash
+pixi run python scripts/1-basics-intro.py
+uv run python scripts/1-basics-intro.py
+```
 :::
 
 
