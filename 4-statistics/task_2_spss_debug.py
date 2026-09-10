@@ -1,5 +1,5 @@
 # This script demonstrates how to use Python (pandas) for data analysis tasks that have been
-# previously performed in SPSS, replicating the logic from Task_2_SPSS.R.
+# previously performed in SPSS, reproducing the logic of Task_2_SPSS.R.
 #
 # NOTE: This version contains intentional typos/syntax errors for debugging practice.
 # Find and fix them to make the script run!

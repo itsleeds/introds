@@ -70,7 +70,7 @@ If you are unsure which language to pick, we recommend trying both for 10 minute
 |------|----------|
 | 09:00 - 09:10 | **Welcome Back**: Setup and goals for Session 2 |
 | 09:10 - 09:40 | **Workflow Recap**: Quarto for Reproducible Research and Your Dissertation |
-| 09:40 - 10:25 | **Statistics**: Basic statistical analysis and script debugging (Python, R, SPSS, Excel) |
+| 09:40 - 10:25 | **Statistics**: Reproducing Excel and SPSS exercises in code |
 | 10:25 - 10:35 | *Break* |
 | 10:35 - 10:55 | **Collaboration & AI Tools**: Version control with Git/GitHub and AI assistants |
 | 10:55 - 11:00 | **Wrap-up**: Next steps and continuing your data science journey |

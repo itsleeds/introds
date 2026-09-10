@@ -22,9 +22,9 @@ The Python solutions below use **pandas** for seamless integration with `seaborn
 -   **[DuckDB](https://duckdb.org/)**: An in-process SQL analytical engine for querying files directly without database overhead.
 :::
 
-## Task 1: Excel Data Analysis
+## Task 1: Reproducing the Excel exercise
 
-This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx`), cleaning it, calculating summaries, and visualizing the distribution of run times.
+This exercise involves reading data from an Excel file (`ParkRunPerformanceData.xlsx`), cleaning it, calculating summaries, and visualizing the distribution of run times.
 
 ::: panel-tabset
 
@@ -36,7 +36,7 @@ This task involves reading data from an Excel file (`ParkRunPerformanceData.xlsx
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from Excel Task (Python)"
+#| fig-cap: "Various Outputs from the Excel Exercise (Python)"
 
 import pandas as pd
 import seaborn as sns
@@ -147,7 +147,7 @@ plt.show()
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from Excel Task (R)"
+#| fig-cap: "Various Outputs from the Excel Exercise (R)"
 
 # Loading the necessary libraries
 library(tidyverse)
@@ -243,9 +243,9 @@ data |>
 
 :::
 
-## Task 2: SPSS Data Analysis
+## Task 2: Reproducing the SPSS exercise
 
-This task analyzes running data originally handled in SPSS (`RunningData.xlsx`), including filtering, grouping, and statistical tests.
+This exercise reproduces in code an analysis originally carried out in SPSS (`RunningData.xlsx`), including filtering, grouping, and statistical tests.
 
 ::: panel-tabset
 
@@ -257,7 +257,7 @@ This task analyzes running data originally handled in SPSS (`RunningData.xlsx`),
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from SPSS Task (Python)"
+#| fig-cap: "Various Outputs from the SPSS Exercise (Python)"
 
 import pandas as pd
 import seaborn as sns
@@ -327,7 +327,7 @@ print(times_female_adults.head())
 print("\n--- Male Times (Head) ---")
 print(times_male_adults.head())
 
-t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults)
+t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults, equal_var=True)
 print(f"\n--- T-Test Results ---\nt-statistic: {t_stat}\np-value: {p_val}")
 
 # Previous runs vs times
@@ -384,7 +384,7 @@ print(results.summary())
 #| fig-width: 10
 #| fig-height: 6
 #| fig-align: center
-#| fig-cap: "Various Outputs from SPSS Task (R)"
+#| fig-cap: "Various Outputs from the SPSS Exercise (R)"
 
 library(tidyverse)
 library(readxl)
@@ -444,7 +444,8 @@ times_female_adults <- data_adults |> filter(gender == "F") |> pull(time)
 times_male_adults <- data_adults |> filter(gender == "M") |> pull(time)
 
 cat("\n--- T-Test Results (Male vs Female) ---")
-t.test(times_male_adults, times_female_adults)
+# var.equal = TRUE matches the Python version above; R's default is Welch.
+t.test(times_male_adults, times_female_adults, var.equal = TRUE)
 
 # Previous runs vs times
 data_adults |> 
