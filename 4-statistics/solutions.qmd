@@ -327,7 +327,7 @@ print(times_female_adults.head())
 print("\n--- Male Times (Head) ---")
 print(times_male_adults.head())
 
-t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults)
+t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults, equal_var=True)
 print(f"\n--- T-Test Results ---\nt-statistic: {t_stat}\np-value: {p_val}")
 
 # Previous runs vs times
@@ -444,7 +444,8 @@ times_female_adults <- data_adults |> filter(gender == "F") |> pull(time)
 times_male_adults <- data_adults |> filter(gender == "M") |> pull(time)
 
 cat("\n--- T-Test Results (Male vs Female) ---")
-t.test(times_male_adults, times_female_adults)
+# var.equal = TRUE matches the Python version above; R's default is Welch.
+t.test(times_male_adults, times_female_adults, var.equal = TRUE)
 
 # Previous runs vs times
 data_adults |> 

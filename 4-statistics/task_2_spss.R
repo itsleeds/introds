@@ -106,7 +106,10 @@ times_male_adults <- data_adults |>
 times_male_adults
 
 # Comparing two groups based on gender
-t.test(times_male_adults,times_female_adults)
+# SPSS prints Levene's test and two rows, "equal variances assumed" and "not
+# assumed". var.equal = TRUE reproduces the pooled row, which is what the
+# Python script does. R's own default here is var.equal = FALSE (Welch).
+t.test(times_male_adults, times_female_adults, var.equal = TRUE)
 
 
 # Analysis of previous runs vs times

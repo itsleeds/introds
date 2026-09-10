@@ -97,7 +97,10 @@ print("\n--- Male Times (Head) ---")
 print(times_male_adults.head())
 
 # Comparing two groups based on gender (t-test)
-t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults)
+# SPSS prints Levene's test and two rows, "equal variances assumed" and "not
+# assumed". We use the pooled variant, stated explicitly, so this reports the
+# same test as the R script instead of depending on a package default.
+t_stat, p_val = stats.ttest_ind(times_male_adults, times_female_adults, equal_var=True)
 print(f"\n--- T-Test Results ---\nt-statistic: {t_stat}\np-value: {p_val}")
 
 # Analysis of previous runs vs times
