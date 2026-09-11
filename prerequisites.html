@@ -262,12 +262,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#required-software" id="toc-required-software" class="nav-link active" data-scroll-target="#required-software">Required Software</a>
-  <ul class="collapse">
-  <li><a href="#if-using-appsanywhere" id="toc-if-using-appsanywhere" class="nav-link" data-scroll-target="#if-using-appsanywhere">If using AppsAnywhere</a></li>
-  <li><a href="#cloud-based-development-environments-recommended" id="toc-cloud-based-development-environments-recommended" class="nav-link" data-scroll-target="#cloud-based-development-environments-recommended">Cloud-based Development Environments (Recommended)</a></li>
-  <li><a href="#if-installing-on-your-own-laptop" id="toc-if-installing-on-your-own-laptop" class="nav-link" data-scroll-target="#if-installing-on-your-own-laptop">If installing on your own laptop</a></li>
-  </ul></li>
+  <li><a href="#required-software" id="toc-required-software" class="nav-link active" data-scroll-target="#required-software">Required Software</a></li>
   <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/prerequisites.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -294,11 +289,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry—we’ll keep this brief!</p>
+<p>Before starting this practical session, you’ll need to set up a few essential tools. Don’t worry, we’ll keep this brief!</p>
 <section id="required-software" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="required-software">Required Software</h2>
-<section id="if-using-appsanywhere" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="if-using-appsanywhere">If using AppsAnywhere</h3>
+<p>Depending on your set-up, you can use any of the following steps:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Using AppsAnywhere</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Using your own laptop</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Using the Cloud</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>If you’re using <a href="https://appsanywhere.leeds.ac.uk/">AppsAnywhere</a>(available on university computers or your own laptop):</p>
 <ol type="1">
 <li><p>Open AppsAnywhere on your computer</p></li>
@@ -308,24 +306,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>For R (optional), search for and launch <strong>R for Windows</strong> first, then <strong>RStudio</strong></p>
 <p><img src="images/paste-4.png" class="img-fluid" width="551"> <img src="images/paste-5.png" class="img-fluid" width="544"></p></li>
 </ol>
-</section>
-<section id="cloud-based-development-environments-recommended" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="cloud-based-development-environments-recommended">Cloud-based Development Environments (Recommended)</h3>
-<p>For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like <strong>GitHub Codespaces</strong>. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.</p>
-<p>To open this project in GitHub Codespaces, click the link below:</p>
-<p><a href="https://github.com/codespaces/new/itsleeds/introds?quickstart=1">Open in GitHub Codespaces</a> <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) --></p>
-<p><strong>Benefits:</strong></p>
-<ul>
-<li><strong>Zero Setup:</strong> No need to install anything on your local machine.</li>
-<li><strong>Consistent Environment:</strong> Everyone uses the exact same tools and configurations.</li>
-<li><strong>Powerful:</strong> Runs on cloud servers, providing ample computing resources.</li>
-<li><strong>Accessible:</strong> Works from any modern web browser.</li>
-<li><strong>GitHub Account Required:</strong> You need a GitHub account to use Codespaces.</li>
-<li><strong>Free Usage Tier:</strong> GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the <a href="https://education.github.com/pack">GitHub Student Developer Pack</a>).</li>
-</ul>
-</section>
-<section id="if-installing-on-your-own-laptop" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="if-installing-on-your-own-laptop">If installing on your own laptop</h3>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:</p>
 <section id="development-environment-ide" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="development-environment-ide">1. Development Environment (IDE)</h4>
@@ -349,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Option A - Global Python:</strong> Every project you create/use will use the same Pyhon installation and packages.</p>
 <ul>
-<li>Pros: Simple (but slow) initial set up. Once installed, you run code directly without managing environments.</li>
+<li>Pros: Simple initial set up. Once installed, you run code directly without managing environments.</li>
 <li>Cons: Slower initial setup and fragile over time. Installing or updating a package for one module can break older projects, and sharing your exact setup with teammates or markers is difficult</li>
 <li>You can install Python in your system using the installers from <a href="https://www.python.org/downloads/">python.org</a> (version 3.11 or higher recommended) or via <a href="https://www.anaconda.com/download">Anaconda</a>.</li>
 </ul></li>
@@ -360,14 +342,29 @@ ul.task-list li input[type="checkbox"] {
 <li>You will need to install <code>pixi</code> just once from <a href="https://pixi.prefix.dev/latest/#installation">pixi.prefix.dev</a> just once. We will cover how to set up a project in <a href="./1-basics/index.html">the first section</a></li>
 </ul></li>
 </ul>
-<p>Beside the being the fastest way to set everything up for your projects, it also makes it easy to share/reproduce your projects. To do this, you will need to install <code>pixi</code> from <a href="https://pixi.prefix.dev/latest/#installation">pixi.prefix.dev</a> just once.</p>
 </section>
 <section id="r-optional" class="level5">
 <h5 class="anchored" data-anchor-id="r-optional">R (Optional)</h5>
 <p>R is another popular language for statistical computing. You can download the R installers from <a href="https://cran.r-project.org/">CRAN</a></p>
 </section>
 </section>
-</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like <strong>GitHub Codespaces</strong>. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.</p>
+<p>To open this project in GitHub Codespaces, click the link below:</p>
+<p><a href="https://github.com/codespaces/new/itsleeds/introds?quickstart=1">Open in GitHub Codespaces</a> <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) --></p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Zero Setup:</strong> No need to install anything on your local machine.</li>
+<li><strong>Consistent Environment:</strong> Everyone uses the exact same tools and configurations.</li>
+<li><strong>Powerful:</strong> Runs on cloud servers, providing ample computing resources.</li>
+<li><strong>Accessible:</strong> Works from any modern web browser.</li>
+<li><strong>GitHub Account Required:</strong> You need a GitHub account to use Codespaces.</li>
+<li><strong>Free Usage Tier:</strong> GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the <a href="https://education.github.com/pack">GitHub Student Developer Pack</a>).</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="getting-help" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="getting-help">Getting Help</h2>
