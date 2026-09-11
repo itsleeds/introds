@@ -1,8 +1,12 @@
-Before starting this practical session, you'll need to set up a few essential tools. Don't worry—we'll keep this brief!
+Before starting this practical session, you'll need to set up a few essential tools. Don't worry, we'll keep this brief!
 
 ## Required Software {.unnumbered}
 
-### If using AppsAnywhere {.unnumbered}
+Depending on your set-up, you can use any of the following steps:
+
+:::{.panel-tabset}
+
+### Using AppsAnywhere {.unnumbered}
 
 If you're using [AppsAnywhere](https://appsanywhere.leeds.ac.uk/)(available on university computers or your own laptop):
 
@@ -18,24 +22,7 @@ If you're using [AppsAnywhere](https://appsanywhere.leeds.ac.uk/)(available on u
 
     ![](images/paste-4.png){width="551"} ![](images/paste-5.png){width="544"}
 
-### Cloud-based Development Environments (Recommended) {.unnumbered}
-
-For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
-
-To open this project in GitHub Codespaces, click the link below:
-
-[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
-
-**Benefits:**
-
-- **Zero Setup:** No need to install anything on your local machine.
-- **Consistent Environment:** Everyone uses the exact same tools and configurations.
-- **Powerful:** Runs on cloud servers, providing ample computing resources.
-- **Accessible:** Works from any modern web browser.
-- **GitHub Account Required:** You need a GitHub account to use Codespaces.
-- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
-
-### If installing on your own laptop {.unnumbered}
+### Using your own laptop {.unnumbered}
 
 This approach is recommended if you want more control over your installations and if you plan to continue using these tools after the session:
 
@@ -62,7 +49,7 @@ To be able to run Python code in your own laptop. You have two options:
 
 - **Option A - Global Python:** Every project you create/use will use the same Pyhon installation and packages.
 
-  - Pros: Simple (but slow) initial set up. Once installed, you run code directly without managing environments.
+  - Pros: Simple initial set up. Once installed, you run code directly without managing environments.
   - Cons: Slower initial setup and fragile over time. Installing or updating a package for one module can break older projects, and sharing your exact setup with teammates or markers is difficult
   - You can install Python in your system using the installers from [python.org](https://www.python.org/downloads/) (version 3.11 or higher recommended) or via [Anaconda](https://www.anaconda.com/download).
 
@@ -72,11 +59,29 @@ To be able to run Python code in your own laptop. You have two options:
   - Cons: Requires learning a couple of basic command-line interactions.
   - You will need to install `pixi` just once from [pixi.prefix.dev](https://pixi.prefix.dev/latest/#installation) just once. We will cover how to set up a project in [the first section](1-basics/index.qmd)
 
-Beside the being the fastest way to set everything up for your projects, it also makes it easy to share/reproduce your projects. To do this, you will need to install `pixi` from [pixi.prefix.dev](https://pixi.prefix.dev/latest/#installation) just once.
-
 ##### R (Optional)
 
 R is another popular language for statistical computing. You can download the R installers from [CRAN](https://cran.r-project.org/)
+
+### Using the Cloud {.unnumbered}
+
+For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
+
+To open this project in GitHub Codespaces, click the link below:
+
+[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
+
+**Benefits:**
+
+- **Zero Setup:** No need to install anything on your local machine.
+- **Consistent Environment:** Everyone uses the exact same tools and configurations.
+- **Powerful:** Runs on cloud servers, providing ample computing resources.
+- **Accessible:** Works from any modern web browser.
+- **GitHub Account Required:** You need a GitHub account to use Codespaces.
+- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
+
+:::
+
 
 ## Getting Help {.unnumbered}
 
