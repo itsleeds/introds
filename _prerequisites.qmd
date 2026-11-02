@@ -6,6 +6,23 @@ Depending on your set-up, you can use any of the following steps:
 
 :::{.panel-tabset}
 
+### Using the Cloud {.unnumbered}
+
+For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
+
+To open this project in GitHub Codespaces, click the link below:
+
+[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
+
+**Benefits:**
+
+- **Zero Setup:** No need to install anything on your local machine.
+- **Consistent Environment:** Everyone uses the exact same tools and configurations.
+- **Powerful:** Runs on cloud servers, providing ample computing resources.
+- **Accessible:** Works from any modern web browser.
+- **GitHub Account Required:** You need a GitHub account to use Codespaces.
+- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
+
 ### Using AppsAnywhere {.unnumbered}
 
 If you're using [AppsAnywhere](https://appsanywhere.leeds.ac.uk/)(available on university computers or your own laptop):
@@ -62,23 +79,6 @@ To be able to run Python code in your own laptop. You have two options:
 ##### R (Optional)
 
 R is another popular language for statistical computing. You can download the R installers from [CRAN](https://cran.r-project.org/)
-
-### Using the Cloud {.unnumbered}
-
-For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
-
-To open this project in GitHub Codespaces, click the link below:
-
-[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
-
-**Benefits:**
-
-- **Zero Setup:** No need to install anything on your local machine.
-- **Consistent Environment:** Everyone uses the exact same tools and configurations.
-- **Powerful:** Runs on cloud servers, providing ample computing resources.
-- **Accessible:** Works from any modern web browser.
-- **GitHub Account Required:** You need a GitHub account to use Codespaces.
-- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
 
 :::
 
