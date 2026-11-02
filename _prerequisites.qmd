@@ -1,5 +1,14 @@
 Before starting this practical session, you'll need to set up a few essential tools. Don't worry, we'll keep this brief!
 
+## Required reading
+
+We recommend around 5 minutes for each of the following readings (minimum), or more if you want to work through the instructions (bonus).
+
+- [Introduction to Quarto](https://quarto.org/docs/get-started/hello/vscode.html)
+- [An overview of VS Code](https://code.visualstudio.com/docs/getstarted/overview)
+- [An introduction to GitHub](https://docs.github.com/en/get-started/using-github/hello-world)
+- [GitHub Codespaces Introduction](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)
+
 ## Required Software {.unnumbered}
 
 Depending on your set-up, you can use any of the following steps:
