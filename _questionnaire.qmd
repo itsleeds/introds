@@ -9,21 +9,31 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) Yes
 - ( ) No
 
+**1.1 I have read:**
+
+- [Introduction to Quarto](https://quarto.org/docs/get-started/hello/vscode.html)
+- [An overview of VS Code](https://code.visualstudio.com/docs/getstarted/overview)
+- [An introduction to GitHub](https://docs.github.com/en/get-started/using-github/hello-world)
+- [GitHub Codespaces Introduction](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)
+
 **2. How do you plan to run code during the practical sessions?**
 
+- ( ) In the cloud using **GitHub Codespaces**
+- ( ) In the cloud using another platform (**MyBinder**, **Google Colab**, **Posit Cloud**, **Heywhale**, or **ModelScope**)
 - ( ) University computer or laptop via **AppsAnywhere** (Anaconda / VS Code / RStudio)
 - ( ) On my own laptop using a **local setup** (e.g., `pixi`, `uv`, global Python, Anaconda, or R)
-- ( ) In the cloud using **GitHub Codespaces**
-- ( ) I'm not sure yet
+- ( ) I'm not sure yet / other
+
+**2.2 If you selected "I'm not sure yet / other" for how you plan to run code, please specify:**
+
+*Short text answer*
 
 **3. Which Integrated Development Environment (IDE) do you plan to use?**
 
-- ( ) VS Code
-- ( ) Positron
+- ( ) Browser-based (GitHub Codespaces / Jupyter / MyBinder / Google Colab / Posit Cloud / Heywhale)
+- ( ) VS Code or Positron running locally
 - ( ) RStudio
-- ( ) Browser-based (GitHub Codespaces / Jupyter)
-- ( ) Other (please specify)
-- ( ) I'm not sure yet
+- ( ) Other or not sure (please specify)
 
 **4. Which programming language do you plan to focus on during the sessions?**
 
@@ -32,7 +42,7 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) Both Python and R
 - ( ) I'm not sure yet
 
-**5. Do you have a GitHub account? (Required for GitHub Codespaces, collaboration tasks, and the GitHub Student Developer Pack)**
+**5. Do you have a GitHub account? (Recommended and required for GitHub Codespaces, collaboration tasks, and the GitHub Student Developer Pack)**
 
 - ( ) Yes — my GitHub username is: *Short text answer*
 - ( ) Not yet, I will create one before the session
@@ -67,7 +77,8 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 
 ## AI Tools and Academic Integrity
 
-**8. Which generative AI tools have you used or tested? (Select all that apply)**
+<!-- https://itsleeds.github.io/introds/ai.html -->
+**8. Which generative AI tools have you used or tested? (Select all that apply, and see [itsleeds.github.io/introds/ai.html](https://itsleeds.github.io/introds/ai.html) for guidance on setting-up AI tools safely)**
 
 - [ ] Microsoft 365 Copilot (University of Leeds enterprise account)
 - [ ] GitHub Copilot (via GitHub Student Developer Pack or IDE extension)
@@ -76,6 +87,11 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - [ ] Google Gemini
 - [ ] None
 - [ ] Other (please specify)
+
+**9.1 I have used an AI coding assistant (e.g., GitHub Copilot, Claude code, Codex or antigravity)**
+
+- ( ) Yes
+- ( ) No
 
 **9. Are you aware of the [University of Leeds guidance on generative AI](https://generative-ai.leeds.ac.uk/) and the difference between enterprise-protected tools (Microsoft 365 Copilot) and external AI tools?**
 

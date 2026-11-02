@@ -1,10 +1,55 @@
 Before starting this practical session, you'll need to set up a few essential tools. Don't worry, we'll keep this brief!
 
+## Required reading
+
+We recommend around 5 minutes for each of the following readings (minimum), or more if you want to work through the instructions (bonus).
+
+- [Introduction to Quarto](https://quarto.org/docs/get-started/hello/vscode.html)
+- [An overview of VS Code](https://code.visualstudio.com/docs/getstarted/overview)
+- [An introduction to GitHub](https://docs.github.com/en/get-started/using-github/hello-world)
+- [GitHub Codespaces Introduction](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)
+
 ## Required Software {.unnumbered}
 
 Depending on your set-up, you can use any of the following steps:
 
 :::{.panel-tabset}
+
+### Using the Cloud {.unnumbered}
+
+For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment in your browser—no local software installation required.
+
+#### 1. GitHub Codespaces (Recommended) {.unnumbered}
+
+**GitHub Codespaces** sets up a complete VS Code development environment in your browser with all required software pre-installed:
+
+[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1)
+
+**Benefits:**
+
+- **Zero Setup:** No need to install anything on your local machine.
+- **Consistent Environment:** Everyone uses the exact same tools and configurations.
+- **Powerful:** Runs on cloud servers, providing ample computing resources.
+- **Accessible:** Works from any modern web browser.
+- **GitHub Account Required:** You need a GitHub account to use Codespaces.
+- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
+
+#### 2. Alternative Cloud Platforms {.unnumbered}
+
+If you prefer a different cloud platform or don't have a GitHub account yet, you can also use:
+
+- **[MyBinder](https://mybinder.org/v2/gh/itsleeds/introds/HEAD)** [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/itsleeds/introds/HEAD) — Launches an interactive JupyterLab environment directly from this repository with **no account or password required** (note: takes 1–3 minutes to start, and temporary changes are not saved after you close the tab unless downloaded).
+- **[Google Colab](https://colab.research.google.com/github/itsleeds/introds)** [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/itsleeds/introds) — Fast, reliable cloud Jupyter notebooks for Python and R (requires a Google account).
+- **[Posit Cloud](https://posit.cloud/)** — Browser-based RStudio and Positron workspaces (ideal if you are focusing on R; free tier includes 25 compute hours/month).
+
+::: callout-note
+## Accessing Cloud Tools & Package Mirrors from Mainland China {.unnumbered}
+
+If you are accessing course materials from mainland China (for example, during university holidays or while working on your dissertation) where Google Colab or GitHub may be restricted or slow:
+
+- **Cloud Notebooks & IDEs:** **[Heywhale (和鲸社区 ModelWhale)](https://www.heywhale.com/)**, **[Alibaba Cloud ModelScope (阿里云魔搭社区)](https://modelscope.cn/)**, and **[Baidu AI Studio (飞桨星河社区)](https://aistudio.baidu.com/)** provide fast domestic cloud JupyterLab/IDE environments supporting Python and R with free compute tiers.
+- **Fast Local Package Downloads:** If `pip`, `pixi`, `uv`, or `CRAN` downloads are slow on your laptop, use the **[Tsinghua University TUNA Mirror (`mirrors.tuna.tsinghua.edu.cn`)](https://mirrors.tuna.tsinghua.edu.cn/)** or **[Alibaba Cloud Mirrors (`mirrors.aliyun.com`)](https://developer.aliyun.com/mirror/)**.
+:::
 
 ### Using AppsAnywhere {.unnumbered}
 
@@ -63,25 +108,7 @@ To be able to run Python code in your own laptop. You have two options:
 
 R is another popular language for statistical computing. You can download the R installers from [CRAN](https://cran.r-project.org/)
 
-### Using the Cloud {.unnumbered}
-
-For the easiest setup and to ensure everyone is working in a consistent environment, we highly recommend using a cloud-based development environment like **GitHub Codespaces**. This sets up a fully configured development environment in your browser, with all the necessary software pre-installed.
-
-To open this project in GitHub Codespaces, click the link below:
-
-[Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) <!-- [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1) -->
-
-**Benefits:**
-
-- **Zero Setup:** No need to install anything on your local machine.
-- **Consistent Environment:** Everyone uses the exact same tools and configurations.
-- **Powerful:** Runs on cloud servers, providing ample computing resources.
-- **Accessible:** Works from any modern web browser.
-- **GitHub Account Required:** You need a GitHub account to use Codespaces.
-- **Free Usage Tier:** GitHub Codespaces includes 60 hours of free compute time per month for all GitHub accounts (and up to 180 hours via the [GitHub Student Developer Pack](https://education.github.com/pack)).
-
 :::
-
 
 ## Getting Help {.unnumbered}
 
