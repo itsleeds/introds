@@ -21,7 +21,7 @@ When using AI in your learning:
 
 ## 2. The "Developer" Route (For Personal Skills)
 
-**GitHub Copilot** is an industry-standard AI pair programmer.
+**GitHub Copilot** is an established AI pair programming agent.
 
 *   **Context:** While excellent for coding, the standard/student version may not have the same data protections as the University's Enterprise tools.
 *   **Usage:** Use this for **personal learning** and building your developer portfolio.
