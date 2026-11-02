@@ -96,3 +96,7 @@ If you encounter installation issues:
 
 If you run into installation issues before the session, don't spend too much time troubleshooting. We can help you during the practical!
 :::
+
+## Pre-Session Questionnaire {.unnumbered}
+
+Once you have reviewed the setup options above, please complete the [Pre-Session Questionnaire](questionnaire.qmd) so we can tailor the sessions to your background and setup.
