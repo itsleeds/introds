@@ -7,7 +7,7 @@ library(tidyverse)
 library(readxl)
 
 # Assigning the path to a variable
-path_to_file <- "data/ParkRun Performance Data.xlsx"
+path_to_file <- "00_data/ParkRunPerformanceData.xlsx"
 
 # Reading data from an Excel file
 data <- read_excel(path = path_to_file,

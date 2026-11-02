@@ -66,7 +66,7 @@ data_adults |>
   group_by(gender) |> 
   summarise(min = min(time),
   mean = mean(time),
-  median = mean(time),
+  median = median(time),
   max = max(time))
 
 # Comparing the distributions
