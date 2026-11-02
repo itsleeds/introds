@@ -3,6 +3,7 @@ project:
   render:
     - index.qmd 
     - prerequisites.qmd
+    - questionnaire.qmd
     - 1-basics/index.qmd
     - 1-basics/slides.qmd
     - 1-basics/tasks.qmd
@@ -49,6 +50,8 @@ website:
         href: index.qmd
       - text: "Prerequisites"
         href: prerequisites.qmd
+      - text: "Pre-Session Questionnaire"
+        href: questionnaire.qmd
       - section: "Basics"
         contents:
           - text: "About this section"
