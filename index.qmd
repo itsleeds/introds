@@ -4,6 +4,8 @@ subtitle: Practical Sessions for MSc Students and Beginners
 ---
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/introds?quickstart=1)
+[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/itsleeds/introds/HEAD)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/itsleeds/introds)
 
 Welcome to this practical introduction to data science! These sessions were developed for MSc students at the Institute for Transport Studies who are new to data science.
 We teach modern data science tools (Python, R, Git), plus how to safely use AI tools like Microsoft 365 Copilot and GitHub Copilot.

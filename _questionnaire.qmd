@@ -14,6 +14,7 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) University computer or laptop via **AppsAnywhere** (Anaconda / VS Code / RStudio)
 - ( ) On my own laptop using a **local setup** (e.g., `pixi`, `uv`, global Python, Anaconda, or R)
 - ( ) In the cloud using **GitHub Codespaces**
+- ( ) In the cloud using another platform (**MyBinder**, **Google Colab**, **Posit Cloud**, **Heywhale**, or **ModelScope**)
 - ( ) I'm not sure yet
 
 **3. Which Integrated Development Environment (IDE) do you plan to use?**
@@ -21,7 +22,7 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) VS Code
 - ( ) Positron
 - ( ) RStudio
-- ( ) Browser-based (GitHub Codespaces / Jupyter)
+- ( ) Browser-based (GitHub Codespaces / MyBinder / Google Colab / Posit Cloud / Heywhale)
 - ( ) Other (please specify)
 - ( ) I'm not sure yet
 
