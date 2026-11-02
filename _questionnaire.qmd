@@ -9,21 +9,30 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) Yes
 - ( ) No
 
+**1.1 I have read:**
+
+- [Introduction to Quarto](https://quarto.org/docs/get-started/hello/vscode.html)
+- [An overview of VS Code](https://code.visualstudio.com/docs/getstarted/overview)
+- [An introduction to GitHub](https://docs.github.com/en/get-started/using-github/hello-world)
+- [GitHub Codespaces Introduction](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)
+
 **2. How do you plan to run code during the practical sessions?**
 
+- ( ) In the cloud using **GitHub Codespaces**
 - ( ) University computer or laptop via **AppsAnywhere** (Anaconda / VS Code / RStudio)
 - ( ) On my own laptop using a **local setup** (e.g., `pixi`, `uv`, global Python, Anaconda, or R)
-- ( ) In the cloud using **GitHub Codespaces**
-- ( ) I'm not sure yet
+- ( ) I'm not sure yet / other
+
+**2.2 If you selected "I'm not sure yet / other" for how you plan to run code, please specify:**
+
+*Short text answer*
 
 **3. Which Integrated Development Environment (IDE) do you plan to use?**
 
-- ( ) VS Code
-- ( ) Positron
-- ( ) RStudio
 - ( ) Browser-based (GitHub Codespaces / Jupyter)
-- ( ) Other (please specify)
-- ( ) I'm not sure yet
+- ( ) VS Code running locally
+- ( ) RStudio
+- ( ) Other or not sure (please specify)
 
 **4. Which programming language do you plan to focus on during the sessions?**
 
@@ -32,7 +41,7 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) Both Python and R
 - ( ) I'm not sure yet
 
-**5. Do you have a GitHub account? (Required for GitHub Codespaces, collaboration tasks, and the GitHub Student Developer Pack)**
+**5. Do you have a GitHub account? (Recommended and required for GitHub Codespaces, collaboration tasks, and the GitHub Student Developer Pack)**
 
 - ( ) Yes — my GitHub username is: *Short text answer*
 - ( ) Not yet, I will create one before the session
