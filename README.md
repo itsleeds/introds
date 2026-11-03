@@ -9,6 +9,7 @@ This website provides a brief introduction to data science concepts with impleme
 ## Contents
 
 - **Prerequisites**: Required software and setup
+- **Starter Templates**: [`demo_py.qmd`](demo_py.qmd) (Python) and [`demo_r.qmd`](demo_r.qmd) (R) Quarto templates to get started immediately
 - **AI Tools & Policy**: Safe and effective use of AI (Microsoft 365 Copilot vs GitHub Copilot)
 - **Practical Exercises**: Hands-on data science tasks
 - **Next Steps**: Resources for continuing your learning journey
