@@ -19,10 +19,11 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 **2. How do you plan to run code during the practical sessions?**
 
 - ( ) In the cloud using **GitHub Codespaces**
-- ( ) In the cloud using another platform (**MyBinder**, **Google Colab**, **Posit Cloud**, **Heywhale**, or **ModelScope**)
 - ( ) University computer or laptop via **AppsAnywhere** (Anaconda / VS Code / RStudio)
 - ( ) On my own laptop using a **local setup** (e.g., `pixi`, `uv`, global Python, Anaconda, or R)
 - ( ) I'm not sure yet / other
+<!-- - ( ) In the cloud using another platform (**MyBinder**, **Google Colab**, **Posit Cloud**, **Heywhale**, or **ModelScope**) -->
+
 
 **2.2 If you selected "I'm not sure yet / other" for how you plan to run code, please specify:**
 
@@ -30,14 +31,14 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 
 **3. Which Integrated Development Environment (IDE) do you plan to use?**
 
-- ( ) Browser-based (GitHub Codespaces / Jupyter / MyBinder / Google Colab / Posit Cloud / Heywhale)
+- ( ) Browser-based (GitHub Codespaces)
 - ( ) VS Code or Positron running locally
 - ( ) RStudio
-- ( ) Other or not sure (please specify)
+- ( ) Other or not sure (please specify, e.g. Jupyter / MyBinder / Google Colab / Posit Cloud / Heywhale)
 
 **4. Which programming language do you plan to focus on during the sessions?**
 
-- ( ) Python (primary language for the sessions)
+- ( ) Python
 - ( ) R
 - ( ) Both Python and R
 - ( ) I'm not sure yet
@@ -93,7 +94,7 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) Yes
 - ( ) No
 
-**9. Are you aware of the [University of Leeds guidance on generative AI](https://generative-ai.leeds.ac.uk/) and the difference between enterprise-protected tools (Microsoft 365 Copilot) and external AI tools?**
+**9. Are you aware of the [University of Leeds Academic Integrity and Assistance Policy](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/) and the difference between enterprise-protected tools (Microsoft 365 Copilot) and external AI tools?**
 
 - ( ) Yes, I have read the guidance
 - ( ) I have heard of it, but haven't read the details yet

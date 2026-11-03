@@ -1,73 +1,43 @@
+AI coding assistants can accelerate your data science learning, provided you use them safely and in line with University policy.
 
-AI-powered coding assistants can significantly accelerate your data science learning journey. However, it is critical to use them safely and in compliance with University regulations.
+## University AI Policy
 
-## University AI Policy and Assessment Guidelines
+The [Academic Integrity and Assistance Policy](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/) permits the supportive use of digital technologies and generative AI unless restricted by a specific assessment brief.
 
-The University of Leeds provides comprehensive guidance on the responsible use of generative artificial intelligence. **Always check the specific assessment brief for each of your modules** before using AI tools for coursework.
+- **Check assessment briefs:** Restrictions vary by module and assessment.
+- **Acknowledge use:** Declare which tools you used and how they contributed.
+- **Take responsibility:** You must understand, verify, and be able to explain all submitted code and analysis.
 
-When using AI in your learning:
+## 1. Enterprise Route (Recommended for University Data)
 
--   **Check Module Permissions:** Requirements vary across modules—always follow the explicit instructions in your module handbook and assignment briefs.
--   **Acknowledge and Attribute:** Where generative AI is permitted, clearly declare which tools were used and how they contributed to your work.
--   **Academic Integrity:** You are responsible for all submitted code, analysis, and interpretation. Never submit AI-generated output without understanding and verifying it.
+**Microsoft 365 Copilot** is the University-recommended tool for minimising data protection risks.
 
-## 1. The "Official" Route (Safe for Coursework)
+- **Privacy:** Logging in with your `@leeds.ac.uk` account at [m365.cloud.microsoft/chat](https://m365.cloud.microsoft/chat) ensures prompts are not used to train external models.
+- **Usage:** Draft text, summarise documents, or explain code concepts.
 
-**Microsoft 365 Copilot** (Enterprise) is the University-endorsed tool.
+## 2. Developer & Agentic Tools (For Coding)
 
-*   **Why:** This version is **private**. Your data is *not* used to train the model (see [University guidance on GenAI tools](https://generative-ai.leeds.ac.uk/intro-gen-ai/generative-ai-tools/)). This is the recommended tool for university work where AI is permitted.
-*   **Access:** Log in to [Microsoft 365](https://www.microsoft365.com) with your University credentials (`@leeds.ac.uk`).
-*   **Usage:** Use it to draft text, summarize documents, or explain code concepts securely.
+**GitHub Copilot** and agentic coding assistants integrate directly into IDEs such as VS Code and RStudio.
 
-## 2. The "Developer" Route (For Personal Skills)
-
-**GitHub Copilot** is an established AI pair programming agent.
-
-*   **Context:** While excellent for coding, the standard/student version may not have the same data protections as the University's Enterprise tools.
-*   **Usage:** Use this for **personal learning** and building your developer portfolio.
-*   **Warning:** ⚠️ **Do not** paste unpublished assessment questions, sensitive research data, or participant information into these tools.
-
-### Getting Access (Student Pack)
-
-Students can get **free access** to the GitHub Student Developer Pack (a valuable industry perk):
-
-1.  Visit [GitHub Education](https://education.github.com/)
-2.  Apply for the Student Developer Pack using your `.ac.uk` email (for verification only).
-3.  Once verified, you can install the GitHub Copilot extension in VS Code or RStudio.
+- **Data protection:** External tools do not have University enterprise data protection. **Never** input personal, sensitive, or unpublished research data.
+- **Code provenance:** AI tools may reproduce open-source code (e.g., from GitHub) without attribution; always verify accuracy and licensing.
+- **Access:** Students can get free access to GitHub Copilot via the [GitHub Student Developer Pack](https://education.github.com/pack) using their `.ac.uk` email.
 
 ## Best Practices
 
 ::: callout-tip
-### Writing Good Prompts
+### Effective Workflows
 
--   Write clear comments describing what you want to do
--   Use descriptive variable names
--   Break complex tasks into smaller steps
-:::
-
-**DOs** ✅
-
--   Use AI to understand error messages
--   Ask AI to explain unfamiliar code
--   Use suggestions to learn new approaches
--   **Verify** AI-generated code before using it
-
-**DON'Ts** ❌
-
--   Don't blindly copy-paste without understanding
--   Don't use AI to do all your work (you won't learn!)
--   **Don't share sensitive/personal data with AI tools**
--   Don't assume AI code is always correct
-
-::: callout-warning
-## Critical Thinking Required
-
-AI tools are powerful assistants, but they can make mistakes. Always review and test the code they generate!
+- Write clear comments and break complex tasks into small, testable steps
+- Use AI to explain error messages and unfamiliar code
+- Review, run, and verify all generated code before committing
+- Keep notes or example prompts to document how you used AI
 :::
 
 ## Resources
 
--   [University of Leeds AI Guidance](https://library.leeds.ac.uk/info/1401/academic_skills/134/artificial_intelligence)
--   [Generative AI at Leeds](https://generative-ai.leeds.ac.uk/)
--   [Microsoft 365 Copilot](https://www.microsoft365.com)
--   [GitHub Student Developer Pack](https://education.github.com/pack)
+- [Academic Integrity and Assistance Policy (Taught Students)](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/)
+- [Generative AI Guidance for Postgraduate Researchers](https://students.leeds.ac.uk/postgraduate-research/doc/pgr-guidance-using-genai)
+- [Library Artificial Intelligence Guidance](https://library.leeds.ac.uk/info/1401/academic_skills/134/artificial_intelligence)
+- [Microsoft 365 Copilot](https://m365.cloud.microsoft/chat)
+- [GitHub Student Developer Pack](https://education.github.com/pack)
