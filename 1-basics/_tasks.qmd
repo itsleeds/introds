@@ -53,11 +53,22 @@ Now using the console ***only***:
 3. Type: `print("Hello, world!")` and hit Enter to see the output.
 4. Now try: `2 + 2` and hit Enter.
 5. Find what the current working directory is by typing:
-   ```python
-   import os
-   os.getcwd()
-   ```
+
+
+```{python}
+#| eval: false
+import os
+os.getcwd()
+```
+
 6. Assign the value `10` to a variable named `my_number` using the assignment operator `=`.
+
+```{python}
+#| eval: false
+#| echo: false
+my_n # continue typing here!
+```
+
 7. Print the value of `my_number` to the console. Did it work?
 
 Now, let's create your first Python script:
