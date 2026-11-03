@@ -7,40 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: ghcr.io/itsleeds/tds:latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      - name: Install R
-        uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: 'release'
-          use-public-rspm: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
-      - name: Install Python Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        uses: actions/checkout@v7
 
       - name: Run Python Statistics Scripts
         run: |
           python 4-statistics/task_excel.py
           python 4-statistics/task_2_spss.py
-
-      - name: Install R Dependencies
-        run: |
-          install.packages(
-            c("knitr", "rmarkdown", "tidyverse", "readxl", "ggplot2", "gridExtra", "reticulate")
-          )
-        shell: Rscript {0}
 
       - name: Run R Statistics Scripts
         run: |
@@ -48,9 +23,7 @@ jobs:
           Rscript 4-statistics/task_2_spss.R
 
       - name: Render Quarto Project
-        uses: quarto-dev/quarto-actions/render@v2
-        env:
-          RETICULATE_PYTHON: ${{ env.pythonLocation }}/bin/python
+        run: quarto render
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
