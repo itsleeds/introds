@@ -1,0 +1,61 @@
+---
+title: "Getting Started with Python and Quarto"
+author: "Your Name"
+date: today
+jupyter: python3
+format:
+  html:
+    toc: true
+    code-fold: false
+---
+
+## Welcome
+
+This is a starter Quarto document (`demo_py.qmd`) for writing reproducible data science reports in **Python**.
+
+To render or preview this document:
+
+* Click the **Render** / **Preview** button at the top right of the editor in VS Code or Positron (shortcut: `Ctrl+Shift+K` or `Cmd+Shift+K`), or
+* Run `quarto render demo_py.qmd` in the terminal.
+
+## 1. Import Packages
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+
+## 2. Read and Inspect Data
+
+Let's load the parkrun dataset included in `00_data/ParkRunPerformanceData.xlsx` and inspect summary statistics:
+
+```{python}
+parkrun = pd.read_excel("00_data/ParkRunPerformanceData.xlsx", sheet_name="Sheet1")
+parkrun.columns = ["date", "runtime"]
+
+print(parkrun.head())
+parkrun[["date", "runtime"]].describe()
+```
+
+## 3. Visualise the Data
+
+We can plot the distribution and trend of runtimes over time using `seaborn` and `matplotlib`:
+
+```{python}
+#| label: fig-runtime-trend-py
+#| fig-cap: "Parkrun runtimes over time in Python."
+sns.set_theme(style="whitegrid")
+fig, ax = plt.subplots(figsize=(8, 4.5))
+sns.scatterplot(data=parkrun, x="date", y="runtime", alpha=0.75, ax=ax)
+ax.set_title("Parkrun Runtimes Over Time")
+ax.set_xlabel("Event Date")
+ax.set_ylabel("Run Time (minutes)")
+plt.tight_layout()
+plt.show()
+```
+
+## Next Steps
+
+* Edit the code cells above or add your own cell using ```` ```{python} ````.
+* Change `author: "Your Name"` in the YAML header at the top of this file and re-render!

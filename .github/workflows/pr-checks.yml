@@ -23,7 +23,10 @@ jobs:
           Rscript 4-statistics/task_2_spss.R
 
       - name: Render Quarto Project
-        run: quarto render
+        run: |
+          quarto render demo_r.qmd
+          quarto render demo_py.qmd
+          quarto render
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4

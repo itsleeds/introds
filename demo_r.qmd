@@ -1,0 +1,65 @@
+---
+title: "Getting Started with R and Quarto"
+author: "Your Name"
+date: today
+format:
+  html:
+    toc: true
+    code-fold: false
+---
+
+## Welcome
+
+This is a starter Quarto document (`demo_r.qmd`) for writing reproducible data science reports in **R**.
+
+To render or preview this document:
+
+* Click the **Render** / **Preview** button at the top right of the editor in VS Code, Positron, or RStudio (shortcut: `Ctrl+Shift+K` or `Cmd+Shift+K`), or
+* Run `quarto render demo_r.qmd` in the terminal.
+
+## 1. Load Packages
+
+```{r}
+#| message: false
+library(tidyverse)
+library(readxl)
+```
+
+## 2. Read and Inspect Data
+
+Let's load the parkrun dataset included in `00_data/ParkRunPerformanceData.xlsx` and inspect the first few rows:
+
+```{r}
+parkrun <- read_excel(
+  "00_data/ParkRunPerformanceData.xlsx",
+  sheet = "Sheet1",
+  col_types = c("date", "numeric")
+)
+names(parkrun) <- c("date", "runtime")
+
+glimpse(parkrun)
+summary(parkrun)
+```
+
+## 3. Visualise the Data
+
+We can plot runtimes over time with a trend line using `ggplot2`:
+
+```{r}
+#| label: fig-runtime-trend
+#| fig-cap: "Parkrun runtimes over time with a smoothed trend line."
+ggplot(parkrun, aes(x = date, y = runtime)) +
+  geom_point(alpha = 0.7, colour = "#1f77b4") +
+  geom_smooth(method = "loess", formula = y ~ x, colour = "#d62728") +
+  labs(
+    title = "Parkrun Runtimes Over Time",
+    x = "Event Date",
+    y = "Run Time (minutes)"
+  ) +
+  theme_minimal()
+```
+
+## Next Steps
+
+* Edit the code chunks above or add your own chunk using ```` ```{r} ````.
+* Change `author: "Your Name"` in the YAML header at the top of this file and re-render!
