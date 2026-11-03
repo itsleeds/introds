@@ -38,6 +38,8 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 
 **4. Which programming language do you plan to focus on during the sessions?**
 
+- Note: We will teach the examples primarily in Python but the concepts are applicable to R as well, so either can be used.
+
 - ( ) Python
 - ( ) R
 - ( ) Both Python and R
@@ -94,11 +96,10 @@ This questionnaire helps us tailor the **Introduction to Data Science** practica
 - ( ) Yes
 - ( ) No
 
-**9. Are you aware of the [University of Leeds Academic Integrity and Assistance Policy](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/) and the difference between enterprise-protected tools (Microsoft 365 Copilot) and external AI tools?**
+**9. I have read the [University of Leeds Academic Integrity and Assistance Policy](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/)**
 
 - ( ) Yes, I have read the guidance
-- ( ) I have heard of it, but haven't read the details yet
-- ( ) No, this is new to me
+- ( ) No, but I will read it before using AI tools
 
 ---
 
