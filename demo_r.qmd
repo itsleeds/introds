@@ -59,6 +59,78 @@ ggplot(parkrun, aes(x = date, y = runtime)) +
   theme_minimal()
 ```
 
+## 4. Download and Visualise Train Data
+
+The [Office of Rail and Road (ORR) Data API](https://api.dataportal.orr.gov.uk/) publishes train performance data as machine-readable tables. No API key is needed. Below we download [table 3114a](https://dataportal.orr.gov.uk/statistics/performance/passenger-rail-performance/table-3114a-public-performance-measure-by-operator-and-sector/), which gives the percentage of trains arriving at their destination on time in each four-week railway period, and reshape it so that there is one row per period and operator:
+
+```{r}
+#| label: train-download
+#| message: false
+
+library(jsonlite)
+
+train_url <- "https://api.dataportal.orr.gov.uk/api/tables/performance/3114a"
+train_raw <- fromJSON(train_url)
+
+train <- train_raw |>
+  pivot_longer(
+    cols = -time_period,
+    names_to = "operator",
+    values_to = "on_time_pct"
+  ) |>
+  transmute(
+    # Period labels look like "Apr 2019 to Mar 2020 (Period 01)"
+    date = parse_date(
+      paste("01", str_extract(time_period, "^[A-Za-z]{3} \\d{4}")),
+      format = "%d %b %Y"
+    ),
+    operator = str_remove(operator, "^(national|sector|franchised|open_access)_"),
+    # ORR uses "[z]" where data do not apply; parse_number() converts those to NA
+    on_time_pct = suppressWarnings(parse_number(on_time_pct))
+  ) |>
+  filter(!is.na(on_time_pct))
+
+glimpse(train)
+```
+
+We can now plot the national trend alongside two operators. Because the data are downloaded when the document is rendered, the plot updates automatically when ORR publishes new periods:
+
+```{r}
+#| label: fig-train-punctuality
+#| fig-cap: "Share of trains arriving on time in each four-week period. Source: ORR Data API, table 3114a."
+
+operators_to_plot <- c(
+  "great_britain",
+  "london_and_south_east",
+  "london_north_eastern_railway"
+)
+
+train |>
+  filter(operator %in% operators_to_plot) |>
+  mutate(operator = str_to_title(str_replace_all(operator, "_", " "))) |>
+  ggplot(aes(x = date, y = on_time_pct, colour = operator)) +
+  geom_line(linewidth = 0.8) +
+  scale_y_continuous(labels = function(x) paste0(x, "%")) +
+  labs(
+    title = "Share of trains arriving on time",
+    subtitle = "Great Britain, London & South East services and LNER",
+    x = NULL,
+    y = "Trains arriving on time",
+    colour = NULL,
+    caption = "Source: Office of Rail and Road, table 3114a (via ORR Data API)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "bottom")
+```
+
+## Bus stops in Leeds
+
+```{r}
+library(osmextract)
+bus_stops <- oe_get("Leeds, UK", layer = "points")
+names(bus_stops)
+```
+
 ## Next Steps
 
 * Edit the code chunks above or add your own chunk using ```` ```{r} ````.
