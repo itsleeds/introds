@@ -1,6 +1,14 @@
 {
 	"name": "Introduction to Data Science",
-	"image": "ghcr.io/itsleeds/tds",
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
+		"ghcr.io/rocker-org/devcontainer-features/r-apt:1": {
+			"vscodeRSupport": "full",
+			"installRMarkdown": true
+		}
+	},
+	"postCreateCommand": "pip install --user -r requirements.txt || pip install -r requirements.txt",
 	"customizations": {
 		"vscode": {
 			"settings": {
