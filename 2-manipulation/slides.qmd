@@ -10,13 +10,17 @@ Learn how to load, explore, filter, transform, and summarise data
 
 ## Reading Data
 
-CSV files are a common format for storing tabular data. You can read them into Python using the `pd.read_csv()` function from the `pandas` package.
+CSV files are a common format for storing tabular data. You can read them into Python using the `pd.read_csv()` function from the `pandas` package — either from a local file or directly from a URL.
 
 ```python
 import pandas as pd
 
-# Read CSV file
+# Read local CSV file (demo dataset)
 crashes = pd.read_csv("data/crashes.csv")
+
+# Or read the real Leeds 2025 STATS19 dataset (same core column names!)
+url = "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"
+crashes = pd.read_csv(url)
 ```
 
 ------------------------------------------------------------------------
@@ -283,12 +287,16 @@ If you're interested in R, here are equivalent concepts
 CSV files are a common format for storing tabular data. You can read them into R using the `read.csv()` function or the `read_csv()` function from the `readr` package.
 
 ```r
-# Base R
+# Base R (demo dataset)
 crashes <- read.csv("data/crashes.csv")
 
 # Using readr (faster, better defaults)
 library(readr)
 crashes <- read_csv("data/crashes.csv")
+
+# Or read the real Leeds 2025 STATS19 dataset (same core column names!)
+url <- "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"
+crashes <- read_csv(url)
 ```
 
 ------------------------------------------------------------------------
@@ -447,7 +455,7 @@ library(dplyr)
 crashes |>
   group_by(casualty_type) |>
   summarise(
-    mean_age = mean(casualty_age),
+    mean_age = mean(casualty_age, na.rm = TRUE),
     n_casualties = n(),
     .groups = "drop"
   )
@@ -455,7 +463,7 @@ crashes |>
 # Summary by multiple groups
 crashes |>
   group_by(vehicle_type, dark) |>
-  summarise(mean_age = mean(casualty_age), .groups = "drop")
+  summarise(mean_age = mean(casualty_age, na.rm = TRUE), .groups = "drop")
 ```
 
 ------------------------------------------------------------------------
@@ -519,7 +527,7 @@ summary_by_type <- crashes_with_ages |>
   group_by(casualty_type, age_category) |>
   summarise(
     n_casualties = n(),
-    mean_age = mean(casualty_age),
+    mean_age = mean(casualty_age, na.rm = TRUE),
     .groups = "drop"
   )
 

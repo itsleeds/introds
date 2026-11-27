@@ -3,17 +3,25 @@ In this section, we will practice data visualization using Python and the `matpl
 
 Using the same script `2-data-wrangling-and-visualization.py` from the previous section, continue with the following tasks:
 
-If you have imported pandas and read in the `crashes` dataset, you can proceed to the next steps. You will need to import `matplotlib.pyplot` and `seaborn` as well.
+If you have imported pandas and read in the `crashes` dataset (either the demo `crashes.csv` or the real Leeds 2025 [`crashes-leeds.csv`](https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv) dataset), you can proceed to the next steps. You will need to import `matplotlib.pyplot` and `seaborn` as well.
+
+::: {.callout-tip}
+Want to switch to the real Leeds 2025 crash data here? Just swap your `read_csv()` line to:
+```python
+crashes = pd.read_csv("https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv")
+```
+All the tasks below work identically because it uses the same core column names (`casualty_type`, `casualty_age`, `vehicle_type`, `dark`).
+:::
 
 1. **Box Plot:**
    - Create a box plot to visualise the distribution of ages for different casualty types in the `crashes` dataset.
    - Use `sns.boxplot()` to create the box plot.
-   - Add appropriate labels and a title to your plot.
+   - Add appropriate labels and a title to your plot (if using `crashes-leeds.csv`, `plt.xticks(rotation=30)` helps keep the category labels legible).
    - Save the box plot to a file named `age_boxplot.png` using `plt.savefig()`.
    - Display the plot with `plt.show()`.
 
 2. **Bar Plot (Optional):**
-   - Create a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).
+   - Create a bar plot showing the count of casualties by `casualty_type` (e.g., pedestrian, cyclist, cat in the demo data, or car, pedestrian, cyclist, motorcycle, etc. in the Leeds 2025 data).
    - Use `sns.countplot()` or `value_counts().plot(kind='bar')`.
    - Add custom colours and transparency to the bars.
    - Add appropriate labels and a title.
@@ -24,6 +32,89 @@ If you have imported pandas and read in the `crashes` dataset, you can proceed t
    - Save the bar plot as a PNG file named `casualty_barplot.png`.
    - Check the documentation for `plt.savefig()` by typing `help(plt.savefig)` in the console.
 
+4. **Bonus — Explore Extra Columns (Leeds 2025 dataset):**
+   - If you are using `crashes-leeds.csv`, try creating a scatter plot of crash locations (`longitude` vs `latitude`) coloured by `casualty_severity` using `sns.scatterplot(data=crashes, x='longitude', y='latitude', hue='casualty_severity', alpha=0.6)`!
+   - Or plot casualty counts by `speed_limit`.
+
+### Starter Code (Debug Me!)
+
+The plotting script below shows how to create and save both visualisations for either dataset — **but it contains 5 deliberate bugs and will not run as written**. Copy it into your script, run it, read each traceback, and fix the errors until both PNG files are created.
+
+```python
+import pandas as pd
+import matplotlib.pyplt as plt
+import seaborn as sns
+
+# Choose your dataset (comment/uncomment one of the two lines below):
+path = "data/crashes.csv"
+# path = "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"
+
+crashes = pd.read_csv(path)
+
+# 1. Box plot: distribution of casualty ages by casualty type
+fig, ax = plt.subplots(figsize=(8, 5))
+sns.boxplot(data=crashes, x="casualty_type", y="age", ax=ax)
+plt.title("Casualty Age by Type"
+plt.xlabel("Casualty Type")
+plt.ylabel("Age")
+plt.xticks(rotation=30)
+plt.tight_layout()
+plt.savefig("age_boxplot.png", dpi=300, bbox_inches="tight")
+plt.show()
+
+# 2. Bar plot: count of casualties by casualty type
+fig, ax = plt.subplots(figsize=(8, 5))
+sns.count_plot(data=crashes, x="casualty_type", color="steelblue", alpha=0.8, ax=ax)
+plt.title("Number of Casualties by Type")
+plt.xlabel("Casualty Type")
+plt.ylabel("Count")
+plt.xticks(rotation=30)
+plt.tight_layout()
+plt.save_fig("casualty_barplot.png", dpi=300, bbox_inches="tight")
+plt.show()
+```
+
+<details>
+<summary>Hints (if you get stuck)</summary>
+
+Look out for:
+
+1. A missing closing parenthesis on a `plt.title(...)` call (`SyntaxError`).
+2. A typo in the `matplotlib.pyplot` import (`ModuleNotFoundError`).
+3. A wrong column name passed to `y=` in `sns.boxplot(...)` (`ValueError`).
+4. Extra underscores in two function names (`sns.countplot` and `plt.savefig`).
+
+</details>
+
 ---
 
-**R version:** If you prefer R, the same exercises are available in R. Continue using the `2-data-wrangling-and-visualization.R` script, load `ggplot2` (part of `tidyverse`), and use `geom_boxplot()`, `geom_bar()`, and `ggsave()` to complete the same tasks.
+**R version:** If you prefer R, the same exercises are available in R. Continue using the `2-data-wrangling-and-visualization.R` script (with either `crashes.csv` or `crashes-leeds.csv`), load `ggplot2` (part of `tidyverse`), and use `geom_boxplot()`, `geom_bar()`, and `ggsave()` to complete the same tasks.
+
+<details>
+<summary>R Starter Code (Debug Me! — 3 deliberate bugs)</summary>
+
+```r
+library(tidyverse)
+
+# Choose your dataset:
+path <- "data/crashes.csv"
+# path <- "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"
+
+crashes <- read_csv(path)
+
+# 1. Box plot
+p_box <- ggplot(crashes, aes(x = casualty_type, y = age)) +
+  geom_boxplot() +
+  labs(title = "Casualty Age by Type", x = "Casualty Type", y = "Age") +
+  theme_minimal()
+ggsave("age_boxplot.png", plot = p_box, width = 8, height = 5)
+
+# 2. Bar plot
+p_bar <- ggplot(crashes, aes(x = casualty_type)) +
+  geom_bars(fill = "steelblue", alpha = 0.8)
+  labs(title = "Number of Casualties by Type", x = "Casualty Type", y = "Count") +
+  theme_minimal()
+ggsave("casualty_barplot.png", plot = p_bar, width = 8, height = 5)
+```
+
+</details>

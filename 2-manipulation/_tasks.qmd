@@ -6,22 +6,110 @@ In this section, we will practice data wrangling using Python and the `pandas` p
    ```python
    import pandas as pd
    ```
-3. Download the `crashes` file ([here](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/crashes.csv)) and save it in your `data` folder.
-4. Read the `crashes` dataset into Python using the `pd.read_csv()` function and assign it to a variable named `crashes`:
+3. Choose which dataset to work with (both share the exact same four core column names — `casualty_type`, `casualty_age`, `vehicle_type`, `dark` — so all exercises below work with either):
+   - **Demo dataset:** Download [`crashes.csv`](https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/crashes.csv) (1,000 synthetic rows) and save it in your `data` folder.
+   - **Real dataset (Leeds 2025):** Download [`crashes-leeds.csv`](https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv) and save it in your `data` folder (or read it straight from the URL below). This contains all 1,730 casualties from 1,395 police-recorded road collisions in Leeds in 2025 from UK DfT STATS19 data (generated with [`stats19py`](https://github.com/Robinlovelace/stats19py)), plus extra columns (`collision_index`, `date`, `casualty_severity`, `speed_limit`, `light_conditions`, `longitude`, `latitude`).
+4. Read the dataset into Python using `pd.read_csv()` and assign it to a variable named `crashes`:
    ```python
+   # Option A: Demo dataset (saved locally)
    crashes = pd.read_csv("data/crashes.csv")
+
+   # Option B: Real Leeds 2025 dataset (read directly from GitHub release, or "data/crashes-leeds.csv")
+   # crashes = pd.read_csv("https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv")
    ```
 
 5. Explore the dataset:
    - Use the `head()` method to view the first few rows of the dataset.
-   - Use the `info()` method to understand the structure of the dataset.
+   - Use the `info()` method to understand the structure of the dataset (if using `crashes-leeds.csv`, notice there are a few missing ages — real-world data is rarely 100% complete!).
    - Use the `describe()` method to get a summary of the dataset.
 6. Data Wrangling Tasks:
    - Create a new DataFrame named `crashes_filtered` that includes only cyclists.
    - Create a new DataFrame named `crashes_dark` that includes only crashes that occurred in dark conditions.
    - Create a new DataFrame named `crashes_dark_cyclist` that includes only crashes that involved cyclists **and** occurred in dark conditions.
    - Create a summary table named `crashes_by_type` that shows the median age by casualty type.
+   - **Bonus (if using `crashes-leeds.csv`):** Count casualties by `casualty_severity` (`Fatal`, `Serious`, `Slight`) and `speed_limit`.
+
+### Starter Code (Debug Me!)
+
+To help you get started, the script below demonstrates how to load and wrangle either dataset — **but it contains 5 deliberate bugs and will not run as written**. Copy it into `scripts/2-data-wrangling-and-visualization.py`, run it, read each error message carefully, and fix the bugs one by one.
+
+```python
+import pandas as pd
+
+# Choose your dataset (comment/uncomment one of the two lines below):
+path = "data/crashes.csv"
+# path = "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"
+
+# Load and explore the dataset
+crashes = pd.readcsv(path)
+print(crashes.head())
+crashes.info()
+print(crashes.describe())
+
+# Filter for cyclists only
+crashes_filtered = crashes[crashes["casualty_typ"] == "cyclist"]
+
+# Filter for crashes in dark conditions
+crashes_dark = crashes[crashes["dark"] = True]
+
+# Filter for cyclists in dark conditions
+crashes_dark_cyclist = crashes[
+    crashes["casualty_type"] == "cyclist" & crashes["dark"] == True
+]
+
+# Median age by casualty type
+crashes_by_type = crashes.group_by("casualty_type")["casualty_age"].median()
+
+print("Cyclist casualties:", len(crashes_filtered))
+print("Dark condition casualties:", len(crashes_dark))
+print("Cyclist casualties in the dark:", len(crashes_dark_cyclist))
+print("\nMedian age by casualty type:")
+print(crashes_by_type)
+```
+
+<details>
+<summary>Hints (if you get stuck)</summary>
+
+Look out for:
+
+1. A syntax error where assignment (`=`) is used instead of equality comparison (`==`).
+2. A misspelled `pandas` function name when reading the CSV.
+3. A typo in a column name (`KeyError`).
+4. Missing parentheses around each condition when combining filters with `&`.
+5. A misspelled `pandas` grouping method name (no underscore!).
+
+</details>
 
 ---
 
-**R version:** If you prefer R, the same exercises are available in R. Create a new R script (`2-data-wrangling-and-visualization.R`), load the `tidyverse` package, and use `read_csv()`, `filter()`, `select()`, `group_by()`, and `summarise()` to complete the same tasks.
+**R version:** If you prefer R, the same exercises are available in R. Create a new R script (`2-data-wrangling-and-visualization.R`), load the `tidyverse` package, and use `read_csv()` (either `"data/crashes.csv"` or `"https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"`), `filter()`, `select()`, `group_by()`, and `summarise()` (with `na.rm = TRUE` for real data) to complete the same tasks.
+
+<details>
+<summary>R Starter Code (Debug Me! — 3 deliberate bugs)</summary>
+
+```r
+library(tidyverse)
+
+# Choose your dataset:
+path <- "data/crashes.csv"
+# path <- "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"
+
+crashes <- read_cv(path)
+
+crashes_filtered <- crashes |>
+  filter(casualty_type == "cyclist")
+
+crashes_dark <- crashes |>
+  filter(dark = TRUE)
+
+crashes_dark_cyclist <- crashes |>
+  filter(casualty_type == "cyclist" & dark == TRUE)
+
+crashes_by_type <- crashes |>
+  groupby(casualty_type) |>
+  summarise(median_age = median(casualty_age, na.rm = TRUE))
+
+print(crashes_by_type)
+```
+
+</details>
