@@ -28,6 +28,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -47,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-503609a8c42f64831c98a675271dc7a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8610f20206f7069fd278579e1c34e02d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -252,8 +287,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#starter-code-debug-me" id="toc-starter-code-debug-me" class="nav-link active" data-scroll-target="#starter-code-debug-me">Starter Code (Debug Me!)</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/3-visualisation/tasks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -279,19 +320,34 @@ ul.task-list li input[type="checkbox"] {
 
 <p>In this section, we will practice data visualization using Python and the <code>matplotlib</code> and <code>seaborn</code> packages. Follow the steps below to create various types of plots.</p>
 <p>Using the same script <code>2-data-wrangling-and-visualization.py</code> from the previous section, continue with the following tasks:</p>
-<p>If you have imported pandas and read in the <code>crashes</code> dataset, you can proceed to the next steps. You will need to import <code>matplotlib.pyplot</code> and <code>seaborn</code> as well.</p>
+<p>If you have imported pandas and read in the <code>crashes</code> dataset (either the demo <code>crashes.csv</code> or the real Leeds 2025 <a href="https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"><code>crashes-leeds.csv</code></a> dataset), you can proceed to the next steps. You will need to import <code>matplotlib.pyplot</code> and <code>seaborn</code> as well.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Want to switch to the real Leeds 2025 crash data here? Just swap your <code>read_csv()</code> line to:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>crashes <span class="op">=</span> pd.read_csv(<span class="st">"https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>All the tasks below work identically because it uses the same core column names (<code>casualty_type</code>, <code>casualty_age</code>, <code>vehicle_type</code>, <code>dark</code>).</p>
+</div>
+</div>
 <ol type="1">
 <li><strong>Box Plot:</strong>
 <ul>
 <li>Create a box plot to visualise the distribution of ages for different casualty types in the <code>crashes</code> dataset.</li>
 <li>Use <code>sns.boxplot()</code> to create the box plot.</li>
-<li>Add appropriate labels and a title to your plot.</li>
+<li>Add appropriate labels and a title to your plot (if using <code>crashes-leeds.csv</code>, <code>plt.xticks(rotation=30)</code> helps keep the category labels legible).</li>
 <li>Save the box plot to a file named <code>age_boxplot.png</code> using <code>plt.savefig()</code>.</li>
 <li>Display the plot with <code>plt.show()</code>.</li>
 </ul></li>
 <li><strong>Bar Plot (Optional):</strong>
 <ul>
-<li>Create a bar plot showing the count of casualties by type (pedestrian, cyclist, cat).</li>
+<li>Create a bar plot showing the count of casualties by <code>casualty_type</code> (e.g., pedestrian, cyclist, cat in the demo data, or car, pedestrian, cyclist, motorcycle, etc. in the Leeds 2025 data).</li>
 <li>Use <code>sns.countplot()</code> or <code>value_counts().plot(kind='bar')</code>.</li>
 <li>Add custom colours and transparency to the bars.</li>
 <li>Add appropriate labels and a title.</li>
@@ -303,11 +359,89 @@ ul.task-list li input[type="checkbox"] {
 <li>Save the bar plot as a PNG file named <code>casualty_barplot.png</code>.</li>
 <li>Check the documentation for <code>plt.savefig()</code> by typing <code>help(plt.savefig)</code> in the console.</li>
 </ul></li>
+<li><strong>Bonus — Explore Extra Columns (Leeds 2025 dataset):</strong>
+<ul>
+<li>If you are using <code>crashes-leeds.csv</code>, try creating a scatter plot of crash locations (<code>longitude</code> vs <code>latitude</code>) coloured by <code>casualty_severity</code> using <code>sns.scatterplot(data=crashes, x='longitude', y='latitude', hue='casualty_severity', alpha=0.6)</code>!</li>
+<li>Or plot casualty counts by <code>speed_limit</code>.</li>
+</ul></li>
 </ol>
+<section id="starter-code-debug-me" class="level3">
+<h3 class="anchored" data-anchor-id="starter-code-debug-me">Starter Code (Debug Me!)</h3>
+<p>The plotting script below shows how to create and save both visualisations for either dataset — <strong>but it contains 5 deliberate bugs and will not run as written</strong>. Copy it into your script, run it, read each traceback, and fix the errors until both PNG files are created.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplt <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose your dataset (comment/uncomment one of the two lines below):</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"data/crashes.csv"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># path = "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>crashes <span class="op">=</span> pd.read_csv(path)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Box plot: distribution of casualty ages by casualty type</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>crashes, x<span class="op">=</span><span class="st">"casualty_type"</span>, y<span class="op">=</span><span class="st">"age"</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Casualty Age by Type"</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Casualty Type"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Age"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"age_boxplot.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Bar plot: count of casualties by casualty type</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>sns.count_plot(data<span class="op">=</span>crashes, x<span class="op">=</span><span class="st">"casualty_type"</span>, color<span class="op">=</span><span class="st">"steelblue"</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Number of Casualties by Type"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Casualty Type"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.save_fig(<span class="st">"casualty_barplot.png"</span>, dpi<span class="op">=</span><span class="dv">300</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details>
+<summary>
+Hints (if you get stuck)
+</summary>
+<p>Look out for:</p>
+<ol type="1">
+<li>A missing closing parenthesis on a <code>plt.title(...)</code> call (<code>SyntaxError</code>).</li>
+<li>A typo in the <code>matplotlib.pyplot</code> import (<code>ModuleNotFoundError</code>).</li>
+<li>A wrong column name passed to <code>y=</code> in <code>sns.boxplot(...)</code> (<code>ValueError</code>).</li>
+<li>Extra underscores in two function names (<code>sns.countplot</code> and <code>plt.savefig</code>).</li>
+</ol>
+</details>
 <hr>
-<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Continue using the <code>2-data-wrangling-and-visualization.R</code> script, load <code>ggplot2</code> (part of <code>tidyverse</code>), and use <code>geom_boxplot()</code>, <code>geom_bar()</code>, and <code>ggsave()</code> to complete the same tasks.</p>
+<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Continue using the <code>2-data-wrangling-and-visualization.R</code> script (with either <code>crashes.csv</code> or <code>crashes-leeds.csv</code>), load <code>ggplot2</code> (part of <code>tidyverse</code>), and use <code>geom_boxplot()</code>, <code>geom_bar()</code>, and <code>ggsave()</code> to complete the same tasks.</p>
+<details>
+<summary>
+R Starter Code (Debug Me! — 3 deliberate bugs)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose your dataset:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"data/crashes.csv"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># path &lt;- "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(path)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Box plot</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>p_box <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crashes, <span class="fu">aes</span>(<span class="at">x =</span> casualty_type, <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Casualty Age by Type"</span>, <span class="at">x =</span> <span class="st">"Casualty Type"</span>, <span class="at">y =</span> <span class="st">"Age"</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"age_boxplot.png"</span>, <span class="at">plot =</span> p_box, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Bar plot</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>p_bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(crashes, <span class="fu">aes</span>(<span class="at">x =</span> casualty_type)) <span class="sc">+</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bars</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Casualties by Type"</span>, <span class="at">x =</span> <span class="st">"Casualty Type"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"casualty_barplot.png"</span>, <span class="at">plot =</span> p_bar, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2026 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -791,4 +925,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/3-visualisation/tasks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/3-visualisation/tasks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

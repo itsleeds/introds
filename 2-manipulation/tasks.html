@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-503609a8c42f64831c98a675271dc7a1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8610f20206f7069fd278579e1c34e02d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -287,8 +287,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#starter-code-debug-me" id="toc-starter-code-debug-me" class="nav-link active" data-scroll-target="#starter-code-debug-me">Starter Code (Debug Me!)</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/2-manipulation/tasks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content" tabindex="-1">
@@ -317,13 +323,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Create a new Python script in your <code>scripts</code> folder and name it <code>2-data-wrangling-and-visualization.py</code>.</p></li>
 <li><p>Import pandas by adding the following line at the top of your script:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>Download the <code>crashes</code> file (<a href="https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/crashes.csv">here</a>) and save it in your <code>data</code> folder.</p></li>
-<li><p>Read the <code>crashes</code> dataset into Python using the <code>pd.read_csv()</code> function and assign it to a variable named <code>crashes</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>crashes <span class="op">=</span> pd.read_csv(<span class="st">"data/crashes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Choose which dataset to work with (both share the exact same four core column names — <code>casualty_type</code>, <code>casualty_age</code>, <code>vehicle_type</code>, <code>dark</code> — so all exercises below work with either):</p>
+<ul>
+<li><strong>Demo dataset:</strong> Download <a href="https://raw.githubusercontent.com/itsleeds/introds/refs/heads/main/00_data/crashes.csv"><code>crashes.csv</code></a> (1,000 synthetic rows) and save it in your <code>data</code> folder.</li>
+<li><strong>Real dataset (Leeds 2025):</strong> Download <a href="https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"><code>crashes-leeds.csv</code></a> and save it in your <code>data</code> folder (or read it straight from the URL below). This contains all 1,730 casualties from 1,395 police-recorded road collisions in Leeds in 2025 from UK DfT STATS19 data (generated with <a href="https://github.com/Robinlovelace/stats19py"><code>stats19py</code></a>), plus extra columns (<code>collision_index</code>, <code>date</code>, <code>casualty_severity</code>, <code>speed_limit</code>, <code>light_conditions</code>, <code>longitude</code>, <code>latitude</code>).</li>
+</ul></li>
+<li><p>Read the dataset into Python using <code>pd.read_csv()</code> and assign it to a variable named <code>crashes</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option A: Demo dataset (saved locally)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>crashes <span class="op">=</span> pd.read_csv(<span class="st">"data/crashes.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option B: Real Leeds 2025 dataset (read directly from GitHub release, or "data/crashes-leeds.csv")</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># crashes = pd.read_csv("https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Explore the dataset:</p>
 <ul>
 <li>Use the <code>head()</code> method to view the first few rows of the dataset.</li>
-<li>Use the <code>info()</code> method to understand the structure of the dataset.</li>
+<li>Use the <code>info()</code> method to understand the structure of the dataset (if using <code>crashes-leeds.csv</code>, notice there are a few missing ages — real-world data is rarely 100% complete!).</li>
 <li>Use the <code>describe()</code> method to get a summary of the dataset.</li>
 </ul></li>
 <li><p>Data Wrangling Tasks:</p>
@@ -332,12 +346,88 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create a new DataFrame named <code>crashes_dark</code> that includes only crashes that occurred in dark conditions.</li>
 <li>Create a new DataFrame named <code>crashes_dark_cyclist</code> that includes only crashes that involved cyclists <strong>and</strong> occurred in dark conditions.</li>
 <li>Create a summary table named <code>crashes_by_type</code> that shows the median age by casualty type.</li>
+<li><strong>Bonus (if using <code>crashes-leeds.csv</code>):</strong> Count casualties by <code>casualty_severity</code> (<code>Fatal</code>, <code>Serious</code>, <code>Slight</code>) and <code>speed_limit</code>.</li>
 </ul></li>
 </ol>
+<section id="starter-code-debug-me" class="level3">
+<h3 class="anchored" data-anchor-id="starter-code-debug-me">Starter Code (Debug Me!)</h3>
+<p>To help you get started, the script below demonstrates how to load and wrangle either dataset — <strong>but it contains 5 deliberate bugs and will not run as written</strong>. Copy it into <code>scripts/2-data-wrangling-and-visualization.py</code>, run it, read each error message carefully, and fix the bugs one by one.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose your dataset (comment/uncomment one of the two lines below):</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"data/crashes.csv"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># path = "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and explore the dataset</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>crashes <span class="op">=</span> pd.readcsv(path)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crashes.head())</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>crashes.info()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crashes.describe())</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for cyclists only</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>crashes_filtered <span class="op">=</span> crashes[crashes[<span class="st">"casualty_typ"</span>] <span class="op">==</span> <span class="st">"cyclist"</span>]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for crashes in dark conditions</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>crashes_dark <span class="op">=</span> crashes[crashes[<span class="st">"dark"</span>] <span class="op">=</span> <span class="va">True</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for cyclists in dark conditions</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>crashes_dark_cyclist <span class="op">=</span> crashes[</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    crashes[<span class="st">"casualty_type"</span>] <span class="op">==</span> <span class="st">"cyclist"</span> <span class="op">&amp;</span> crashes[<span class="st">"dark"</span>] <span class="op">==</span> <span class="va">True</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Median age by casualty type</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>crashes_by_type <span class="op">=</span> crashes.group_by(<span class="st">"casualty_type"</span>)[<span class="st">"casualty_age"</span>].median()</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cyclist casualties:"</span>, <span class="bu">len</span>(crashes_filtered))</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Dark condition casualties:"</span>, <span class="bu">len</span>(crashes_dark))</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cyclist casualties in the dark:"</span>, <span class="bu">len</span>(crashes_dark_cyclist))</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Median age by casualty type:"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(crashes_by_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details>
+<summary>
+Hints (if you get stuck)
+</summary>
+<p>Look out for:</p>
+<ol type="1">
+<li>A syntax error where assignment (<code>=</code>) is used instead of equality comparison (<code>==</code>).</li>
+<li>A misspelled <code>pandas</code> function name when reading the CSV.</li>
+<li>A typo in a column name (<code>KeyError</code>).</li>
+<li>Missing parentheses around each condition when combining filters with <code>&amp;</code>.</li>
+<li>A misspelled <code>pandas</code> grouping method name (no underscore!).</li>
+</ol>
+</details>
 <hr>
-<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Create a new R script (<code>2-data-wrangling-and-visualization.R</code>), load the <code>tidyverse</code> package, and use <code>read_csv()</code>, <code>filter()</code>, <code>select()</code>, <code>group_by()</code>, and <code>summarise()</code> to complete the same tasks.</p>
+<p><strong>R version:</strong> If you prefer R, the same exercises are available in R. Create a new R script (<code>2-data-wrangling-and-visualization.R</code>), load the <code>tidyverse</code> package, and use <code>read_csv()</code> (either <code>"data/crashes.csv"</code> or <code>"https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"</code>), <code>filter()</code>, <code>select()</code>, <code>group_by()</code>, and <code>summarise()</code> (with <code>na.rm = TRUE</code> for real data) to complete the same tasks.</p>
+<details>
+<summary>
+R Starter Code (Debug Me! — 3 deliberate bugs)
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose your dataset:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"data/crashes.csv"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># path &lt;- "https://github.com/itsleeds/introds/releases/download/v2/crashes-leeds.csv"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">&lt;-</span> <span class="fu">read_cv</span>(path)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>crashes_filtered <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(casualty_type <span class="sc">==</span> <span class="st">"cyclist"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>crashes_dark <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="at">dark =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>crashes_dark_cyclist <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(casualty_type <span class="sc">==</span> <span class="st">"cyclist"</span> <span class="sc">&amp;</span> dark <span class="sc">==</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>crashes_by_type <span class="ot">&lt;-</span> crashes <span class="sc">|&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">groupby</span>(casualty_type) <span class="sc">|&gt;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">median_age =</span> <span class="fu">median</span>(casualty_age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(crashes_by_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2026 Robin Lovelace &amp; contributors</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -821,4 +911,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/2-manipulation/tasks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/itsleeds/introds/edit/main/2-manipulation/tasks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/itsleeds/introds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
